@@ -3,10 +3,10 @@
   "IsRunnable": "true",
   "ProjectGuid": "ed42aa46-0b94-4677-9aa2-678fc5eb8bf6",
   "projectVersion": 1,
-  "AppIdentifier": "com.telerik.ULM",
-  "DisplayName": "ULM",
+  "AppIdentifier": "com.telerik.OLA",
+  "DisplayName": "OLA",
   "Author": "",
-  "Description": "ULM",
+  "Description": "OLA",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
