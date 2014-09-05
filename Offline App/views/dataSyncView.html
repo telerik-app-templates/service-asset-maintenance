@@ -1,0 +1,29 @@
+<div data-role="view" id="view-data-sync" data-layout="default" class="datasync-view" data-model="app.DataSync" data-init="app.DataSync.init">
+    <div data-role="header">
+        <div data-role="navbar">
+            Data Sync
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>
+        </div>        
+    </div>
+    
+    <a id="sync-button" class="btn btn-collection" data-role="button" data-bind="click: contactCloud"> Sync </a>
+    <br /> <br />
+    <span class="item-label">Online status:</span>
+    <input id="online" type="checkbox" />
+    
+    <ul id="synchistories-listview" data-style="inset" data-role="listview" data-template="historyTemplate" data-bind="source: syncHistories">
+        
+    </ul>
+    
+	<p id="no-activities-span" hidden="hidden" class="no-items-msg">
+        <b>You have never run a sync.</b><br /><br />Do it.
+    </p>
+</div>
+
+<script type="text/x-kendo-template" id="historyTemplate">
+	<div data-role="touch" class="cf">
+        <div class="activity-content">
+        	<h2 class="person-name">${CreatedAtFormatted()}</h2>
+		</div>
+	</div>
+</script>

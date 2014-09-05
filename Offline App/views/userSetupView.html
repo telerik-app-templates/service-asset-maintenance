@@ -1,0 +1,16 @@
+<div data-role="view" id="user-setup" data-layout="default" class="user-setup" data-model="app.UserSetup" data-init="app.UserSetup.init" data-show="app.UserSetup.show">
+    <div data-role="header">
+        <div data-role="navbar">
+            User Setup
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>
+        </div>
+    </div>
+
+    <span class="item-name-title center-text">This can hold user options, settings, updates, etc.</span>
+    
+    <a class="btn" data-role="button" data-bind="click: captureBase64">Base64</a>
+    <a class="btn" data-role="button" data-bind="click: captureUri">Uri</a>
+    
+    <img id="largeImage" />
+    
+</div>
