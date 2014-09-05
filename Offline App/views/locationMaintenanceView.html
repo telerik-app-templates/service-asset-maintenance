@@ -1,0 +1,19 @@
+<div data-role="view" id="view-location-maintenance" data-layout="default" class="location-maintenance-view" data-model="app.LocationMaintenance" data-init="app.LocationMaintenance.init">
+    <div data-role="header">
+        <div data-role="navbar">
+            Location Maintenance
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>
+            <a class="nav-button nav-button-add hide-text" data-align="right" data-role="button" href="views/addLocationView.html">Add Location</a>
+        </div>
+    </div>
+    
+    <ul id="locations-listview" data-role="listview" data-template="locationTemplate" data-bind="source: locations"></ul>
+</div>
+        
+<script type="text/x-kendo-template" id="locationTemplate">
+    <div data-role="touch" data-bind="events: { tap: locationSelected }" class="cf">
+        <div class="activity-content">
+        	<h2 class="person-name">${Name}</h2>
+        </div>
+    </div>
+</script>

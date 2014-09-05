@@ -1,0 +1,44 @@
+<div data-role="view" id="view-add-person" data-layout="default" class="add-person-view" data-model="app.EditPerson" data-init="app.EditPerson.init" data-show="app.EditPerson.show" data-hide="app.EditPerson.hide">
+    <div data-role="header">
+        <div data-role="navbar">
+            Edit Person
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>
+        </div>
+    </div>
+
+    <form id="addPersonForm">
+        <ul id="add-person-form" data-role="listview" data-style="inset">
+            <li>
+                <input type="text" id="personName" data-bind="value: Name" placeholder="Name" required/>
+            </li>
+            <li>
+                <input type="text" id="personClub" data-bind="value: Club" placeholder="Club" />
+            </li>
+            <li>
+                <input type="text" id="personCrop" data-bind="value: Crop" placeholder="Crop" />
+            </li>
+			<li>
+                <input type="text" id="personFarmerCode" data-bind="value: FarmerCode" placeholder="FarmerCode" />
+            </li>
+			<li>
+                <input type="text" id="personFarmerType" data-bind="value: FarmerType" placeholder="FarmerType" />
+            </li>
+			<li>
+                <input type="text" id="personMaritalStatus" data-bind="value: MaritalStatus" placeholder="MaritalStatus" />
+            </li>
+			<li>
+                <input type="text" id="personDependentCount" data-bind="value: DependentCount" placeholder="DependentCount" />
+            </li>
+            <li>
+                <input type="date" id="personDateOfBirth" data-bind="value: DateOfBirth"/>
+            </li>
+            <li class="select-wrp">
+                <select id="signupGenderPicker" data-bind="value: Gender">
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                </select>
+            </li>
+        </ul>
+    </form>
+    <a class="btn btn-collection" data-role="button" data-bind="click: editPerson">Edit Person</a>
+</div>
