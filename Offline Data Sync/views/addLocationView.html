@@ -1,0 +1,29 @@
+<div data-role="view" id="view-add-location" data-layout="default" class="signup-view" data-model="app.AddLocation" data-init="app.AddLocation.init" data-show="app.AddLocation.show">
+    <div data-role="header">
+        <div data-role="navbar">
+            Add Location
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>            
+        </div>
+    </div>
+    <form id="addLocation">
+		<ul id="add-location-form" data-role="listview" data-style="inset">
+            <li>
+                <input type="text" id="locationName" data-bind="value: LocationName" placeholder="Name" required/>
+            </li>
+        </ul>                    
+    </form>
+    <br />
+    <a class="btn btn-collection" data-role="button" data-bind="click: togglePointCollection">
+        <span id="startStopButton">Start</span><span> Collecting Points</span>
+    </a>
+    <br /><br />
+    <span class="item-label">Number of points collected: </span><span id="pointCount">0</span>
+    <br /><br />
+    <span class="item-label">Last Latitude: </span><span id="lastLat"></span>
+    <br />
+    <span class="item-label">Last Longitude: </span><span id="lastLong"></span>
+    <br /><br />
+    <a class="btn btn-collection" data-role="button" data-bind="click: addLocation">
+        Add Location
+    </a>
+</div>
