@@ -1,19 +1,19 @@
-<div data-role="view" id="view-all-activities" data-layout="default" class="activities-view" data-model="app.Activities">
+<div data-role="view" id="view-main-menu" data-layout="default" class="main-menu-view" data-model="app.MainMenu">
     <div data-role="header">
         <div data-role="navbar">
             Main Menu
-            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton" data-click="app.Activities.logout">Log out</a>
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton" data-click="app.MainMenu.logout">Log out</a>
         </div>
     </div>
 
-    <ul id="activities-listview" data-style="inset" data-role="listview" data-template="activityTemplate" data-bind="source: activities"></ul>
+    <ul id="menu-listview" data-style="inset" data-role="listview" data-template="menuTemplate" data-bind="source: menuItems"></ul>
     
     <p id="no-activities-span" hidden="hidden" class="no-items-msg">
         <b>No activities; something is wrong as this is hard coded data.  Check the console for errors.</b>
     </p>
 </div>
 
-<script type="text/x-kendo-template" id="activityTemplate">
+<script type="text/x-kendo-template" id="menuTemplate">
     <div data-role="touch" class="cf">
         <a href='views/#:viewName#' data-role="listview-link" class="no-decoration">
         	<div class="activity-content">

@@ -1,9 +1,9 @@
 var app = app || {};
 
-app.AddPerson = (function () {
+app.AddEmployee = (function () {
     'use strict';
     
-    var addPersonViewModel = (function () {
+    var addEmployeeViewModel = (function () {
 
         var dataSource;
 		var $signUpForm;
@@ -12,9 +12,9 @@ app.AddPerson = (function () {
         var validator;
         
         var init = function () {
-			console.log("addPersonViewModel init");
+			console.log("addEmployeeViewModel init");
             
-            $signUpForm = $('#addPersonForm');
+            $signUpForm = $('#addEmployeeForm');
             $formFields = $signUpForm.find('input, textarea, select');
             $signupBtnWrp = $('#signupBtnWrp');
             validator = $signUpForm.kendoValidator({ validateOnBlur: false }).data('kendoValidator');
@@ -26,36 +26,25 @@ app.AddPerson = (function () {
                     $signupBtnWrp.addClass('disabled');
                 }
             });
-            
-            if (kendo.ui.DropDownList) {
-                $("#signupGenderPicker").kendoDropDownList();
-            } // ensure kendo is loaded, otherwise if that doesn't work for any reason it'll default to dropdown selection
         };
 
         var show = function () {            
             dataSource = kendo.observable({
                 Name: '',
-                Club: '',
-                Crop: '',
-                CreatedAt: new Date(),
-                DateOfBirth: new Date(),
-                DependentCount: '',
-                FarmerCode: '',
-                FarmerType: '',
-                Gender: 'Female',
-                MaritalStatus: '',
-                LocalId: ''
+                Position: '',
+                Department: '',
+                CreatedAt: new Date()
             });
             
-            kendo.bind($('#add-person-form'), dataSource, kendo.mobile.ui);
+            kendo.bind($('#add-employee-form'), dataSource, kendo.mobile.ui);
         };
         
 		var hide = function () {
             $signupBtnWrp.addClass('disabled');
         };
         
-        var addPerson = function () {
-            app.AppStorage.persons.addPerson( dataSource );
+        var addEmployee = function () {
+            app.AppStorage.employees.addEmployee( dataSource );
             app.mobileApp.navigate('#:back');
         };
 
@@ -63,11 +52,11 @@ app.AddPerson = (function () {
             init: init,
             show: show,
             hide: hide,
-            addPerson: addPerson
+            addEmployee: addEmployee
         };
 
     }());
 
-    return addPersonViewModel;
+    return addEmployeeViewModel;
 
 }());

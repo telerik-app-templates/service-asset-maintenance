@@ -6,55 +6,24 @@ app.AddLocation = (function () {
     var addLocationViewModel = (function () {
 
         var dataSource;
-        var isCollecting = false;
-        var interval;
-        var pointsDataSource;
-        var points = [];
 
         var addLocation = function () {            
-            //  condensedPoints, shorter markup than JSON
-			var cond = "";
-            
-            var pointsLength = points.length;
-            
-            for (var i = 0; i < pointsLength; i++) {
-                cond = cond + "|la=" + points[i].latitude + "_lo=" + points[i].longitude;
-            }
-            
-            var loc = {
-                CreatedAt: new Date().getTime(),
-                Name: dataSource.LocationName,
-                Points: cond
-            };
-            
-            app.AppStorage.locations.addLocation( loc );            
+            console.log("dataSource");
+            console.log(dataSource);
+            app.AppStorage.locations.addLocation( dataSource );
             app.mobileApp.navigate('#:back');
         };
         
-        var togglePointCollection = function () {
-            if (isCollecting == false) {
-                $('#startStopButton').text("Stop");
-                isCollecting = true;
-                interval = setInterval( function() { getPoints() }, 2000);
-            } else {
-				$('#startStopButton').text("Start");
-                isCollecting = false;
-                clearInterval(interval);
-                interval = null;
-            }
-        };
-        
-        var getPoints = function () {
+        var grabLocationGPS = function () {
             navigator.geolocation.getCurrentPosition(onSuccess, onError);
         };
         
         var onSuccess = function (position) {
-            var pt = { "longitude": position.coords.longitude, "latitude": position.coords.latitude };
-            points.push(pt);            
+            dataSource.GeoLocation.latitude = position.coords.latitude;
+            dataSource.GeoLocation.longitude = position.coords.longitude;
             
-            $('#lastLat').text(position.coords.latitude);
-            $('#lastLong').text(position.coords.longitude);
-            $('#pointCount').text(points.length);
+            $('#lat').text(position.coords.latitude);
+            $('#long').text(position.coords.longitude);
         };
         
         var onError = function (error) {
@@ -67,7 +36,10 @@ app.AddLocation = (function () {
 
         var show = function () {
             dataSource = kendo.observable({
-                LocationName: ''
+                NoteTitle: '',
+                Description: '',
+                GeoLocation: { "latitude": 0, "longitude": 0 },
+                Employee: ''
             });
             kendo.bind($('#add-location-form'), dataSource, kendo.mobile.ui);
         };
@@ -76,7 +48,7 @@ app.AddLocation = (function () {
             init: init,
             show: show,
             addLocation: addLocation,
-            togglePointCollection: togglePointCollection
+            grabLocationGPS: grabLocationGPS
         };
 
     }());

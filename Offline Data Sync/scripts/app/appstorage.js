@@ -20,10 +20,9 @@ app.AppStorage = (function () {
 	var online = (window.localStorage.getItem("online") === 'true');
     
     // locations
-    var lKey = "LOCATIONTEST";
-    var dslKey = "locationsZ";
+    var dslKey = "locationNoteStorage";
     
-    var locationsModel = (function() {
+    var locationNoteModel = (function() {
         var locationModel = {
             id: 'Id',
             fields: {
@@ -31,16 +30,20 @@ app.AppStorage = (function () {
                     field: 'CreatedAt',
                     defaultValue: new Date()
                 },
-                Name: {
-                    field: 'Name',
+                NoteTitle: {
+                    field: 'NoteTitle',
                     defaultValue: ''
                 },
-                Points: {
-                    field: 'Points',
+                Description: {
+                    field: 'Description',
                     defaultValue: ''
                 },
-                LocalId: {
-                    field: 'LocalId',
+                GeoLocation: {
+                    field: 'GeoLocation',
+                    defaultValue: ''
+                },
+                Employee: {
+                    field: 'Employee',
                     defaultValue: ''
                 }
             }
@@ -53,7 +56,7 @@ app.AppStorage = (function () {
                 model: locationModel
             }, 
             transport: {
-                typeName: 'Location'
+                typeName: 'LocationNote'
             },
         });
         
@@ -67,17 +70,12 @@ app.AppStorage = (function () {
     var locationViewModel = (function() {
         
         var syncData = function () {
-            locationsModel.locations.sync();
-        };
-        
-        var saveLocal = function () {
-            var dj = locationsModel.locations.data().toJSON();
-            var djstring = JSON.stringify(dj);
-            window.localStorage.setItem(lKey, djstring);
+            locationNoteModel.locations.sync();
         };
         
         var addLocation = function ( ds ) {
-            locationsModel.locations.add( ds );
+            console.log("in storage");
+            locationNoteModel.locations.add( ds );
             syncData();
         };
         
@@ -87,7 +85,7 @@ app.AppStorage = (function () {
         };
 
         return {
-            locationDataSource: locationsModel.locations,
+            locationDataSource: locationNoteModel.locations,
             addLocation: addLocation,
             edit: editLocation,
             sync: syncData
@@ -95,13 +93,12 @@ app.AppStorage = (function () {
         
     }());
     
-    // persons    
-    var pKey = "PERSONTEST_Z";
-    var dspKey = "personsZ";
+    // employees
+    var dseKey = "employeeStorage";
     
-    var personsModel = (function() {
+    var employeesModel = (function() {
         
-        var personModel = {
+        var employeeModel = {
             id: 'Id',
             fields: {
                 CreatedAt: {
@@ -112,96 +109,71 @@ app.AppStorage = (function () {
                     field: 'Name',
                     defaultValue: ''
                 },
-                Club: {
-                    field: 'Club',
+                Department: {
+                    field: 'Department',
                     defaultValue: ''
                 },
-                Crop: {
-                    field: 'Crop',
-                    defaultValue: 0
-                },
-                DateOfBirth: {
-                    field: 'DateOfBirth',
-                    defaultValue: new Date()
-                },
-                DependentCount: {
-                    field: 'DependentCount',
-                    defaultValue: 0
-                },
-                FarmerCode: {
-                    field: 'FarmerCode',
-                    defaultValue: 0
-                },
-                FarmerType: {
-                    field: 'FarmerType',
-                    defaultValue: ''
-                },
-                Gender: {
-                    field: 'Gender',
-                    defaultValue: ''
-                },
-                MaritalStatus: {
-                    field: 'MaritalStatus',
+                Position: {
+                    field: 'Position',
                     defaultValue: ''
                 }
             }
         };
         
-        var personDataSource = new kendo.data.DataSource({
-            offlineStorage: dspKey,
+        var employeeDataSource = new kendo.data.DataSource({
+            offlineStorage: dseKey,
             type: 'everlive',
             schema: {
-                model: personModel
+                model: employeeModel
             }, 
             transport: {
-                typeName: 'Person'
+                typeName: 'Employee'
             }
         });
         
-        personDataSource.online(online);
+        employeeDataSource.online(online);
         
         return {
-            persons: personDataSource
+            employees: employeeDataSource
         };
 
     }());
         
-    var personViewModel = (function () {
+    var employeeViewModel = (function () {
 
         var syncData = function () {
-            personsModel.persons.sync();
+            employeesModel.employees.sync();
         };
         
-        var saveLocal = function () {            
-            var dj = personsModel.persons.data().toJSON();
-            var djstring = JSON.stringify(dj);
-            window.localStorage.setItem(pKey, djstring);
-        };
-        
-        var addPerson = function ( ds ) {
-            personsModel.persons.add( ds );
+        var addEmployee = function ( ds ) {
+            employeesModel.employees.add( ds );
             syncData();
         };
 
-        var editPerson = function ( updatePerson ) {
-            updatePerson.ModifiedAt = new Date();
+        var editEmployee = function ( updateEmployee ) {
+            var employeeToUpdate = employeesModel.employees.get(updateEmployee.Id);
+            console.log(employeeToUpdate);
+            employeeToUpdate.set('Name', updateEmployee.Name);
+            employeeToUpdate.set('Department', updateEmployee.Department);
+            employeeToUpdate.set('Position', updateEmployee.Position);
+            console.log(employeeToUpdate);
             syncData();
         };
 
         return {
-            personDataSource: personsModel.persons,
-            addPerson: addPerson,
-            edit: editPerson,
+            employeeDataSource: employeesModel.employees,
+            addEmployee: addEmployee,
+            edit: editEmployee,
             sync: syncData
         };        
     }());
     
     var init = function () {
-        console.log("StorageTest init");
+        console.log("appstorage init");
     };
     
     var setOnline = function ( status ) {
-        personViewModel.personDataSource.online(status);
+        employeeViewModel.employeeDataSource.online(status);
         locationViewModel.locationDataSource.online(status);
         window.localStorage.setItem("online", status);
     };
@@ -212,7 +184,7 @@ app.AppStorage = (function () {
     };
     
     return {
-        persons: personViewModel,
+        employees: employeeViewModel,
         locations: locationViewModel,
         init: init,
         setOnline: setOnline,

@@ -6,32 +6,6 @@
         </div>
     </div>
 
-    <span id="locationNameSpan" class="item-name-title center-text"></span>
-    
-    <span class="item-label">Points: </span><span id="points-count"></span> 
-    <a data-role="button" data-rel="modalview" href="#modalview-points" id="points-modal-open-button" data-icon="details"></a>
-    
-    <div id="mapContainer" class="mapContainer">
-        <div id="locationMap"></div>
-    </div>    
-    
-    <div data-role="modalview" id="modalview-points" style="width: 90%">
-        <div data-role="header">
-            <div data-role="navbar">
-                <span>Point Collection</span>
-                <a data-bind="click: closePoints" data-role="button" data-align="right">Close</a>
-            </div>            
-        </div>    
+    <span id="locationTitleSpan" class="item-name-title center-text"></span>
         
-        <ul id="location-points"></ul>        
-    </div>
-    
 </div>
-
-<script type="text/x-kendo-template" id="pointsTemplate">
-    <div class="cf">
-        <div class="activity-content">
-            <span>Lat: </span>${latitude} | <span>Long: </span>${longitude}
-        </div>
-    </div>
-</script>

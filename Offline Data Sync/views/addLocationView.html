@@ -8,22 +8,19 @@
     <form id="addLocation">
 		<ul id="add-location-form" data-role="listview" data-style="inset">
             <li>
-                <input type="text" id="locationName" data-bind="value: LocationName" placeholder="Name" required/>
+                <input type="text" id="locationNoteTitle" data-bind="value: NoteTitle" placeholder="Title" required/>
+            </li>
+            <li class="txtarea-wrp">
+                <textarea id="locationDescription" data-bind="value: Description" placeholder="Description"></textarea>
             </li>
         </ul>                    
     </form>
     <br />
-    <a class="btn btn-collection" data-role="button" data-bind="click: togglePointCollection">
-        <span id="startStopButton">Start</span><span> Collecting Points</span>
-    </a>
+    <a class="btn btn-collection" data-role="button" data-bind="click: grabLocationGPS">Get GPS Coordinates</a>
     <br /><br />
-    <span class="item-label">Number of points collected: </span><span id="pointCount">0</span>
-    <br /><br />
-    <span class="item-label">Last Latitude: </span><span id="lastLat"></span>
+    <span class="item-label">Latitude: </span><span id="lat"></span>
     <br />
-    <span class="item-label">Last Longitude: </span><span id="lastLong"></span>
+    <span class="item-label">Longitude: </span><span id="long"></span>
     <br /><br />
-    <a class="btn btn-collection" data-role="button" data-bind="click: addLocation">
-        Add Location
-    </a>
+    <a class="btn btn-collection" data-role="button" data-bind="click: addLocation">Add Location</a>
 </div>

@@ -1,23 +1,23 @@
-#ulmApp .item-name-title {
+#olaApp .item-name-title {
     font-size: 1.5rem;
     display: block;
     margin-bottom: .3em;
 }
 
-#ulmApp .item-label {
+#olaApp .item-label {
     margin-left: 1em;
     margin-right: .2em;
 }
 
-#ulmApp .desc-label {
+#olaApp .desc-label {
     margin-left: 12px;
 }
 
-#ulmApp .mapContainer {
+#olaApp .mapContainer {
     margin: 1em;
     height: 300px;
 }
 
-#ulmApp .no-decoration {
+#olaApp .no-decoration {
     text-decoration: none;
 }

@@ -1,25 +1,23 @@
 var app = app || {};
 
-app.Activities = (function () {
+app.MainMenu = (function () {
     'use strict'
 
-    var activitiesModel = (function () {
+    var menuModel = (function () {
 
         var menuData = [
-            {displayName: "People Maintenance", viewName: "personMaintenanceView.html"}, 
+            {displayName: "Employee Maintenance", viewName: "employeeMaintenanceView.html"}, 
             {displayName: "Location Maintenance", viewName: "locationMaintenanceView.html"}, 
-            {displayName: "User Setup", viewName: "userSetupView.html"}, 
-            {displayName: "Data-Sync", viewName: "dataSyncView.html"}, 
-            {displayName: "Logout", viewName: "logout"}
+            {displayName: "Data-Sync", viewName: "dataSyncView.html"}
         ];
         
         return {
-            activities: menuData
+            menuItems: menuData
         };
 
     }());
     
-    var activitiesViewModel = (function () {
+    var mainViewModel = (function () {
 
         var navigateHome = function () {
             app.mobileApp.navigate('#welcome');
@@ -34,12 +32,12 @@ app.Activities = (function () {
         };
 
         return {
-            activities: activitiesModel.activities,
+            menuItems: menuModel.menuItems,
             logout: logout
         };
 
     }());
 
-    return activitiesViewModel;
+    return mainViewModel;
 
 }());

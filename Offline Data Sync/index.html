@@ -18,34 +18,32 @@
         <script src="scripts/lib/everlive.all.min.js"></script>
         <script src="scripts/app/settings.js" type="text/javascript"></script>
         <script src="scripts/app/app.js" type="text/javascript"></script>
-        <script src="scripts/app/analytics-monitor.js"></script>
-        <script src="scripts/app/storage3.js" type="text/javascript"></script>
+        <script src="scripts/app/appstorage.js" type="text/javascript"></script>
         <script src="scripts/app/login.js" type="text/javascript"></script>
         <script src="scripts/app/signup.js" type="text/javascript"></script>
-        <script src="scripts/app/activities.js" type="text/javascript"></script>
+        <script src="scripts/app/main-menu.js" type="text/javascript"></script>
         <script src="scripts/app/datasync.js" type="text/javascript"></script>
         <script src="scripts/app/location-maintenance.js" type="text/javascript"></script>
         <script src="scripts/app/add-location.js" type="text/javascript"></script>
         <script src="scripts/app/location.js" type="text/javascript"></script>
-        <script src="scripts/app/person-maintenance.js" type="text/javascript"></script>
-        <script src="scripts/app/add-person.js" type="text/javascript"></script>
-        <script src="scripts/app/person.js" type="text/javascript"></script>
-        <script src="scripts/app/edit-person.js" type="text/javascript"></script>
-        <script src="scripts/app/user-setup.js" type="text/javascript"></script>
+        <script src="scripts/app/employee-maintenance.js" type="text/javascript"></script>
+        <script src="scripts/app/add-employee.js" type="text/javascript"></script>
+        <script src="scripts/app/employee.js" type="text/javascript"></script>
+        <script src="scripts/app/edit-employee.js" type="text/javascript"></script>
                 
         <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800" rel="stylesheet" type="text/css" />
         <link href="styles/main.css" rel="stylesheet" />
         <link href="styles/added.css" rel="stylesheet" />
     </head>
-    <body id="ulmApp">
+    <body id="olaApp">
         <div data-role="layout" data-id="default">
             <!--View content will render here-->
         </div>
 
         <div data-role="view" id="welcome" data-layout="default" class="welcome-scrn form-view" data-model="app.Login" data-init="app.Login.init" data-show="app.Login.show">
             <div data-role="header"></div>
-            <h1 class="app-logo hide-text center-block">Mobile Location <small>Management</small></h1>
-            <h2 class="app-name center-text">Mobile <small>Management</small></h2>
+            <h1 class="app-logo hide-text center-block">offlineData</h1>
+            <h2 class="app-name center-text">Mobile<small>Plant Management</small></h2>
             <form id="login-form">
                 <ul data-role="listview" data-style="inset">
                     <li class="username"><input type="text" id="loginUsername" placeholder="Username" required validationMessage="Username is required!" /></li>
@@ -64,7 +62,7 @@
                 </li>
             </ol>
 
-            <div data-role="footer"><p>&copy; <span data-bind="text: getYear"></span> ULM</p></div>
+            <div data-role="footer"><p>&copy; <span data-bind="text: getYear"></span> OLA</p></div>
         </div>
     </body>
 </html>

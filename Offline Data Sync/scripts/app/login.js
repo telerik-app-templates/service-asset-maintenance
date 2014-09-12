@@ -10,8 +10,6 @@ app.Login = (function () {
         var $loginUsername;
         var $loginPassword;
 
-        var isAnalytics = analytics.isAnalytics();
-
         var init = function () {
             app.AppStorage.init();
 
@@ -21,10 +19,6 @@ app.Login = (function () {
 
             $loginUsername = $('#loginUsername');
             $loginPassword = $('#loginPassword');
-
-            if (!isAnalytics) {
-                //console.log('EQATEC product key is not set. You cannot use EQATEC Analytics service.');
-            }
         };
 
         var show = function () {
@@ -41,10 +35,7 @@ app.Login = (function () {
             // Authenticate using the username and password
             app.everlive.Users.login(username, password)
             .then(function () {
-                // EQATEC analytics monitor - track login type
-                if (isAnalytics) {
-                    analytics.TrackFeature('Login.Regular');
-                }
+                // EQATEC analytics monitor - track login type                
             })
             .then(function () {
                 app.everlive.Users.currentUser()
@@ -55,7 +46,7 @@ app.Login = (function () {
 					// problem
                 });
                 
-                app.mobileApp.navigate('views/activitiesView.html');
+                app.mobileApp.navigate('views/mainMenuView.html');
             })
             .then(null,
                   function (err) {
