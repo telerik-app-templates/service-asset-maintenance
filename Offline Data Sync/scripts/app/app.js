@@ -13,7 +13,9 @@ var app = (function (win) {
     win.addEventListener('error', function (e) {
         e.preventDefault();
 
-        var message = e.message + "' from " + e.filename + ":" + e.lineno;
+        //var message = e.message + "' from " + e.filename + ":" + e.lineno;D:\My\ADTl\adt\adt-bundle-windows-x86_64-20140321
+
+        var message = "problem";
 
         showAlert(message, 'Error occured');
 

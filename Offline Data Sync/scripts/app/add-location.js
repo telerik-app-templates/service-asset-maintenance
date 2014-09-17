@@ -5,7 +5,8 @@ app.AddLocation = (function () {
 
     var addLocationViewModel = (function () {
 
-        var dataSource;
+        var dataSource,
+            selectedEmployee;
 
         var addLocation = function () {            
             console.log("dataSource");
@@ -39,16 +40,46 @@ app.AddLocation = (function () {
                 NoteTitle: '',
                 Description: '',
                 GeoLocation: { "latitude": 0, "longitude": 0 },
-                Employee: ''
+                Employee: '00000000-0000-0000-0000-000000000000'
             });
             kendo.bind($('#add-location-form'), dataSource, kendo.mobile.ui);
+
+            var employees = app.AppStorage.employees.employeeDataSource;
+
+            if (employees && employees.data.length > 0) {
+                console.log(employees);
+                $("#employee-select-list").kendoMobileListView({
+                    dataSource: employees,
+                    template: kendo.template($("#employeeSelectTemplate").html()),
+                    click: setSelectedEmployee
+                });
+            } else {
+                console.log("no employees");
+                $("#employee-select-list").hide();
+                $("#no-selectable-employees").show();
+            }
+        };
+
+        var setSelectedEmployee = function (e) {
+            processSelection(e.dataItem);
+            closeEmployeeSelect();
+        };
+
+        var processSelection = function ( emp ) {
+            $("#selection-span").text(emp.Name);
+            dataSource.Employee = emp.uid;
+        };
+
+        var closeEmployeeSelect = function () {
+            $("#modal-employee-select").kendoMobileModalView("close");
         };
 
         return {
             init: init,
             show: show,
             addLocation: addLocation,
-            grabLocationGPS: grabLocationGPS
+            grabLocationGPS: grabLocationGPS,
+            closeEmployeeSelect: closeEmployeeSelect
         };
 
     }());

@@ -15,12 +15,36 @@
             </li>
         </ul>                    
     </form>
+    <a data-role="button" href="#modal-employee-select" class="btn btn-collection" data-rel="modalview" id="modal-open-button"><span id="selection-span">Select Employee</span></a>
     <br />
     <a class="btn btn-collection" data-role="button" data-bind="click: grabLocationGPS">Get GPS Coordinates</a>
-    <br /><br />
+    <br />
     <span class="item-label">Latitude: </span><span id="lat"></span>
     <br />
     <span class="item-label">Longitude: </span><span id="long"></span>
     <br /><br />
     <a class="btn btn-collection" data-role="button" data-bind="click: addLocation">Add Location</a>
+
+    <div data-role="modalview" id="modal-employee-select" style="width: 90%">
+        <div data-role="header">
+            <div data-role="navbar">
+                <span>Select Employee:</span>
+                <a data-bind="click: closeEmployeeSelect" data-role="button" data-align="right">Cancel</a>
+            </div>
+        </div>
+        <ul id="employee-select-list"></ul>
+        <div id="no-selectable-employees" hidden="hidden">
+            <br />
+            <span>No employees available. Try syncing or adding new employees.</span>
+            <br />
+        </div>
+    </div>
 </div>
+
+<script type="text/x-kendo-template" id="employeeSelectTemplate">
+    <div data-role="touch" data-bind="events: { tap: employeeSelected }" class="cf">
+        <div class="activity-content">
+			<span>${Name}</span>
+		</div>
+    </div>
+</script>
