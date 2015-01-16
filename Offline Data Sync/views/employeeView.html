@@ -1,4 +1,7 @@
-<div data-role="view" id="single-employee" data-layout="default" class="employee-view" data-model="app.Employee" data-init="app.Employee.init" data-show="app.Employee.show">
+<div data-role="view" id="single-employee" data-layout="default" class="employee-view" 
+     data-model="app.Employee" 
+     data-init="app.Employee.init" 
+     data-show="app.Employee.show">
     <div data-role="header">
         <div data-role="navbar">
             Employee
@@ -8,9 +11,27 @@
     </div>
 
     <div>
-        <span id="employeeNameSpan" class="item-name-title center-text"></span>
-			<!-- Fill out more -->
-        <span class="item-label">Other fields...</span>
+        <!--<span id="employeeNameSpan" class="item-name-title center-text"></span>
+			
+        <span>Name: </span>
+        <span></span>
+        <br/>
+        <span>Department:</span>
+        <br/>
+        <span>Position:</span>-->
+        <form id="employeeViewForm">
+            <ul id="employee-view-form" data-role="listview" data-style="inset">
+                <li>
+                    <input type="text" data-bind="value: name" placeholder="Name" required/>
+                </li>
+                <li>
+                    <input type="text" data-bind="value: position" placeholder="Position" />
+                </li>
+                <li>
+                    <input type="text" data-bind="value: department" placeholder="Department" />
+                </li>
+            </ul>
+        </form>
     </div>    
     
 </div>

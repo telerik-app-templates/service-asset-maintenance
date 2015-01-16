@@ -13,7 +13,8 @@ app.EmployeeMaintenance = (function () {
             $("#employees-listview").kendoMobileListView({
                 dataSource: dataSource,
                 template: kendo.template($("#employeeTemplate").html()),
-                click: employeeSelected
+                click: employeeSelected,
+                style: "inset"
             });
         };
 

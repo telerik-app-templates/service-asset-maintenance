@@ -38,13 +38,6 @@ app.EditEmployee = (function () {
                 console.log("Problem loading employee.");
             }
             
-            /*dataSource = kendo.observable({
-                Name: employee.Name,
-                Position: employee.Position,
-                Department: employee.Department,
-                CreatedAt: employee.CreatedAt
-            }); */
-            //kendo.bind($('#edit-employee-form'), dataSource, kendo.mobile.ui);
             kendo.bind($('#edit-employee-form'), employee, kendo.mobile.ui);
         };
         
@@ -53,9 +46,6 @@ app.EditEmployee = (function () {
         };
 
         var editEmployee = function () {
-            //employee.Name = dataSource.Name;
-            //employee.Position = dataSource.Position;
-            //employee.Department = dataSource.Department;
 
             app.AppStorage.employees.edit( employee );
             app.mobileApp.navigate('#:back');

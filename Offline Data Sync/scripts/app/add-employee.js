@@ -30,10 +30,10 @@ app.AddEmployee = (function () {
 
         var show = function () {            
             dataSource = kendo.observable({
-                Name: '',
-                Position: '',
-                Department: '',
-                CreatedAt: new Date()
+                name: '',
+                position: '',
+                department: '',
+                createdAt: new Date()
             });
             
             kendo.bind($('#add-employee-form'), dataSource, kendo.mobile.ui);

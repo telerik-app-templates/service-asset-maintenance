@@ -8,10 +8,10 @@
     <form id="addLocation">
 		<ul id="add-location-form" data-role="listview" data-style="inset">
             <li>
-                <input type="text" id="locationNoteTitle" data-bind="value: NoteTitle" placeholder="Title" required/>
+                <input type="text" id="locationNoteTitle" data-bind="value: noteTitle" placeholder="Title" required/>
             </li>
             <li class="txtarea-wrp">
-                <textarea id="locationDescription" data-bind="value: Description" placeholder="Description"></textarea>
+                <textarea id="locationDescription" data-bind="value: description" placeholder="Description"></textarea>
             </li>
         </ul>                    
     </form>
@@ -44,7 +44,7 @@
 <script type="text/x-kendo-template" id="employeeSelectTemplate">
     <div data-role="touch" data-bind="events: { tap: employeeSelected }" class="cf">
         <div class="activity-content">
-			<span>${Name}</span>
+			<span>${name}</span>
 		</div>
     </div>
 </script>

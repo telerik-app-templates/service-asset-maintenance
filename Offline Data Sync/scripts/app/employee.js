@@ -21,7 +21,9 @@ app.Employee = (function () {
             employee = app.AppStorage.employees.employeeDataSource.getByUid(employeeId);
             
             if (employee != null) {
-                $('#employeeNameSpan').text(employee.Name);
+                console.log(employee);
+                //$('#employeeNameSpan').text(employee.name);
+                kendo.bind($('#employee-view-form'), employee, kendo.mobile.ui);
             } else {
                 console.log("Problem loading employee.");
             }

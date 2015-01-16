@@ -7,13 +7,16 @@
         </div>
     </div>
     
-    <ul id="locations-listview" data-role="listview" data-template="locationTemplate" data-bind="source: locations"></ul>
+    <ul id="locations-listview" data-role="listview" 
+        data-template="locationTemplate" 
+        data-bind="source: locations"
+        data-style="inset"></ul>
 </div>
         
 <script type="text/x-kendo-template" id="locationTemplate">
     <div data-role="touch" data-bind="events: { tap: locationSelected }" class="cf">
         <div class="activity-content">
-        	<h2 class="location-name">${NoteTitle}</h2>
+        	<span class="location-name">${noteTitle}</span>
         </div>
     </div>
 </script>
