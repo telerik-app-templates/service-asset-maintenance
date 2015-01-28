@@ -18,8 +18,8 @@ app.AddLocation = (function () {
         };
         
         var onSuccess = function (position) {
-            dataSource.GeoLocation.latitude = position.coords.latitude;
-            dataSource.GeoLocation.longitude = position.coords.longitude;
+            dataSource.geoLocation.latitude = position.coords.latitude;
+            dataSource.geoLocation.longitude = position.coords.longitude;
             
             $('#lat').text(position.coords.latitude);
             $('#long').text(position.coords.longitude);
@@ -39,7 +39,8 @@ app.AddLocation = (function () {
                 noteTitle: '',
                 description: '',
                 geoLocation: { "latitude": 0, "longitude": 0 },
-                employee: '00000000-0000-0000-0000-000000000000'
+                employee: '00000000-0000-0000-0000-000000000000',
+                status: 'Submitted'
             });
             
             kendo.bind($('#add-location-form'), dataSource, kendo.mobile.ui);
@@ -67,7 +68,7 @@ app.AddLocation = (function () {
 
         var processSelection = function ( emp ) {
             $("#selection-span").text(emp.name);
-            dataSource.Employee = emp.uid;
+            dataSource.employee = emp.id;
         };
 
         var closeEmployeeSelect = function () {

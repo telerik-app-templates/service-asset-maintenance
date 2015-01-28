@@ -6,6 +6,25 @@
         </div>
     </div>
 
-    <span id="locationTitleSpan" class="item-name-title center-text"></span>
-        
+    <div>
+        <form id="locationViewForm">
+            <div id="location-view-form" style="margin: 1em">
+                
+                <span class="span-label" data-bind="text: noteTitle"></span><br />
+                <hr />
+                
+                <span class="span-label">Location</span><br />
+                <span>Lat: </span><span data-bind="text: geoLocation.latitude"></span><br />
+                <span>Long: </span><span data-bind="text: geoLocation.longitude"></span><br /><br />
+                
+                <span class="span-label">Status</span><br />
+                <span data-bind="text: status"></span><br /><br />
+                
+                <span class="span-label">Description</span><br />
+                <p class="form-paragraph" data-bind="text: description" /><br />
+
+            </div>
+        </form>
+    </div>  
+    
 </div>

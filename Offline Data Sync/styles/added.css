@@ -21,3 +21,11 @@
 #olaApp .no-decoration {
     text-decoration: none;
 }
+
+#olaApp .span-label {
+    font-size: 1.4em;
+}
+
+#olaApp .form-paragraph {
+    margin: 0px;
+}

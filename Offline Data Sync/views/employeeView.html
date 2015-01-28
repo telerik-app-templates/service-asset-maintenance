@@ -9,29 +9,18 @@
             <a id="edit-employee-button" class="nav-button" data-icon="compose" data-align="right" data-role="button"></a>
         </div>
     </div>
-
     <div>
-        <!--<span id="employeeNameSpan" class="item-name-title center-text"></span>
-			
-        <span>Name: </span>
-        <span></span>
-        <br/>
-        <span>Department:</span>
-        <br/>
-        <span>Position:</span>-->
         <form id="employeeViewForm">
-            <ul id="employee-view-form" data-role="listview" data-style="inset">
-                <li>
-                    <input type="text" data-bind="value: name" placeholder="Name" required/>
-                </li>
-                <li>
-                    <input type="text" data-bind="value: position" placeholder="Position" />
-                </li>
-                <li>
-                    <input type="text" data-bind="value: department" placeholder="Department" />
-                </li>
-            </ul>
+            <div id="employee-view-form" style="margin: 1em">
+                <span class="span-label" data-bind="text: name"></span><br />
+                <hr />
+                
+                <span class="span-label">Position</span><br />
+                <span data-bind="text: position"></span><br /><br />
+                
+                <span class="span-label">Department</span><br />
+                <span data-bind="text: department"></span><br /><br />
+            </div>
         </form>
     </div>    
-    
 </div>

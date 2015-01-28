@@ -45,6 +45,10 @@ app.AppStorage = (function () {
                 employee: {
                     field: 'Employee',
                     defaultValue: ''
+                },
+                status: {
+                    field: 'Status',
+                    defaultValue: 'Submitted'
                 }
             }
         };
