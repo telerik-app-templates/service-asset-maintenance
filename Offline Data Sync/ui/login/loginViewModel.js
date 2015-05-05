@@ -12,7 +12,7 @@
             },
             show: function () {
             	$loginUsername.val('demo');
-            	$loginPassword.val('demo');            
+            	$loginPassword.val('demo');
         	},
             login: function () {
                 var username = $loginUsername.val();
@@ -20,8 +20,8 @@
                 
                 // Authenticate using the username and password
                 srq.everlive.Users.login(username, password)
-                .then(function () {
-                                 
+                .then(function (r) {
+                	console.log(r);
                 })
                 .then(function () {
                     srq.app.navigate('ui/home/mainMenuView.html');

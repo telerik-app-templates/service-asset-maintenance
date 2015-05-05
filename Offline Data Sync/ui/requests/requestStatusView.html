@@ -1,11 +1,22 @@
 <div data-role="view" id="view-request-status" class="request-status-view" 
-     data-model="srq.main.viewModel">
+     data-model="srq.requestStatus.viewModel">
     <div data-role="header">
         <div data-role="navbar">
-            Request Status            
+            Request Status        
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>
         </div>
     </div>
 
-    <span>Place Holder.</span>
+    <ul id="service-request-listview" data-style="inset" data-role="listview" data-template="requestStatusListItemTemplate" data-bind="source: requestData"></ul>    
     
 </div>
+
+<script type="text/x-kendo-template" id="requestStatusListItemTemplate">
+    <div data-role="touch" class="cf">
+        <a data-role="listview-link" class="no-decoration">
+        	<div class="activity-content">
+        		<h2 class="person-name">${reason}</h2>
+        	</div>
+		</a>
+    </div>
+</script>

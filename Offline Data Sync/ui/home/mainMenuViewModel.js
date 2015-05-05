@@ -14,9 +14,7 @@
     srq.main = {        
         viewModel: kendo.observable({
             logout: function () {
-                console.log(srq.everlive);
-                return;
-                srq.app.navigate("#welcome");                
+                srq.app.navigate("ui/login/loginView.html");                
                 srq.everlive.Users.logout();
             },
             menuData: function () {

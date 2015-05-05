@@ -1,11 +1,34 @@
 <div data-role="view" id="view-submit-request" class="submit-request-view" 
-     data-model="srq.main.viewModel">
+     data-model="srq.submitRequest.viewModel">
     <div data-role="header">
         <div data-role="navbar">
             Submit Request            
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>
         </div>
     </div>
-
-    <span>Place Holder.</span>
+<!--
+            								createdAt: new Date(),
+            reason: '',
+            dueDate: new Date(),
+            								completedDate: new Date(),
+            priority: '',
+            description: '',
+            maintenanceType: '',
+            location: '',
+            								status: ''
+-->
+    <form id="srForm">
+        <ul id="submit-service-request-form" data-role="listview" data-style="inset">
+            <li>
+                <input type="text" id="employeeName" data-bind="value: name" placeholder="Name" required/>
+            </li>
+            <li>
+                <input type="text" id="employeePosition" data-bind="value: position" placeholder="Position" />
+            </li>
+            <li>
+                <input type="text" id="employeeDepartment" data-bind="value: department" placeholder="Department" />
+            </li>
+        </ul>
+    </form>
     
 </div>
