@@ -1,12 +1,13 @@
-<div data-role="view" id="view-main-menu" data-layout="default" class="main-menu-view" data-model="app.MainMenu">
+<div data-role="view" id="view-main-menu" class="main-menu-view" 
+     data-model="srq.main.viewModel">
     <div data-role="header">
         <div data-role="navbar">
             Main Menu
-            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton" data-click="app.MainMenu.logout">Log out</a>
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton" data-click="srq.main.viewModel.logout">Log out</a>
         </div>
     </div>
 
-    <ul id="menu-listview" data-style="inset" data-role="listview" data-template="menuTemplate" data-bind="source: menuItems"></ul>
+    <ul id="menu-listview" data-style="inset" data-role="listview" data-template="menuTemplate" data-bind="source: menuData"></ul>
     
     <p id="no-activities-span" hidden="hidden" class="no-items-msg">
         <b>No activities; something is wrong as this is hard coded data.  Check the console for errors.</b>
@@ -15,7 +16,7 @@
 
 <script type="text/x-kendo-template" id="menuTemplate">
     <div data-role="touch" class="cf">
-        <a href='views/#:viewName#' data-role="listview-link" class="no-decoration">
+        <a href='ui/#:viewName#' data-role="listview-link" class="no-decoration">
         	<div class="activity-content">
         		<h2 class="person-name">${displayName}</h2>
         	</div>

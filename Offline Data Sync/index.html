@@ -5,8 +5,7 @@
         <meta charset="utf-8" />
         <script src="cordova.js"></script>
         
-        <!-- Telerik CDN -->
-        
+        <!-- Telerik CDN -->        
         <link href="http://cdn.kendostatic.com/2014.2.903/styles/kendo.common.min.css" rel="stylesheet" />
         <link href="http://cdn.kendostatic.com/2014.2.903/styles/kendo.default.min.css" rel="stylesheet" />
         <link href="http://cdn.kendostatic.com/2014.2.903/styles/kendo.dataviz.min.css" rel="stylesheet" />
@@ -14,13 +13,61 @@
         <link href="http://cdn.kendostatic.com/2014.2.903/styles/kendo.mobile.all.min.css" rel="stylesheet" />
         <script src="http://cdn.kendostatic.com/2014.2.903/js/jquery.min.js"></script>
         <script src="http://cdn.kendostatic.com/2014.2.903/js/kendo.all.min.js"></script>        
-
                 
         <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800" rel="stylesheet" type="text/css" />
         <link href="styles/main.css" rel="stylesheet" />
         <link href="styles/added.css" rel="stylesheet" />
     </head>
     <body id="olaApp">
-		<!-- app stuff, copy format from Clinical Trial app -->
+		
+        <div data-role="layout" data-id="main">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                </div>
+            </div>
+            <!-- application views will be rendered here -->
+        </div>
+
+        <script>
+            // global namespace
+            this.srq = {};
+        </script>
+
+        <!-- libraries -->
+        <script src="shared/lib/everlive.all.min.js"></script>
+
+        <!-- utilities -->
+        <script src="shared/appSettings.js"></script>
+
+        <!-- local data -->
+        <!--<script src="shared/localData/studyData.js"></script>
+        <script src="shared/localData/chartData.js"></script>-->
+
+        <!-- models -->
+        <!--<script src="shared/models/studyModel.js"></script>
+        <script src="shared/models/studyDataModel.js"></script>-->
+
+        <!-- viewModels -->        
+        <script src="ui/login/loginViewModel.js"></script>
+        <script src="ui/login/signupViewModel.js"></script>
+        
+        <script src="ui/home/mainMenuViewModel.js"></script>
+
+        <script>
+            // start app
+            srq.app = new kendo.mobile.Application(
+                document.body, {
+                    skin: 'flat',
+                    initial: 'ui/login/loginView.html',
+                    init: function () { }
+                });
+            
+            srq.everlive = new Everlive(srq.appSettings.elKey);
+            
+            srq.notify = function (message, title, callback) {
+                navigator.notification.alert(message, callback, title, "Ok");
+            };
+        </script>
     </body>
 </html>

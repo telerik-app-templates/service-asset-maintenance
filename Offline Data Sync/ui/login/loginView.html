@@ -1,4 +1,7 @@
-<div data-role="view" id="welcome" class="welcome-scrn form-view" data-model="app.Login" data-init="app.Login.init" data-show="app.Login.show">
+<div data-role="view" id="welcome" class="welcome-scrn form-view" 
+     data-model="srq.login.viewModel" 
+     data-init="srq.login.viewModel.init" 
+     data-show="srq.login.viewModel.show">
     <div data-role="header"></div>
     <h1 class="app-logo hide-text center-block">offlineData</h1>
     <h2 class="app-name center-text">Mobile<small>Plant Management</small></h2>
@@ -16,9 +19,9 @@
         </li>
 
         <li class="signup">
-            <a data-role="button" href="views/signupView.html" class="btn-signup">Don't have an account?</a>
+            <a data-role="button" href="ui/login/signupView.html" class="btn-signup">Don't have an account?</a>
         </li>
     </ol>
 
-    <div data-role="footer"><p>&copy; <span data-bind="text: getYear"></span> Telerik</p></div>
+    <div data-role="footer"><p>&copy; 2015 Telerik</p></div>
 </div>
