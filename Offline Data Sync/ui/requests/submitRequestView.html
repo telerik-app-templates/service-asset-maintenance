@@ -1,34 +1,39 @@
 <div data-role="view" id="view-submit-request" class="submit-request-view" 
-     data-model="srq.submitRequest.viewModel">
+     data-model="srq.submitRequest.viewModel"
+     data-show="srq.submitRequest.viewModel.show"
+     data-hide="srq.submitRequest.viewModel.hide">
     <div data-role="header">
         <div data-role="navbar">
             Submit Request            
             <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>
         </div>
     </div>
-<!--
-            								createdAt: new Date(),
-            reason: '',
-            dueDate: new Date(),
-            								completedDate: new Date(),
-            priority: '',
-            description: '',
-            maintenanceType: '',
-            location: '',
-            								status: ''
--->
+
     <form id="srForm">
         <ul id="submit-service-request-form" data-role="listview" data-style="inset">
             <li>
-                <input type="text" id="employeeName" data-bind="value: name" placeholder="Name" required/>
+                <input type="text" id="srReason" data-bind="value: reason" placeholder="Reason" required/>
             </li>
             <li>
-                <input type="text" id="employeePosition" data-bind="value: position" placeholder="Position" />
+                <input type="text" id="srPriority" data-bind="value: priority" placeholder="Priority" />
             </li>
             <li>
-                <input type="text" id="employeeDepartment" data-bind="value: department" placeholder="Department" />
+                <input type="text" id="srDescription" data-bind="value: description" placeholder="Description" />
+            </li>
+            <li>
+                <input type="date" id="srDescription" data-bind="value: dueDate" placeholder="Due Date" />
+            </li>
+            <li>
+                <input type="text" id="srType" data-bind="value: maintenanceType" placeholder="Maintenance Type" />
+            </li>
+            <li>
+                <input type="text" id="srLocation" data-bind="value: location" placeholder="Location" />
             </li>
         </ul>
     </form>
+    
+    <a class="btn btn-collection" data-role="button" data-bind="click: submitRequest">Submit Request</a>
+    
+    <span id="sub-notification"></span>
     
 </div>

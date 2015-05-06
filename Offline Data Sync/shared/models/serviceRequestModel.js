@@ -59,6 +59,13 @@
         },
         submitRequest: function (request, callback) {
             srq.serviceRequestModel.serviceData.add(request);
+            srq.serviceRequestModel.serviceData.sync();
+            
+            callback();
+        },
+        cancelRequest: function (request, callback) {
+            request.set("status", "Cancel Requested");
+            srq.serviceRequestModel.serviceData.sync();
             
             callback();
         }

@@ -3,7 +3,7 @@
     
     var privateVariablesHere;
     
-    var dataSource = {
+    var dataSource = kendo.observable({
             createdAt: new Date(),
             reason: '',
             dueDate: new Date(),
@@ -12,20 +12,41 @@
             description: '',
             maintenanceType: '',
             location: '',
-            status: ''
+            status: 'Submitted'
+    });
+    
+    var reqSubmitted = function (e) {
+        var notificationElement = $("#sub-notification");
+	    notificationElement.kendoNotification();
+        var notificationWidget = notificationElement.data("kendoNotification");
+
+        notificationWidget.info("Request Submitted.");
+        
+        srq.app.navigate("#:back");
+        srq.app.hideLoading();
     };
     
     srq.submitRequest = {        
         viewModel: kendo.observable({
-            logout: function () {
-                srq.app.navigate("#welcome");                
-                srq.everlive.Users.logout();
-            },
-            menuData: function () {
-                return menuItems;
-            },
             show: function (e) {
                 kendo.bind($('#submit-service-request-form'), dataSource, kendo.mobile.ui);
+            },
+            hide: function (e) {
+                dataSource = kendo.observable({
+                    createdAt: new Date(),
+                    reason: '',
+                    dueDate: new Date(),
+                    completedDate: new Date(),
+                    priority: '',
+                    description: '',
+                    maintenanceType: '',
+                    location: '',
+                    status: 'Submitted'
+            	});
+            },
+            submitRequest : function (e) {
+                srq.app.showLoading();                
+                srq.serviceRequestModel.submitRequest(dataSource, reqSubmitted);
             }
         })
     }
