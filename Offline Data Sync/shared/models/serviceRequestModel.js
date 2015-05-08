@@ -39,6 +39,10 @@
                 status: {
                     field: 'Status',
                     defaultValue: ''
+                },
+                picture: {
+                    field: 'Picture',
+                    defaultValyue: ''
                 }
             }
     };
@@ -59,15 +63,23 @@
         },
         submitRequest: function (request, callback) {
             srq.serviceRequestModel.serviceData.add(request);
-            srq.serviceRequestModel.serviceData.sync();
-            
-            callback();
+            srq.serviceRequestModel.serviceData.sync()
+            	.then(function (success) {
+                	callback("Request Submitted.");
+            	}, function (fail) {
+                	callback("Submit failed, try again or contact Customer Service if it continues to fail.");
+            	});
         },
         cancelRequest: function (request, callback) {
             request.set("status", "Cancel Requested");
-            srq.serviceRequestModel.serviceData.sync();
-            
-            callback();
+            srq.serviceRequestModel.serviceData.sync()
+            	.then(function(success) {
+                	console.log("success");
+                	callback("Request Submitted for Cancellation.")
+            	}, function (fail) {
+                console.log("fail");
+                	callback("Request failed, please check with support or try again later.")
+            	});
         }
     };
     

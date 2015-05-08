@@ -1,0 +1,665 @@
+.cf:before,
+.cf:after {
+  content: '';
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.km-flat {
+  font-size: .95em;
+}
+
+.km-listinset,
+.km-listgroupinset {
+  margin: 1em 2em;
+}
+
+#srqApp .activities-view .km-listview,
+#srqApp .add-activity-view .km-listview,
+#srqApp .add-comment-view .km-listview {
+  margin: 1em;
+}
+
+.km-flat .km-rowinsert,
+.km-flat .km-state-active,
+.km-flat .km-scroller-pull,
+.km-flat .k-slider-selection,
+.km-flat .km-touch-scrollbar,
+.km-flat .km-pages .km-current-page,
+.km-flat .k-slider .k-draghandle,
+.km-flat .k-slider .k-draghandle:hover,
+.km-flat .km-tabstrip .km-state-active,
+.km-flat .km-scroller-refresh.km-load-more,
+.km-flat .km-popup .k-state-hover,
+.km-flat .km-popup .k-state-focused,
+.km-flat .km-popup .k-state-selected,
+.km-flat .km-actionsheet > li > a:active,
+.km-flat .km-actionsheet > li > a:hover,
+.km-flat li.km-state-active .km-listview-link,
+.km-flat li.km-state-active .km-listview-label,
+.km-flat .km-listview-label input[type=radio]:checked,
+.km-flat .km-listview-label input[type=checkbox]:checked {
+  background: #4d4d4d;
+}
+
+.km-flat .km-loader {
+  background-color: rgba(0, 0, 0, .75);
+}
+
+.km-flat .km-loader::before {
+  background: none;
+}
+
+#srqApp.km-flat,
+#srqApp.km-flat .km-navbar,
+#srqApp.km-flat .km-content,
+input[type='date'],
+input[type='datetime-local'],
+input[type='month'],
+input[type='time'],
+input[type='week'] {
+  font-family: 'Roboto', sans-serif;
+}
+
+#srqApp.km-flat,
+#srqApp.km-flat .km-navbar,
+#srqApp.km-flat .km-content {
+  border: 0 none;
+  color: #4d4d4d;
+  background-color: #fff;
+}
+
+#srqApp.km-flat .km-navbar {
+  background-color: #fff;
+}
+
+#srqApp.km-flat .km-content {
+  color: #4d4d4d;
+}
+
+#srqApp .hide-text {
+  text-indent: -999px;
+  overflow: hidden;
+}
+
+.disabled {
+  position: relative;
+  display: block;
+}
+
+.disabled:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -1px;
+  bottom: 0;
+  left: -1px;
+  z-index: 1;
+}
+
+/* Forms */
+
+::-webkit-input-placeholder {
+  color: #4d4d4d;
+}
+
+:-moz-placeholder {
+  color: #4d4d4d;
+}
+
+::-moz-placeholder {
+  color: #4d4d4d;
+}
+
+:-ms-input-placeholder {
+  color: #4d4d4d;
+}
+
+#srqApp.km-flat form .km-list > li,
+#srqApp .btn {
+  border-radius: 0;
+}
+
+#srqApp.km-flat form .km-list > li {
+  margin: 0 0 1em;
+  padding: .4em 0;
+  border-width: 0 0 1px;
+  border-color: #c9c9c9;
+  background-color: #fff;
+}
+
+#srqApp.km-flat .km-list input[type='text']:not(.k-input),
+#srqApp.km-flat .km-list input[type='password'],
+#srqApp.km-flat .km-list input[type='email'],
+#srqApp.km-flat .km-list input[type='date'],
+#srqApp.km-flat textarea,
+#srqApp.km-flat select {
+  position: static;
+  width: 100%;
+  height: 30px;
+  font-size: 1rem;
+}
+
+#srqApp.km-flat.km-on-wp .km-list input[type='text']:not(.k-input),
+#srqApp.km-flat.km-on-wp .km-list input[type='password'],
+#srqApp.km-flat.km-on-wp .km-list input[type='email'],
+#srqApp.km-flat.km-on-wp .km-list input[type='date'],
+#srqApp.km-flat.km-on-wp textarea,
+#srqApp.km-flat.km-on-wp select {
+  padding: 0 .4em;
+}
+
+#srqApp.km-flat select {
+  padding: .4em .2em;
+}
+
+#srqApp.km-flat.km-on-wp select {
+  padding: 0 .2em;
+}
+
+/* Buttons */
+
+#srqApp .btn {
+  position: relative;
+  margin: 0 -1px;
+  padding: .8em 0;
+  border: 0 none;
+  color: #fff;
+  font-size: 1rem;
+  background-color: #1976d2;
+}
+
+#srqApp .disabled .btn {
+  opacity: .35;
+}
+
+#srqApp .btn-login {
+  background-color: #e91e63;
+}
+
+#srqApp .signup-view .btn-signup,
+#srqApp .btn-delete {
+  display: block;
+  text-align: center;
+}
+
+#srqApp .btn-delete {
+  background-color: #e84c3d;
+}
+
+#srqApp .nav-button {
+  border: 0 none;
+  background-color: transparent;
+}
+
+#srqApp .nav-button-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+#srqApp .nav-button-back {
+  background-image: url(images/icon-arrow.png);
+}
+
+#srqApp .nav-button-back-d {
+  background-image: url(images/icon-arrow_dark.png);
+}
+
+#srqApp .nav-button-comment {
+  background-image: url(images/icon-comment.png);
+}
+
+#srqApp .nav-button-delete {
+  background-image: url(images/icon-delete.png);
+}
+
+#srqApp .nav-button.km-state-active {
+  color: #000;
+}
+
+#srqApp .activity-view .user-status-wrp .km-navbar .nav-button,
+#srqApp .activity-view .user-status-wrp .km-navbar .nav-button.km-state-active {
+  color: #fff;
+}
+
+/* App Header */
+
+#srqApp.km-flat.km-on-ios.km-black-translucent-status-bar .km-header {
+  min-height: 20px;
+  background-color: #4d4d4d;
+}
+
+#srqApp.km-flat.km-on-ios.km-black-translucent-status-bar .km-header .km-navbar {
+  margin-top: 20px;
+  padding-top: .5em;
+}
+
+#srqApp.km-flat .km-header .km-navbar {
+  min-height: 3.15em;
+}
+
+#srqApp.km-flat .km-header .km-navbar {
+  border-bottom: 1px solid #c9c9c9;
+}
+
+#srqApp.km-flat .km-header .km-view-title {
+  font-size: 1.3em;
+}
+
+/* Welcome screen */
+
+#srqApp .app-name {
+  margin-top: 1.5em;
+}
+
+#srqApp .app-name {
+  width: 127px;
+  height: 119px;
+  margin: 1.5em auto;
+  text-indent: -9999px;
+  background: transparent url(images/logo-friends.png) no-repeat 0 0;
+  overflow: hidden;
+}
+
+#srqApp .app-name small {
+  display: block;
+  font-weight: 400;
+  font-size: 1.15rem;
+}
+
+#srqApp .welcome-scrn .group-wrp {
+  margin: 0 2em;
+  padding: 0;
+  text-align: center;
+  list-style-type: none;
+}
+
+#srqApp .welcome-scrn .group-wrp li {
+  margin: 1.5em 0 0;
+}
+
+#srqApp .welcome-scrn .group-wrp li:first-child {
+  margin-top: 0;
+}
+
+#srqApp .welcome-scrn .group-wrp .btn {
+  display: block;
+}
+
+#srqApp .welcome-scrn .group-wrp .oauth {
+  margin-right: -1%;
+  margin-left: -1%;
+}
+
+#srqApp .welcome-scrn .group-wrp .oauth .oauth-item {
+  float: left;
+  width: 23%;
+  margin: 0 1%;
+}
+
+#srqApp .welcome-scrn .group-wrp .oauth .btn {
+  height: 45px;
+  padding-top: 1.1em;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+#srqApp .welcome-scrn .group-wrp .oauth .btn-facebook {
+  background-image: url(images/logo-facebook.png);
+}
+
+#srqApp .welcome-scrn .group-wrp .oauth .btn-google {
+  background-image: url(images/logo-google.png);
+}
+
+#srqApp .welcome-scrn .group-wrp .oauth .btn-windows {
+  background-image: url(images/logo-windows.png);
+}
+
+#srqApp .welcome-scrn .group-wrp .oauth .btn-adfs {
+  background-image: url(images/logo-adfs.png);
+}
+
+#srqApp .welcome-scrn .group-wrp .oauth .btn span,
+#srqApp .welcome-scrn .group-wrp .btn-signup span {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+#srqApp .welcome-scrn .group-wrp .btn-signup {
+  border: 0 none;
+  background-color: transparent;
+}
+
+/* No API Key screen */
+
+#srqApp .noapikey-scrn h3 {
+  line-height: 1.25;
+}
+
+#srqApp .noapikey-scrn p {
+  line-height: 1.5;
+}
+
+#srqApp .noapikey-scrn p strong,
+#srqApp .noapikey-scrn p span {
+  color: #000;
+}
+
+#srqApp .noapikey-scrn p span {
+  font-weight: 600;
+}
+
+/* Signup */
+
+#srqApp.km-flat textarea {
+  float: none;
+  height: auto;
+  margin: 0;
+  resize: none;
+}
+
+#srqApp .signup-view .signup-btn-wrp {
+  margin: 0 2em;
+}
+
+#srqApp .signup-view .select-wrp select {
+  color: #4d4d4d;
+}
+
+#srqApp .signup-view .select-wrp option:first-child {
+  color: #b6c5c6;
+}
+
+/* Activities */
+
+#srqApp .activity-view .user-status-wrp .km-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  padding-top: .5em;
+  background-color: transparent;
+}
+
+#srqApp .activity-view .user-status-wrp .content {
+  padding: 1em;
+}
+
+#srqApp .activity-view .activity-content {
+  padding: 0;
+}
+
+#srqApp .activity-view .activity-content > span {
+  padding: 1em 0;
+}
+
+#srqApp .activity-view .user-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  padding: 0 1em .5em;
+}
+
+#srqApp .activity-view .user-info .person-name,
+#srqApp .activity-view .user-info .time-span {
+  color: #fff;
+}
+
+#srqApp .activity-view .user-info .person-name {
+  display: inline-block;
+  float: left;
+  margin: 1em;
+}
+
+#srqApp .activity-view .user-info .time-span {
+  display: inline-block;
+  float: right;
+  min-width: 80px;
+  margin: 1.65em 0 0 0;
+  font-size: .85em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+#srqApp .activities-view .km-list > li,
+#srqApp .activity-view .km-list > li {
+  padding: .75em 0 1em;
+  border-width: 0;
+  color: #4d4d4d;
+  background-color: #fff;
+  box-shadow: none;
+  overflow: visible;
+}
+
+#srqApp .activities-view .km-list > li {
+  position: relative;
+  border-width: 0;
+}
+
+#srqApp .activities-view .km-list > li::before,
+#srqApp .activity-view .km-list > li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 4.5em;
+  display: block;
+  height: 1px;
+  border-bottom: 1px solid #eaeced;
+}
+
+#srqApp .activities-view .km-list > li:first-child::before {
+  display: none;
+}
+
+#srqApp .activity-view .km-list > li::before {
+  left: 5em;
+}
+
+#srqApp .activity-view .comments-wrp {
+  margin-top: 1em;
+}
+
+#srqApp .activities-view .km-list > li:first-child {
+  padding-top: 0;
+}
+
+#srqApp .user-avatar {
+  float: left;
+  width: 50px;
+}
+
+#srqApp .user-avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+#srqApp .activity-content,
+#srqApp .comment-content {
+  position: relative;
+  padding-left: 5em;
+  font-size: .85rem;
+}
+
+#srqApp .activity-content .picture {
+  margin: 0 0 1em;
+}
+
+#srqApp .person-name,
+#srqApp .activity-content .time-span {
+  font-weight: 600;
+}
+
+#srqApp .person-name {
+  display: block;
+  margin: 0 0 .5em;
+  color: #e91e63;
+  font-size: 1.1rem;
+}
+
+#srqApp .person-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#srqApp .activity-content .time-span {
+  display: block;
+  color: #a6a6a6;
+  font-size: .7rem;
+  text-transform: uppercase;
+}
+
+#srqApp .activity-content .comment-content .time-span {
+  top: 12px;
+  font-size: .6rem;
+}
+
+#srqApp .user-share-txt {
+  display: block;
+  margin-bottom: 1em;
+  color: #4d4d4d;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+#srqApp .activities-view .person-name,
+#srqApp .activity-view .person-name,
+#srqApp .add-activity-view .person-name,
+#srqApp .add-comment-view .person-name {
+  margin: .85em 0 1em;
+}
+
+#srqApp .add-activity-view .person-name,
+#srqApp .add-comment-view .person-name {
+  padding-left: .75em;
+}
+
+#srqApp .activity-view .picture-wrp {
+  position: relative;
+  height: 258px;
+  margin: 0 auto;
+  text-align: center;
+  background: transparent url(images/default-image.jpg) no-repeat 50% 50%;
+  background-size: 100% 258px;
+  overflow: hidden;
+}
+
+#srqApp .activity-view .picture-wrp::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 258px;
+  background: transparent url(images/background-picture.png) repeat-x 0 0;
+}
+
+#srqApp .activity-view .picture {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  min-height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#srqApp .add-activity-view .km-leftitem,
+#srqApp .add-comment-view .km-leftitem {
+  left: 1em;
+}
+
+#srqApp .add-activity-view .km-rightitem,
+#srqApp .add-comment-view .km-rightitem,
+#srqApp .activity-view .km-rightitem {
+  right: 1em;
+}
+
+#srqApp.km-black-translucent-status-bar .km-navbar .km-leftitem,
+#srqApp.km-black-translucent-status-bar .km-navbar .km-rightitem {
+  font-size: .85em;
+  text-transform: uppercase;
+}
+
+#srqApp.km-black-translucent-status-bar .km-navbar .km-leftitem .fa,
+#srqApp.km-black-translucent-status-bar .km-navbar .km-rightitem .fa {
+  font-size: 1.8em;
+}
+
+#srqApp .k-invalid-msg {
+  display: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  color: #e84c3d;
+}
+
+#srqApp.km-flat.km-on-wp .activities-view,
+#srqApp.km-flat.km-on-wp .activity-view,
+#srqApp.km-flat.km-on-wp .add-activity-view,
+#srqApp.km-flat.km-on-wp .add-comment-view {
+    margin-top: 30px;
+}
+
+/* Retina Images */
+
+@media (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  #srqApp .app-name {
+    background-image: url(images/logo-friends@2x.png);
+    background-size: 127px 119px;
+  }
+
+  #srqApp .nav-button,
+  #srqApp .welcome-scrn .group-wrp .oauth .btn {
+    background-size: 40px 40px;
+  }
+
+  #srqApp .nav-button-back {
+    background-image: url(images/icon-arrow@2x.png);
+  }
+
+  #srqApp .nav-button-back-d {
+    background-image: url(images/icon-arrow_dark@2x.png);
+  }
+
+  #srqApp .nav-button-comment {
+    background-image: url(images/icon-comment@2x.png);
+  }
+
+  #srqApp .nav-button-delete {
+    background-image: url(images/icon-delete@2x.png);
+  }
+
+  #srqApp .welcome-scrn .group-wrp .oauth .btn-facebook {
+    background-image: url(images/logo-facebook@2x.png);
+  }
+
+  #srqApp .welcome-scrn .group-wrp .oauth .btn-google {
+    background-image: url(images/logo-google@2x.png);
+  }
+
+  #srqApp .welcome-scrn .group-wrp .oauth .btn-windows {
+    background-image: url(images/logo-windows@2x.png);
+  }
+
+  #srqApp .welcome-scrn .group-wrp .oauth .btn-adfs {
+    background-image: url(images/logo-adfs@2x.png);
+  }
+}

@@ -3,12 +3,12 @@
     
     var req;
     
-    var reqCancelled = function (e) {
+    var reqCancelled = function (result) {
         var notificationElement = $("#req-notification");
 	    notificationElement.kendoNotification();
         var notificationWidget = notificationElement.data("kendoNotification");
 
-        notificationWidget.info("Request Submitted for Cancellation.");
+        notificationWidget.info(result);
         
         srq.app.navigate("#:back");
         srq.app.hideLoading();
@@ -19,10 +19,23 @@
             show: function () {
                 req = srq.appSettings.currentRequest;
                 
-                if (req.status === "Cancel Requested" || req.status === "Cancelled") {
-                    $("#cancel-button").attr('disabled', true);
+                if (req.status.indexOf("Cancel") > -1) {
+                    console.log("disabling");
+                    $("#cancel-request-wrapper").addClass('disabled');
                 } else {
-                    $("#cancel-button").removeAttr('disabled');
+                    console.log("enabling");
+                    $("#cancel-request-wrapper").removeClass('disabled');
+                }
+                
+                //console.log(req);
+                if (req.picture == undefined) {
+                    $("#request-details-image").hide();
+                    $("#no-img-span").show();
+                } else {
+                    $("#request-details-image").show();
+                    $("#no-img-span").hide();
+                    var im = document.getElementById('request-details-image');
+                	im.src = "data:image/jpeg;base64," + req.picture;
                 }
                 
                 kendo.bind($('#request-details-form'), req, kendo.mobile.ui);

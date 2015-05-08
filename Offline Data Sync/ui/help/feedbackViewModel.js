@@ -5,12 +5,14 @@
     
     srq.feedback = {        
         viewModel: kendo.observable({
-            logout: function () {
-                srq.app.navigate("#welcome");                
-                srq.everlive.Users.logout();
+            feedbackData: function () {
+                //return srq.feedbackItemModel.feedbackData;
+                return srq.serviceRequestModel.serviceData;
             },
-            menuData: function () {
-                return menuItems;
+            requestSelected: function (e) {
+                var req = e.dataItem;
+                srq.appSettings.feedbackRequest = req;
+                srq.app.navigate("ui/help/submitFeedbackView.html");
             }
         })
     }

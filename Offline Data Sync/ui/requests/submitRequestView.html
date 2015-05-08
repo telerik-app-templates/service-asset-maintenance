@@ -14,8 +14,15 @@
             <li>
                 <input type="text" id="srReason" data-bind="value: reason" placeholder="Reason" required/>
             </li>
-            <li>
+            <!--<li>
                 <input type="text" id="srPriority" data-bind="value: priority" placeholder="Priority" />
+            </li>-->
+            <li class="select-wrp">
+                <select id="srPriorityPicker" data-bind="value: priority">
+                    <option selected>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
             </li>
             <li>
                 <input type="text" id="srDescription" data-bind="value: description" placeholder="Description" />
@@ -23,16 +30,31 @@
             <li>
                 <input type="date" id="srDescription" data-bind="value: dueDate" placeholder="Due Date" />
             </li>
-            <li>
+            <!--<li>
                 <input type="text" id="srType" data-bind="value: maintenanceType" placeholder="Maintenance Type" />
-            </li>
+            </li>-->
+            <li class="select-wrp">
+                <select id="srTypePicker" data-bind="value: maintenanceType">
+                    <option selected>Repair</option>
+                    <option>Emergency</option>
+                    <option>Routine</option>
+                    <option>Monthly</option>
+                </select>
+            </li>            
             <li>
                 <input type="text" id="srLocation" data-bind="value: location" placeholder="Location" />
             </li>
         </ul>
     </form>
     
-    <a class="btn btn-collection" data-role="button" data-bind="click: submitRequest">Submit Request</a>
+    <a class="btn btn-collection" data-role="button" data-bind="click: takePicture">Take Picture</a>
+    
+    <div style="margin: 1em;">            
+        <img id="submit-request-image" style="width: 100%" hidden="hidden" />	
+        <span id="no-img-yet-span">Add a picture!</span>
+    </div>
+    
+    <a class="btn btn-collection" data-role="button" style="margin-bottom: 1em" data-bind="click: submitRequest">Submit Request</a>
     
     <span id="sub-notification"></span>
     

@@ -7,6 +7,20 @@
         </div>
     </div>
 
-    <span>Place Holder.</span>
+    <ul id="feedback-request-listview" data-style="inset" data-role="listview" 
+        data-template="feedbackRequestItemTemplate" 
+        data-bind="{source: feedbackData, click: requestSelected}"
+        data-filterable="{field:'reason',operator:'startswith'}">
+    </ul>
     
 </div>
+
+<script type="text/x-kendo-template" id="feedbackRequestItemTemplate">
+    <div data-role="touch" class="cf">
+        <a data-role="listview-link" class="no-decoration">
+        	<div class="activity-content">
+        		<h2 class="person-name">${reason}</h2>
+        	</div>
+		</a>
+    </div>
+</script>

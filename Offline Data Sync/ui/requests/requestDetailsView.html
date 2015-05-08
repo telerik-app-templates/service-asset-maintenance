@@ -36,11 +36,15 @@
 
             <span class="span-label">Completed Date</span><br />
             <span data-bind="text: completedDate"></span><br /><br />
-
+            
+            <span class="span-label">Picture</span><br />
+            <img id="request-details-image" style="width: 100%" /><span id="no-img-span" hidden="hidden">No Picture Provided.</span>
         </div>
     </form>
     
-    <a id="cancel-button" class="btn btn-collection" data-role="button" data-bind="click: cancelRequest">Cancel Request</a>
+    <div id="cancel-request-wrapper" class="disabled" style="margin-bottom: 1em">        
+    	<a id="cancel-button" class="btn btn-collection" data-role="button" data-bind="click: cancelRequest">Cancel Request</a>
+    </div>
     
     <span id="req-notification"></span>
     

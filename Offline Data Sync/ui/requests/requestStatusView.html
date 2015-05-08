@@ -11,16 +11,29 @@
         data-template="requestStatusListItemTemplate" 
         data-bind="{source: requestData, click: requestSelected}"
         data-filterable="{field:'reason',operator:'startswith'}">
-    </ul>    
+    </ul>
     
 </div>
 
 <script type="text/x-kendo-template" id="requestStatusListItemTemplate">
     <div data-role="touch" class="cf">
         <a data-role="listview-link" class="no-decoration">
-        	<div class="activity-content">
-        		<h2 class="person-name">${reason}</h2>
-        	</div>
+            <div class="activity-content" style="width: 100%">
+                <div>
+                    <span style="font-weight: bold">${reason}</span>
+                </div>
+                <div style="width: 100%">
+                    <div style="float: right; width: 150px; text-align: right">${status}</div>
+                    <div style="margin: 0 auto">Due: ${kendo.toString(dueDate, 'MMM dd yyyy')}</div>
+                </div>
+            </div>
 		</a>
     </div>
 </script>
+<!--
+        	<div class="activity-content">
+        		<h2 class="person-name">${reason}</h2>
+        	</div>
+
+
+-->
