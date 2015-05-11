@@ -4,7 +4,7 @@
      data-hide="srq.submitRequest.viewModel.hide">
     <div data-role="header">
         <div data-role="navbar">
-            Submit Request            
+            Submit Request
             <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>
         </div>
     </div>
@@ -50,14 +50,18 @@
         </ul>
     </form>
     
-    <a class="btn btn-collection" data-role="button" data-bind="click: takePicture">Take Picture</a>
+    <div style="signup-btn-wrp">
+        <a class="btn btn-signup btn-fix" data-role="button" data-bind="click: takePicture">Take Picture</a>
+    </div>    
     
     <div style="margin: 1em;">            
         <img id="submit-request-image" style="width: 100%" hidden="hidden" />	
         <span id="no-img-yet-span">Add a picture!</span>
     </div>
     
-    <a class="btn btn-collection" data-role="button" style="margin-bottom: 1em" data-bind="click: submitRequest">Submit Request</a>
+    <div class="signup-btn-wrp">
+    	<a class="btn btn-signup btn-fix" data-role="button" data-bind="click: submitRequest">Submit Request</a>
+    </div>
     
     <span id="sub-notification"></span>
     

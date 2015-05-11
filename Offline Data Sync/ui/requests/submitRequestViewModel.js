@@ -69,8 +69,6 @@
             	});
             },
             submitRequest : function (e) {
-                console.log(dataSource);
-                return;
                 srq.app.showLoading();                
                 srq.serviceRequestModel.submitRequest(dataSource, reqSubmitted);
             },

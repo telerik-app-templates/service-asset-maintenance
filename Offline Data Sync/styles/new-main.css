@@ -180,7 +180,7 @@ input[type='week'] {
   background-color: #e91e63;
 }
 
-#srqApp .signup-view .btn-signup,
+#srqApp .btn-signup,
 #srqApp .btn-delete {
   display: block;
   text-align: center;
@@ -206,7 +206,19 @@ input[type='week'] {
 }
 
 #srqApp .nav-button-back {
-  background-image: url(images/icon-arrow.png);
+  background-image: url(images/icon-arrow_dark.png);
+}
+
+#srqApp .nav-button-back {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 2em;
+    height: 2em;
+    border: 0 none;
+    background-color: transparent;
+    background-position: 0 50%;
+    background-repeat: no-repeat;
 }
 
 #srqApp .nav-button-back-d {
@@ -254,6 +266,18 @@ input[type='week'] {
   font-size: 1.3em;
 }
 
+/* App Footer */
+
+#srqApp .welcome-scrn .km-footer {
+    background-color: transparent;
+    'color: #fff;
+    text-align: center;
+}
+
+#srqApp .welcome-scrn .km-footer p {
+    font-size: .75rem;
+}
+
 /* Welcome screen */
 
 #srqApp .app-name {
@@ -261,11 +285,11 @@ input[type='week'] {
 }
 
 #srqApp .app-name {
-  width: 127px;
+  width: 250px;
   height: 119px;
   margin: 1.5em auto;
-  text-indent: -9999px;
-  background: transparent url(images/logo-friends.png) no-repeat 0 0;
+  'text-indent: -9999px;
+  'background: transparent url(images/logo-friends.png) no-repeat 0 0;
   overflow: hidden;
 }
 
@@ -487,7 +511,7 @@ input[type='week'] {
   border-radius: 25px;
 }
 
-#srqApp .activity-content,
+/*#srqApp .activity-content,*/
 #srqApp .comment-content {
   position: relative;
   padding-left: 5em;
@@ -632,7 +656,7 @@ input[type='week'] {
   }
 
   #srqApp .nav-button-back {
-    background-image: url(images/icon-arrow@2x.png);
+    background-image: url(images/icon-arrow_dark@2x.png);
   }
 
   #srqApp .nav-button-back-d {

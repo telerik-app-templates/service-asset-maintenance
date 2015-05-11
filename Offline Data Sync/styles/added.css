@@ -1,3 +1,7 @@
+#srqApp body {
+    color: #4c5356;
+}
+
 #srqApp .item-name-title {
     font-size: 1.5rem;
     display: block;
@@ -39,5 +43,20 @@
 }
 
 #srqApp .dropdownLabel span {
-    color: black
+    color: #4c5356;
+}
+
+#srqApp .txt {
+    color: #4c5356;
+}
+
+#srqApp .btn-wrp {
+    width: 100%;
+    margin: 0 1em;
+}
+
+#srqApp .btn-fix {
+    margin-bottom: 1em; 
+    margin-right: 1em; 
+    margin-left: 1em
 }
