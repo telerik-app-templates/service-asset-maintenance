@@ -12,10 +12,10 @@
     <form id="fbForm">
         <div id="submit-feedback-form" style="margin: 1em"><!-- data-role="listview" data-style="inset" -->
             
-            <span class="span-label">Reason</span><br/>
-            <span id="fb-reason-span" style="margin-bottom: 1em"></span><br />
+            <span id="feedback-reason-span" class="span-label"></span><br/>
+            <hr/>
             
-            <span class="span-label" style="margin-top: .25em;">Comment</span><br/>
+            <span class="span-label" style="margin-top: .5em;">Comment</span><br/>
             <input type="text" id="fbComment" class="k-input" style="width: 100%; margin-bottom: 1em; margin-top: .25em" data-bind="value: comment" placeholder="Comment" required/> <br />
 
             <span class="span-label">Rating (0-10)</span><br/>
@@ -26,7 +26,9 @@
         </div>
     </form>
     
-    <a class="btn btn-collection" data-role="button" data-bind="click: submitFeedbackItem">Submit Feedback</a>
+    <div id="submit-feedback-wrapper">
+    	<a class="btn btn-collection" data-role="button" data-bind="click: submitFeedbackItem">Submit Feedback</a>
+    </div>
     
     <span id="feed-notification"></span>
     

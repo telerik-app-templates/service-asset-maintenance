@@ -6,7 +6,11 @@
             <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>
         </div>
     </div>
-
+	
+    <div style="margin: 1em">
+        <span>The feedback form displays all work items, but feedback can only be submitted for items marked as 'Completed'. For any other issues, please contact customer service.</span><br />
+    </div>    
+    
     <ul id="feedback-request-listview" data-style="inset" data-role="listview" 
         data-template="feedbackRequestItemTemplate" 
         data-bind="{source: feedbackData, click: requestSelected}"
@@ -18,9 +22,15 @@
 <script type="text/x-kendo-template" id="feedbackRequestItemTemplate">
     <div data-role="touch" class="cf">
         <a data-role="listview-link" class="no-decoration">
-        	<div class="activity-content">
-        		<h2 class="person-name">${reason}</h2>
-        	</div>
+            <div class="activity-content" style="width: 100%">
+                <div>
+                    <span style="font-weight: bold">${reason}</span>
+                </div>
+                <div style="width: 100%">
+                    <div style="float: right; width: 150px; text-align: right">${status}</div>
+                    <div style="margin: 0 auto">Completed: ${kendo.toString(completedDate, 'MMM dd yyyy')}</div>
+                </div>
+            </div>
 		</a>
     </div>
 </script>

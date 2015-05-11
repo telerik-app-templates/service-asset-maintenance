@@ -1,12 +1,9 @@
 
 (function (srq) {
     
-    var privateVariablesHere;
-    
     srq.feedback = {        
         viewModel: kendo.observable({
             feedbackData: function () {
-                //return srq.feedbackItemModel.feedbackData;
                 return srq.serviceRequestModel.serviceData;
             },
             requestSelected: function (e) {

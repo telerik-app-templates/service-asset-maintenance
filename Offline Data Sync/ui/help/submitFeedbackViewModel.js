@@ -31,7 +31,13 @@
             show: function () {
                 req = srq.appSettings.feedbackRequest;
                 dataSource.set("requestId", req.id);
-                $("#fb-reason-span").text(req.reason);
+                $("#feedback-reason-span").text(req.reason);
+                
+                if (req.status.indexOf("Completed") > -1) {
+                    $("#submit-feedback-wrapper").removeClass('disabled');
+                } else {
+                    $("#submit-feedback-wrapper").addClass('disabled');
+                }
                 
                 kendo.bind($('#submit-feedback-form'), dataSource, kendo.mobile.ui);
             },

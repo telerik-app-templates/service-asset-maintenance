@@ -26,6 +26,18 @@
     font-size: 1.4em;
 }
 
+#srqApp .questionLabel {
+    font-weight: bold;
+}
+
 #srqApp .form-paragraph {
     margin: 0px;
+}
+
+#srqApp .dropdownLabel {
+    margin-bottom: .25em
+}
+
+#srqApp .dropdownLabel span {
+    color: black
 }
