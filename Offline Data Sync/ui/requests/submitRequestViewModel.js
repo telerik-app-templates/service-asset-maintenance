@@ -9,9 +9,11 @@
         priority: 'Low',
         description: '',
         maintenanceType: 'Repair',
-        location: '',
+        //location: '',
         status: 'Submitted',
-        picture: ''
+        picture: '',
+        asset: '',
+        geoLocation: { "latitude": 0, "longitude": 0 }
     });
     
     var reqSubmitted = function (result) {
@@ -46,11 +48,29 @@
         notificationWidget.warning(message);
     };
     
+    var geoSucces = function (success) {
+        console.log(success);
+        dataSource.geoLocation.latitude = success.coords.latitude;
+        dataSource.geoLocation.longitude = success.coords.longitude;
+
+        console.log(dataSource);
+    };
+    
+    var geoFail = function (fail) {
+        // silent fail right now, defaults to 0:0 from init
+    };
+    
+    var grabGeo = function () {
+        navigator.geolocation.getCurrentPosition(geoSucces, geoFail);
+    };
+    
     srq.submitRequest = {        
         viewModel: kendo.observable({
             show: function (e) {
                 $("#no-img-yet-span").show();
                 $("#submit-request-image").hide();
+                
+                grabGeo();
                 
                 kendo.bind($('#submit-service-request-form'), dataSource, kendo.mobile.ui);
             },
@@ -63,9 +83,11 @@
                     priority: 'Low',
                     description: '',
                     maintenanceType: 'Repair',
-                    location: '',
+                    //location: '',
                     status: 'Submitted',
-                    picture: ''
+                    picture: '',
+                    asset: '',
+                    geoLocation: { "latitude": 0, "longitude": 0 }
             	});
             },
             submitRequest : function (e) {

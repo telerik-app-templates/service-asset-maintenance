@@ -32,24 +32,32 @@
                     field: 'MaintenanceType',
                     defaultValue: ''
                 },
-                location: {
+                /*location: {
                     field: 'Location',
                     defaultValue: ''
-                },
+                },*/
                 status: {
                     field: 'Status',
                     defaultValue: ''
                 },
                 picture: {
                     field: 'Picture',
-                    defaultValyue: ''
+                    defaultValue: ''
+                },
+                asset: {
+                    field: 'Asset',
+                    defaultValue: ''
+                },
+                geoLocation: {
+                    field: 'Geolocation',
+                    defaultValue: ''
                 }
             }
     };
     
     srq.serviceRequestModel = {
         serviceData: new kendo.data.DataSource({
-            offlineStorage: "serviceData",
+            //offlineStorage: "serviceData",
             type: 'everlive',
             schema: {
                 model: dataModel
