@@ -15,12 +15,8 @@
             <li>
                 <input type="text" id="srReason" data-bind="value: reason" placeholder="Reason" required/>
             </li>
-            <li>
-                <div id="deviceDiv">
-                    <input type="text" id="srAsset" data-bind="value: asset" placeholder="Asset" />
-                    <a class="btn" data-role="button" data-bind="click: scanBarcode">Scan Asset Barcode</a>
-                </div>
-                <div id="simulatedDiv">
+            <li id="simulatedDiv">
+                <div>
                     <div class="dropdownLabel">
                         <span>Asset:</span>
                     </div>
@@ -65,7 +61,20 @@
             </li>            
         </ul>
     </form>
-    
+    <form>
+        <ul id="deviceDiv" data-role="listview" data-style="inset">
+            <li>
+                <div>
+                    <div class="dropdownLabel">
+                        <span>Asset:</span>
+                    </div>
+                    <span id="captured-asset">No Value Recorded</span><br/>
+                    <a class="btn" data-role="button" data-bind="click: scanBarcode">Scan Asset Barcode</a>
+                </div>
+            </li>
+        </ul>
+    </form>
+
     <div style="signup-btn-wrp">
         <a class="btn btn-signup btn-fix" data-role="button" data-bind="click: takePicture"><span id="take-picture-button-text"></span></a>
     </div>    

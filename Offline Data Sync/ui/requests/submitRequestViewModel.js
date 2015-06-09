@@ -127,10 +127,14 @@
                 });
             },
             scanBarcode: function (e) {
+                console.log("hit scanBarcode");
                 cordova.plugins.barcodeScanner.scan(
                     function (result) {
                         console.log("scan complete");
                         console.log(result);
+                        dataSource.set('asset', result.text);
+                        console.log(dataSource);                        
+                        $("#captured-asset").text(result.text);
                     },
                     function (error) {
                         console.log("scan error");
