@@ -1,0 +1,93 @@
+<div data-role="view" id="view-submit-request" class="submit-request-view" 
+     data-model="srq.submitRequest.viewModel"
+     data-init="srq.submitRequest.viewModel.init"
+     data-show="srq.submitRequest.viewModel.show"
+     data-hide="srq.submitRequest.viewModel.hide">
+    <div data-role="header">
+        <div data-role="navbar">
+            <span id="submit-request-title"></span>
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton"></a>
+        </div>
+    </div>
+
+    <form id="srForm">
+        <ul id="submit-service-request-form" data-role="listview" data-style="inset">
+            <li>
+                <input type="text" id="srReason" data-bind="value: reason" placeholder="Reason" required/>
+            </li>
+            <li id="simulatedDiv">
+                <div>
+                    <div class="dropdownLabel">
+                        <span>Asset:</span>
+                    </div>
+                    <select id="srAssetSimulated" data-bind="value: asset">
+                        <option selected>Furnace</option>
+                        <option>Ceiling</option>
+                        <option>Power Generators</option>
+                        <option>Coffee Machine</option>
+                        <option>Servers</option>
+                    </select>
+                </div>                
+            </li>
+            <li>
+                <input type="text" id="srDescription" data-bind="value: description" placeholder="Description" />
+            </li>            
+            <li class="select-wrp">              
+                <div class="dropdownLabel">
+                    <span>Priority:</span>
+                </div>
+                <select id="srPriorityPicker" data-bind="value: priority">
+                    <option selected>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+            </li>
+            <li>
+                <div class="dropdownLabel">
+                    <span>Due Date:</span>
+                </div>
+                <input type="date" id="srDueDate" data-bind="value: dueDate" placeholder="Due Date" />
+            </li>
+            <li class="select-wrp">
+                <div class="dropdownLabel">
+                    <span>Maintenance Type:</span>
+                </div>
+                <select id="srTypePicker" data-bind="value: maintenanceType">
+                    <option selected>Repair</option>
+                    <option>Emergency</option>
+                    <option>Routine</option>
+                    <option>Monthly</option>
+                </select>
+            </li>            
+        </ul>
+    </form>
+    <form>
+        <ul id="deviceDiv" data-role="listview" data-style="inset">
+            <li>
+                <div>
+                    <div class="dropdownLabel">
+                        <span>Asset:</span>
+                    </div>
+                    <span id="captured-asset">No Value Recorded</span><br/>
+                    <a class="btn" data-role="button" data-bind="click: scanBarcode">Scan Asset Barcode</a>
+                </div>
+            </li>
+        </ul>
+    </form>
+
+    <div style="signup-btn-wrp">
+        <a class="btn btn-signup btn-fix" data-role="button" data-bind="click: takePicture"><span id="take-picture-button-text"></span></a>
+    </div>    
+    
+    <div style="margin: 1em;">            
+        <img id="submit-request-image" style="width: 100%" hidden="hidden" />	
+        <span id="no-img-yet-span"></span>
+    </div>
+    
+    <div class="signup-btn-wrp">
+    	<a class="btn btn-signup btn-fix" data-role="button" data-bind="click: submitRequest"><span id="submit-request-button-text"></span></a>
+    </div>
+    
+    <span id="sub-notification"></span>
+    
+</div>

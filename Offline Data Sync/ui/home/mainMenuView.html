@@ -1,0 +1,23 @@
+<div data-role="view" id="view-main-menu" class="main-menu-view" 
+     data-model="srq.main.viewModel"
+     data-init="srq.main.viewModel.init">
+    <div data-role="header">
+        <div data-role="navbar">
+            <span id="main-menu-title"></span>
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="button" data-click="srq.main.viewModel.logout">Log Out</a>
+        </div>
+    </div>
+
+    <ul id="menu-listview" data-style="inset" data-role="listview" data-template="menuTemplate" data-bind="source: menuData"></ul>
+
+</div>
+
+<script type="text/x-kendo-template" id="menuTemplate">
+    <div data-role="touch" class="cf">
+        <a href='ui/#:viewName#' data-role="listview-link" class="no-decoration">
+        	<div class="activity-content">
+        		<h2 class="person-name">${displayName}</h2>
+        	</div>
+		</a>
+    </div>
+</script>

@@ -1,0 +1,28 @@
+<div data-role="view" id="welcome" class="welcome-scrn form-view" 
+     data-model="srq.login.viewModel" 
+     data-init="srq.login.viewModel.init" 
+     data-show="srq.login.viewModel.show">
+    <div data-role="header"></div>
+    <h1 class="app-name center-text" style="text-align:center">Service<small>Asset Maintenance</small></h1>
+    <form id="login-form">
+        <ul data-role="listview" data-style="inset">
+            <li class="username"><input type="text" id="loginUsername" placeholder="Username" required validationMessage="Username is required!" /></li>
+            <li class="password"><input type="password" id="loginPassword" placeholder="Password" required validationMessage="Password is required!" /></li>
+        </ul>
+    </form>
+    <ol class="group-wrp">
+        <li>
+            <span id="login" data-role="touch" data-bind="events: { tap: login }">
+                <a data-role="button" class="btn btn-login"><span id="login-button-text"></span> </a>
+            </span>
+        </li>
+
+        <li class="signup">
+            <a data-role="button" href="ui/login/signupView.html" class="btn-signup"><span id="no-account-signup-text"></span></a>
+        </li>
+    </ol>
+
+    <div data-role="footer" style="text-align: center; margin-bottom: 1em">
+        <span style="margin-bottom: 1em">&copy; 2015 </span><span style="margin-bottom: 1em" id="copyright-company-text"></span>
+	</div>
+</div>

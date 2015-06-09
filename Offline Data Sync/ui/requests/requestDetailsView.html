@@ -1,0 +1,51 @@
+<div data-role="view" id="view-submit-request" class="submit-request-view" 
+     data-model="srq.requestDetails.viewModel"
+     data-show="srq.requestDetails.viewModel.show">
+    <div data-role="header">
+        <div data-role="navbar">
+            Request Details           
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>
+        </div>
+    </div>
+    
+    <form id="srDetailsForm">
+        <div id="request-details-form" style="margin: 1em">
+            <span class="span-label" data-bind="text: reason"></span><br />
+            <hr />
+
+            <span class="span-label">Status</span><br />
+            <span data-bind="text: status"></span><br /><br />
+
+            <span class="span-label">Priority</span><br />
+            <span data-bind="text: priority"></span><br /><br />
+
+            <span class="span-label">Description</span><br />
+            <span data-bind="text: description"></span><br /><br />                
+
+            <span class="span-label">Maintenance Type</span><br />
+            <span data-bind="text: maintenanceType"></span><br /><br />
+
+            <span class="span-label">Location</span><br />
+            <span data-bind="text: location"></span><br /><br />
+
+            <span class="span-label">Created At</span><br />
+            <span data-bind="text: createdAt"></span><br /><br />
+
+            <span class="span-label">Due Date</span><br />
+            <span data-bind="text: dueDate"></span><br /><br />
+
+            <span class="span-label">Completed Date</span><br />
+            <span data-bind="text: completedDate"></span><br /><br />
+            
+            <span class="span-label">Picture</span><br />
+            <img id="request-details-image" style="width: 100%" /><span id="no-img-span" hidden="hidden">No Picture Provided.</span>
+        </div>
+    </form>
+    
+    <div id="cancel-request-wrapper" class="disabled signup-btn-wrp" style="margin-bottom: 1em">        
+    	<a id="cancel-button" class="btn btn-signup btn-fix" data-role="button" data-bind="click: cancelRequest">Cancel Request</a>
+    </div>
+    
+    <span id="req-notification"></span>
+    
+</div>

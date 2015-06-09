@@ -15,9 +15,9 @@ app.Location = (function () {
             var locationId = e.view.params.uid;
             
             location = app.AppStorage.locations.locationDataSource.getByUid(locationId);
-            
+            console.log(location);
             if (location != null) {
-                $('#locationTitleSpan').text(location.NoteTitle);                                               
+                kendo.bind($('#location-view-form'), location, kendo.mobile.ui);
             } else {
                 console.log("Problem loading location.");
             }

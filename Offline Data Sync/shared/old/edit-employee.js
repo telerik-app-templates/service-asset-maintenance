@@ -1,20 +1,21 @@
 var app = app || {};
 
-app.AddEmployee = (function () {
+app.EditEmployee = (function () {
     'use strict';
-    
-    var addEmployeeViewModel = (function () {
+
+    var editEmployeeViewModel = (function () {
 
         var dataSource;
 		var $signUpForm;
         var $formFields;
         var $signupBtnWrp;
         var validator;
+        var employee;
         
         var init = function () {
-			console.log("addEmployeeViewModel init");
+			console.log("editEmployeeViewModel init");
             
-            $signUpForm = $('#addEmployeeForm');
+            $signUpForm = $('#editEmployeeForm');
             $formFields = $signUpForm.find('input, textarea, select');
             $signupBtnWrp = $('#signupBtnWrp');
             validator = $signUpForm.kendoValidator({ validateOnBlur: false }).data('kendoValidator');
@@ -25,38 +26,40 @@ app.AddEmployee = (function () {
                 } else {
                     $signupBtnWrp.addClass('disabled');
                 }
-            });
-        };
+            });            
+        }
 
-        var show = function () {            
-            dataSource = kendo.observable({
-                Name: '',
-                Position: '',
-                Department: '',
-                CreatedAt: new Date()
-            });
+        var show = function (e) {
+            var employeeId = e.view.params.uid;
             
-            kendo.bind($('#add-employee-form'), dataSource, kendo.mobile.ui);
+            employee = app.AppStorage.employees.employeeDataSource.getByUid(employeeId);
+            
+            if (employee == null) {
+                console.log("Problem loading employee.");
+            }
+            
+            kendo.bind($('#edit-employee-form'), employee, kendo.mobile.ui);
         };
         
 		var hide = function () {
             $signupBtnWrp.addClass('disabled');
         };
-        
-        var addEmployee = function () {
-            app.AppStorage.employees.addEmployee( dataSource );
+
+        var editEmployee = function () {
+
+            app.AppStorage.employees.edit( employee );
             app.mobileApp.navigate('#:back');
         };
-
+        
         return {
             init: init,
             show: show,
             hide: hide,
-            addEmployee: addEmployee
+            editEmployee: editEmployee
         };
 
     }());
 
-    return addEmployeeViewModel;
+    return editEmployeeViewModel;
 
 }());

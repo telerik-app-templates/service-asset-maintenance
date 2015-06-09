@@ -5,64 +5,75 @@
         <meta charset="utf-8" />
         <script src="cordova.js"></script>
         
-        <!-- Telerik CDN -->
-        <link href="http://cdn.kendostatic.com/2014.2.903/styles/kendo.common.min.css" rel="stylesheet" />
-        <link href="http://cdn.kendostatic.com/2014.2.903/styles/kendo.default.min.css" rel="stylesheet" />
-        <link href="http://cdn.kendostatic.com/2014.2.903/styles/kendo.dataviz.min.css" rel="stylesheet" />
-        <link href="http://cdn.kendostatic.com/2014.2.903/styles/kendo.dataviz.default.min.css" rel="stylesheet" />
-        <link href="http://cdn.kendostatic.com/2014.2.903/styles/kendo.mobile.all.min.css" rel="stylesheet" />
-        <script src="http://cdn.kendostatic.com/2014.2.903/js/jquery.min.js"></script>
-        <script src="http://cdn.kendostatic.com/2014.2.903/js/kendo.all.min.js"></script>
+        <!-- Telerik CDN -->        
+        <link href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.common.min.css" rel="stylesheet" />
+        <link href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.default.min.css" rel="stylesheet" />
+        <link href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.dataviz.min.css" rel="stylesheet" />
+        <link href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.dataviz.default.min.css" rel="stylesheet" />
+        <link href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+        <script src="http://cdn.kendostatic.com/2014.3.1411/js/jquery.min.js"></script>
+        <script src="http://cdn.kendostatic.com/2014.3.1411/js/kendo.all.min.js"></script>
         
-        <!-- Local scripts, app logic -->
-        <script src="scripts/lib/everlive.all.min.js"></script>
-        <script src="scripts/app/settings.js" type="text/javascript"></script>
-        <script src="scripts/app/app.js" type="text/javascript"></script>
-        <script src="scripts/app/appstorage.js" type="text/javascript"></script>
-        <script src="scripts/app/login.js" type="text/javascript"></script>
-        <script src="scripts/app/signup.js" type="text/javascript"></script>
-        <script src="scripts/app/main-menu.js" type="text/javascript"></script>
-        <script src="scripts/app/datasync.js" type="text/javascript"></script>
-        <script src="scripts/app/location-maintenance.js" type="text/javascript"></script>
-        <script src="scripts/app/add-location.js" type="text/javascript"></script>
-        <script src="scripts/app/location.js" type="text/javascript"></script>
-        <script src="scripts/app/employee-maintenance.js" type="text/javascript"></script>
-        <script src="scripts/app/add-employee.js" type="text/javascript"></script>
-        <script src="scripts/app/employee.js" type="text/javascript"></script>
-        <script src="scripts/app/edit-employee.js" type="text/javascript"></script>
-                
         <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800" rel="stylesheet" type="text/css" />
-        <link href="styles/main.css" rel="stylesheet" />
+        <link href="styles/new-main.css" rel="stylesheet" />
         <link href="styles/added.css" rel="stylesheet" />
     </head>
-    <body id="olaApp">
-        <div data-role="layout" data-id="default">
-            <!--View content will render here-->
+    <body id="srqApp">
+		
+        <div data-role="layout" data-id="main">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                </div>
+            </div>
+            <!-- application views will be rendered here -->
         </div>
 
-        <div data-role="view" id="welcome" data-layout="default" class="welcome-scrn form-view" data-model="app.Login" data-init="app.Login.init" data-show="app.Login.show">
-            <div data-role="header"></div>
-            <h1 class="app-logo hide-text center-block">offlineData</h1>
-            <h2 class="app-name center-text">Mobile<small>Plant Management</small></h2>
-            <form id="login-form">
-                <ul data-role="listview" data-style="inset">
-                    <li class="username"><input type="text" id="loginUsername" placeholder="Username" required validationMessage="Username is required!" /></li>
-                    <li class="password"><input type="password" id="loginPassword" placeholder="Password" required validationMessage="Password is required!" /></li>
-                </ul>
-            </form>
-            <ol class="group-wrp">
-                <li>
-                    <span id="login" data-role="touch" data-bind="events: { tap: login }">
-                        <a data-role="button" class="btn btn-login">Login</a>
-                    </span>
-                </li>
+        <script>
+            // global namespace
+            this.srq = {};
+        </script>
 
-                <li class="signup">
-                    <a data-role="button" href="views/signupView.html" class="btn-signup">Don't have an account?</a>
-                </li>
-            </ol>
+        <!-- libraries -->
+        <script src="shared/lib/everlive.all.min.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA2Qc-lUaUAiZ6ZedWgRqq_YVveJq_CzU&sensor=TRUE"></script>
 
-            <div data-role="footer"><p>&copy; <span data-bind="text: getYear"></span> OLA</p></div>
-        </div>
+        <!-- utilities -->
+        <script src="shared/appSettings.js"></script>
+
+        <!-- models -->
+        <script src="shared/models/serviceRequestModel.js"></script>
+        <script src="shared/models/feedbackItemModel.js"></script>
+        
+        <!-- viewModels -->        
+        <script src="ui/login/loginViewModel.js"></script>
+        <script src="ui/login/signupViewModel.js"></script>
+        
+        <script src="ui/home/mainMenuViewModel.js"></script>
+        
+        <script src="ui/help/csViewModel.js"></script>
+        <script src="ui/help/feedbackViewModel.js"></script>
+        <script src="ui/help/helpFaqViewModel.js"></script>
+        <script src="ui/help/submitFeedbackViewModel.js"></script>
+        
+        <script src="ui/requests/requestStatusViewModel.js"></script>
+        <script src="ui/requests/requestDetailsViewModel.js"></script>
+        <script src="ui/requests/submitRequestViewModel.js"></script>
+
+        <script>
+            // start app
+            srq.app = new kendo.mobile.Application(
+                document.body, {
+                    skin: 'flat',
+                    initial: 'ui/login/loginView.html',
+                    init: function () { }
+                });
+            
+            srq.everlive = new Everlive(srq.appSettings.elKey);
+            
+            srq.notify = function (message, title, callback) {
+                navigator.notification.alert(message, callback, title, "Ok");
+            };
+        </script>
     </body>
 </html>

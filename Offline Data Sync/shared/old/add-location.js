@@ -8,9 +8,7 @@ app.AddLocation = (function () {
         var dataSource,
             selectedEmployee;
 
-        var addLocation = function () {            
-            console.log("dataSource");
-            console.log(dataSource);
+        var addLocation = function () {
             app.AppStorage.locations.addLocation( dataSource );
             app.mobileApp.navigate('#:back');
         };
@@ -20,8 +18,8 @@ app.AddLocation = (function () {
         };
         
         var onSuccess = function (position) {
-            dataSource.GeoLocation.latitude = position.coords.latitude;
-            dataSource.GeoLocation.longitude = position.coords.longitude;
+            dataSource.geoLocation.latitude = position.coords.latitude;
+            dataSource.geoLocation.longitude = position.coords.longitude;
             
             $('#lat').text(position.coords.latitude);
             $('#long').text(position.coords.longitude);
@@ -36,22 +34,25 @@ app.AddLocation = (function () {
         }
 
         var show = function () {
+            console.log("addLocationViewModel show");
             dataSource = kendo.observable({
-                NoteTitle: '',
-                Description: '',
-                GeoLocation: { "latitude": 0, "longitude": 0 },
-                Employee: '00000000-0000-0000-0000-000000000000'
+                noteTitle: '',
+                description: '',
+                geoLocation: { "latitude": 0, "longitude": 0 },
+                employee: '00000000-0000-0000-0000-000000000000',
+                status: 'Submitted'
             });
+            
             kendo.bind($('#add-location-form'), dataSource, kendo.mobile.ui);
 
             var employees = app.AppStorage.employees.employeeDataSource;
 
             if (employees && employees.data.length > 0) {
-                console.log(employees);
                 $("#employee-select-list").kendoMobileListView({
                     dataSource: employees,
                     template: kendo.template($("#employeeSelectTemplate").html()),
-                    click: setSelectedEmployee
+                    click: setSelectedEmployee,
+                    style: "inset"
                 });
             } else {
                 console.log("no employees");
@@ -66,8 +67,8 @@ app.AddLocation = (function () {
         };
 
         var processSelection = function ( emp ) {
-            $("#selection-span").text(emp.Name);
-            dataSource.Employee = emp.uid;
+            $("#selection-span").text(emp.name);
+            dataSource.employee = emp.id;
         };
 
         var closeEmployeeSelect = function () {

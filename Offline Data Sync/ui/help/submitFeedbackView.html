@@ -1,0 +1,35 @@
+<div data-role="view" id="view-submit-request" class="submit-request-view" 
+     data-model="srq.submitFeedback.viewModel"
+     data-show="srq.submitFeedback.viewModel.show"
+     data-hide="srq.submitFeedback.viewModel.hide">
+    <div data-role="header">
+        <div data-role="navbar">
+            Submit Feedback            
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>
+        </div>
+    </div>
+
+    <form id="fbForm">
+        <div id="submit-feedback-form" style="margin: 1em"><!-- data-role="listview" data-style="inset" -->
+            
+            <span id="feedback-reason-span" class="span-label"></span><br/>
+            <hr/>
+            
+            <span class="span-label" style="margin-top: .5em;">Comment</span><br/>
+            <input type="text" id="fbComment" class="k-input" style="width: 100%; margin-bottom: 1em; margin-top: .25em" data-bind="value: comment" placeholder="Comment" required/> <br />
+
+            <span class="span-label">Rating (0-10)</span><br/>
+            <input type="number" id="fbRating" class="k-input" style="width: 100%; margin-bottom: 1em; margin-top: .25em" data-bind="value: rating" min="0" max="10" placeholder="Rating" /> <br />
+            
+            <span class="span-label">Review Requested?</span><br />
+            <input type="checkbox" id="fbRequestReview" data-role="switch" data-off-label="No" data-on-label="Yes" style="width: 100%; margin-top: 1em; margin-bottom: 1em" data-bind="checked: requestReview" placeholder="Request Review" />
+        </div>
+    </form>
+    
+    <div id="submit-feedback-wrapper" class="signup-btn-wrp">
+    	<a class="btn btn-signup btn-fix" data-role="button" data-bind="click: submitFeedbackItem">Submit Feedback</a>
+    </div>
+    
+    <span id="feed-notification"></span>
+    
+</div>

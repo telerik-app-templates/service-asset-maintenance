@@ -24,27 +24,31 @@ app.AppStorage = (function () {
     
     var locationNoteModel = (function() {
         var locationModel = {
-            id: 'Id',
+            id: Everlive.idField,
             fields: {
-                CreatedAt: {
+                createdAt: {
                     field: 'CreatedAt',
                     defaultValue: new Date()
                 },
-                NoteTitle: {
+                noteTitle: {
                     field: 'NoteTitle',
                     defaultValue: ''
                 },
-                Description: {
+                description: {
                     field: 'Description',
                     defaultValue: ''
                 },
-                GeoLocation: {
+                geoLocation: {
                     field: 'GeoLocation',
                     defaultValue: ''
                 },
-                Employee: {
+                employee: {
                     field: 'Employee',
                     defaultValue: ''
+                },
+                status: {
+                    field: 'Status',
+                    defaultValue: 'Submitted'
                 }
             }
         };
@@ -99,21 +103,21 @@ app.AppStorage = (function () {
     var employeesModel = (function() {
         
         var employeeModel = {
-            id: 'Id',
+            id: Everlive.idField,
             fields: {
-                CreatedAt: {
+                createdAt: {
                     field: 'CreatedAt',
                     defaultValue: new Date()
                 },
-                Name: {
+                name: {
                     field: 'Name',
                     defaultValue: ''
                 },
-                Department: {
+                department: {
                     field: 'Department',
                     defaultValue: ''
                 },
-                Position: {
+                position: {
                     field: 'Position',
                     defaultValue: ''
                 }
