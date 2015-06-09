@@ -27,8 +27,8 @@
                     $("#cancel-request-wrapper").removeClass('disabled');
                 }
                 
-                //console.log(req);
-                if (req.picture == undefined) {
+                console.log(req);
+                if (req.picture == undefined || req.picture == null || req.picture == "") {
                     $("#request-details-image").hide();
                     $("#no-img-span").show();
                 } else {

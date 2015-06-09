@@ -6,17 +6,7 @@
     
     srq.signup = {
         viewModel: kendo.observable({
-            signup: function () {
-
-                dataSource.Gender = parseInt(dataSource.Gender);
-                var birthDate = new Date(dataSource.BirthDate);
-
-                if (birthDate.toJSON() === null) {
-                    birthDate = new Date();
-                }
-
-                dataSource.BirthDate = birthDate;
-                               
+            signup: function () {              
                 srq.everlive.Users.register(
                     dataSource.Username,
                     dataSource.Password,
@@ -31,6 +21,10 @@
             },
 
             init: function (e) {
+                // init strings
+                $("#signup-header-title").text(srq.appSettings.strings.signupTitle);
+                $("#register-button-text").text(srq.appSettings.strings.registerText);
+                
                 $signUpForm = $('#signUp');
                 $formFields = $signUpForm.find('input, textarea, select');
                 $signupBtnWrp = $('#signupBtnWrp');
@@ -50,10 +44,7 @@
                     Password: '',
                     DisplayName: '',
                     Email: '',
-                    Gender: '0',
-                    About: '',
-                    Friends: [],
-                    BirthDate: new Date()
+                    About: ''
                 });
                 kendo.bind($('#signup-form'), dataSource, kendo.mobile.ui);
             },

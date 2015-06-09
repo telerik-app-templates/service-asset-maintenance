@@ -7,8 +7,13 @@
     srq.login = {
         viewModel: kendo.observable({
             init: function (e) {
+                // every view init populates UI labels
+                $("#login-button-text").text(srq.appSettings.strings.loginText);
+                $("#no-account-signup-text").text(srq.appSettings.strings.noAccountText);
+                $("#copyright-company-text").text(srq.appSettings.strings.copyrightCompany);
+                
                 $loginUsername = $('#loginUsername');
-            	$loginPassword = $('#loginPassword');
+            	$loginPassword = $('#loginPassword');                                
             },
             show: function () {
             	$loginUsername.val('demo');

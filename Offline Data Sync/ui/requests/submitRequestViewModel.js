@@ -9,11 +9,12 @@
         priority: 'Low',
         description: '',
         maintenanceType: 'Repair',
-        //location: '',
+        location: '',
         status: 'Submitted',
         picture: '',
         asset: '',
-        geoLocation: { "latitude": 0, "longitude": 0 }
+        geoLocation: { "latitude": 0, "longitude": 0 },
+        address: ''
     });
     
     var reqSubmitted = function (result) {
@@ -49,11 +50,23 @@
     };
     
     var geoSucces = function (success) {
-        console.log(success);
         dataSource.geoLocation.latitude = success.coords.latitude;
         dataSource.geoLocation.longitude = success.coords.longitude;
-
-        console.log(dataSource);
+		var that = dataSource;
+        
+        if (google){
+            var latLng = new google.maps.LatLng(success.coords.latitude, success.coords.longitude);
+            new google.maps.Geocoder().geocode({'latLng':latLng}, function(results, status){
+                if (results && results.length){
+                    if (results[0].formatted_address){                    
+                        that.set("location", results[0].formatted_address);
+                    }
+                    if (results[0].address_components){
+                        that.set("address", JSON.stringify(results[0].address_components));
+                    }
+                }
+            });
+        }
     };
     
     var geoFail = function (fail) {
@@ -66,6 +79,18 @@
     
     srq.submitRequest = {        
         viewModel: kendo.observable({
+            init: function (e) {
+                $("#submit-request-title").text(srq.appSettings.strings.submitRequestHeader);
+                $("#submit-request-button-text").text(srq.appSettings.strings.submitRequestHeader);
+                $("#take-picture-button-text").text(srq.appSettings.strings.takePicture);
+                $("#no-img-yet-span").text(srq.appSettings.strings.addPictureText);
+                
+                if (window.navigator.simulator === true) {
+                    $("#deviceDiv").hide();
+                } else {
+                    $("#simulatedDiv").hide();
+                }
+            },
             show: function (e) {
                 $("#no-img-yet-span").show();
                 $("#submit-request-image").hide();
@@ -75,7 +100,7 @@
                 kendo.bind($('#submit-service-request-form'), dataSource, kendo.mobile.ui);
             },
             hide: function (e) {
-                dataSource = kendo.observable({
+                dataSource = kendo.observable({                    
                     createdAt: new Date(),
                     reason: '',
                     dueDate: new Date(),
@@ -83,11 +108,12 @@
                     priority: 'Low',
                     description: '',
                     maintenanceType: 'Repair',
-                    //location: '',
+                    location: '',
                     status: 'Submitted',
                     picture: '',
                     asset: '',
-                    geoLocation: { "latitude": 0, "longitude": 0 }
+                    geoLocation: { "latitude": 0, "longitude": 0 },
+                    address: ''
             	});
             },
             submitRequest : function (e) {
@@ -99,6 +125,18 @@
                     quality: 50,
                     destinationType: navigator.camera.DestinationType.DATA_URL
                 });
+            },
+            scanBarcode: function (e) {
+                cordova.plugins.barcodeScanner.scan(
+                    function (result) {
+                        console.log("scan complete");
+                        console.log(result);
+                    },
+                    function (error) {
+                        console.log("scan error");
+                        console.log(error);
+                    }
+                );
             }
         })
     }

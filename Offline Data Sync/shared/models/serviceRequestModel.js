@@ -32,10 +32,10 @@
                     field: 'MaintenanceType',
                     defaultValue: ''
                 },
-                /*location: {
+                location: {
                     field: 'Location',
                     defaultValue: ''
-                },*/
+                },
                 status: {
                     field: 'Status',
                     defaultValue: ''
@@ -50,6 +50,10 @@
                 },
                 geoLocation: {
                     field: 'Geolocation',
+                    defaultValue: ''
+                },
+                address: {
+                    field: 'Address',
                     defaultValue: ''
                 }
             }
@@ -73,22 +77,25 @@
             srq.serviceRequestModel.serviceData.add(request);
             srq.serviceRequestModel.serviceData.sync()
             	.then(function (success) {
-                	callback("Request Submitted.");
+                	callback(srq.appSettings.strings.submitSuccessMessage);
             	}, function (fail) {
-                	callback("Submit failed, try again or contact Customer Service if it continues to fail.");
+                	callback(srq.appSettings.strings.submitFailMessage);
             	});
         },
         cancelRequest: function (request, callback) {
             request.set("status", "Cancel Requested");
             srq.serviceRequestModel.serviceData.sync()
             	.then(function(success) {
-                	console.log("success");
-                	callback("Request Submitted for Cancellation.")
+                	callback(srq.appSettings.strings.cancelSuccessMessage);
             	}, function (fail) {
-                console.log("fail");
-                	callback("Request failed, please check with support or try again later.")
+                	callback(srq.appSettings.strings.cancelFailMessage);
             	});
         }
     };
     
 })(srq);
+
+        
+        
+        
+        
