@@ -23,6 +23,8 @@
   "FrameworkVersion": "3.7.0",
   "CorePlugins": [
     "com.phonegap.plugins.barcodescanner@1.2.9",
+    "com.telerik.feedback",
+    "com.telerik.plugin.eqatecanalytics",
     "org.apache.cordova.battery-status",
     "org.apache.cordova.camera",
     "org.apache.cordova.console",
@@ -77,5 +79,5 @@
   "Framework": "Cordova",
   "WP8WindowsPublisherName": "CN=Telerik",
   "WP8PackageIdentityName": "1234Telerik.com.telerik.OfflineDataSync",
-  "CordovaPluginVariables": {}
+  "WPSdk": "8.0"
 }

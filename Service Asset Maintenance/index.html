@@ -36,6 +36,7 @@
 
         <!-- libraries -->
         <script src="shared/lib/everlive.all.min.js"></script>
+        <script src="shared/analytics.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA2Qc-lUaUAiZ6ZedWgRqq_YVveJq_CzU&sensor=TRUE"></script>
 
         <!-- utilities -->
@@ -66,7 +67,10 @@
                 document.body, {
                     skin: 'flat',
                     initial: 'ui/login/loginView.html',
-                    init: function () { }
+                    init: function () { 
+                        analytics.Start();
+	                    feedback.initialize('c3d1f8a0-0f7b-11e5-ad55-890589a8af57');    
+                    }
                 });
             
             srq.everlive = new Everlive(srq.appSettings.elKey);
