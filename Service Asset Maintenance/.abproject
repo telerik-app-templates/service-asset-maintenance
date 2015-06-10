@@ -1,5 +1,5 @@
 {
-  "ProjectName": "Offline Data Sync",
+  "ProjectName": "Service Asset Maintenance",
   "ProjectGuid": "3c692ccf-f877-4582-844c-fd3867893227",
   "projectVersion": 1,
   "AppIdentifier": "com.telerik.ServiceAssetMaintenance",
