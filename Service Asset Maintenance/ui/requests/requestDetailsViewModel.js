@@ -19,7 +19,7 @@
             show: function () {
                 req = srq.appSettings.currentRequest;
                 
-                if (req.status.indexOf("Cancel") > -1) {
+                if (req.status.indexOf("Cancel") > -1 || req.status.indexOf("Complete") > -1) {
                     console.log("disabling");
                     $("#cancel-request-wrapper").addClass('disabled');
                 } else {

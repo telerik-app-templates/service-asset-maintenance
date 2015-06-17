@@ -39,6 +39,7 @@
                 });
             },
             show: function (e) {
+                analytics.Monitor().TrackFeatureStart("Signup.View");
                 dataSource = kendo.observable({
                     Username: '',
                     Password: '',
@@ -49,6 +50,7 @@
                 kendo.bind($('#signup-form'), dataSource, kendo.mobile.ui);
             },
             hide: function () {
+                analytics.Monitor().TrackFeatureStop("Signup.View");
                 $signupBtnWrp.addClass('disabled');
             },
             onSelectChange: function (sel) {

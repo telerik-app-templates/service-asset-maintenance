@@ -26,7 +26,6 @@
     
     srq.feedbackItemModel = {
         feedbackData: new kendo.data.DataSource({
-            offlineStorage: "feedbackData",
             type: 'everlive',
             schema: {
                 model: dataModel

@@ -92,6 +92,7 @@
                 }
             },
             show: function (e) {
+                analytics.Monitor().TrackFeatureStart("SubmitRequest.View");
                 $("#no-img-yet-span").show();
                 $("#submit-request-image").hide();
                 
@@ -100,6 +101,7 @@
                 kendo.bind($('#submit-service-request-form'), dataSource, kendo.mobile.ui);
             },
             hide: function (e) {
+                analytics.Monitor().TrackFeatureStop("SubmitRequest.View");
                 dataSource = kendo.observable({                    
                     createdAt: new Date(),
                     reason: '',

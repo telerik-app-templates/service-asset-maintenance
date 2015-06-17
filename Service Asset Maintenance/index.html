@@ -35,7 +35,6 @@
         </script>
 
         <!-- libraries -->
-        <!--<script src="shared/lib/everlive.all.min.js"></script>-->
         <script src="https://bs-static.cdn.telerik.com/1.3.4/everlive.all.js"></script>
         <script src="shared/analytics.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA2Qc-lUaUAiZ6ZedWgRqq_YVveJq_CzU&sensor=TRUE"></script>
@@ -44,8 +43,7 @@
         <script src="shared/appSettings.js"></script>
 
         <script>
-        	//srq.everlive = new Everlive(srq.appSettings.elKey);
-            
+        	// init Everlive before bringing in model/viewmodels, this will initialize global variable            
             srq.everlive = new Everlive({
                 apiKey: srq.appSettings.elKey,
                 offlineStorage: {
@@ -90,20 +88,6 @@
                     }
                 });
             
-            //srq.everlive = new Everlive(srq.appSettings.elKey);
-            
-            /*srq.everlive = new Everlive({
-                apiKey: srq.appSettings.elKey,
-                offlineStorage: {
-                    storage: {
-                           provider: Everlive.Constants.StorageProvider.FileSystem
-                    },
-                    encryption: {
-                           provider: Everlive.Constants.EncryptionProvider.Default
-                    }
-                }
-            });
-            */
             srq.notify = function (message, title, callback) {
                 navigator.notification.alert(message, callback, title, "Ok");
             };

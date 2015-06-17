@@ -1,8 +1,6 @@
 
 (function (srq) {
-    
-    var privateVariablesHere;
-    
+
     var menuItems = [
         	{displayName: srq.appSettings.strings.submitRequestHeader, viewName: "requests/submitRequestView.html"}, 
         	{displayName: srq.appSettings.strings.requestStatusHeader, viewName: "requests/requestStatusView.html"}, 

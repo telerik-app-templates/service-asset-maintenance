@@ -29,6 +29,7 @@
     srq.submitFeedback = {        
         viewModel: kendo.observable({
             show: function () {
+                analytics.Monitor().TrackFeatureStart("SubmitFeedback.View");
                 req = srq.appSettings.feedbackRequest;
                 dataSource.set("requestId", req.id);
                 $("#feedback-reason-span").text(req.reason);
@@ -46,6 +47,7 @@
                 srq.feedbackItemModel.submitFeedbackItem(dataSource, feedbackSubmitted);
             },
             hide : function () {
+                analytics.Monitor().TrackFeatureStop("SubmitFeedback.View");
                 dataSource = kendo.observable({
                     comment: '',
                     rating: 5,
