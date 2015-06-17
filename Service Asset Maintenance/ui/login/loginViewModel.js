@@ -26,7 +26,7 @@
                 // Authenticate using the username and password
                 srq.everlive.Users.login(username, password)
                 .then(function (r) {
-                	//console.log(r);
+                	// do nothing on complete, handle success and error states
                 })
                 .then(function () {
                     srq.app.navigate('ui/home/mainMenuView.html');

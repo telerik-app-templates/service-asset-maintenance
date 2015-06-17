@@ -61,7 +61,6 @@
     
     srq.serviceRequestModel = {
         serviceData: new kendo.data.DataSource({
-            //offlineStorage: "serviceData",
             type: 'everlive',
             schema: {
                 model: dataModel
