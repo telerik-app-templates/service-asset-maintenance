@@ -1,5 +1,6 @@
 
 (function (srq) {
+    'use strict';
     
     var dataModel = {
         id: Everlive.idField,
