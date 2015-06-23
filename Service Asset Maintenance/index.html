@@ -43,17 +43,26 @@
         <script src="shared/appSettings.js"></script>
 
         <script>
-        	// init Everlive before bringing in model/viewmodels, this will initialize global variable            
+        	// init Everlive before bringing in model/viewmodels, this will initialize global variable
+            var provider = null;
+            
+            if (window.navigator.simulator === true) {
+                provider = Everlive.Constants.StorageProvider.LocalStorage;
+            } else {
+                provider = Everlive.Constants.StorageProvider.FileSystem;
+            }
+            
             srq.everlive = new Everlive({
                 apiKey: srq.appSettings.elKey,
                 offlineStorage: {
-                    storage: {
-                           provider: Everlive.Constants.StorageProvider.FileSystem
+                    storage: {                       
+                        provider: provider
                     },
                     encryption: {
-                           provider: Everlive.Constants.EncryptionProvider.Default
+                       provider: Everlive.Constants.EncryptionProvider.Default
                     }
-                }
+                },
+                scheme: 'https'
             });
         </script>
         
