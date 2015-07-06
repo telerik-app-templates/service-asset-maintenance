@@ -1,96 +1,51 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
-        <meta charset="utf-8" />
-        <script src="cordova.js"></script>
-        
-        <!-- Telerik CDN -->        
-        <link href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.common.min.css" rel="stylesheet" />
-        <link href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.default.min.css" rel="stylesheet" />
-        <link href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.dataviz.min.css" rel="stylesheet" />
-        <link href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.dataviz.default.min.css" rel="stylesheet" />
-        <link href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.mobile.all.min.css" rel="stylesheet" />
-        <script src="http://cdn.kendostatic.com/2014.3.1411/js/jquery.min.js"></script>
-        <script src="http://cdn.kendostatic.com/2014.3.1411/js/kendo.all.min.js"></script>
-        
-        <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800" rel="stylesheet" type="text/css" />
-        <link href="styles/new-main.css" rel="stylesheet" />
-        <link href="styles/added.css" rel="stylesheet" />
-    </head>
-    <body id="srqApp">
-		
-        <div data-role="layout" data-id="main">
-            <div data-role="header">
-                <div data-role="navbar">
-                    <span data-role="view-title"></span>
-                </div>
+<head>
+    <title></title>
+
+    <meta charset="utf-8" />
+
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+    <script src="cordova.js"></script>
+
+    <link href="app.css" rel="stylesheet" />
+</head>
+<body>
+    <div data-role="layout" data-id="default-layout">
+        <div data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"></span>
             </div>
-            <!-- application views will be rendered here -->
         </div>
+    </div>
 
-        <script>
-            // global namespace
-            this.srq = {};
-        </script>
+    <div data-role="layout" data-id="inner-layout">
+        <div data-role="header">
+            <div data-role="navbar">
+                <a data-align="left" data-role="backbutton">Back</a>
+                <span data-role="view-title"></span>
+            </div>
+        </div>
+    </div>
 
-        <!-- libraries -->
-        <script src="https://bs-static.cdn.telerik.com/1.3.4/everlive.all.js"></script>
-        <script src="shared/analytics.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA2Qc-lUaUAiZ6ZedWgRqq_YVveJq_CzU&sensor=TRUE"></script>
-        
-        <!-- utilities -->
-        <script src="shared/appSettings.js"></script>
+    <div data-role="layout" data-id="empty-layout">
+    </div>
 
-        <script>
-        	// init Everlive before bringing in model/viewmodels, this will initialize global variable            
-            srq.everlive = new Everlive({
-                apiKey: srq.appSettings.elKey,
-                offlineStorage: {
-                    storage: {
-                           provider: Everlive.Constants.StorageProvider.FileSystem
-                    },
-                    encryption: {
-                           provider: Everlive.Constants.EncryptionProvider.Default
-                    }
-                }
-            });
-        </script>
-        
-        <!-- models -->
-        <script src="shared/models/serviceRequestModel.js"></script>
-        <script src="shared/models/feedbackItemModel.js"></script>
-        
-        <!-- viewModels -->        
-        <script src="ui/login/loginViewModel.js"></script>
-        <script src="ui/login/signupViewModel.js"></script>
-        
-        <script src="ui/home/mainMenuViewModel.js"></script>
-        
-        <script src="ui/help/csViewModel.js"></script>
-        <script src="ui/help/feedbackViewModel.js"></script>
-        <script src="ui/help/helpFaqViewModel.js"></script>
-        <script src="ui/help/submitFeedbackViewModel.js"></script>
-        
-        <script src="ui/requests/requestStatusViewModel.js"></script>
-        <script src="ui/requests/requestDetailsViewModel.js"></script>
-        <script src="ui/requests/submitRequestViewModel.js"></script>
+    <script src="init.js"></script>
 
-        <script>
-            // start app
-            srq.app = new kendo.mobile.Application(
-                document.body, {
-                    skin: 'flat',
-                    initial: 'ui/login/loginView.html',
-                    init: function () { 
-                        analytics.Start();
-	                    feedback.initialize('c3d1f8a0-0f7b-11e5-ad55-890589a8af57');    
-                    }
-                });
-            
-            srq.notify = function (message, title, callback) {
-                navigator.notification.alert(message, callback, title, "Ok");
-            };
-        </script>
-    </body>
+    <script src="ui/login/loginViewModel.js"></script>
+    <script src="ui/signUp/signUpViewModel.js"></script>
+    <script src="ui/requests/requestsViewModel.js"></script>
+    <script src="ui/requestsFilter/requestsFilterViewModel.js"></script>
+    <script src="ui/requestDetails/requestDetailsViewModel.js"></script>
+    <script src="ui/feedback/feedbackViewModel.js"></script>
+    <script src="ui/submitRequest/submitRequestViewModel.js"></script>
+
+    <script src="app.js"></script>
+</body>
 </html>

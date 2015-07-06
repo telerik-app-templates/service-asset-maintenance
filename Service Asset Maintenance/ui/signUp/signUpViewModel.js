@@ -1,4 +1,4 @@
-global.login = {
+global.signUp = {
     viewModel: kendo.observable({
         username: "",
         password: ""

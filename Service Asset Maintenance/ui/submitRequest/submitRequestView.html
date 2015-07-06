@@ -1,0 +1,40 @@
+<div data-role="view"
+     data-model="global.submitRequest.viewModel"
+     data-title="New request">
+    <div data-role="header">
+        <div data-role="navbar">
+            <a data-align="left" data-role="backbutton">Back</a>
+            <span data-role="view-title"></span>
+            <a data-align="right" data-icon="photo" data-role="button"></a>
+            <a data-align="right" data-icon="barcode" data-role="button"></a>
+        </div>
+    </div>
+    <input type="text" data-bind="value: request.Title" />
+    <div>Maintenance type</div>
+    <input data-role="combobox"
+           data-value-primitive="true"
+           data-text-field="Name"
+           data-value-field="Id"
+           data-bind="value: request.Type, source: maintenanceTypes" />
+    <div>Priority</div>
+    <ul data-role="buttongroup" data-index="0" data-bind="events: { select: onPrioritySelected }">
+        <li>low</li>
+        <li>medium</li>
+        <li>high</li>
+    </ul>
+    <div>Due date</div>
+    <input type="date" name="fromDate" id="fromDate" />
+    <div>Location</div>
+    <input type="text" data-bind="value: request.Location" />
+    <div>Description</div>
+    <textarea data-bind="value: request.Description" rows="6"></textarea>
+    <img data-bind="attr: { src: requestImageUrl }" />
+    <a data-role="button">x Remove</a>
+    <div>Asset #
+        <span data-bind="text: request.AssetNo"></span>
+    </div>
+    <div>
+        <a data-role="button">x Remove</a>
+    </div>
+    <a data-role="button">submit</a>
+</div>

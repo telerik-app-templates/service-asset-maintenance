@@ -25,69 +25,214 @@
     <Content Include="cordova.ios.js" />
     <Content Include="cordova.wp8.js" />
     <Content Include="index.html" />
-    <Content Include="kendo\js\jquery.min.js" />
-    <Content Include="kendo\js\kendo.mobile.min.js" />
-    <Content Include="kendo\styles\images\back.png" />
-    <Content Include="kendo\styles\images\kendoui.svg" />
-    <Content Include="kendo\styles\images\kendoui.ttf" />
-    <Content Include="kendo\styles\images\kendoui.woff" />
-    <Content Include="kendo\styles\images\wp8_icons.png" />
-    <Content Include="kendo\styles\images\wp8_inverseicons.png" />
-    <Content Include="kendo\styles\kendo.mobile.all.min.css" />
-    <Content Include="kendo\typescript\jquery.d.ts" />
-    <Content Include="kendo\typescript\kendo.mobile.d.ts" />
-    <Content Include="scripts\app\add-employee.js" />
-    <Content Include="scripts\app\add-location.js" />
-    <Content Include="scripts\app\app.js" />
-    <Content Include="scripts\app\appstorage.js" />
-    <Content Include="scripts\app\datasync.js" />
-    <Content Include="scripts\app\edit-employee.js" />
-    <Content Include="scripts\app\employee-maintenance.js" />
-    <Content Include="scripts\app\employee.js" />
-    <Content Include="scripts\app\location-maintenance.js" />
-    <Content Include="scripts\app\location.js" />
-    <Content Include="scripts\app\login.js" />
-    <Content Include="scripts\app\main-menu.js" />
-    <Content Include="scripts\app\settings.js" />
-    <Content Include="scripts\app\signup.js" />
-    <Content Include="scripts\app\user-setup.js" />
-    <Content Include="scripts\lib\everlive.all.min.js" />
-    <Content Include="styles\added.css" />
-    <Content Include="styles\images\avatar.png" />
-    <Content Include="styles\images\icon-add.png" />
-    <Content Include="styles\images\icon-add@2x.png" />
-    <Content Include="styles\images\icon-adsf.png" />
-    <Content Include="styles\images\icon-adsf@2x.png" />
-    <Content Include="styles\images\icon-arrow_left.png" />
-    <Content Include="styles\images\icon-arrow_left@2x.png" />
-    <Content Include="styles\images\icon-facebook.png" />
-    <Content Include="styles\images\icon-facebook@2x.png" />
-    <Content Include="styles\images\icon-google.png" />
-    <Content Include="styles\images\icon-google@2x.png" />
-    <Content Include="styles\images\icon-liveid.png" />
-    <Content Include="styles\images\icon-liveid@2x.png" />
-    <Content Include="styles\images\icon-password.png" />
-    <Content Include="styles\images\icon-password@2x.png" />
-    <Content Include="styles\images\icon-username.png" />
-    <Content Include="styles\images\icon-username@2x.png" />
-    <Content Include="styles\images\logo-telerik_devcloud.png" />
-    <Content Include="styles\images\logo-telerik_devcloud@2x.png" />
-    <Content Include="styles\images\ola_logo.png" />
-    <Content Include="styles\images\uc_logo.png" />
-    <Content Include="styles\images\uc_logo@2x.png" />
-    <Content Include="styles\main.css" />
-    <Content Include="views\addEmployeeView.html" />
-    <Content Include="views\addLocationView.html" />
-    <Content Include="views\dataSyncView.html" />
-    <Content Include="views\editEmployeeView.html" />
-    <Content Include="views\employeeMaintenanceView.html" />
-    <Content Include="views\employeeView.html" />
-    <Content Include="views\locationMaintenanceView.html" />
-    <Content Include="views\locationView.html" />
-    <Content Include="views\mainMenuView.html" />
-    <Content Include="views\noApiKey.html" />
-    <Content Include="views\signupView.html" />
-    <Content Include="views\userSetupView.html" />
+    <Content Include="app.js" />
+    <Content Include="init.js" />
+    <Content Include="kendo\js\jquery.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\js\kendo.all.min.js" />
+    <Content Include="kendo\js\kendo.mobile.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\images\back.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\images\kendoui.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\images\kendoui.ttf">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\images\kendoui.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\images\wp8_icons.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\images\wp8_inverseicons.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\styles\kendo.common.min.css" />
+    <Content Include="kendo\styles\kendo.default.min.css" />
+    <Content Include="kendo\styles\kendo.mobile.all.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\typescript\jquery.d.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="kendo\typescript\kendo.mobile.d.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="shared\analytics.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="shared\appSettings.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="lib\everlive.all.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="shared\layouts\default\defaultLayout.html" />
+    <Content Include="shared\models\feedbackItemModel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="shared\models\serviceRequestModel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\added.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="app.css" />
+    <Content Include="styles\images\avatar.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-add%402x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-add.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-adsf%402x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-adsf.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-arrow_dark%402x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-arrow_dark.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-arrow_left%402x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-arrow_left.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-facebook%402x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-facebook.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-google%402x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-google.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-liveid%402x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-liveid.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-password%402x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-password.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-username%402x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\icon-username.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\logo-telerik_devcloud%402x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\logo-telerik_devcloud.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\ola_logo.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\uc_logo%402x.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\images\uc_logo.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\main.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\new-main.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\login\loginViewModel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\old\loginViewModel.js" />
+    <Content Include="ui\old\signUpViewModel.js" />
+    <Content Include="ui\requestsFilter\requestsFilterView.html" />
+    <Content Include="ui\requestsFilter\requestsFilterViewModel.js" />
+    <Content Include="ui\submitRequest\submitRequestView.html" />
+    <Content Include="ui\submitRequest\submitRequestViewModel.js" />
+    <Content Include="ui\feedback\feedbackView.html" />
+    <Content Include="ui\feedback\feedbackViewModel.js" />
+    <Content Include="ui\old\help\csView.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\old\help\csViewModel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\old\help\feedbackView.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\old\help\feedbackViewModel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\old\help\helpFaqView.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\old\help\helpFaqViewModel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\old\help\submitFeedbackView.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\old\help\submitFeedbackViewModel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\old\home-old\mainMenuView.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\old\home-old\mainMenuViewModel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\login\loginView.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\signUp\signUpView.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\signUp\signUpViewModel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\requestDetails\requestDetailsView.html" />
+    <Content Include="ui\requestDetails\requestDetailsViewModel.js" />
+    <Content Include="ui\old\requests-old\requestDetailsView.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\old\requests-old\requestDetailsViewModel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\old\requests-old\requestStatusView.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\old\requests-old\requestStatusViewModel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\old\requests-old\submitRequestView.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\old\requests-old\submitRequestViewModel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\requests\requestsView.html" />
+    <Content Include="ui\requests\requestsViewModel.js" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
@@ -119,6 +264,43 @@
     <Resource Include="App_Resources\WP8\SplashScreenImage.jpg" />
     <Resource Include="App_Resources\WP8\Tiles\Iconic\110x110.png" />
     <Resource Include="App_Resources\WP8\Tiles\Iconic\202x202.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Resources\" />
+    <Folder Include="App_Resources\Android\" />
+    <Folder Include="App_Resources\Android\drawable-hdpi\" />
+    <Folder Include="App_Resources\Android\drawable-ldpi\" />
+    <Folder Include="App_Resources\Android\drawable-mdpi\" />
+    <Folder Include="App_Resources\Android\drawable-nodpi\" />
+    <Folder Include="App_Resources\iOS\" />
+    <Folder Include="App_Resources\WP8\" />
+    <Folder Include="App_Resources\WP8\Tiles\" />
+    <Folder Include="App_Resources\WP8\Tiles\Iconic\" />
+    <Folder Include="kendo\" />
+    <Folder Include="kendo\js\" />
+    <Folder Include="kendo\styles\" />
+    <Folder Include="kendo\styles\images\" />
+    <Folder Include="kendo\typescript\" />
+    <Folder Include="lib\" />
+    <Folder Include="Plugins\" />
+    <Folder Include="shared\" />
+    <Folder Include="shared\layouts\default\" />
+    <Folder Include="shared\models\" />
+    <Folder Include="shared\layouts\" />
+    <Folder Include="styles\" />
+    <Folder Include="styles\images\" />
+    <Folder Include="ui\" />
+    <Folder Include="ui\login\" />
+    <Folder Include="ui\feedback\" />
+    <Folder Include="ui\requestsFilter\" />
+    <Folder Include="ui\submitRequest\" />
+    <Folder Include="ui\signUp\" />
+    <Folder Include="ui\old\" />
+    <Folder Include="ui\old\help\" />
+    <Folder Include="ui\old\home-old\" />
+    <Folder Include="ui\old\requests-old\" />
+    <Folder Include="ui\requestDetails\" />
+    <Folder Include="ui\requests\" />
   </ItemGroup>
   <Import Project="$(IceniumTargets)Build.targets" />
 </Project>

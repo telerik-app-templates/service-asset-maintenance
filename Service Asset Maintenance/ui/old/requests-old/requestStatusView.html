@@ -7,8 +7,10 @@
         </div>
     </div>
 
-    <ul id="service-request-listview" data-style="inset" data-role="listview" 
-        data-template="requestStatusListItemTemplate" 
+    <ul id="service-requests-listview"
+        data-role="listview"
+        data-style="inset" 
+        data-template="requestStatusListItemTemplate"
         data-bind="{source: requestData, click: requestSelected}"
         data-filterable="{field:'reason',operator:'startswith'}">
     </ul>

@@ -1,0 +1,30 @@
+<div data-role="view"
+     data-model="global.feedback.viewModel"
+     data-layout="inner-layout"
+     data-title="Feedback">
+    <textarea rows="6" data-bind="value: comment"></textarea>
+    <a data-role="button">submit feedback</a>
+    <div data-role="collapsible" data-collapsed="false">
+        <h3>more info</h3>
+        <ul id="service-requests-listview"
+            data-use-native-scrolling="true"
+            data-role="listview"
+            data-style="inset"
+            data-template="feedbackListItemTemplate"
+            data-bind="source: feedbackItems" ></ul>
+    </div>
+</div>
+
+<script type="text/x-kendo-template" id="feedbackListItemTemplate">
+    <div>
+        <div>
+            <span>${ UserName }</span>
+        </div>
+        <div>
+            <span>${ Comment }</span>
+        </div>
+        <div>
+            <span>${ CreatedOn }</span>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,53 @@
+<div data-role="view"
+     data-model="global.requestDetails.viewModel"
+     data-layout="inner-layout"
+     data-title="ASSIGNED">
+    <div>
+        <span data-bind="text: request.AssignedTo"></span>
+    </div>
+    <img data-bind="attr: { src: requestImageUrl }" />
+    <div>
+        <span data-bind="text: request.Title"></span>
+    </div>
+    <div>
+        <span>Due:</span>
+        <span data-bind="text: request.DueDate"></span>
+        <span data-bind="text: request.Priority"></span>
+    </div>
+    <div>
+        <span>Type:</span>
+        <span data-bind="text: request.Type"></span>
+    </div>
+    <div>
+        <span>Asset#</span>
+        <span data-bind="text: request.AssetNo"></span>
+    </div>
+    <div data-role="collapsible" data-collapsed="false">
+        <h3>more info</h3>
+        <div>
+            Description
+        </div>
+        <div>
+            <span data-bind="text: request.Description"></span>
+        </div>
+        <div>
+            <span>Date created:</span>
+            <span data-bind="text: request.CreatedOn"></span>
+        </div>
+        <div>
+            <span>Date completed:</span>
+            <span data-bind="text: request.CompletedOn"></span>
+        </div>
+        <div>
+            <span>Submitted by</span>
+            <span data-bind="text: request.CreatedBy"></span>
+        </div>
+        <div>
+            Reason for canceling
+        </div>
+        <div>
+            <span data-bind="text: request.CancelReason"></span>
+        </div>
+    </div>
+    <a data-role="button" href="ui/feedback/feedbackView.html?requestId=#request.Id#">submit feedback</a>
+</div>
