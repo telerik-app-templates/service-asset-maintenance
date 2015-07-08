@@ -79,6 +79,7 @@
     <Content Include="shared\models\serviceRequestModel.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="shared\utils\navigation.js" />
     <Content Include="styles\added.css">
       <SubType>Content</SubType>
     </Content>
@@ -161,6 +162,8 @@
     <Content Include="styles\new-main.css">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="ui\requestDetails\requestDetailsView.tablet.html" />
+    <Content Include="ui\tablet\homeView.html" />
     <Content Include="ui\login\loginViewModel.js">
       <SubType>Content</SubType>
     </Content>
@@ -287,11 +290,13 @@
     <Folder Include="shared\layouts\default\" />
     <Folder Include="shared\models\" />
     <Folder Include="shared\layouts\" />
+    <Folder Include="shared\utils\" />
     <Folder Include="styles\" />
     <Folder Include="styles\images\" />
     <Folder Include="ui\" />
     <Folder Include="ui\login\" />
     <Folder Include="ui\feedback\" />
+    <Folder Include="ui\tablet\" />
     <Folder Include="ui\requestsFilter\" />
     <Folder Include="ui\submitRequest\" />
     <Folder Include="ui\signUp\" />

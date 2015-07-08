@@ -1,4 +1,5 @@
-<div data-role="view"
+<div id="requests-view"
+     data-role="view"
      data-model="global.requests.viewModel"
      data-title="Service requests">
     <div data-role="header">
@@ -12,17 +13,21 @@
         <li>All</li>
         <li>My requests</li>
     </ul>
+
     <ul id="service-requests-listview"
         data-role="listview"
         data-style="inset"
         data-template="requestStatusListItemTemplate"
-        data-bind="source: requests"
+        data-bind="source: requests, click: requestClicked"
         data-filterable="{ field:'Title', operator:'startswith' }"></ul>
-    <a data-role="button" href="ui/submitRequest/submitRequestView.html">submit request</a>
+    <a data-role="button"
+       data-bind="click: navigate"
+       data-url="ui/submitRequest/submitRequestView.html"
+       data-tablettarget="content-pane">submit request</a>
 </div>
 
 <script type="text/x-kendo-template" id="requestStatusListItemTemplate">
-    <a href="ui/requestDetails/requestDetailsView.html?requestId=#Id#">
+    <a data-role="listview-link">
         <div>
             <span>${ Status }</span>
         </div>
