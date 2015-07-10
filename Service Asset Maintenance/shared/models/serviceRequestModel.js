@@ -1,101 +1,91 @@
+'use strict';
 
-(function (srq) {
-    'use strict';
-    
-    var dataModel = {
-        id: Everlive.idField,
-            fields: {
-                createdAt: {
-                    field: 'CreatedAt',
-                    defaultValue: new Date()
-                },
-                reason: {
-                    field: 'Reason',
-                    defaultValue: ''
-                },
-                dueDate: {
-                    field: 'DueDate',
-                    defaultValue: new Date()
-                },
-                completedDate: {
-                    field: 'CompletedDate',
-                    defaultValue: new Date()
-                },
-                priority: {
-                    field: 'Priority',
-                    defaultValue: ''
-                },
-                description: {
-                    field: 'Description',
-                    defaultValue: ''
-                },
-                maintenanceType: {
-                    field: 'MaintenanceType',
-                    defaultValue: ''
-                },
-                location: {
-                    field: 'Location',
-                    defaultValue: ''
-                },
-                status: {
-                    field: 'Status',
-                    defaultValue: ''
-                },
-                picture: {
-                    field: 'Picture',
-                    defaultValue: ''
-                },
-                asset: {
-                    field: 'Asset',
-                    defaultValue: ''
-                },
-                geoLocation: {
-                    field: 'Geolocation',
-                    defaultValue: ''
-                },
-                address: {
-                    field: 'Address',
-                    defaultValue: ''
+global.serviceRequestModel = {
+    dataSource: new kendo.data.DataSource({
+        type: 'everlive',
+        schema: {
+            model: {
+                id: Everlive.idField,
+                fields: {
+                    createdAt: {
+                        field: 'CreatedAt',
+                        defaultValue: new Date()
+                    },
+                    title: {
+                        field: 'Reason',
+                        defaultValue: ''
+                    },
+                    dueDate: {
+                        field: 'DueDate',
+                        defaultValue: new Date()
+                    },
+                    completedDate: {
+                        field: 'CompletedDate',
+                        defaultValue: new Date()
+                    },
+                    priority: {
+                        field: 'Priority',
+                        defaultValue: ''
+                    },
+                    description: {
+                        field: 'Description',
+                        defaultValue: ''
+                    },
+                    maintenanceType: {
+                        field: 'MaintenanceType',
+                        defaultValue: ''
+                    },
+                    location: {
+                        field: 'Location',
+                        defaultValue: ''
+                    },
+                    status: {
+                        field: 'Status',
+                        defaultValue: ''
+                    },
+                    picture: {
+                        field: 'Picture',
+                        defaultValue: ''
+                    },
+                    asset: {
+                        field: 'Asset',
+                        defaultValue: ''
+                    },
+                    geoLocation: {
+                        field: 'Geolocation',
+                        defaultValue: ''
+                    },
+                    address: {
+                        field: 'Address',
+                        defaultValue: ''
+                    }
                 }
             }
-    };
-    
-    srq.serviceRequestModel = {
-        serviceData: new kendo.data.DataSource({
-            type: 'everlive',
-            schema: {
-                model: dataModel
-            }, 
-            transport: {
-                typeName: 'ServiceRequest'
-            }
-        }),
-        getRequest: function (uid) {
-            return srq.serviceRequestModel.serviceData.getByUid(uid);
         },
-        submitRequest: function (request, callback) {
-            srq.serviceRequestModel.serviceData.add(request);
-            srq.serviceRequestModel.serviceData.sync()
-            	.then(function (success) {
-                	callback(srq.appSettings.strings.submitSuccessMessage);
-            	}, function (fail) {
-                	callback(srq.appSettings.strings.submitFailMessage);
-            	});
-        },
-        cancelRequest: function (request, callback) {
-            request.set("status", "Cancel Requested");
-            srq.serviceRequestModel.serviceData.sync()
-            	.then(function(success) {
-                	callback(srq.appSettings.strings.cancelSuccessMessage);
-            	}, function (fail) {
-                	callback(srq.appSettings.strings.cancelFailMessage);
-            	});
+        transport: {
+            typeName: 'ServiceRequest'
         }
-    };
-    
-})(srq);
-
-        
-        
-        
-        
+    }),
+    //getServiceRequest: function (id) {
+    //    return global.serviceRequestModel.serviceData.getByUid(id);
+    //},
+    //submitServiceRequest: function (serviceRequest) {
+    //    return new Promise(function (resolve, reject) {
+    //        var model = global.serviceRequestModel;
+    //        model.serviceData.add(request);
+    //        model.serviceData.sync().then(resolve, function (error) {
+    //            global.notifications.showErrorMessage(error);
+    //            reject(error);
+    //        });
+    //    });
+    //},
+    //cancelServiceRequest: function (request) {
+    //    return new Promise(function (resolve, reject) {
+    //        request.set("status", global.constants.serviceRequestStatus.CANCELED);
+    //        global.serviceRequestModel.serviceData.sync().then(resolve, function (error) {
+    //            global.notifications.showErrorMessage(error);
+    //            reject(error);
+    //        });
+    //    });
+    //}
+};

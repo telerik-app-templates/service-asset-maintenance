@@ -26,7 +26,9 @@
     <Content Include="cordova.wp8.js" />
     <Content Include="index.html" />
     <Content Include="app.js" />
-    <Content Include="init.js" />
+    <Content Include="scripts\bindings.js" />
+    <Content Include="scripts\everlive.js" />
+    <Content Include="scripts\init.js" />
     <Content Include="kendo\js\jquery.min.js">
       <SubType>Content</SubType>
     </Content>
@@ -72,13 +74,15 @@
     <Content Include="lib\everlive.all.min.js">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="shared\layouts\default\defaultLayout.html" />
     <Content Include="shared\models\feedbackItemModel.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="shared\models\serviceRequestModel.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="shared\utils\constants.js" />
+    <Content Include="shared\utils\converters.js" />
+    <Content Include="shared\utils\notifications.js" />
     <Content Include="shared\utils\navigation.js" />
     <Content Include="styles\added.css">
       <SubType>Content</SubType>
@@ -162,17 +166,17 @@
     <Content Include="styles\new-main.css">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="ui\requestDetails\requestDetailsView.tablet.html" />
+    <Content Include="ui\serviceRequestDetails\serviceRequestDetailsView.tablet.html" />
     <Content Include="ui\tablet\homeView.html" />
     <Content Include="ui\login\loginViewModel.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="ui\old\loginViewModel.js" />
     <Content Include="ui\old\signUpViewModel.js" />
-    <Content Include="ui\requestsFilter\requestsFilterView.html" />
-    <Content Include="ui\requestsFilter\requestsFilterViewModel.js" />
-    <Content Include="ui\submitRequest\submitRequestView.html" />
-    <Content Include="ui\submitRequest\submitRequestViewModel.js" />
+    <Content Include="ui\serviceRequestsFilter\serviceRequestsFilterView.html" />
+    <Content Include="ui\serviceRequestsFilter\serviceRequestsFilterViewModel.js" />
+    <Content Include="ui\submitServiceRequest\submitServiceRequestView.html" />
+    <Content Include="ui\submitServiceRequest\submitServiceRequestViewModel.js" />
     <Content Include="ui\feedback\feedbackView.html" />
     <Content Include="ui\feedback\feedbackViewModel.js" />
     <Content Include="ui\old\help\csView.html">
@@ -214,8 +218,8 @@
     <Content Include="ui\signUp\signUpViewModel.js">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="ui\requestDetails\requestDetailsView.html" />
-    <Content Include="ui\requestDetails\requestDetailsViewModel.js" />
+    <Content Include="ui\serviceRequestDetails\serviceRequestDetailsView.html" />
+    <Content Include="ui\serviceRequestDetails\serviceRequestDetailsViewModel.js" />
     <Content Include="ui\old\requests-old\requestDetailsView.html">
       <SubType>Content</SubType>
     </Content>
@@ -234,8 +238,8 @@
     <Content Include="ui\old\requests-old\submitRequestViewModel.js">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="ui\requests\requestsView.html" />
-    <Content Include="ui\requests\requestsViewModel.js" />
+    <Content Include="ui\serviceRequests\serviceRequestsView.html" />
+    <Content Include="ui\serviceRequests\serviceRequestsViewModel.js" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
@@ -285,11 +289,10 @@
     <Folder Include="kendo\styles\images\" />
     <Folder Include="kendo\typescript\" />
     <Folder Include="lib\" />
+    <Folder Include="scripts\" />
     <Folder Include="Plugins\" />
     <Folder Include="shared\" />
-    <Folder Include="shared\layouts\default\" />
     <Folder Include="shared\models\" />
-    <Folder Include="shared\layouts\" />
     <Folder Include="shared\utils\" />
     <Folder Include="styles\" />
     <Folder Include="styles\images\" />
@@ -297,15 +300,15 @@
     <Folder Include="ui\login\" />
     <Folder Include="ui\feedback\" />
     <Folder Include="ui\tablet\" />
-    <Folder Include="ui\requestsFilter\" />
-    <Folder Include="ui\submitRequest\" />
+    <Folder Include="ui\serviceRequestsFilter\" />
+    <Folder Include="ui\submitServiceRequest\" />
     <Folder Include="ui\signUp\" />
     <Folder Include="ui\old\" />
     <Folder Include="ui\old\help\" />
     <Folder Include="ui\old\home-old\" />
     <Folder Include="ui\old\requests-old\" />
-    <Folder Include="ui\requestDetails\" />
-    <Folder Include="ui\requests\" />
+    <Folder Include="ui\serviceRequestDetails\" />
+    <Folder Include="ui\serviceRequests\" />
   </ItemGroup>
   <Import Project="$(IceniumTargets)Build.targets" />
 </Project>

@@ -1,0 +1,50 @@
+<div data-role="view"
+     data-model="global.serviceRequestDetails.viewModel"
+     data-layout="inner-layout"
+     data-title="ASSIGNED">
+    <img data-bind="attr: { src: imageUrl }" />
+    <div>
+        <span data-bind="text: serviceRequest.title"></span>
+    </div>
+    <div>
+        <span>Due:</span>
+        <span data-bind="text: serviceRequest.dueDate"></span>
+        <span data-bind="text: serviceRequest.priority"></span>
+    </div>
+    <div>
+        <span>Type:</span>
+        <span data-bind="text: serviceRequest.type"></span>
+    </div>
+    <div>
+        <span>Asset#</span>
+        <span data-bind="text: serviceRequest.assetNo"></span>
+    </div>
+    <div data-role="collapsible" data-collapsed="false">
+        <h3>more info</h3>
+        <div>
+            Description
+        </div>
+        <div>
+            <span data-bind="text: serviceRequest.description"></span>
+        </div>
+        <div>
+            <span>Date created:</span>
+            <span data-bind="text: serviceRequest.createdOn"></span>
+        </div>
+        <div>
+            <span>Date completed:</span>
+            <span data-bind="text: serviceRequest.completedOn"></span>
+        </div>
+        <div>
+            <span>Submitted by</span>
+            <span data-bind="text: serviceRequest.createdBy"></span>
+        </div>
+        <div>
+            Reason for canceling
+        </div>
+        <div>
+            <span data-bind="text: serviceRequest.reason"></span>
+        </div>
+    </div>
+    <a data-role="button" href="ui/feedback/feedbackView.html?serviceRequestId=#serviceRequest.Id#" class="phone">submit feedback</a>
+</div>

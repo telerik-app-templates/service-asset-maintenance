@@ -16,3 +16,23 @@ textarea {
     -webkit-flex: 1;
     flex: 1;
 }
+
+@media screen and (max-width: 720px) {
+    .tablet {
+        visibility: collapse;
+    }
+
+    .phone {
+        visibility: visible;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .tablet {
+        visibility: visible;
+    }
+
+    .phone {
+        visibility: collapse;
+    }
+}

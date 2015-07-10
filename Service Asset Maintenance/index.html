@@ -11,6 +11,9 @@
 
     <script src="http://cdn.kendostatic.com/2015.2.624/js/jquery.min.js"></script>
     <script src="http://cdn.kendostatic.com/2015.2.624/js/kendo.all.min.js"></script>
+
+    <script src="https://bs-static.cdn.telerik.com/1.3.4/everlive.all.js"></script>
+
     <script src="cordova.js"></script>
 
     <link href="app.css" rel="stylesheet" />
@@ -36,17 +39,25 @@
     <div data-role="layout" data-id="empty-layout">
     </div>
 
-    <script src="init.js"></script>
+    <script src="scripts/init.js"></script>
+    <script src="scripts/bindings.js"></script>
 
+    <script src="shared/utils/constants.js"></script>
+    <script src="shared/utils/notifications.js"></script>
     <script src="shared/utils/navigation.js"></script>
-    
+    <script src="shared/utils/converters.js"></script>
+
+    <script src="scripts/everlive.js"></script>
+
+    <script src="shared/models/serviceRequestModel.js"></script>
+
     <script src="ui/login/loginViewModel.js"></script>
     <script src="ui/signUp/signUpViewModel.js"></script>
-    <script src="ui/requests/requestsViewModel.js"></script>
-    <script src="ui/requestsFilter/requestsFilterViewModel.js"></script>
-    <script src="ui/requestDetails/requestDetailsViewModel.js"></script>
+    <script src="ui/serviceRequests/serviceRequestsViewModel.js"></script>
+    <script src="ui/serviceRequestsFilter/serviceRequestsFilterViewModel.js"></script>
+    <script src="ui/serviceRequestDetails/serviceRequestDetailsViewModel.js"></script>
     <script src="ui/feedback/feedbackViewModel.js"></script>
-    <script src="ui/submitRequest/submitRequestViewModel.js"></script>
+    <script src="ui/submitServiceRequest/submitServiceRequestViewModel.js"></script>
 
     <script src="app.js"></script>
 </body>

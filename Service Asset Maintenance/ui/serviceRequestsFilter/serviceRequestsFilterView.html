@@ -1,0 +1,42 @@
+<div data-role="view"
+     data-model="global.serviceRequestsFilter.viewModel"
+     data-title="Refine Results">
+    <div data-role="header">
+        <div data-role="navbar">
+            <a data-align="left" data-role="backbutton">Back</a>
+            <span data-role="view-title"></span>
+            <a data-align="right" data-role="button" data-bind="events: { click: reset }">Reset</a>
+        </div>
+    </div>
+    <div>Status</div>
+    <input data-role="combobox"
+           data-value-primitive="true"
+           data-text-field="Name"
+           data-value-field="Id"
+           data-bind="value: status, source: serviceRequestStatuses" />
+    <div>Maintenance type</div>
+    <input data-role="combobox"
+           data-value-primitive="true"
+           data-text-field="Name"
+           data-value-field="Id"
+           data-bind="value: type, source: maintenanceTypes" />
+    <div>Sort by</div>
+    <div>
+        <label>
+            <input type="radio" name="sortBy" value="dueDate" data-bind="checked: sortBy">Due date
+        </label>
+        <br />
+        <label>
+            <input type="radio" name="sortBy" value="priority" data-bind="checked: sortBy">Priority
+        </label>
+        <br />
+        <label>
+            <input type="radio" name="sortBy" value="createdOn" data-bind="checked: sortBy">Date created
+        </label>
+        <br />
+        <label>
+            <input type="radio" name="sortBy" value="completedOn" data-bind="checked: sortBy">Date completed
+        </label>
+    </div>
+    <a data-role="button" href="ui/serviceRequests/serviceRequestsView.html">done</a>
+</div>
