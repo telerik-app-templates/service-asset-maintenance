@@ -18,6 +18,8 @@ global.serviceRequests = {
         },
 
         serviceRequestClicked: function (e) {
+            var serviceRequest = global.serviceRequestModel.getServiceRequest(e.dataItem.id);
+            global.serviceRequestDetails.viewModel.setServiceRequest(serviceRequest);
             var url = global.showSplitLayout() ? "ui/serviceRequestDetails/serviceRequestDetailsView.tablet.html" : "ui/serviceRequestDetails/serviceRequestDetailsView.html";
             global.navigation.navigateTo(url, "content-pane");
         },

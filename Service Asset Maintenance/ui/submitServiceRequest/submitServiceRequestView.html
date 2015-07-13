@@ -1,46 +1,56 @@
 <div data-role="view"
      data-model="global.submitServiceRequest.viewModel"
-     data-title="New Service Request">
+     data-title="New Request"
+     data-show="global.submitServiceRequest.viewModel.onShow">
     <div data-role="header">
         <div data-role="navbar">
             <a data-align="left" data-role="backbutton">Back</a>
             <span data-role="view-title"></span>
-            <a data-align="right" data-icon="photo" data-role="button"></a>
-            <a data-align="right" data-icon="barcode" data-role="button"></a>
+            <a data-align="right" data-icon="picture" data-role="button" data-bind="click: takePicture"></a>
+            <a data-align="right" data-icon="barcode" data-role="button" data-bind="click: scanAssetNo"></a>
         </div>
     </div>
     <input type="text" data-bind="value: serviceRequest.title" />
-    <div>Maintenance type</div>
-    <input data-role="combobox"
-           data-value-primitive="true"
-           data-text-field="Name"
-           data-value-field="Id"
-           data-bind="value: serviceRequest.type, source: maintenanceTypes" />
-    <div>Priority</div>
-    <ul data-role="buttongroup" data-index="0" data-bind="events: { select: onPrioritySelected }">
-        <li>low</li>
-        <li>medium</li>
-        <li>high</li>
-    </ul>
-    <div>Due date</div>
-    <input type="date" name="fromDate" id="fromDate" />
-    <div>Location</div>
-    <input type="text" data-bind="value: serviceRequest.location" />
-    <div>Description</div>
     <div>
+        <span>Maintenance type</span>
+        <br />
+        <input data-role="combobox"
+               data-value-primitive="true"
+               data-text-field="Name"
+               data-value-field="Id"
+               data-bind="value: serviceRequest.type, source: maintenanceTypes" />
+    </div>
+    <div>
+        <span>Priority</span>
+        <br />
+        <ul data-role="buttongroup" data-index="0" data-bind="events: { select: onPriorityChanged }">
+            <li>low</li>
+            <li>medium</li>
+            <li>high</li>
+        </ul>
+    </div>
+    <div>
+        <span>Due date</span>
+        <br />
+        <input type="date" data-bind="value: serviceRequest.dueDate" />
+    </div>
+    <div>
+        <span>Description</span>
+        <br />
         <textarea data-bind="value: serviceRequest.description" rows="6"></textarea>
     </div>
-    <div>
-        <img data-bind="attr: { src: imageUrl }" />
+    <div data-bind="visible: pictureUrl">
+        <img data-bind="attr: { src: pictureUrl }" style="max-width: 180px; max-height: 180px" />
+        <br />
+        <a data-role="button" data-bind="click: removePicture">x Remove</a>
     </div>
-    <div>
-        <a data-role="button">x Remove</a>
-    </div>
-    <div>Asset #
+    <div data-bind="visible: serviceRequest.assetNo">
+        <span>Asset #</span>
         <span data-bind="text: serviceRequest.assetNo"></span>
+        <br />
+        <a data-role="button" data-bind="click: removeAssetNo">x Remove</a>
     </div>
-    <div>
-        <a data-role="button">x Remove</a>
+    <div data-role="footer">
+        <a data-role="button" data-bind="click: submit">Submit</a>
     </div>
-    <a data-role="button">submit</a>
 </div>

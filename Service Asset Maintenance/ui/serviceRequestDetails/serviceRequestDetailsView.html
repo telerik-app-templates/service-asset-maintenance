@@ -1,50 +1,57 @@
 <div data-role="view"
-     data-model="global.serviceRequestDetails.viewModel"
-     data-layout="inner-layout"
-     data-title="ASSIGNED">
-    <img data-bind="attr: { src: imageUrl }" />
+     data-model="global.serviceRequestDetails.viewModel">
+    <img data-bind="visible: imageUrl, attr: { src: imageUrl }" />
+    <div data-role="header">
+        <div data-role="navbar">
+            <a data-align="left" data-role="backbutton">Back</a>
+            <span data-role="view-title" data-bind="text: serviceRequest.status"></span>
+            <a data-align="right" data-role="button" data-bind="visible: canCancel, events: { click: cancelServiceRequest }">Cancel it</a>
+        </div>
+    </div>
     <div>
         <span data-bind="text: serviceRequest.title"></span>
     </div>
     <div>
-        <span>Due:</span>
-        <span data-bind="text: serviceRequest.dueDate"></span>
-        <span data-bind="text: serviceRequest.priority"></span>
+        <span data-bind="visible: serviceRequest.dueDate">Repair due</span>
+        <span data-bind="visible: serviceRequest.dueDate, text: serviceRequest.dueDate" data-format="MMMM dd yyyy"></span>
+        <span data-bind="visible: serviceRequest.priority, text: serviceRequest.priority"></span>
     </div>
     <div>
-        <span>Type:</span>
-        <span data-bind="text: serviceRequest.type"></span>
-    </div>
-    <div>
-        <span>Asset#</span>
-        <span data-bind="text: serviceRequest.assetNo"></span>
+        <span data-bind="visible: serviceRequest.type">Type:</span>
+        <span data-bind="visible: serviceRequest.type, text: serviceRequest.type"></span>
     </div>
     <div data-role="collapsible" data-collapsed="false">
-        <h3>more info</h3>
-        <div>
-            Description
-        </div>
-        <div>
+        <h3>More info</h3>
+        <div data-bind="visible: serviceRequest.description">
             <span data-bind="text: serviceRequest.description"></span>
         </div>
-        <div>
-            <span>Date created:</span>
+        <div data-bind="visible: serviceRequest.assetNo">
+            <span>ASSET</span>
+            <br />
+            #<span data-bind="text: serviceRequest.assetNo"></span>
+        </div>
+        <div data-bind="visible: serviceRequest.createdOn">
+            <span>CREATED</span>
+            <br />
             <span data-bind="text: serviceRequest.createdOn"></span>
         </div>
-        <div>
-            <span>Date completed:</span>
+        <div data-bind="visible: serviceRequest.completedOn">
+            <span>COMPLETED</span>
+            <br />
             <span data-bind="text: serviceRequest.completedOn"></span>
         </div>
-        <div>
-            <span>Submitted by</span>
+        <div data-bind="visible: serviceRequest.createdBy">
+            <span>SUBMITTED BY</span>
+            <br />
             <span data-bind="text: serviceRequest.createdBy"></span>
         </div>
-        <div>
-            Reason for canceling
-        </div>
-        <div>
+        <div data-bind="visible: serviceRequest.reason">
+            <span>REASON FOR CANCELING</span>
+            <br />
             <span data-bind="text: serviceRequest.reason"></span>
         </div>
     </div>
-    <a data-role="button" href="ui/feedback/feedbackView.html?serviceRequestId=#serviceRequest.Id#" class="phone">submit feedback</a>
+    <div data-role="footer" class="phone">
+        <a data-role="button" href="ui/feedback/feedbackView.html?serviceRequestId=#serviceRequest.Id#">submit feedback</a>
+    </div>
 </div>

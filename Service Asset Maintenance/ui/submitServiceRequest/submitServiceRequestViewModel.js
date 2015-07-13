@@ -2,24 +2,70 @@
 
 global.submitServiceRequest = {
     viewModel: kendo.observable({
-        request: {
-            Title: "",
-            DueDate: "July 21, 2015",
-            Priority: "",
-            Type: "",
-            AssetNo: "1231232135",
-            Description: "Printers can present a bewildering range of problems. Fortunately, many of them can be resolved by consumers armed with a bit of knowledge.",
-            CreatedOn: "July 20, 2015",
-            CompletedOn: "July 21, 2015",
-            CreatedBy: "Peter Petrov",
-            CancelReason: "It started to work."
-        },
+        pictureUrl: null,
+        serviceRequest: null,
         maintenanceTypes: [{ Id: 1, Name: "Repair" }, { Id: 2, Name: "Request" }],
-        onPrioritySelected: function(e) {
+
+        onPriorityChanged: function (e) {
             var buttonGroup = e.sender;
             var index = buttonGroup.current().index();
-            global.submitRequest.viewModel.request.Priority = index;
+            global.submitServiceRequest.viewModel.serviceRequest.priority = index;
         },
-        requestImageUrl: "http://cdn.phys.org/newman/csz/news/800/2011/hpslamssensa.jpg"
+
+        takePicture: function () {
+            var vm = global.submitServiceRequest.viewModel;
+            navigator.camera.getPicture(function (data) {
+                vm.set("pictureUrl", "data:image/jpeg;base64," + data);
+                vm.serviceRequest.picture = data;
+            }, function (error) {
+            }, {
+                quality: 50,
+                destinationType: navigator.camera.DestinationType.DATA_URL
+            });
+
+        },
+
+        scanAssetNo: function () {
+            // TODO: add other way to set the asset no, when not on device.
+            var vm = global.submitServiceRequest.viewModel;
+            cordova.plugins.barcodeScanner.scan(
+                    function (result) {
+                        vm.serviceRequest.set('assetNo', result.text);
+                    },
+                    function (error) {
+                    }
+                );
+        },
+
+        removePicture: function () {
+            var vm = global.submitServiceRequest.viewModel;
+            vm.set("pictureUrl", null);
+        },
+
+        removeAssetNo: function () {
+            var vm = global.submitServiceRequest.viewModel;
+            vm.serviceRequest.set("assetNo", null);
+        },
+
+        submit: function () {
+            var vm = global.submitServiceRequest.viewModel;
+            global.serviceRequestModel.submitServiceRequest(vm.serviceRequest)
+                .then(function (success) {
+                    global.app.navigate("#:back");
+                });
+        },
+
+        onShow: function (e) {
+            var vm = global.submitServiceRequest.viewModel;
+            vm.set("serviceRequest", {
+                title: "",
+                dueDate: new Date(),
+                priority: 0,
+                type: 1,
+                assetNo: null,
+                description: "",
+                status: global.constants.serviceRequestStatus.SUBMITTED
+            });
+        }
     })
 }

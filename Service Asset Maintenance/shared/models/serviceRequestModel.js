@@ -19,7 +19,7 @@ global.serviceRequestModel = {
                         field: 'DueDate',
                         defaultValue: new Date()
                     },
-                    completedDate: {
+                    completedAt: {
                         field: 'CompletedDate',
                         defaultValue: new Date()
                     },
@@ -66,26 +66,38 @@ global.serviceRequestModel = {
             typeName: 'ServiceRequest'
         }
     }),
-    //getServiceRequest: function (id) {
-    //    return global.serviceRequestModel.serviceData.getByUid(id);
-    //},
-    //submitServiceRequest: function (serviceRequest) {
-    //    return new Promise(function (resolve, reject) {
-    //        var model = global.serviceRequestModel;
-    //        model.serviceData.add(request);
-    //        model.serviceData.sync().then(resolve, function (error) {
-    //            global.notifications.showErrorMessage(error);
-    //            reject(error);
-    //        });
-    //    });
-    //},
-    //cancelServiceRequest: function (request) {
-    //    return new Promise(function (resolve, reject) {
-    //        request.set("status", global.constants.serviceRequestStatus.CANCELED);
-    //        global.serviceRequestModel.serviceData.sync().then(resolve, function (error) {
-    //            global.notifications.showErrorMessage(error);
-    //            reject(error);
-    //        });
-    //    });
-    //}
+
+    getServiceRequest: function (id) {
+        return global.serviceRequestModel.dataSource.get(id);
+    },
+
+    cancelServiceRequest: function (serviceRequest) {
+        return new Promise(function (resolve, reject) {
+            serviceRequest.set("status", global.constants.serviceRequestStatus.CANCELED);
+            global.serviceRequestModel.dataSource
+                .sync()
+                .then(resolve, function (error) {
+                    global.notifications.showErrorMessage(error);
+                    reject(error);
+                });
+        });
+    },
+
+
+    submitServiceRequest: function (serviceRequest) {
+        console.log(serviceRequest);
+        return new Promise(function (resolve, reject) {
+            var dataSource = global.serviceRequestModel.dataSource;
+            console.log("add");
+            dataSource.add(serviceRequest);
+            console.log("added");
+            dataSource.sync().then(function (success) {
+                console.log("success");
+                resolve(success);
+            }, function (error) {
+                global.notifications.showErrorMessage(error);
+                reject(error);
+            });
+        });
+    }
 };

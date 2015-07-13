@@ -2,20 +2,22 @@
 
 global.serviceRequestDetails = {
     viewModel: kendo.observable({
-        serviceRequest: {
-            id: "1",
-            title: "Printer malfuncion",
-            dueDate: "July 21, 2015",
-            assignedTo: "John Doe",
-            priority: "low",
-            type: "Repair",
-            assetNo: "1231232135",
-            description: "Printers can present a bewildering range of problems. Fortunately, many of them can be resolved by consumers armed with a bit of knowledge.",
-            createdOn: "July 20, 2015",
-            completedOn: "July 21, 2015",
-            createdBy: "Peter Petrov",
-            reason: "It started to work."
+        imageUrl: undefined,
+        serviceRequest: undefined,
+        canCancel: false,
+        setServiceRequest: function (serviceRequest) {
+            var vm = global.serviceRequestDetails.viewModel;
+            vm.set("serviceRequest", serviceRequest);
+            vm.set("canCancel", serviceRequest.status != global.constants.serviceRequestStatus.CANCELED);
+            var image = serviceRequest.picture ? "data:image/jpeg;base64," + serviceRequest.picture : null;
+            vm.set("imageUrl", image);
         },
-        imageUrl: "http://cdn.phys.org/newman/csz/news/800/2011/hpslamssensa.jpg"
+
+        cancelServiceRequest: function (e) {
+            var vm = global.serviceRequestDetails.viewModel;
+            global.serviceRequestModel.cancelServiceRequest(vm.serviceRequest).then(function (success) {
+                vm.set("canCancel", false);
+            });
+        }
     })
 }
