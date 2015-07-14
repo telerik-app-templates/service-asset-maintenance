@@ -18,15 +18,15 @@ global.serviceRequestsFilter = {
     appendFilter: function (filter) {
         var vm = global.serviceRequestsFilter.viewModel;
         if (vm.status) {
-            filter.push(createFilterObject("status", "eq", vm.status));
+            filter.push(global.createFilterObject("status", "eq", vm.status));
         }
 
         if (vm.type) {
-            filter.push(createFilterObject("type", "eq", vm.type));
+            filter.push(global.createFilterObject("type", "eq", vm.type));
         }
     },
 
     appendSort: function (sort) {
-        sort.push(createSortObject(global.serviceRequestsFilter.viewModel.sortBy, "asc"));
+        sort.push(global.createSortObject(global.serviceRequestsFilter.viewModel.sortBy, "asc"));
     }
 }

@@ -1,6 +1,6 @@
 global.navigation = {
     navigateTo: function (url, tabletTarget) {
-        if (global.showSplitLayout()) {
+        if (global.showSplitLayout) {
             var pane = $("#" + tabletTarget).data("kendoMobilePane");
             pane.navigate(url);
         }

@@ -1,51 +1,43 @@
-
-(function (srq) {
-    'use strict';
-    
-    var dataModel = {
-        id: Everlive.idField,
-            fields: {
-                comment: {
-                    field: 'Comment',
-                    defaultValue: ''
-                },
-                rating: {
-                    field: 'Rating',
-                    defaultValue: ''
-                },
-                requestReview: {
-                    field: 'RequestReview',
-                    defaultValue: ''
-                },
-                requestId: {
-                    field: 'RequestId',
-                    defaultValue: ''
+global.feedbackItemModel = {
+    dataSource: new kendo.data.DataSource({
+        type: 'everlive',
+        schema: {
+            model: {
+                id: Everlive.idField,
+                fields: {
+                    comment: {
+                        field: 'Comment',
+                        defaultValue: ''
+                    },
+                    rating: {
+                        field: 'Rating',
+                        defaultValue: 0
+                    },
+                    serviceRequestId: {
+                        field: 'RequestId',
+                        defaultValue: ''
+                    },
+                    createdAt: {
+                        field: 'CreatedAt',
+                        defaultValue: new Date()
+                    }
                 }
             }
-    };
-    
-    srq.feedbackItemModel = {
-        feedbackData: new kendo.data.DataSource({
-            type: 'everlive',
-            schema: {
-                model: dataModel
-            }, 
-            transport: {
-                typeName: 'FeedbackItem'
-            }
-        }),
-        getItem: function (uid) {
-            return srq.feedbackItemModel.feedbackData.getByUid(uid);
         },
-        submitFeedbackItem: function (feedback, callback) {
-            srq.feedbackItemModel.feedbackData.add(feedback);
-            srq.feedbackItemModel.feedbackData.sync()
-            	.then(function (success) {
-                	callback("Feedback Submitted.");
-            	}, function (fail) {
-                	callback("Submit failed, try again or contact Customer Service if it continues to fail.");
-            	});
+        serverFiltering: true,
+        transport: {
+            typeName: 'FeedbackItem'
         }
-    };
-    
-})(srq);
+    }),
+
+    submitFeedbackItem: function (feedbackItem) {
+        return new Promise(function (resolve, reject) {
+            var dataSource = global.feedbackItemModel.dataSource;
+            dataSource.add(feedbackItem);
+            dataSource.sync().then(resolve, function (error) {
+                global.notifications.showErrorMessage(error);
+                reject(error);
+            });
+        });
+    }
+};

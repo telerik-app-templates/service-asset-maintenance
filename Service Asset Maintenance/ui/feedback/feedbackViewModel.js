@@ -2,9 +2,31 @@
 
 global.feedback = {
     viewModel: kendo.observable({
-        comment: "Your comment here",
-        feedbackItems: [{ UserName: "Peter Petrov", Comment: "Printers can present a bewildering range of problems.", CreatedOn: "July 21, 2015" },
-            { UserName: "George Georgiev", Comment: "Fortunately, many of them can be resolved by consumers armed with a bit of knoledge.", CreatedOn: "July 21, 2015" }
-        ]
+        serviceRequestId: null,
+        feedbackItem: null,
+        feedbackItems: function () {
+            return global.feedbackItemModel.dataSource;
+        },
+
+        setServiceRequest: function (serviceRequest) {
+            var vm = global.feedback.viewModel;
+            vm.serviceRequestId = serviceRequest.id;
+            global.feedbackItemModel.dataSource.filter(global.createFilterObject("serviceRequestId", "eq", vm.serviceRequestId));
+            vm.set("feedbackItem", {
+                comment: "",
+                serviceRequestId: vm.serviceRequestId
+            });
+        },
+
+        submit: function () {
+            var vm = global.feedback.viewModel;
+            global.feedbackItemModel.submitFeedbackItem(vm.feedbackItem)
+                .then(function (success) {
+                    vm.set("feedbackItem", {
+                        comment: "",
+                        serviceRequestId: vm.serviceRequestId
+                    });
+                });
+        }
     })
 }

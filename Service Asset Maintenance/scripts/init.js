@@ -1,15 +1,12 @@
 global = {};
 
-// TODO: Find a way to detect if the device is tablet. 
-//global.isTablet = kendo.support.mobileOS && kendo.support.mobileOS.tablet;
-global.showSplitLayout = function () {
-    return window.innerHeight > 720;
-}
+// TODO: Find a way to detect if the device is wide enough for split view. 
+global.showSplitView = false;
 
-function createFilterObject(field, operator, value) {
+global.createFilterObject = function(field, operator, value) {
     return { field: field, operator: operator, value: value };
 }
 
-function createSortObject(field, direction) {
+global.createSortObject = function(field, direction) {
     return { field: field, dir: direction };
 }

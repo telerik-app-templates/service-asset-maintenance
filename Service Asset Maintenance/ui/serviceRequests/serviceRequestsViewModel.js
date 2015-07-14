@@ -20,7 +20,8 @@ global.serviceRequests = {
         serviceRequestClicked: function (e) {
             var serviceRequest = global.serviceRequestModel.getServiceRequest(e.dataItem.id);
             global.serviceRequestDetails.viewModel.setServiceRequest(serviceRequest);
-            var url = global.showSplitLayout() ? "ui/serviceRequestDetails/serviceRequestDetailsView.tablet.html" : "ui/serviceRequestDetails/serviceRequestDetailsView.html";
+            global.feedback.viewModel.setServiceRequest(serviceRequest);
+            var url = global.showSplitLayout ? "ui/serviceRequestDetails/serviceRequestDetailsView.tablet.html" : "ui/serviceRequestDetails/serviceRequestDetailsView.html";
             global.navigation.navigateTo(url, "content-pane");
         },
 
@@ -39,7 +40,7 @@ function buildServiceRequestsFilter() {
     var filter = [];
     global.serviceRequestsFilter.appendFilter(filter);
     if (global.serviceRequests.viewModel.selectedFilter === 1) {
-        filter.push(createFilterObject("createdBy", "eq", "Me"));
+        filter.push(global.createFilterObject("createdBy", "eq", "Me"));
     }
 
     return filter;

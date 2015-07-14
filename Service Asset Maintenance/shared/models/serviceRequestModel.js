@@ -85,16 +85,10 @@ global.serviceRequestModel = {
 
 
     submitServiceRequest: function (serviceRequest) {
-        console.log(serviceRequest);
         return new Promise(function (resolve, reject) {
             var dataSource = global.serviceRequestModel.dataSource;
-            console.log("add");
             dataSource.add(serviceRequest);
-            console.log("added");
-            dataSource.sync().then(function (success) {
-                console.log("success");
-                resolve(success);
-            }, function (error) {
+            dataSource.sync().then(resolve, function (error) {
                 global.notifications.showErrorMessage(error);
                 reject(error);
             });

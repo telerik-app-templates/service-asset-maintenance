@@ -1,5 +1,5 @@
 getLayout = function() {
-    return global.showSplitLayout() ? "ui/tablet/homeView.html" : "ui/serviceRequests/serviceRequestsView.html"
+    return global.showSplitLayout ? "ui/tablet/homeView.html" : "ui/serviceRequests/serviceRequestsView.html";
 }
 
 document.addEventListener('deviceready', function () {
@@ -10,6 +10,9 @@ document.addEventListener('deviceready', function () {
     });
 }, false);
 
-window.addEventListener('orientationchange', function () {
-    global.app.replace(getLayout());
+window.addEventListener('resize', function () {
+    global.showSplitLayout = window.innerWidth > 720;
+    if (global.app) {
+        global.app.replace(getLayout());
+    }
 }, false);
