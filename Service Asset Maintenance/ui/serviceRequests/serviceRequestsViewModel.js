@@ -32,8 +32,10 @@ global.serviceRequests = {
 }
 
 function filterAndSort() {
-    global.serviceRequestModel.dataSource.filter(buildServiceRequestsFilter());
-    global.serviceRequestModel.dataSource.sort(buildServiceRequestsSort());
+    global.serviceRequestModel.dataSource.fetch(function () {
+        global.serviceRequestModel.dataSource.filter(buildServiceRequestsFilter());
+        global.serviceRequestModel.dataSource.sort(buildServiceRequestsSort());
+    });
 }
 
 function buildServiceRequestsFilter() {

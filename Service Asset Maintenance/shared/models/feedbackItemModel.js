@@ -1,32 +1,41 @@
 global.feedbackItemModel = {
     dataSource: new kendo.data.DataSource({
-        type: 'everlive',
+        type: "everlive",
         schema: {
             model: {
                 id: Everlive.idField,
                 fields: {
+                    createdAt: {
+                        field: "CreatedAt",
+                        defaultValue: new Date()
+                    },
                     comment: {
-                        field: 'Comment',
-                        defaultValue: ''
+                        field: "Comment",
+                        defaultValue: ""
                     },
                     rating: {
-                        field: 'Rating',
+                        field: "Rating",
                         defaultValue: 0
                     },
                     serviceRequestId: {
-                        field: 'RequestId',
-                        defaultValue: ''
+                        field: "RequestId",
+                        defaultValue: ""
                     },
-                    createdAt: {
-                        field: 'CreatedAt',
-                        defaultValue: new Date()
+                    createdBy: {
+                        field: "CreatedBy",
+                        defaultValue: ""
                     }
                 }
             }
         },
         serverFiltering: true,
         transport: {
-            typeName: 'FeedbackItem'
+            typeName: "FeedbackItem",
+            read: {
+                headers: {
+                    "X-Everlive-Expand": JSON.stringify({})
+                }
+            }
         }
     }),
 
