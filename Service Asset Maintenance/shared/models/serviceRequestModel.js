@@ -77,18 +77,18 @@
             srq.serviceRequestModel.serviceData.add(request);
             srq.serviceRequestModel.serviceData.sync()
             	.then(function (success) {
-                	callback(srq.appSettings.strings.submitSuccessMessage);
+                	callback("Request Submitted.");
             	}, function (fail) {
-                	callback(srq.appSettings.strings.submitFailMessage);
+                	callback("Submit failed, try again or contact Customer Service if it continues to fail.");
             	});
         },
         cancelRequest: function (request, callback) {
             request.set("status", "Cancel Requested");
             srq.serviceRequestModel.serviceData.sync()
             	.then(function(success) {
-                	callback(srq.appSettings.strings.cancelSuccessMessage);
+                	callback("Request Submitted for Cancellation.");
             	}, function (fail) {
-                	callback(srq.appSettings.strings.cancelFailMessage);
+                	callback("Request failed, please check with support or try again later.");
             	});
         }
     };

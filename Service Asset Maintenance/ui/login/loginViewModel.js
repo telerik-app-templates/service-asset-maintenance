@@ -7,12 +7,7 @@
     srq.login = {
         viewModel: kendo.observable({
             init: function (e) {
-                // every view init populates UI labels, test for internationalization/resource dictionary style UI string approach
-                $("#login-button-text").text(srq.appSettings.strings.loginText);
-                $("#no-account-signup-text").text(srq.appSettings.strings.noAccountText);
-                $("#copyright-company-text").text(srq.appSettings.strings.copyrightCompany);
-                
-                $loginUsername = $('#loginUsername');
+				$loginUsername = $('#loginUsername');
             	$loginPassword = $('#loginPassword');                                
             },
             show: function () {

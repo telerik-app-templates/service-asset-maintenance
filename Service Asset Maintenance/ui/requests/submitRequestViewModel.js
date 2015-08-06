@@ -71,6 +71,7 @@
     
     var geoFail = function (fail) {
         // silent fail right now, defaults to 0:0 from init
+        // placeholder in case users want to log via Analytics, etc.
     };
     
     var grabGeo = function () {
@@ -79,12 +80,7 @@
     
     srq.submitRequest = {        
         viewModel: kendo.observable({
-            init: function (e) {
-                $("#submit-request-title").text(srq.appSettings.strings.submitRequestHeader);
-                $("#submit-request-button-text").text(srq.appSettings.strings.submitRequestHeader);
-                $("#take-picture-button-text").text(srq.appSettings.strings.takePicture);
-                $("#no-img-yet-span").text(srq.appSettings.strings.addPictureText);
-                
+            init: function (e) {                
                 if (window.navigator.simulator === true) {
                     $("#deviceDiv").hide();
                 } else {

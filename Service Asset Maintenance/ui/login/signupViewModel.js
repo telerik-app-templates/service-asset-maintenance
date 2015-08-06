@@ -21,10 +21,6 @@
             },
 
             init: function (e) {
-                // init strings
-                $("#signup-header-title").text(srq.appSettings.strings.signupTitle);
-                $("#register-button-text").text(srq.appSettings.strings.registerText);
-                
                 $signUpForm = $('#signUp');
                 $formFields = $signUpForm.find('input, textarea, select');
                 $signupBtnWrp = $('#signupBtnWrp');
