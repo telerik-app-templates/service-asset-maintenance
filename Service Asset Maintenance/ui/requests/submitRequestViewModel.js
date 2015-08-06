@@ -119,7 +119,7 @@
             	});
             },
             submitRequest : function (e) {
-                srq.app.showLoading();                
+                srq.app.showLoading();
                 srq.serviceRequestModel.submitRequest(dataSource, reqSubmitted);
             },
             takePicture: function (e) {

@@ -1,6 +1,6 @@
 
 srq.appSettings = {
-    elKey: "3a0PopBb1pAT9SDF",
+    elKey: "RARnWfDZzIgqElYa",
     currentRequest: null,
     feedbackRequest: null,
     strings: {
