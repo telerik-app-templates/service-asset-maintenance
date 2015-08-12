@@ -11,6 +11,10 @@ global.serviceRequestModel = {
                         field: 'CreatedAt',
                         defaultValue: new Date()
                     },
+                    createdBy: {
+                        field: 'CreatedBy',
+                        defaultValue: ''
+                    },
                     title: {
                         field: 'Reason',
                         defaultValue: ''
@@ -64,7 +68,9 @@ global.serviceRequestModel = {
         },
         transport: {
             typeName: 'ServiceRequest'
-        }
+        },
+
+        serverFiltering: true
     }),
 
     getServiceRequest: function (id) {

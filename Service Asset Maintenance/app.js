@@ -1,17 +1,18 @@
-getLayout = function() {
-    return global.showSplitLayout ? "ui/tablet/homeView.html" : "ui/serviceRequests/serviceRequestsView.html";
+function updateLayout() {
+    global.isWide = window.innerWidth > 720;
 }
 
 document.addEventListener('deviceready', function () {
     navigator.splashscreen.hide();
+    updateLayout();
     global.app = new kendo.mobile.Application(document.body, {
         skin: "flat",
-        initial: getLayout()
+        initial: global.navigation.getInitialView()
     });
 }, false);
 
 window.addEventListener('resize', function () {
-    global.showSplitLayout = window.innerWidth > 720;
+    updateLayout();
     if (global.app) {
         global.app.replace(getLayout());
     }

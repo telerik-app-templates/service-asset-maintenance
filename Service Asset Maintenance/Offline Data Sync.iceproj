@@ -65,10 +65,13 @@
     <Content Include="kendo\typescript\kendo.mobile.d.ts">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="shared\analytics.js">
+    <Content Include="shared\utils\service.js" />
+    <Content Include="scripts\templates.js" />
+    <Content Include="ui\home\homeView.html" />
+    <Content Include="ui\old\analytics.js">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="shared\appSettings.js">
+    <Content Include="ui\old\appSettings.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="lib\everlive.all.min.js">
@@ -167,7 +170,7 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="ui\serviceRequestDetails\serviceRequestDetailsView.tablet.html" />
-    <Content Include="ui\tablet\homeView.html" />
+    <Content Include="ui\home\homeView.wide.html" />
     <Content Include="ui\login\loginViewModel.js">
       <SubType>Content</SubType>
     </Content>
@@ -240,6 +243,9 @@
     </Content>
     <Content Include="ui\serviceRequests\serviceRequestsView.html" />
     <Content Include="ui\serviceRequests\serviceRequestsViewModel.js" />
+    <Content Include="ui\templates\template.tmpl.html" />
+    <Content Include="ui\templates\templateView.html" />
+    <Content Include="ui\templates\templateViewModel.js" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
@@ -299,7 +305,8 @@
     <Folder Include="ui\" />
     <Folder Include="ui\login\" />
     <Folder Include="ui\feedback\" />
-    <Folder Include="ui\tablet\" />
+    <Folder Include="ui\templates\" />
+    <Folder Include="ui\home\" />
     <Folder Include="ui\serviceRequestsFilter\" />
     <Folder Include="ui\submitServiceRequest\" />
     <Folder Include="ui\signUp\" />

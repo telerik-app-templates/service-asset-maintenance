@@ -1,12 +1,26 @@
 <div data-role="view"
      data-layout="empty-layout"
      data-model="global.signUp.viewModel">
-    <input type="text" data-bind="value: name" />
+    <div>
+        Service asset maintenance
+    </div>
+    <span>Username</span>
+    <br />
     <input type="text" data-bind="value: username" />
+    <br />
+    <span>Display name</span>
+    <br />
+    <input type="text" data-bind="value: displayName" />
+    <br />
+    <span>Password</span>
+    <br />
     <input type="password" data-bind="value: password" />
+    <br />
+    <span>Confirm password</span>
+    <br />
     <input type="password" data-bind="value: confirmPassword" />
     <br />
-    <a href="ui/requests/requestsView.html" data-role="button" >Sign up</a>
+    <a data-bind="click: signUp" data-role="button" >Sign up</a>
     <br />
     <a href="ui/login/loginView.html" data-role="button" >Login</a>
 </div>
