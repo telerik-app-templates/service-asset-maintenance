@@ -17,22 +17,22 @@ textarea {
     flex: 1;
 }
 
-@media screen and (max-width: 720px) {
-    .tablet {
-        visibility: collapse;
+@media screen and (max-width: 719px) {
+    .normal {
+        visibility: visible;
     }
 
-    .phone {
-        visibility: visible;
+    .wide {
+        visibility: collapse;
     }
 }
 
 @media screen and (min-width: 720px) {
-    .tablet {
-        visibility: visible;
+    .normal {
+        visibility: collapse;
     }
 
-    .phone {
-        visibility: collapse;
+    .wide {
+        visibility: visible;
     }
 }

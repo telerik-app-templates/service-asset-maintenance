@@ -21,6 +21,7 @@ global.service = {
     },
 
     logout: function () {
+        console.log("TEST");
         localStorage.removeItem(global.constants.CURRENT_USER_KEY);
         global.everlive.authentication.logout().then(function () {
             global.navigation.login();

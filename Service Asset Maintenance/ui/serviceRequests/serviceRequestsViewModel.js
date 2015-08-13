@@ -21,7 +21,7 @@ global.serviceRequests = {
             var serviceRequest = global.serviceRequestModel.getServiceRequest(e.dataItem.id);
             global.serviceRequestDetails.viewModel.setServiceRequest(serviceRequest);
             global.feedback.viewModel.setServiceRequest(serviceRequest);
-            var url = global.isWide ? "ui/serviceRequestDetails/serviceRequestDetailsView.tablet.html" : "ui/serviceRequestDetails/serviceRequestDetailsView.html";
+            var url = global.isWide ? "ui/serviceRequestDetails/serviceRequestDetailsView.wide.html" : "ui/serviceRequestDetails/serviceRequestDetailsView.html";
             global.navigation.navigateTo(url, "content-pane");
         },
 

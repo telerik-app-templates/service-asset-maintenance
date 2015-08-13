@@ -1,11 +1,7 @@
-function getLayout() {
-    return global.isWide ? global.constants.views.homeWide : global.constants.views.home;
-}
-
 global.navigation = {
-    navigateTo: function (url, tabletTarget) {
+    navigateTo: function (url, wideTarget) {
         if (global.isWide) {
-            var pane = $("#" + tabletTarget).data("kendoMobilePane");
+            var pane = $("#" + wideTarget).data("kendoMobilePane");
             pane.navigate(url);
         }
         else {
@@ -26,16 +22,7 @@ global.navigation = {
     },
 
     login: function () {
-        global.app.navigate(global.constants.views.login);
-    },
-
-    getInitialView: function () {
-        var currentUser = localStorage.getItem(global.constants.CURRENT_USER_KEY)
-        if (currentUser) {
-
-            return getLayout();
-        }
-
-        return global.constants.views.login;
+        console.log("LOGIN")
+        global.app.replace(global.constants.views.login);
     }
 }

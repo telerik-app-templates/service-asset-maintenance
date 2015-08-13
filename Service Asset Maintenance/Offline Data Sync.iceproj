@@ -169,7 +169,9 @@
     <Content Include="styles\new-main.css">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="ui\serviceRequestDetails\serviceRequestDetailsView.tablet.html" />
+    <Content Include="ui\serviceRequestDetails\serviceRequestDetails.tmpl.html" />
+    <Content Include="ui\serviceRequestDetails\serviceRequestDetailsView.html" />
+    <Content Include="ui\serviceRequestDetails\serviceRequestDetailsView.wide.html" />
     <Content Include="ui\home\homeView.wide.html" />
     <Content Include="ui\login\loginViewModel.js">
       <SubType>Content</SubType>
@@ -221,7 +223,6 @@
     <Content Include="ui\signUp\signUpViewModel.js">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="ui\serviceRequestDetails\serviceRequestDetailsView.html" />
     <Content Include="ui\serviceRequestDetails\serviceRequestDetailsViewModel.js" />
     <Content Include="ui\old\requests-old\requestDetailsView.html">
       <SubType>Content</SubType>
@@ -241,7 +242,7 @@
     <Content Include="ui\old\requests-old\submitRequestViewModel.js">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="ui\serviceRequests\serviceRequestsView.html" />
+    <Content Include="ui\serviceRequests\serviceRequests.tmpl.html" />
     <Content Include="ui\serviceRequests\serviceRequestsViewModel.js" />
     <Content Include="ui\templates\template.tmpl.html" />
     <Content Include="ui\templates\templateView.html" />

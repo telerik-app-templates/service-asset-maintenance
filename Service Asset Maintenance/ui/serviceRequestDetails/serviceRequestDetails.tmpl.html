@@ -1,0 +1,47 @@
+<div data-role="view"
+     data-model="global.serviceRequestDetails.viewModel">
+    <img data-bind="visible: imageUrl, attr: { src: imageUrl }" />
+    <div>
+        <span data-bind="text: serviceRequest.title"></span>
+    </div>
+    <div>
+        <span data-bind="visible: serviceRequest.dueDate">Repair due</span>
+        <span data-bind="visible: serviceRequest.dueDate, text: serviceRequest.dueDate" data-format="MMMM dd yyyy"></span>
+        <span data-bind="visible: serviceRequest.priority, text: serviceRequest.priority"></span>
+    </div>
+    <div>
+        <span data-bind="visible: serviceRequest.type">Type:</span>
+        <span data-bind="visible: serviceRequest.type, text: serviceRequest.type"></span>
+    </div>
+    <div data-role="collapsible" data-collapsed="false">
+        <h3>More info</h3>
+        <div data-bind="visible: serviceRequest.description">
+            <span data-bind="text: serviceRequest.description"></span>
+        </div>
+        <div data-bind="visible: serviceRequest.assetNo">
+            <span>ASSET</span>
+            <br />
+            #<span data-bind="text: serviceRequest.assetNo"></span>
+        </div>
+        <div data-bind="visible: serviceRequest.createdOn">
+            <span>CREATED</span>
+            <br />
+            <span data-bind="text: serviceRequest.createdOn"></span>
+        </div>
+        <div data-bind="visible: serviceRequest.completedOn">
+            <span>COMPLETED</span>
+            <br />
+            <span data-bind="text: serviceRequest.completedOn"></span>
+        </div>
+        <div data-bind="visible: serviceRequest.createdBy">
+            <span>SUBMITTED BY</span>
+            <br />
+            <span data-bind="text: serviceRequest.createdBy"></span>
+        </div>
+        <div data-bind="visible: serviceRequest.reason">
+            <span>REASON FOR CANCELING</span>
+            <br />
+            <span data-bind="text: serviceRequest.reason"></span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div data-role="splitview"
+     data-model="global.serviceRequestDetails.viewModel" >
+    <div data-role="header">
+        <div data-role="navbar">
+            <!--<span data-role="view-title" data-bind="text: serviceRequest.status"></span>-->
+            <span data-role="view-title">Title</span>
+            <a data-align="right" data-role="button" data-bind="visible: canCancel, events: { click: cancelServiceRequest }">Cancel it</a>
+        </div>
+    </div>
+    <div data-role="pane" id="left-pane" data-initial="ui/serviceRequestDetails/serviceRequestDetails.tmpl.html"></div>
+    <div data-role="pane" id="right-pane">
+        <div data-role="splitview" data-style="vertical">
+            <div>Your feedback</div>
+            <div data-role="pane" id="right-pane" data-initial="ui/feedback/feedbackView.html"></div>
+        </div>
+    </div>
+</div>

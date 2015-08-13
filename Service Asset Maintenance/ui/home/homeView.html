@@ -1,1 +1,12 @@
-<div></div>
+<div data-role="splitview"
+     data-title="Service Requests">
+    <div data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title"></span>
+            <a href="ui/serviceRequestsFilter/serviceRequestsFilterView.html" data-align="right" data-icon="filter" data-role="button"></a>
+            <a data-bind="click: global.serviceRequests.viewModel.logout" data-align="right" data-icon="logout" data-role="button"></a>
+        </div>
+    </div>
+
+    <div data-role="pane" id="content" data-initial="ui/serviceRequests/serviceRequests.tmpl.html"></div>
+</div>
