@@ -4,9 +4,9 @@
      data-title="Refine Results">
     <div data-role="header">
         <div data-role="navbar">
-            <a data-align="left" data-role="backbutton">Back</a>
+            <a data-align="left" data-role="backbutton" class="asset-button">Back</a>
             <span data-role="view-title"></span>
-            <a data-align="right" data-role="button" data-bind="events: { click: reset }">Reset</a>
+            <a data-align="right" data-role="button" data-bind="events: { click: reset }" class="asset-button">Reset</a>
         </div>
     </div>
 
@@ -28,27 +28,35 @@
                    data-bind="value: type, source: maintenanceTypes" />
         </li>
     </ul>
-    <div class="radio-group">
-        <span class="radio-group-header block-label">Sort by</span>
-        <label>
-            <input type="radio" name="sortBy" value="dueDate" data-bind="checked: sortBy">
-            <span>Due date</span>
-        </label>
-        <label>
-            <input type="radio" name="sortBy" value="priority" data-bind="checked: sortBy">
-            <span>Priority</span>
-        </label>
-        <label>
-            <input type="radio" name="sortBy" value="createdAt" data-bind="checked: sortBy">
-            <span>Date created</span>
-        </label>
-        <label>
-            <input type="radio" name="sortBy" value="completedAt" data-bind="checked: sortBy">
-            <span>Date completed</span>
-        </label>
-    </div>
+    <ul data-role="listview" data-type="group" class="radio-group">
+        <li>
+            Sort by
+            <ul>
+                <li>
+                    <label>
+                        <input type="radio" name="sortBy" value="dueDate" data-bind="checked: sortBy">Due date
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="sortBy" value="priority" data-bind="checked: sortBy">Priority
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="sortBy" value="createdAt" data-bind="checked: sortBy">Date created
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="radio" name="sortBy" value="completedAt" data-bind="checked: sortBy">Date completed
+                    </label>
+                </li>
+            </ul>
+        </li>
+    </ul>
 
     <div data-role="footer">
-        <a data-role="backbutton" >Done</a>
+        <a data-role="backbutton" class="asset-button">Done</a>
     </div>
 </div>

@@ -1,15 +1,15 @@
 <div data-role="splitview" >
     <div data-role="header">
         <div data-role="navbar">
-            <a data-align="left" data-role="backbutton">Back</a>
+            <a data-align="left" data-role="backbutton" class="asset-button">Back</a>
             <span data-role="view-title">Title</span>
-            <a data-align="right" data-role="button" data-bind="visible: canCancel, events: { click: cancelServiceRequest }">Cancel it</a>
+            <a data-align="right" data-role="button" data-bind="visible: canCancel, events: { click: cancelServiceRequest }" class="asset-button">Cancel it</a>
         </div>
     </div>
     
     <div data-role="pane" data-initial="ui/serviceRequestDetails/serviceRequestDetails.tmpl.html"></div>
 
     <div data-role="footer">
-        <a data-role="button" href="ui/feedback/feedbackView.html">Submit Feedback</a>
+        <a data-role="button" href="ui/feedback/feedbackView.html" class="asset-button">Submit Feedback</a>
     </div>
 </div>

@@ -17,6 +17,7 @@ textarea {
     flex: 1;
 }
 
+.button-container,
 .km-nova .km-footer {
     background: transparent;
     padding: 0 .7em 0 .7em;
@@ -68,7 +69,7 @@ textarea {
     background: linear-gradient(to top, #BFC7F3 0, #AAB1D9 100%);
 }
 
-.km-view .km-scroll-container > .km-button,
+.km-view .button-container .km-button,
 .km-view .km-footer .km-button {
     background: #FF4350;
     color: #fff;
@@ -79,9 +80,18 @@ textarea {
 
 .km-root .fa:before {
     font-family: FontAwesome;
-    display: block;
     color: inherit;
     font-size: 1.3em;
+}
+
+.km-root .km-icon.fa:before
+{
+    display: block;
+}
+
+.km-nova .asset-button.km-state-active
+{
+    box-shadow: inset 0 0 1000px rgba(0,0,0,.3);
 }
 
 #submit-service-request-view .km-buttongroup {
@@ -90,15 +100,14 @@ textarea {
     font-size: .8em;
 }
 
-#service-requests-filter-view .km-listview .k-dropdown,
-#service-requests-filter-view .km-listview .k-dropdown-wrap,
-#submit-service-request-view .km-listview .k-dropdown,
-#submit-service-request-view .km-listview .k-dropdown-wrap,
-#submit-service-request-view .km-listview textarea,
+.km-root .km-listview .k-dropdown,
+.km-root .km-listview .k-dropdown-wrap,
+.km-root .km-listview textarea,
 #feedback-view .km-listview textarea,
 #submit-service-request-view .km-listview input {
     width: 100%;
-    position: inherit;
+    display: block;
+    position: relative;
     padding: 0;
     margin: 0;
     transform: none;
@@ -152,9 +161,11 @@ textarea {
     position: absolute;
     right: 0;
     background-color: blue;
-    padding: .2em .8em;
+    padding: 1px .8em;
     color: #fff;
     text-transform: lowercase;
+    padding: 1px .8em;
+    margin-top: 3px;
     text-align: right;
 }
 
@@ -194,6 +205,10 @@ textarea {
 
 .details-label {
     font-size: 1.2em;
+}
+
+.details-label.priority-label {
+    margin-top: -2px;
 }
 
 .block-label {
@@ -238,21 +253,43 @@ textarea {
     border-right: 1px solid #F8FAFB;
 }
 
-.radio-group {
-    font-size: 1.2em;
-    padding: 16px;
+.radio-group input[type=radio]
+{
+    position: absolute;
+    left: .8em;
+    right: auto;
 }
 
-.radio-group label {
+.radio-group .km-list li label {
+    color: #000;
+    padding-left: 3em;
+}
+
+.radio-group .km-list li {
+    padding-top: .6em;
+    padding-bottom: .6em;
+    border-top-width: 0;
+}
+
+.km-list .k-dropdown .k-select
+{
+    display: inline-block;
+    float: right;
+}
+
+.km-list .k-dropdown .k-select:before
+{
+    font: 1em/1em normal "Kendo UI";
+    content: "\e012";
     display: block;
-    margin-top: 10px;
 }
 
-.radio-group label span {
-    vertical-align: super;
-    margin-left: 6px;
+.km-list .k-dropdown .k-icon
+{
+    display: none;
 }
 
-.radio-group-header {
-    margin-bottom: 16px;
+.km-list .k-dropdown .k-dropdown-wrap {
+    padding: 1em 0 0;
+    margin-top: -1em;
 }
