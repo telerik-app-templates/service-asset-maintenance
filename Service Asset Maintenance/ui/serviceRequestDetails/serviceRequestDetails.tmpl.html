@@ -1,47 +1,25 @@
-<div data-role="view"
+<div id="service-request-details-view"
+     data-role="view"
      data-model="global.serviceRequestDetails.viewModel">
-    <img data-bind="visible: imageUrl, attr: { src: imageUrl }" />
-    <div>
-        <span data-bind="text: serviceRequest.title"></span>
-    </div>
-    <div>
-        <span data-bind="visible: serviceRequest.dueDate">Repair due</span>
-        <span data-bind="visible: serviceRequest.dueDate, text: serviceRequest.dueDate" data-format="MMMM dd yyyy"></span>
-        <span data-bind="visible: serviceRequest.priority, text: serviceRequest.priority"></span>
-    </div>
-    <div>
-        <span data-bind="visible: serviceRequest.type">Type:</span>
-        <span data-bind="visible: serviceRequest.type, text: serviceRequest.type"></span>
-    </div>
-    <div data-role="collapsible" data-collapsed="false">
+    <img data-bind="visible: imageUrl, attr: { src: imageUrl }" class="header-image" />
+    <span data-bind="text: serviceRequest.title" class="title-label margins"></span>
+    <span data-bind="visible: serviceRequest.maintenanceType, text: serviceRequest.maintenanceType" class="maintenance-type-label details-label"></span>
+    <span data-bind="visible: serviceRequest.dueDate" class="details-label">due</span>
+    <span data-bind="visible: serviceRequest.dueDate, text: serviceRequest.dueDate" data-format="MMMM dd yyyy" class="details-label duedate-label"></span>
+    <span data-bind="visible: serviceRequest.priority, text: serviceRequest.priority" class="details-label priority-label priority-high"></span>
+    <div data-role="collapsible" >
         <h3>More info</h3>
-        <div data-bind="visible: serviceRequest.description">
-            <span data-bind="text: serviceRequest.description"></span>
-        </div>
-        <div data-bind="visible: serviceRequest.assetNo">
-            <span>ASSET</span>
-            <br />
-            #<span data-bind="text: serviceRequest.assetNo"></span>
-        </div>
-        <div data-bind="visible: serviceRequest.createdOn">
-            <span>CREATED</span>
-            <br />
-            <span data-bind="text: serviceRequest.createdOn"></span>
-        </div>
-        <div data-bind="visible: serviceRequest.completedOn">
-            <span>COMPLETED</span>
-            <br />
-            <span data-bind="text: serviceRequest.completedOn"></span>
-        </div>
-        <div data-bind="visible: serviceRequest.createdBy">
-            <span>SUBMITTED BY</span>
-            <br />
-            <span data-bind="text: serviceRequest.createdBy"></span>
-        </div>
-        <div data-bind="visible: serviceRequest.reason">
-            <span>REASON FOR CANCELING</span>
-            <br />
-            <span data-bind="text: serviceRequest.reason"></span>
+        <div>
+            <span data-bind="visible: serviceRequest.description, text: serviceRequest.description" class="block-label"></span>
+            <span data-bind="visible: serviceRequest.assetNo" class="details-header-label block-label">ASSET</span>
+            <span data-bind="visible: serviceRequest.assetNo">#</span><span data-bind="visible: serviceRequest.assetNo, text: serviceRequest.assetNo"></span>
+            <span data-bind="visible: serviceRequest.createdOn" class="details-header-label block-label">CREATED</span>
+            <span data-bind="visible: serviceRequest.createdOn, text: serviceRequest.createdOn" data-format="MMMM dd yyyy"></span>
+            <span data-bind="visible: serviceRequest.createdBy">by </span><span data-bind="visible: serviceRequest.createdBy, text: serviceRequest.createdBy"></span>
+            <span data-bind="visible: serviceRequest.completedOn" class="details-header-label block-label">COMPLETED</span>
+            <span data-bind="visible: serviceRequest.completedOn, text: serviceRequest.completedOn" data-format="MMMM dd yyyy"></span>
+            <span data-bind="visible: serviceRequest.reason" class="details-header-label block-label">REASON FOR CANCELING</span>
+            <span data-bind="visible: serviceRequest.reason, text: serviceRequest.reason"></span>
         </div>
     </div>
 </div>

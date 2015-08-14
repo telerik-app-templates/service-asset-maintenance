@@ -21,50 +21,64 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
   <ItemGroup>
     <Content Include=".abproject" />
+    <Content Include="bower_components\fontawesome\.bower.json" />
+    <Content Include="bower_components\fontawesome\.gitignore" />
+    <Content Include="bower_components\fontawesome\.npmignore" />
+    <Content Include="bower_components\fontawesome\css\font-awesome.css" />
+    <Content Include="bower_components\fontawesome\css\font-awesome.css.map" />
+    <Content Include="bower_components\fontawesome\css\font-awesome.min.css" />
+    <Content Include="bower_components\fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="bower_components\fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="bower_components\fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="bower_components\fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="bower_components\fontawesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="bower_components\fontawesome\fonts\FontAwesome.otf" />
+    <Content Include="bower_components\fontawesome\HELP-US-OUT.txt" />
+    <Content Include="bower_components\fontawesome\less\animated.less" />
+    <Content Include="bower_components\fontawesome\less\bordered-pulled.less" />
+    <Content Include="bower_components\fontawesome\less\core.less" />
+    <Content Include="bower_components\fontawesome\less\fixed-width.less" />
+    <Content Include="bower_components\fontawesome\less\font-awesome.less" />
+    <Content Include="bower_components\fontawesome\less\icons.less" />
+    <Content Include="bower_components\fontawesome\less\larger.less" />
+    <Content Include="bower_components\fontawesome\less\list.less" />
+    <Content Include="bower_components\fontawesome\less\mixins.less" />
+    <Content Include="bower_components\fontawesome\less\path.less" />
+    <Content Include="bower_components\fontawesome\less\rotated-flipped.less" />
+    <Content Include="bower_components\fontawesome\less\stacked.less" />
+    <Content Include="bower_components\fontawesome\less\variables.less" />
+    <Content Include="bower_components\fontawesome\scss\font-awesome.scss" />
+    <Content Include="bower_components\fontawesome\scss\_animated.scss" />
+    <Content Include="bower_components\fontawesome\scss\_bordered-pulled.scss" />
+    <Content Include="bower_components\fontawesome\scss\_core.scss" />
+    <Content Include="bower_components\fontawesome\scss\_fixed-width.scss" />
+    <Content Include="bower_components\fontawesome\scss\_icons.scss" />
+    <Content Include="bower_components\fontawesome\scss\_larger.scss" />
+    <Content Include="bower_components\fontawesome\scss\_list.scss" />
+    <Content Include="bower_components\fontawesome\scss\_mixins.scss" />
+    <Content Include="bower_components\fontawesome\scss\_path.scss" />
+    <Content Include="bower_components\fontawesome\scss\_rotated-flipped.scss" />
+    <Content Include="bower_components\fontawesome\scss\_stacked.scss" />
+    <Content Include="bower_components\fontawesome\scss\_variables.scss" />
     <Content Include="cordova.android.js" />
     <Content Include="cordova.ios.js" />
     <Content Include="cordova.wp8.js" />
     <Content Include="index.html" />
     <Content Include="app.js" />
+    <Content Include="kendo\js\jquery.min.js" />
+    <Content Include="kendo\js\kendo.dataviz.mobile.min.js" />
+    <Content Include="kendo\styles\images\back.png" />
+    <Content Include="kendo\styles\images\kendoui.svg" />
+    <Content Include="kendo\styles\images\kendoui.ttf" />
+    <Content Include="kendo\styles\images\kendoui.woff" />
+    <Content Include="kendo\styles\images\wp8_icons.png" />
+    <Content Include="kendo\styles\images\wp8_inverseicons.png" />
+    <Content Include="kendo\styles\kendo.mobile.nova.min.css" />
+    <Content Include="kendo\typescript\jquery.d.ts" />
+    <Content Include="kendo\typescript\kendo.dataviz.mobile.d.ts" />
     <Content Include="scripts\bindings.js" />
     <Content Include="scripts\everlive.js" />
     <Content Include="scripts\init.js" />
-    <Content Include="kendo\js\jquery.min.js">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="kendo\js\kendo.all.min.js" />
-    <Content Include="kendo\js\kendo.mobile.min.js">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="kendo\styles\images\back.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="kendo\styles\images\kendoui.svg">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="kendo\styles\images\kendoui.ttf">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="kendo\styles\images\kendoui.woff">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="kendo\styles\images\wp8_icons.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="kendo\styles\images\wp8_inverseicons.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="kendo\styles\kendo.common.min.css" />
-    <Content Include="kendo\styles\kendo.default.min.css" />
-    <Content Include="kendo\styles\kendo.mobile.all.min.css">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="kendo\typescript\jquery.d.ts">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="kendo\typescript\kendo.mobile.d.ts">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="shared\utils\service.js" />
     <Content Include="scripts\templates.js" />
     <Content Include="ui\home\homeView.html" />
@@ -183,6 +197,7 @@
     <Content Include="ui\submitServiceRequest\submitServiceRequestView.html" />
     <Content Include="ui\submitServiceRequest\submitServiceRequestViewModel.js" />
     <Content Include="ui\feedback\feedbackView.html" />
+    <Content Include="ui\feedback\feedback.tmpl.html" />
     <Content Include="ui\feedback\feedbackViewModel.js" />
     <Content Include="ui\old\help\csView.html">
       <SubType>Content</SubType>
@@ -290,6 +305,12 @@
     <Folder Include="App_Resources\WP8\" />
     <Folder Include="App_Resources\WP8\Tiles\" />
     <Folder Include="App_Resources\WP8\Tiles\Iconic\" />
+    <Folder Include="bower_components\" />
+    <Folder Include="bower_components\fontawesome\" />
+    <Folder Include="bower_components\fontawesome\css\" />
+    <Folder Include="bower_components\fontawesome\fonts\" />
+    <Folder Include="bower_components\fontawesome\less\" />
+    <Folder Include="bower_components\fontawesome\scss\" />
     <Folder Include="kendo\" />
     <Folder Include="kendo\js\" />
     <Folder Include="kendo\styles\" />

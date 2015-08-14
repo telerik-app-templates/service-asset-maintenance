@@ -2,7 +2,18 @@
 
 global.feedback = {
     viewModel: kendo.observable({
-        serviceRequestId: null,
+        serviceRequest: {
+            title: "Printer malfunction",
+            maintenanceType: "Repair",
+            dueDate: new Date(),
+            priority: "high",
+            description: "Printerls adlkfjlaskjf sladkfj asdfkjdasf fklajsdl fksdaj fjsdfas dsad asd sad sad sad sad sad asd saas",
+            assetNo: "123456",
+            createdOn: new Date(),
+            createdBy: "Peter Petrov",
+            completedOn: new Date(),
+            reason: "It started to work."
+        },
         feedbackItem: null,
         feedbackItems: function () {
             return global.feedbackItemModel.dataSource;
@@ -10,11 +21,11 @@ global.feedback = {
 
         setServiceRequest: function (serviceRequest) {
             var vm = global.feedback.viewModel;
-            vm.serviceRequestId = serviceRequest.id;
-            global.feedbackItemModel.dataSource.filter(global.createFilterObject("serviceRequestId", "eq", vm.serviceRequestId));
+            vm.serviceRequest = serviceRequest;
+            global.feedbackItemModel.dataSource.filter(global.createFilterObject("serviceRequestId", "eq", vm.serviceRequest.Id));
             vm.set("feedbackItem", {
                 comment: "",
-                serviceRequestId: vm.serviceRequestId
+                serviceRequestId: vm.serviceRequest.Id
             });
         },
 
@@ -24,7 +35,7 @@ global.feedback = {
                 .then(function (success) {
                     vm.set("feedbackItem", {
                         comment: "",
-                        serviceRequestId: vm.serviceRequestId
+                        serviceRequestId: vm.serviceRequest.Id
                     });
                 });
         }

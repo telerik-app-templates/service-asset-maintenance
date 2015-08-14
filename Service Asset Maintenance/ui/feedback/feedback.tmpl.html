@@ -1,0 +1,29 @@
+<div id="feedback-view"
+     data-role="view"
+     data-model="global.feedback.viewModel" >
+    <ul data-role="listview">
+        <li>
+            <textarea placeholder="Your comment here" rows="6" data-bind="value: feedbackItem.comment"></textarea>
+        </li>
+    </ul>
+    <a data-role="button" data-bind="click: submit">Submit Feedback</a>
+    <div data-role="collapsible" data-collapsed="false">
+        <h3>More info</h3>
+        <ul id="service-requests-listview"
+            data-use-native-scrolling="true"
+            data-role="listview"
+            data-template="feedback-listview-item"
+            data-bind="source: feedbackItems"></ul>
+    </div>
+</div>
+
+<script type="text/x-kendo-template" id="feedback-listview-item">
+    <div>
+        <span class="details-header-label">USERNAME</span> <span class="details-header-label bold" data-format="MMMM dd yyyy">${ global.converters.formatDate(new Date()) }</span>
+        <span class="block-label">${ comment }</span>
+    </div>
+</script>
+
+<div>
+    <span>${ global.converters.formatDate(createdAt) }</span>
+</div>

@@ -1,7 +1,8 @@
-<div data-role="view"
+<div id="service-requests-view"
+     data-role="view"
      data-model="global.serviceRequests.viewModel"
-     data-show="global.serviceRequests.viewModel.onShow" >
-    <div>
+     data-show="global.serviceRequests.viewModel.onShow">
+    <div data-role="header">
         <ul data-role="buttongroup"
             data-index="0"
             data-bind="index: selectedFilter, events: { select: filterChanged }">
@@ -26,16 +27,9 @@
 </div>
 
 <script type="text/x-kendo-template" id="service-request-item-template">
-    <a data-role="listview-link">
-        <div>
-            <span>${ global.converters.getServiceRequestStatusText(status) }</span>
-        </div>
-        <div>
-            <span>${ title }</span>
-        </div>
-        <div>
-            <span>${ global.converters.formatDate(dueDate) }</span>
-            <span>${ priority }</span>
-        </div>
-    </a>
+    <span class="listview-item-status">${ global.converters.getServiceRequestStatusText(status) }</span>
+    <span class="listview-item-title">${ title }</span>
+    <span class="listview-item listview-item-details">${ maintenanceType }</span>
+    <span class="listview-item listview-item-details listview-item-duedate">${ global.converters.formatDate(dueDate) }</span>
+    <span class="listview-item priority-label priority-high">${ priority }</span>
 </script>

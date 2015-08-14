@@ -1,11 +1,13 @@
+var TRANSITION = "slide";
+
 global.navigation = {
     navigateTo: function (url, wideTarget) {
         if (global.isWide) {
             var pane = $("#" + wideTarget).data("kendoMobilePane");
-            pane.navigate(url);
+            pane.navigate(url, TRANSITION);
         }
         else {
-            global.app.navigate(url);
+            global.app.navigate(url, TRANSITION);
         }
     },
 
@@ -18,7 +20,7 @@ global.navigation = {
 
     home: function () {
         var url = getLayout();
-        global.app.navigate(url);
+        global.app.navigate(url, TRANSITION);
     },
 
     login: function () {

@@ -70,7 +70,7 @@ global.serviceRequestModel = {
             typeName: 'ServiceRequest'
         },
 
-        serverFiltering: true
+        //serverFiltering: true
     }),
 
     getServiceRequest: function (id) {

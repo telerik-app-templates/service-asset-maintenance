@@ -1,4 +1,5 @@
-<div data-role="view"
+<div id="service-requests-filter-view"
+     data-role="view"
      data-model="global.serviceRequestsFilter.viewModel"
      data-title="Refine Results">
     <div data-role="header">
@@ -8,35 +9,46 @@
             <a data-align="right" data-role="button" data-bind="events: { click: reset }">Reset</a>
         </div>
     </div>
-    <div>Status</div>
-    <input data-role="combobox"
-           data-value-primitive="true"
-           data-text-field="Name"
-           data-value-field="Id"
-           data-bind="value: status, source: serviceRequestStatuses" />
-    <div>Maintenance type</div>
-    <input data-role="combobox"
-           data-value-primitive="true"
-           data-text-field="Name"
-           data-value-field="Id"
-           data-bind="value: type, source: maintenanceTypes" />
-    <div>Sort by</div>
-    <div>
+
+    <ul data-role="listview">
+        <li>
+            <span class="label-header">Status</span>
+            <input data-role="dropdownlist"
+                   data-value-primitive="true"
+                   data-text-field="Name"
+                   data-value-field="Id"
+                   data-bind="value: status, source: serviceRequestStatuses" />
+        </li>
+        <li>
+            <span class="label-header">Maintenance type</span>
+            <input data-role="dropdownlist"
+                   data-value-primitive="true"
+                   data-text-field="Name"
+                   data-value-field="Id"
+                   data-bind="value: type, source: maintenanceTypes" />
+        </li>
+    </ul>
+    <div class="radio-group">
+        <span class="radio-group-header block-label">Sort by</span>
         <label>
-            <input type="radio" name="sortBy" value="dueDate" data-bind="checked: sortBy">Due date
+            <input type="radio" name="sortBy" value="dueDate" data-bind="checked: sortBy">
+            <span>Due date</span>
         </label>
-        <br />
         <label>
-            <input type="radio" name="sortBy" value="priority" data-bind="checked: sortBy">Priority
+            <input type="radio" name="sortBy" value="priority" data-bind="checked: sortBy">
+            <span>Priority</span>
         </label>
-        <br />
         <label>
-            <input type="radio" name="sortBy" value="createdAt" data-bind="checked: sortBy">Date created
+            <input type="radio" name="sortBy" value="createdAt" data-bind="checked: sortBy">
+            <span>Date created</span>
         </label>
-        <br />
         <label>
-            <input type="radio" name="sortBy" value="completedAt" data-bind="checked: sortBy">Date completed
+            <input type="radio" name="sortBy" value="completedAt" data-bind="checked: sortBy">
+            <span>Date completed</span>
         </label>
     </div>
-    <a data-role="button" href="ui/serviceRequests/serviceRequestsView.html">done</a>
+
+    <div data-role="footer">
+        <a data-role="backbutton" >Done</a>
+    </div>
 </div>

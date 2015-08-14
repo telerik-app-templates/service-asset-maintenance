@@ -1,4 +1,5 @@
-<div data-role="view"
+<div id="submit-service-request-view"
+     data-role="view"
      data-model="global.submitServiceRequest.viewModel"
      data-title="New Request"
      data-show="global.submitServiceRequest.viewModel.onShow">
@@ -6,51 +7,71 @@
         <div data-role="navbar">
             <a data-align="left" data-role="backbutton">Back</a>
             <span data-role="view-title"></span>
-            <a data-align="right" data-icon="picture" data-role="button" data-bind="click: takePicture"></a>
-            <a data-align="right" data-icon="barcode" data-role="button" data-bind="click: scanAssetNo"></a>
+            <a data-align="right" data-icon=" fa fa-camera" data-role="button" data-bind="click: takePicture"></a>
+            <a data-align="right" data-icon=" fa fa-barcode" data-role="button" data-bind="click: scanAssetNo"></a>
         </div>
     </div>
-    <input type="text" data-bind="value: serviceRequest.title" />
-    <div>
-        <span>Maintenance type</span>
-        <br />
-        <input data-role="combobox"
-               data-value-primitive="true"
-               data-text-field="Name"
-               data-value-field="Id"
-               data-bind="value: serviceRequest.type, source: maintenanceTypes" />
-    </div>
-    <div>
-        <span>Priority</span>
-        <br />
-        <ul data-role="buttongroup" data-index="0" data-bind="events: { select: onPriorityChanged }">
-            <li>low</li>
-            <li>medium</li>
-            <li>high</li>
-        </ul>
-    </div>
-    <div>
-        <span>Due date</span>
-        <br />
-        <input type="date" data-bind="value: serviceRequest.dueDate" />
-    </div>
-    <div>
-        <span>Description</span>
-        <br />
-        <textarea data-bind="value: serviceRequest.description" rows="6"></textarea>
-    </div>
-    <div data-bind="visible: pictureUrl">
-        <img data-bind="attr: { src: pictureUrl }" style="max-width: 180px; max-height: 180px" />
-        <br />
-        <a data-role="button" data-bind="click: removePicture">x Remove</a>
-    </div>
-    <div data-bind="visible: serviceRequest.assetNo">
-        <span>Asset #</span>
-        <span data-bind="text: serviceRequest.assetNo"></span>
-        <br />
-        <a data-role="button" data-bind="click: removeAssetNo">x Remove</a>
-    </div>
+    <ul data-role="listview">
+        <li>
+            <input placeholder="Title" type="text" data-bind="value: serviceRequest.title" class="title-text-box" />
+        </li>
+        <li>
+            <span class="label-header">Maintenance type</span>
+            <input data-role="dropdownlist"
+                   data-value-primitive="true"
+                   data-text-field="Name"
+                   data-value-field="Id"
+                   data-bind="value: serviceRequest.type, source: maintenanceTypes" />
+        </li>
+    </ul>
+    <ul data-role="listview" data-type="group">
+        <li>
+            Priority
+            <ul>
+                <li>
+                    <ul data-role="buttongroup" data-index="0" data-bind="events: { select: onPriorityChanged }">
+                        <li>Low</li>
+                        <li>Medium</li>
+                        <li>High</li>
+                    </ul>
+                </li>
+            </ul>
+           
+        </li>
+    </ul>
+    <ul data-role="listview">
+        <li>
+            <span class="label-header">Due date</span>
+            <input type="date" data-bind="value: serviceRequest.dueDate" />
+        </li>
+    </ul>
+    <ul data-role="listview" data-type="group">
+        <li>
+            Description
+            <ul>
+                <li>
+                    <textarea data-bind="value: serviceRequest.description" rows="6"></textarea>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <ul data-role="listview" >
+        <li data-bind="visible: pictureUrl">
+            <img data-bind="attr: { src: pictureUrl }" class="request-picture" />
+            <a data-role="button" data-icon=" fa fa-times" data-bind="click: removePicture" class="remove-button">Remove</a>
+        </li>
+        <li data-bind="visible: serviceRequest.assetNo">
+            <div>
+                <span>Asset #</span>
+                <span data-bind="text: serviceRequest.assetNo"></span>
+            </div>
+            <a data-role="button" data-icon=" fa fa-times" data-bind="click: removeAssetNo" class="remove-button">Remove</a>
+        </li>
+    </ul>
+
     <div data-role="footer">
         <a data-role="button" data-bind="click: submit">Submit</a>
     </div>
 </div>
+
+

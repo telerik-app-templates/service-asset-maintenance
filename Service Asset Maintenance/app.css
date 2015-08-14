@@ -17,22 +17,242 @@ textarea {
     flex: 1;
 }
 
-@media screen and (max-width: 719px) {
-    .normal {
-        visibility: visible;
-    }
-
-    .wide {
-        visibility: collapse;
-    }
+.km-nova .km-footer {
+    background: transparent;
+    padding: 0 .7em 0 .7em;
+    box-sizing: -webkit-border-box;
+    box-sizing: border-box;
 }
 
-@media screen and (min-width: 720px) {
-    .normal {
-        visibility: collapse;
-    }
+#service-requests-view .km-buttongroup {
+    width: 100%;
+    background: none;
+    border: 0;
+    height: 100%;
+    margin-top: 0;
+}
 
-    .wide {
-        visibility: visible;
-    }
+#service-requests-view .km-buttongroup .km-button {
+    width: 50%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: none;
+    border: 0;
+    color: #222;
+    text-transform: uppercase;
+    font-size: .8em;
+}
+
+#service-requests-view .km-buttongroup .km-state-active {
+    font-weight: bold;
+}
+
+#service-requests-view .km-buttongroup .km-state-active:after {
+    content: "\a0";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -8px;
+    border-color: #fff transparent;
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    width: 0;
+    height: 0;
+}
+
+#service-requests-view .km-header {
+    height: 46px;
+    background: -webkit-linear-gradient(bottom, #BFC7F3 0, #AAB1D9 100%);
+    background: -ms-linear-gradient(bottom, #BFC7F3 0, #AAB1D9 100%);
+    background: linear-gradient(to top, #BFC7F3 0, #AAB1D9 100%);
+}
+
+.km-view .km-scroll-container > .km-button,
+.km-view .km-footer .km-button {
+    background: #FF4350;
+    color: #fff;
+    width: 100%;
+    border: 0;
+    margin: .7em 0 .7em 0;
+}
+
+.km-root .fa:before {
+    font-family: FontAwesome;
+    display: block;
+    color: inherit;
+    font-size: 1.3em;
+}
+
+#submit-service-request-view .km-buttongroup {
+    width: 100%;
+    margin: 0;
+    font-size: .8em;
+}
+
+#service-requests-filter-view .km-listview .k-dropdown,
+#service-requests-filter-view .km-listview .k-dropdown-wrap,
+#submit-service-request-view .km-listview .k-dropdown,
+#submit-service-request-view .km-listview .k-dropdown-wrap,
+#submit-service-request-view .km-listview textarea,
+#feedback-view .km-listview textarea,
+#submit-service-request-view .km-listview input {
+    width: 100%;
+    position: inherit;
+    padding: 0;
+    margin: 0;
+    transform: none;
+    -webkit-transform: none;
+}
+
+#submit-service-request-view .km-listview .title-text-box {
+    font-size: 1.5em
+}
+
+.label-header {
+    display: block;
+    color: #9CA3A6;
+    font-size: .8em;
+}
+
+.km-view .km-listview .remove-button {
+    border: 0;
+    color: #FF4350;
+    padding-left: 0;
+}
+
+.request-picture {
+    width: 100%;
+    display: block; 
+}
+
+.listview-item {
+    font-size: .9em;
+}
+
+.listview-item-status {
+    color: #FF4350;
+    display: block;
+}
+
+.listview-item-title {
+    display: block;
+}
+
+.listview-item-details {
+    color: #9CA3A6;
+    display: block;
+}
+
+.listview-item-duedate {
+    display: inline;
+}
+
+.priority-label {
+    position: absolute;
+    right: 0;
+    background-color: blue;
+    padding: .2em .8em;
+    color: #fff;
+    text-transform: lowercase;
+    text-align: right;
+}
+
+.priority-low {
+    width: 3em;
+}
+
+.priority-medium {
+    width: 4em;
+}
+
+.priority-high {
+    width: 5em;
+}
+
+.header-image {
+    width: 100%;
+    padding: 16px;
+}
+
+.title-label {
+    display:block;
+    font-size: 2em;
+}
+
+.margins {
+    margin: 0 16px 0 16px;
+}
+
+.header-margins {
+    margin: 16px;
+}
+
+.maintenance-type-label {
+    margin-left: 16px;
+}
+
+.details-label {
+    font-size: 1.2em;
+}
+
+.block-label {
+    display: block;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.details-header-label {
+    color: #9CA3A6;
+    margin-top: 8px;
+}
+
+.duedate-label{
+    font-weight: bold;
+}
+
+#feedback-view .km-collapsible-header,
+#service-request-details-view .km-collapsible-header {
+    border-top-width: 0;
+}
+
+#feedback-view .km-collapsible-content,
+#service-request-details-view .km-collapsible-content {
+    background-color: #F8FAFB;
+}
+
+#feedback-view .km-collapsible-content {
+    padding: 0;
+}
+
+#feedback-view .km-list > li {
+    font-size: 1em;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+#master-pane, 
+#left-pane {
+    border-right: 1px solid #F8FAFB;
+}
+
+.radio-group {
+    font-size: 1.2em;
+    padding: 16px;
+}
+
+.radio-group label {
+    display: block;
+    margin-top: 10px;
+}
+
+.radio-group label span {
+    vertical-align: super;
+    margin-left: 6px;
+}
+
+.radio-group-header {
+    margin-bottom: 16px;
 }

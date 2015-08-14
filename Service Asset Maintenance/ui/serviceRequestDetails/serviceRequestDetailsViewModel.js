@@ -2,8 +2,19 @@
 
 global.serviceRequestDetails = {
     viewModel: kendo.observable({
-        imageUrl: undefined,
-        serviceRequest: undefined,
+        imageUrl: "http://www.geekhowtos.com/wp-content/uploads/2011/07/printer-maintenance.jpg",
+        serviceRequest: {
+            title: "Printer malfunction",
+            maintenanceType: "Repair",
+            dueDate: new Date(),
+            priority: "high",
+            description: "Printerls adlkfjlaskjf sladkfj asdfkjdasf fklajsdl fksdaj fjsdfas dsad asd sad sad sad sad sad asd saas",
+            assetNo: "123456",
+            createdOn: new Date(),
+            createdBy: "Peter Petrov",
+            completedOn: new Date(),
+            reason: "It started to work."
+        },
         canCancel: false,
         setServiceRequest: function (serviceRequest) {
             var vm = global.serviceRequestDetails.viewModel;
