@@ -1,7 +1,7 @@
 'use strict';
 
 global.feedback = {
-    viewModel: kendo.observable({
+    viewModel: new ViewModelBase({
         serviceRequest: {
             title: "Printer malfunction",
             maintenanceType: "Repair",
@@ -20,24 +20,38 @@ global.feedback = {
         },
 
         setServiceRequest: function (serviceRequest) {
-            var vm = global.feedback.viewModel;
-            vm.serviceRequest = serviceRequest;
-            global.feedbackItemModel.dataSource.filter(global.createFilterObject("serviceRequestId", "eq", vm.serviceRequest.Id));
-            vm.set("feedbackItem", {
-                comment: "",
-                serviceRequestId: vm.serviceRequest.Id
-            });
+            this.set("serviceRequest", serviceRequest);
+            global.feedbackItemModel.dataSource.filter(global.createFilterObject("serviceRequestId", "eq", this.serviceRequest.Id));
+            this.newFeedbackItem();
         },
 
         submit: function () {
-            var vm = global.feedback.viewModel;
-            global.feedbackItemModel.submitFeedbackItem(vm.feedbackItem)
-                .then(function (success) {
-                    vm.set("feedbackItem", {
-                        comment: "",
-                        serviceRequestId: vm.serviceRequest.Id
+            if (this.validate()) {
+                var vm = global.feedback.viewModel;
+                global.feedbackItemModel.submitFeedbackItem(this.feedbackItem)
+                    .then(function (success) {
+                        vm.newFeedbackItem();
                     });
-                });
+            }
+        },
+
+        validate: function () {
+            this.hideValidationSummary();
+            if (!global.validation.isRequiredValid(this.feedbackItem.comment)) {
+                this.showValidationSummary("Please enter comment.");
+
+                return false;
+            }
+
+            return true;
+        },
+
+        newFeedbackItem: function () {
+            global.feedback.viewModel.set("feedbackItem", {
+                comment: "",
+                serviceRequestId: this.serviceRequest.Id,
+                createdBy: global.service.getCurrentUser()
+            });
         }
     })
 }

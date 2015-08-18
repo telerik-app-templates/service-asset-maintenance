@@ -2,32 +2,33 @@
 
 global.serviceRequestDetails = {
     viewModel: kendo.observable({
+        priorityText: "low",
+        canCancel: false,
         imageUrl: "http://www.geekhowtos.com/wp-content/uploads/2011/07/printer-maintenance.jpg",
         serviceRequest: {
             title: "Printer malfunction",
             maintenanceType: "Repair",
             dueDate: new Date(),
-            priority: "high",
+            priority: 0,
             description: "Printerls adlkfjlaskjf sladkfj asdfkjdasf fklajsdl fksdaj fjsdfas dsad asd sad sad sad sad sad asd saas",
             assetNo: "123456",
-            createdOn: new Date(),
+            createdAt: new Date(),
             createdBy: "Peter Petrov",
-            completedOn: new Date(),
+            completedAt: new Date(),
             reason: "It started to work."
         },
-        canCancel: false,
+
         setServiceRequest: function (serviceRequest) {
-            var vm = global.serviceRequestDetails.viewModel;
-            vm.set("serviceRequest", serviceRequest);
-            vm.set("canCancel", serviceRequest.status != global.constants.serviceRequestStatus.CANCELED);
+            this.set("serviceRequest", serviceRequest);
+            this.set("canCancel", serviceRequest.status != global.constants.serviceRequestStatus.CANCELED);
+            this.set("priorityText", global.converters.convertPriority(this.serviceRequest.priority));
             var image = serviceRequest.picture ? "data:image/jpeg;base64," + serviceRequest.picture : null;
-            vm.set("imageUrl", image);
+            this.set("imageUrl", image);
         },
 
         cancelServiceRequest: function (e) {
-            var vm = global.serviceRequestDetails.viewModel;
-            global.serviceRequestModel.cancelServiceRequest(vm.serviceRequest).then(function (success) {
-                vm.set("canCancel", false);
+            global.serviceRequestModel.cancelServiceRequest(this.serviceRequest).then(function (success) {
+                this.set("canCancel", false);
             });
         }
     })

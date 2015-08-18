@@ -2,16 +2,23 @@
 
 global.serviceRequestsFilter = {
     viewModel: kendo.observable({
-        status: 0,
-        type: 0,
+        status: undefined,
+        maintenanceType: undefined,
         sortBy: "dueDate",
-        serviceRequestStatuses: [{ Id: 0, Name: "All" }, { Id: 1, Name: "Submitted" }, { Id: 2, Name: "Assigned" }],
-        maintenanceTypes: [{ Id: 0, Name: "All" }, { Id: 1, Name: "Repair" }, { Id: 2, Name: "Request" }],
+        serviceRequestStatuses: global.constants.serviceRequestStatuses,
+        maintenanceTypes: function () {
+            return global.maintenanceTypeModel.dataSource;
+        },
         reset: function () {
-            var vm = global.serviceRequestsFilter.viewModel;
-            vm.set("status", 0);
-            vm.set("type", 0);
-            vm.set("sortBy", "dueDate");
+            this.set("status", undefined);
+            this.set("maintenanceType", undefined);
+            this.set("sortBy", "dueDate");
+        },
+
+        done: function () {
+            // TODO: Try to change this.
+            filterAndSort();
+            global.navigation.back();
         }
     }),
 
@@ -21,8 +28,8 @@ global.serviceRequestsFilter = {
             filter.push(global.createFilterObject("status", "eq", vm.status));
         }
 
-        if (vm.type) {
-            filter.push(global.createFilterObject("type", "eq", vm.type));
+        if (vm.maintenanceType) {
+            filter.push(global.createFilterObject("maintenanceType.Id", "eq", vm.maintenanceType));
         }
     },
 

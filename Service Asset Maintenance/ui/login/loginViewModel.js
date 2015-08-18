@@ -14,16 +14,15 @@ global.login = {
         },
 
         validate: function () {
-            var vm = global.login.viewModel;
-            vm.hideValidationSummary();
-            if (!global.validation.isRequiredValid(vm.username)) {
-                vm.showValidationSummary("Please enter username.");
+            this.hideValidationSummary();
+            if (!global.validation.isRequiredValid(this.username)) {
+                this.showValidationSummary("Please enter username.");
 
                 return false;
             }
 
-            if (!global.validation.isRequiredValid(vm.password)) {
-                vm.showValidationSummary("Please enter password.");
+            if (!global.validation.isRequiredValid(this.password)) {
+                this.showValidationSummary("Please enter password.");
 
                 return false;
             }

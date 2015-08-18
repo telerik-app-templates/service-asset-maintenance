@@ -1,7 +1,14 @@
 <div id="feedback-view"
      data-role="view"
      data-model="global.feedback.viewModel" >
+    <div class="validation-summary" data-bind="visible: validationSummaryVisible">
+        <span data-bind="text: errorMessage"></span>
+        <a class="close-button" data-role="button" data-icon=" fa fa-times" data-bind="click: hideValidationSummary"></a>
+    </div>
     <ul data-role="listview">
+        <li>
+            <span data-bind="text: serviceRequest.title" class="title-label header-margins"></span>
+        </li>
         <li>
             <textarea placeholder="Your comment here" rows="6" data-bind="value: feedbackItem.comment"></textarea>
         </li>
@@ -19,7 +26,7 @@
 
 <script type="text/x-kendo-template" id="feedback-listview-item">
     <div>
-        <span class="details-header-label">USERNAME</span> <span class="details-header-label bold" data-format="MMMM dd yyyy">${ global.converters.formatDate(new Date()) }</span>
+        <span class="details-header-label">${ createdBy }</span> <span class="details-header-label bold" data-format="MMMM dd yyyy">${ global.converters.formatDate(new Date()) }</span>
         <span class="block-label">${ comment }</span>
     </div>
 </script>

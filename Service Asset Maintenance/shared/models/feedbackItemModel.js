@@ -9,6 +9,10 @@ global.feedbackItemModel = {
                         field: "CreatedAt",
                         defaultValue: new Date()
                     },
+                    createdBy: {
+                        field: "CreatedBy",
+                        defaultValue: ""
+                    },
                     comment: {
                         field: "Comment",
                         defaultValue: ""
@@ -20,17 +24,23 @@ global.feedbackItemModel = {
                     serviceRequestId: {
                         field: "RequestId",
                         defaultValue: ""
-                    },
-                    createdBy: {
-                        field: "CreatedBy",
-                        defaultValue: ""
                     }
                 }
             }
         },
         serverFiltering: true,
         transport: {
-            typeName: "FeedbackItem"
+            typeName: "FeedbackItem",
+            read: {
+                headers: {
+                    "X-Everlive-Expand": JSON.stringify({
+                        CreatedBy: {
+                            ReturnAs: "CreatedBy",
+                            SingleField: "DisplayName"
+                        }
+                    })
+                }
+            }
         }
     }),
 

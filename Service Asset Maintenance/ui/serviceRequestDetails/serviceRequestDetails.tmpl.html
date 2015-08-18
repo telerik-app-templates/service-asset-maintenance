@@ -2,22 +2,22 @@
      data-role="view"
      data-model="global.serviceRequestDetails.viewModel">
     <img data-bind="visible: imageUrl, attr: { src: imageUrl }" class="header-image" />
-    <span data-bind="text: serviceRequest.title" class="title-label margins"></span>
-    <span data-bind="visible: serviceRequest.maintenanceType, text: serviceRequest.maintenanceType" class="maintenance-type-label details-label"></span>
-    <span data-bind="visible: serviceRequest.dueDate" class="details-label">due</span>
-    <span data-bind="visible: serviceRequest.dueDate, text: serviceRequest.dueDate" data-format="MMMM dd yyyy" class="details-label duedate-label"></span>
-    <span data-bind="visible: serviceRequest.priority, text: serviceRequest.priority" class="details-label priority-label priority-high"></span>
+    <span data-bind="text: serviceRequest.title" class="margins title-label"></span>
+    <span data-bind="text: serviceRequest.maintenanceType.Type" class="maintenance-type-label details-label"></span>
+    <span class="details-label">due</span>
+    <span data-bind="text: serviceRequest.dueDate" data-format="MMMM dd yyyy" class="details-label duedate-label"></span>
+    <span data-bind="css: { priority-low: serviceRequest.priority === 0, priority-medium: serviceRequest.priority === 1, priority-high: serviceRequest.priority === 2 }, text: priorityText" class="details-label priority-label"></span>
     <div data-role="collapsible" >
         <h3>More info</h3>
         <div>
             <span data-bind="visible: serviceRequest.description, text: serviceRequest.description" class="block-label"></span>
             <span data-bind="visible: serviceRequest.assetNo" class="details-header-label block-label">ASSET</span>
             <span data-bind="visible: serviceRequest.assetNo">#</span><span data-bind="visible: serviceRequest.assetNo, text: serviceRequest.assetNo"></span>
-            <span data-bind="visible: serviceRequest.createdOn" class="details-header-label block-label">CREATED</span>
-            <span data-bind="visible: serviceRequest.createdOn, text: serviceRequest.createdOn" data-format="MMMM dd yyyy"></span>
-            <span data-bind="visible: serviceRequest.createdBy">by </span><span data-bind="visible: serviceRequest.createdBy, text: serviceRequest.createdBy"></span>
-            <span data-bind="visible: serviceRequest.completedOn" class="details-header-label block-label">COMPLETED</span>
-            <span data-bind="visible: serviceRequest.completedOn, text: serviceRequest.completedOn" data-format="MMMM dd yyyy"></span>
+            <span data-bind="visible: serviceRequest.createdAt" class="details-header-label block-label">CREATED</span>
+            <span data-bind="visible: serviceRequest.createdAt, text: serviceRequest.createdAt" data-format="MMMM dd yyyy"></span>
+            <span data-bind="visible: serviceRequest.createdAt">by </span><span data-bind="visible: serviceRequest.createdAt, text: serviceRequest.createdBy.DisplayName"></span>
+            <span data-bind="visible: serviceRequest.completedAt" class="details-header-label block-label">COMPLETED</span>
+            <span data-bind="visible: serviceRequest.completedAt, text: serviceRequest.completedAt" data-format="MMMM dd yyyy"></span>
             <span data-bind="visible: serviceRequest.reason" class="details-header-label block-label">REASON FOR CANCELING</span>
             <span data-bind="visible: serviceRequest.reason, text: serviceRequest.reason"></span>
         </div>

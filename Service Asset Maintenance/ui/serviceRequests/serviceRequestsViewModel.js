@@ -9,7 +9,7 @@ global.serviceRequests = {
         },
 
         filterChanged: function (e) {
-            global.serviceRequests.viewModel.selectedFilter = e.sender.current().index();
+            this.selectedFilter = e.sender.current().index();
             filterAndSort();
         },
 
@@ -18,6 +18,12 @@ global.serviceRequests = {
         },
 
         serviceRequestClicked: function (e) {
+            // TODO: Try to remove this.
+            $(".listview-item-selected").toggleClass("listview-item-selected");
+            if (global.isWide) {
+                e.item.toggleClass("listview-item-selected");
+            }
+
             var serviceRequest = global.serviceRequestModel.getServiceRequest(e.dataItem.id);
             global.serviceRequestDetails.viewModel.setServiceRequest(serviceRequest);
             global.feedback.viewModel.setServiceRequest(serviceRequest);
@@ -30,6 +36,7 @@ global.serviceRequests = {
         },
 
         onShow: function (e) {
+            $(".listview-item-selected").toggleClass("listview-item-selected");
             filterAndSort();
         }
     })
@@ -46,7 +53,7 @@ function buildServiceRequestsFilter() {
     var filter = [];
     global.serviceRequestsFilter.appendFilter(filter);
     if (global.serviceRequests.viewModel.selectedFilter === 1) {
-        filter.push(global.createFilterObject("createdBy", "eq", global.service.getCurrentUser()));
+        filter.push(global.createFilterObject("createdBy.Id", "eq", global.service.getCurrentUser()));
     }
 
     return filter;

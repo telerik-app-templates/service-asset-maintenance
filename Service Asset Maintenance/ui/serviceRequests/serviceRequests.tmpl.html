@@ -1,7 +1,7 @@
 <div id="service-requests-view"
      data-role="view"
      data-model="global.serviceRequests.viewModel"
-     data-show="global.serviceRequests.viewModel.onShow">
+     data-init="global.serviceRequests.viewModel.onShow">
     <div data-role="header">
         <ul data-role="buttongroup"
             data-index="0"
@@ -16,6 +16,7 @@
         data-style="inset"
         data-template="service-request-item-template"
         data-bind="source: serviceRequests, click: serviceRequestClicked"
+        data-selectable="single"
         data-filterable="{ field:'title', operator:'startswith' }"></ul>
 
     <div data-role="footer">
@@ -30,7 +31,7 @@
 <script type="text/x-kendo-template" id="service-request-item-template">
     <span class="listview-item-status">${ global.converters.getServiceRequestStatusText(status) }</span>
     <span class="listview-item-title">${ title }</span>
-    <span class="listview-item listview-item-details">${ maintenanceType }</span>
+    <span class="listview-item listview-item-details">${ maintenanceType.Type }</span>
     <span class="listview-item listview-item-details listview-item-duedate">${ global.converters.formatDate(dueDate) }</span>
     <span class="listview-item priority-label" data-bind="css: { priority-low: priority === 0, priority-medium: priority === 1, priority-high: priority === 2 }">${ global.converters.convertPriority(priority) }</span>
 </script>

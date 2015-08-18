@@ -15,17 +15,19 @@
             <span class="label-header">Status</span>
             <input data-role="dropdownlist"
                    data-value-primitive="true"
-                   data-text-field="Name"
-                   data-value-field="Id"
+                   data-option-label="All"
+                   data-text-field="status"
+                   data-value-field="value"
                    data-bind="value: status, source: serviceRequestStatuses" />
         </li>
         <li>
             <span class="label-header">Maintenance type</span>
             <input data-role="dropdownlist"
                    data-value-primitive="true"
-                   data-text-field="Name"
-                   data-value-field="Id"
-                   data-bind="value: type, source: maintenanceTypes" />
+                   data-option-label="All"
+                   data-text-field="type"
+                   data-value-field="id"
+                   data-bind="value: maintenanceType, source: maintenanceTypes" />
         </li>
     </ul>
     <ul data-role="listview" data-type="group" class="radio-group">
@@ -57,6 +59,6 @@
     </ul>
 
     <div data-role="footer">
-        <a data-role="backbutton" class="asset-button">Done</a>
+        <a data-role="button" data-bind="click: done" class="asset-button">Done</a>
     </div>
 </div>

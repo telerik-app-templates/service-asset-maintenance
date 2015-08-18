@@ -25,5 +25,9 @@ global.navigation = {
 
     login: function () {
         global.app.replace(global.constants.views.login);
+    },
+
+    back: function () {
+        global.app.navigate("#:back", TRANSITION);
     }
 }

@@ -1,22 +1,17 @@
 'use strict';
 
 global.submitServiceRequest = {
-    viewModel: kendo.observable({
+    viewModel: new ViewModelBase({
         pictureUrl: null,
         serviceRequest: null,
-        maintenanceTypes: [{ Id: 1, Name: "Repair" }, { Id: 2, Name: "Request" }],
-
-        onPriorityChanged: function (e) {
-            var buttonGroup = e.sender;
-            var index = buttonGroup.current().index();
-            global.submitServiceRequest.viewModel.serviceRequest.priority = index;
+        maintenanceTypes: function () {
+            return global.maintenanceTypeModel.dataSource;
         },
 
         takePicture: function () {
-            var vm = global.submitServiceRequest.viewModel;
             navigator.camera.getPicture(function (data) {
-                vm.set("pictureUrl", "data:image/jpeg;base64," + data);
-                vm.serviceRequest.picture = data;
+                this.set("pictureUrl", "data:image/jpeg;base64," + data);
+                this.serviceRequest.picture = data;
             }, function (error) {
             }, {
                 quality: 50,
@@ -27,10 +22,9 @@ global.submitServiceRequest = {
 
         scanAssetNo: function () {
             // TODO: add other way to set the asset no, when not on device.
-            var vm = global.submitServiceRequest.viewModel;
             cordova.plugins.barcodeScanner.scan(
                     function (result) {
-                        vm.serviceRequest.set('assetNo', result.text);
+                        this.serviceRequest.set('assetNo', result.text);
                     },
                     function (error) {
                     }
@@ -38,21 +32,37 @@ global.submitServiceRequest = {
         },
 
         removePicture: function () {
-            var vm = global.submitServiceRequest.viewModel;
-            vm.set("pictureUrl", null);
+            this.set("pictureUrl", null);
         },
 
         removeAssetNo: function () {
-            var vm = global.submitServiceRequest.viewModel;
-            vm.serviceRequest.set("assetNo", null);
+            this.serviceRequest.set("assetNo", null);
         },
 
         submit: function () {
-            var vm = global.submitServiceRequest.viewModel;
-            global.serviceRequestModel.submitServiceRequest(vm.serviceRequest)
-                .then(function (success) {
-                    global.app.navigate("#:back");
-                });
+            if (this.validate()) {
+                global.serviceRequestModel.submitServiceRequest(this.serviceRequest)
+                    .then(function (success) {
+                        global.app.navigate("#:back");
+                    });
+            }
+        },
+
+        validate: function () {
+            this.hideValidationSummary();
+            if (!global.validation.isRequiredValid(this.serviceRequest.title)) {
+                this.showValidationSummary("Please enter title.");
+
+                return false;
+            }
+
+            return true;
+        },
+
+        onPriorityChanged: function (e) {
+            var buttonGroup = e.sender;
+            var index = buttonGroup.current().index();
+            global.submitServiceRequest.viewModel.serviceRequest.priority = index;
         },
 
         onShow: function (e) {
@@ -61,7 +71,7 @@ global.submitServiceRequest = {
                 title: "",
                 dueDate: new Date(),
                 priority: 0,
-                type: 1,
+                maintenanceType: global.constants.DEFAULT_MAINTENANCE_TYPE,
                 assetNo: null,
                 description: "",
                 status: global.constants.serviceRequestStatus.SUBMITTED

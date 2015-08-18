@@ -110,6 +110,7 @@ textarea {
     display: block;
 }
 
+.km-listview .listview-item-selected,
 .km-nova .primary-button.km-state-active,
 .km-nova .asset-button.km-state-active {
     box-shadow: inset 0 0 1000px rgba(0,0,0,.3);
@@ -171,16 +172,22 @@ textarea {
 
 .listview-item-status {
     color: #FF4350;
+    font-size: 0.8em;
+    margin-bottom: 3px;
+    font-weight: bold;
+    text-transform: uppercase;
     display: block;
 }
 
 .listview-item-title {
+    margin-bottom: 3px;
     display: block;
 }
 
 .listview-item-details {
     color: #9CA3A6;
     display: block;
+    font-size: 0.9em;
 }
 
 .listview-item-duedate {
@@ -191,10 +198,9 @@ textarea {
     position: absolute;
     right: 0;
     background-color: blue;
-    padding: 1px .8em;
     color: #fff;
     text-transform: lowercase;
-    padding: 1px .8em;
+    padding: 1px 10px 1px 0px;
     margin-top: 3px;
     text-align: right;
 }
@@ -204,16 +210,16 @@ textarea {
 }
 
 .priority-medium {
-    width: 4em;
+    width: 3.5em;
 }
 
 .priority-high {
-    width: 5em;
+    width: 4em;
 }
 
 .header-image {
     width: 100%;
-    padding: 16px;
+    padding: 14px 12.365px 0 12.365px;
 }
 
 .title-label {
@@ -221,16 +227,20 @@ textarea {
     font-size: 2em;
 }
 
+.header-margin {
+    margin-top: 16px;
+}
+
 .margins {
-    margin: 0 16px 0 16px;
+    margin: 16px 12.365px 4px 12.365px;
 }
 
 .header-margins {
-    margin: 16px;
+    margin: 8px 0;
 }
 
 .maintenance-type-label {
-    margin-left: 16px;
+    margin-left: 12.365px;
 }
 
 .details-label {
@@ -329,12 +339,10 @@ textarea {
 .validation-summary {
     background-color: #FF4350;
     color: #FFFFFF;
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     text-align: center;
     padding: 12px;
+    z-index: 999;
 }
 
 .km-nova .close-button {

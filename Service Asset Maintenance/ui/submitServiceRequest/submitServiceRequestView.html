@@ -11,7 +11,11 @@
             <a data-align="right" data-icon=" fa fa-barcode" data-role="button" data-bind="click: scanAssetNo" class="asset-button"></a>
         </div>
     </div>
-    <ul data-role="listview">
+    <div class="validation-summary" data-bind="visible: validationSummaryVisible">
+        <span data-bind="text: errorMessage"></span>
+        <a class="close-button" data-role="button" data-icon=" fa fa-times" data-bind="click: hideValidationSummary"></a>
+    </div>
+    <ul class="header-margin" data-role="listview">
         <li>
             <input placeholder="Title" type="text" data-bind="value: serviceRequest.title" class="title-text-box" />
         </li>
@@ -19,9 +23,9 @@
             <span class="label-header">Maintenance type</span>
             <input data-role="dropdownlist"
                    data-value-primitive="true"
-                   data-text-field="Name"
-                   data-value-field="Id"
-                   data-bind="value: serviceRequest.type, source: maintenanceTypes" />
+                   data-text-field="type"
+                   data-value-field="id"
+                   data-bind="value: serviceRequest.maintenanceType, source: maintenanceTypes" />
         </li>
     </ul>
     <ul data-role="listview" data-type="group">

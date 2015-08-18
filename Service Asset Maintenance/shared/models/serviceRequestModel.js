@@ -1,73 +1,85 @@
-'use strict';
+"use strict";
 
 global.serviceRequestModel = {
     dataSource: new kendo.data.DataSource({
-        type: 'everlive',
+        type: "everlive",
         schema: {
             model: {
                 id: Everlive.idField,
                 fields: {
                     createdAt: {
-                        field: 'CreatedAt',
+                        field: "CreatedAt",
                         defaultValue: new Date()
                     },
                     createdBy: {
-                        field: 'CreatedBy',
-                        defaultValue: ''
+                        field: "CreatedBy",
+                        defaultValue: ""
                     },
                     title: {
-                        field: 'Reason',
-                        defaultValue: ''
+                        field: "Reason",
+                        defaultValue: ""
                     },
                     dueDate: {
-                        field: 'DueDate',
+                        field: "DueDate",
                         defaultValue: new Date()
                     },
                     completedAt: {
-                        field: 'CompletedDate',
+                        field: "CompletedDate",
                         defaultValue: new Date()
                     },
                     priority: {
-                        field: 'Priority',
+                        field: "Priority",
                         defaultValue: 0
                     },
                     description: {
-                        field: 'Description',
-                        defaultValue: ''
+                        field: "Description",
+                        defaultValue: ""
                     },
                     maintenanceType: {
-                        field: 'MaintenanceType',
-                        defaultValue: ''
+                        field: "MaintenanceType",
+                        defaultValue: ""
                     },
                     location: {
-                        field: 'Location',
-                        defaultValue: ''
+                        field: "Location",
+                        defaultValue: ""
                     },
                     status: {
-                        field: 'Status',
+                        field: "Status",
                         defaultValue: undefined
                     },
                     picture: {
-                        field: 'Picture',
-                        defaultValue: ''
+                        field: "Picture",
+                        defaultValue: ""
                     },
                     asset: {
-                        field: 'Asset',
-                        defaultValue: ''
+                        field: "Asset",
+                        defaultValue: ""
                     },
                     geoLocation: {
-                        field: 'Geolocation',
-                        defaultValue: ''
+                        field: "Geolocation",
+                        defaultValue: ""
                     },
                     address: {
-                        field: 'Address',
-                        defaultValue: ''
+                        field: "Address",
+                        defaultValue: ""
                     }
                 }
             }
         },
         transport: {
-            typeName: 'ServiceRequest'
+            typeName: "ServiceRequest",
+            read: {
+                headers: {
+                    "X-Everlive-Expand": JSON.stringify({
+                        MaintenanceType: {
+                            ReturnAs: "MaintenanceType"
+                        },
+                        CreatedBy: {
+                            ReturnAs: "CreatedBy"
+                        }
+                    })
+                }
+            }
         },
 
         //serverFiltering: true
@@ -80,8 +92,7 @@ global.serviceRequestModel = {
     cancelServiceRequest: function (serviceRequest) {
         return new Promise(function (resolve, reject) {
             serviceRequest.set("status", global.constants.serviceRequestStatus.CANCELED);
-            global.serviceRequestModel.dataSource
-                .sync()
+            global.serviceRequestModel.dataSource.sync()
                 .then(resolve, function (error) {
                     global.notifications.showErrorMessage(error);
                     reject(error);
@@ -93,7 +104,8 @@ global.serviceRequestModel = {
         return new Promise(function (resolve, reject) {
             var dataSource = global.serviceRequestModel.dataSource;
             dataSource.add(serviceRequest);
-            dataSource.sync().then(resolve, function (error) {
+            dataSource.sync()
+                .then(resolve, function (error) {
                 global.notifications.showErrorMessage(error);
                 reject(error);
             });

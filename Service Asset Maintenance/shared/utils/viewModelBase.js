@@ -14,5 +14,8 @@ var ViewModelBase = kendo.data.ObservableObject.extend({
         this.clear();
         this.set(ERROR_MESSAGE_PROPERTY, message);
        this.set(VALIDATION_SUMMARY_VISIBLE_PROPERTY, true);
+    },
+
+    clear: function () {
     }
 })
