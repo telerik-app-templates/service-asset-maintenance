@@ -33,34 +33,34 @@ textarea {
     margin-top: 0;
 }
 
-#service-requests-view .km-buttongroup .km-button {
-    width: 50%;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    background: none;
-    border: 0;
-    color: #222;
-    text-transform: uppercase;
-    font-size: .8em;
-}
+    #service-requests-view .km-buttongroup .km-button {
+        width: 50%;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        background: none;
+        border: 0;
+        color: #222;
+        text-transform: uppercase;
+        font-size: .8em;
+    }
 
-#service-requests-view .km-buttongroup .km-state-active {
-    font-weight: bold;
-}
+    #service-requests-view .km-buttongroup .km-state-active {
+        font-weight: bold;
+    }
 
-#service-requests-view .km-buttongroup .km-state-active:after {
-    content: "\a0";
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    margin-left: -8px;
-    border-color: #fff transparent;
-    border-width: 0 8px 8px 8px;
-    border-style: solid;
-    width: 0;
-    height: 0;
-}
+        #service-requests-view .km-buttongroup .km-state-active:after {
+            content: "\a0";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: -8px;
+            border-color: #fff transparent;
+            border-width: 0 8px 8px 8px;
+            border-style: solid;
+            width: 0;
+            height: 0;
+        }
 
 #service-requests-view .km-header {
     height: 46px;
@@ -69,13 +69,35 @@ textarea {
     background: linear-gradient(to top, #BFC7F3 0, #AAB1D9 100%);
 }
 
-.km-view .button-container .km-button,
-.km-view .km-footer .km-button {
+.km-view .button-container .asset-button,
+.km-view .km-footer .asset-button {
     background: #FF4350;
     color: #fff;
     width: 100%;
     border: 0;
     margin: .7em 0 .7em 0;
+    font-weight: bold;
+}
+
+.km-view .button-container .secondary-button,
+.km-view .km-footer .secondary-button {
+    background: none;
+    border: 0;
+    color: #FF4350;
+    width: 100%;
+    border: 0;
+    margin: .7em 0 .7em 0;
+    font-weight: bold;
+}
+
+.km-view .button-container .primary-button,
+.km-view .km-footer .primary-button {
+    background: none;
+    color: #888E90;
+    border-color: #888E90;
+    width: 100%;
+    margin: .7em 0 .7em 0;
+    font-weight: bold;
 }
 
 .km-root .fa:before {
@@ -84,14 +106,17 @@ textarea {
     font-size: 1.3em;
 }
 
-.km-root .km-icon.fa:before
-{
+.km-root .km-icon.fa:before {
     display: block;
 }
 
-.km-nova .asset-button.km-state-active
-{
+.km-nova .primary-button.km-state-active,
+.km-nova .asset-button.km-state-active {
     box-shadow: inset 0 0 1000px rgba(0,0,0,.3);
+}
+
+.km-nova .secondary-button.km-state-active {
+    opacity: .8;
 }
 
 #submit-service-request-view .km-buttongroup {
@@ -103,8 +128,11 @@ textarea {
 .km-root .km-listview .k-dropdown,
 .km-root .km-listview .k-dropdown-wrap,
 .km-root .km-listview textarea,
-#feedback-view .km-listview textarea,
-#submit-service-request-view .km-listview input {
+.km-root .km-listview input[type=textarea],
+.km-root .km-listview input[type=password],
+.km-root .km-listview input[type=email],
+.km-root .km-listview input[type=date],
+.km-root .km-listview input[type=text]:not(.k-input) {
     width: 100%;
     display: block;
     position: relative;
@@ -112,10 +140,12 @@ textarea {
     margin: 0;
     transform: none;
     -webkit-transform: none;
+    padding: 1em 0 0;
+    margin-top: -1em;
 }
 
 #submit-service-request-view .km-listview .title-text-box {
-    font-size: 1.5em
+    font-size: 1.5em;
 }
 
 .label-header {
@@ -132,7 +162,7 @@ textarea {
 
 .request-picture {
     width: 100%;
-    display: block; 
+    display: block;
 }
 
 .listview-item {
@@ -187,7 +217,7 @@ textarea {
 }
 
 .title-label {
-    display:block;
+    display: block;
     font-size: 2em;
 }
 
@@ -207,9 +237,9 @@ textarea {
     font-size: 1.2em;
 }
 
-.details-label.priority-label {
-    margin-top: -2px;
-}
+    .details-label.priority-label {
+        margin-top: -2px;
+    }
 
 .block-label {
     display: block;
@@ -224,7 +254,7 @@ textarea {
     margin-top: 8px;
 }
 
-.duedate-label{
+.duedate-label {
     font-weight: bold;
 }
 
@@ -248,13 +278,12 @@ textarea {
     padding-bottom: 8px;
 }
 
-#master-pane, 
+#master-pane,
 #left-pane {
     border-right: 1px solid #F8FAFB;
 }
 
-.radio-group input[type=radio]
-{
+.radio-group input[type=radio] {
     position: absolute;
     left: .8em;
     right: auto;
@@ -271,21 +300,18 @@ textarea {
     border-top-width: 0;
 }
 
-.km-list .k-dropdown .k-select
-{
+.km-list .k-dropdown .k-select {
     display: inline-block;
     float: right;
 }
 
-.km-list .k-dropdown .k-select:before
-{
-    font: 1em/1em normal "Kendo UI";
-    content: "\e012";
-    display: block;
-}
+    .km-list .k-dropdown .k-select:before {
+        font: 1em/1em normal "Kendo UI";
+        content: "\e012";
+        display: block;
+    }
 
-.km-list .k-dropdown .k-icon
-{
+.km-list .k-dropdown .k-icon {
     display: none;
 }
 
@@ -293,3 +319,35 @@ textarea {
     padding: 1em 0 0;
     margin-top: -1em;
 }
+
+.header {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 32px 16px 16px 16px;
+}
+
+.validation-summary {
+    background-color: #FF4350;
+    color: #FFFFFF;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+}
+
+.km-nova .close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    color: #FFFFFF;
+}
+
+    .km-nova .close-button.km-state-active {
+        color: #dddddd;
+        background: none;
+        border: none;
+    }

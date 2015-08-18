@@ -32,5 +32,5 @@
     <span class="listview-item-title">${ title }</span>
     <span class="listview-item listview-item-details">${ maintenanceType }</span>
     <span class="listview-item listview-item-details listview-item-duedate">${ global.converters.formatDate(dueDate) }</span>
-    <span class="listview-item priority-label priority-high">${ priority }</span>
+    <span class="listview-item priority-label" data-bind="css: { priority-low: priority === 0, priority-medium: priority === 1, priority-high: priority === 2 }">${ global.converters.convertPriority(priority) }</span>
 </script>

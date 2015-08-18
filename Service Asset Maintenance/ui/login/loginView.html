@@ -1,18 +1,31 @@
-<div data-role="view"
+<div id="login-view"
+     data-role="view"
      data-layout="empty-layout"
-     data-model="global.login.viewModel">
-    <div>
-        Service asset maintenance
+     data-model="global.login.viewModel" >
+    <div class="validation-summary" data-bind="visible: validationSummaryVisible">
+        <span data-bind="text: errorMessage"></span>
+        <a class="close-button" data-role="button" data-icon=" fa fa-times" data-bind="click: hideValidationSummary"></a>
     </div>
-    <span>Username</span>
-    <br />
-    <input type="text" data-bind="value: username" />
-    <br />
-    <span>Password</span>
-    <br />
-    <input type="password" data-bind="value: password" />
-    <br />
-    <a data-bind="click: login" data-role="button">Login</a>
-    <br />
-    <a href="ui/signUp/signUpView.html" data-role="button">Sign up</a>
+
+    <div class="header">Service asset maintenance</div>
+    <ul data-role="listview">
+        <li>
+            <span class="label-header">Username</span>
+            <input name="username" type="text" data-bind="value: username" data-required-msg="Please enter username." required />
+        </li>
+        <li>
+            <span class="label-header">Password</span>
+            <input name="password" type="password" data-bind="value: password" data-required-msg="Please enter password." required />
+        </li>
+    </ul>
+    <div class="button-container">
+        <a class="asset-button" data-bind="click: login" data-role="button">Login</a>
+    </div>
+    <div class="button-container">
+        <a class="secondary-button" href="ui/passwordRecovery/passwordRecoveryView.html" data-role="button">Forgotten password</a>
+    </div>
+
+    <div data-role="footer">
+        <a class="primary-button" href="ui/signUp/signUpView.html" data-role="button">Register</a>
+    </div>
 </div>

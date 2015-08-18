@@ -1,5 +1,5 @@
 {
-  "ProjectName": "Offline Data Sync1",
+  "ProjectName": "ServiceAssetMaintenance",
   "ProjectGuid": "3c692ccf-f877-4582-844c-fd3867893227",
   "projectVersion": 1,
   "AppIdentifier": "com.telerik.ServiceAssetMaintenance",
@@ -22,8 +22,6 @@
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
   "FrameworkVersion": "4.0.0",
   "CorePlugins": [
-    "com.phonegap.plugins.barcodescanner@1.2.9",
-    "com.telerik.plugin.telerikanalytics@3.3.1",
     "cordova-plugin-battery-status",
     "cordova-plugin-camera",
     "cordova-plugin-console",
@@ -44,7 +42,8 @@
     "cordova-plugin-statusbar",
     "cordova-plugin-vibration",
     "cordova-plugin-whitelist",
-    "cordova-plugin-crosswalk-webview@1.2.0"
+    "com.phonegap.plugins.barcodescanner@1.2.9",
+    "com.telerik.plugin.telerikanalytics@3.3.1"
   ],
   "AndroidPermissions": [
     "android.permission.ACCESS_COARSE_LOCATION",

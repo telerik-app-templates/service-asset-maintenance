@@ -80,7 +80,7 @@
     <Content Include="scripts\everlive.js" />
     <Content Include="scripts\init.js" />
     <Content Include="shared\utils\service.js" />
-    <Content Include="scripts\templates.js" />
+    <Content Include="shared\utils\validation.js" />
     <Content Include="ui\home\homeView.html" />
     <Content Include="ui\old\analytics.js">
       <SubType>Content</SubType>
@@ -91,6 +91,9 @@
     <Content Include="lib\everlive.all.min.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="shared\models\maintenanceTypeModel.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="shared\models\feedbackItemModel.js">
       <SubType>Content</SubType>
     </Content>
@@ -98,6 +101,7 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="shared\utils\constants.js" />
+    <Content Include="shared\utils\viewModelBase.js" />
     <Content Include="shared\utils\converters.js" />
     <Content Include="shared\utils\notifications.js" />
     <Content Include="shared\utils\navigation.js" />
@@ -187,6 +191,9 @@
     <Content Include="ui\serviceRequestDetails\serviceRequestDetailsView.html" />
     <Content Include="ui\serviceRequestDetails\serviceRequestDetailsView.wide.html" />
     <Content Include="ui\home\homeView.wide.html" />
+    <Content Include="ui\passwordRecovery\passwordRecoveryViewModel.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ui\login\loginViewModel.js">
       <SubType>Content</SubType>
     </Content>
@@ -230,6 +237,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="ui\login\loginView.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ui\passwordRecovery\passwordRecoveryView.html">
       <SubType>Content</SubType>
     </Content>
     <Content Include="ui\signUp\signUpView.html">
@@ -326,6 +336,7 @@
     <Folder Include="styles\images\" />
     <Folder Include="ui\" />
     <Folder Include="ui\login\" />
+    <Folder Include="ui\passwordRecovery\" />
     <Folder Include="ui\feedback\" />
     <Folder Include="ui\templates\" />
     <Folder Include="ui\home\" />

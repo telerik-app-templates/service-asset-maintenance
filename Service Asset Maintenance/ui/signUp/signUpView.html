@@ -1,26 +1,30 @@
 <div data-role="view"
-     data-layout="empty-layout"
-     data-model="global.signUp.viewModel">
-    <div>
-        Service asset maintenance
+     data-model="global.signUp.viewModel"
+     data-layout="inner-layout">
+    <div class="header">Service asset maintenance</div>
+    <ul data-role="listview">
+        <li>
+            <span class="label-header">Username</span>
+            <input type="text" data-bind="value: username" />
+        </li>
+        <li>
+            <span class="label-header">Display name</span>
+            <input type="text" data-bind="value: displayName" />
+        </li>
+        <li>
+            <span class="label-header">Email</span>
+            <input type="email" data-bind="value: email" />
+        </li>
+        <li>
+            <span class="label-header">Password</span>
+            <input type="password" data-bind="value: password" />
+        </li>
+        <li>
+            <span class="label-header">Confirm password</span>
+            <input type="password" data-bind="value: confirmPassword" />
+        </li>
+    </ul>
+    <div class="button-container">
+        <a class="asset-button" data-bind="click: signUp" data-role="button">Register</a>
     </div>
-    <span>Username</span>
-    <br />
-    <input type="text" data-bind="value: username" />
-    <br />
-    <span>Display name</span>
-    <br />
-    <input type="text" data-bind="value: displayName" />
-    <br />
-    <span>Password</span>
-    <br />
-    <input type="password" data-bind="value: password" />
-    <br />
-    <span>Confirm password</span>
-    <br />
-    <input type="password" data-bind="value: confirmPassword" />
-    <br />
-    <a data-bind="click: signUp" data-role="button" >Sign up</a>
-    <br />
-    <a href="ui/login/loginView.html" data-role="button" >Login</a>
 </div>

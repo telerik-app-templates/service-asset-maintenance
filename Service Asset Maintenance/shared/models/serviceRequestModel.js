@@ -29,7 +29,7 @@ global.serviceRequestModel = {
                     },
                     priority: {
                         field: 'Priority',
-                        defaultValue: ''
+                        defaultValue: 0
                     },
                     description: {
                         field: 'Description',
@@ -45,7 +45,7 @@ global.serviceRequestModel = {
                     },
                     status: {
                         field: 'Status',
-                        defaultValue: ''
+                        defaultValue: undefined
                     },
                     picture: {
                         field: 'Picture',
@@ -88,7 +88,6 @@ global.serviceRequestModel = {
                 });
         });
     },
-
 
     submitServiceRequest: function (serviceRequest) {
         return new Promise(function (resolve, reject) {

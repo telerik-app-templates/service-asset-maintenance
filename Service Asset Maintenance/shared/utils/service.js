@@ -15,13 +15,12 @@ global.service = {
                         resolve(response);
                     });
                 }, function (error) {
-                    showNotificationAndReject(error, reject);
+                    reject(error);
                 });
         });
     },
 
     logout: function () {
-        console.log("TEST");
         localStorage.removeItem(global.constants.CURRENT_USER_KEY);
         global.everlive.authentication.logout().then(function () {
             global.navigation.login();
@@ -41,6 +40,24 @@ global.service = {
                 }, function (error) {
                     showNotificationAndReject(error, reject);
                 })
+        });
+    },
+
+    recover: function (usernameOrEmail) {
+        return new Promise(function (resolve, reject) {
+            global.everlive.Users.resetpassword({ Username: usernameOrEmail })
+                .then(function (result) {
+                    console.log("RESET");
+                    resolve();
+                }, function (error) {
+                    global.everlive.Users.resetPassword({ Email: usernameOrEmail })
+                        .then(function (result) {
+                            console.log("RESET");
+                            resolve();
+                        }, function (error) {
+                            showNotificationAndReject(error, reject);
+                        })
+                });
         });
     },
 

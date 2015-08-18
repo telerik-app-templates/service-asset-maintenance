@@ -30,12 +30,7 @@ global.feedbackItemModel = {
         },
         serverFiltering: true,
         transport: {
-            typeName: "FeedbackItem",
-            read: {
-                headers: {
-                    "X-Everlive-Expand": JSON.stringify({})
-                }
-            }
+            typeName: "FeedbackItem"
         }
     }),
 

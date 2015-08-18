@@ -20,11 +20,10 @@ global.navigation = {
 
     home: function () {
         var url = getLayout();
-        global.app.navigate(url, TRANSITION);
+        global.app.replace(url, TRANSITION);
     },
 
     login: function () {
-        console.log("LOGIN")
         global.app.replace(global.constants.views.login);
     }
 }

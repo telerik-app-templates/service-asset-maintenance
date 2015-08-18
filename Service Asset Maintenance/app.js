@@ -3,14 +3,16 @@ function updateLayout() {
 }
 
 function getLayout() {
-    return global.isWide ? global.constants.views.homeWide : global.constants.views.home
+    if (global.service.getCurrentUser()) {
+        return global.isWide ? global.constants.views.homeWide : global.constants.views.home
+    }
+
+    return global.constants.views.login;
 }
 
 document.addEventListener('deviceready', function () {
     navigator.splashscreen.hide();
     updateLayout();
-
-    global.everlive.Users.currentUser();
     global.app = new kendo.mobile.Application(document.body, {
         transition: TRANSITION,
         skin: "nova",
