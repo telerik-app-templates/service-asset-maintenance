@@ -14,7 +14,8 @@ global.feedback = {
             completedOn: new Date(),
             reason: "It started to work."
         },
-        feedbackItem: null,
+        feedbackItem: {},
+
         feedbackItems: function () {
             return global.feedbackItemModel.dataSource;
         },
@@ -22,7 +23,7 @@ global.feedback = {
         setServiceRequest: function (serviceRequest) {
             this.set("serviceRequest", serviceRequest);
             global.feedbackItemModel.dataSource.filter(global.createFilterObject("serviceRequestId", "eq", this.serviceRequest.Id));
-            this.newFeedbackItem();
+            this.createFeedbackItem();
         },
 
         submit: function () {
@@ -30,7 +31,7 @@ global.feedback = {
                 var vm = global.feedback.viewModel;
                 global.feedbackItemModel.submitFeedbackItem(this.feedbackItem)
                     .then(function (success) {
-                        vm.newFeedbackItem();
+                        vm.createFeedbackItem();
                     });
             }
         },
@@ -46,8 +47,8 @@ global.feedback = {
             return true;
         },
 
-        newFeedbackItem: function () {
-            global.feedback.viewModel.set("feedbackItem", {
+        createFeedbackItem: function () {
+            this.set("feedbackItem", {
                 comment: "",
                 serviceRequestId: this.serviceRequest.Id,
                 createdBy: global.service.getCurrentUser()

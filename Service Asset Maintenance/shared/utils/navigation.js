@@ -14,8 +14,29 @@ global.navigation = {
     navigate: function (target) {
         var url = $(target).data("url");
         var tabletTarget = $(target).data("tablettarget");
-
+        var contentPane = $(target).data("contentpane")
+        
         global.navigation.navigateTo(url, tabletTarget);
+        if (global.isWide && contentPane) {
+            var owner = $("#" + contentPane).data("kendoMobilePane");
+            owner.view().enable(false);
+            var target = $("#" + tabletTarget).data("kendoMobilePane");
+            var handler = function (e) {
+                console.log("change event", e);
+                owner.view().enable();
+                target.unbind("navigate", handler);
+            };
+
+            target.bind("navigate", handler);
+        }
+    },
+
+    showModal: function (view) {
+        $(view).data("kendoMobileModalView").open();
+    },
+
+    closeModal: function (view) {
+        $(view).data("kendoMobileModalView").close();
     },
 
     home: function () {

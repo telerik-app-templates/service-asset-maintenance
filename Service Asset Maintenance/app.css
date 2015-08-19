@@ -340,8 +340,7 @@ textarea {
     background-color: #FF4350;
     color: #FFFFFF;
     width: 100%;
-    text-align: center;
-    padding: 12px;
+    padding: 12px 36px 12px 12px;
     z-index: 999;
 }
 
@@ -354,8 +353,14 @@ textarea {
     color: #FFFFFF;
 }
 
-    .km-nova .close-button.km-state-active {
-        color: #dddddd;
-        background: none;
-        border: none;
-    }
+.km-nova .remove-button.km-state-active {
+    color: #D73843;
+    background: none;
+    border: none;
+}
+
+.km-nova .close-button.km-state-active {
+    color: #dddddd;
+    background: none;
+    border: none;
+}

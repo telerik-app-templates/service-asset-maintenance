@@ -23,9 +23,10 @@ document.addEventListener('deviceready', function () {
     });
 }, false);
 
-window.addEventListener('resize', function () {
+window.addEventListener('orientationchange', function () {
+    var old = global.isWide;
     updateLayout();
-    if (global.app) {
+    if (global.app && old !== global.isWide ) {
         global.app.replace(getLayout());
     }
 }, false);

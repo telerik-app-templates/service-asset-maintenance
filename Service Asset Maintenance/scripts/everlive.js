@@ -7,5 +7,13 @@ global.everlive = new Everlive({
             global.navigation.login();
         }
     }, 
-    offlineStorage: true
+    offlineStorage: {
+        storage: {
+            provider: window.navigator.simulator ? Everlive.Constants.StorageProvider.LocalStorage : Everlive.Constants.StorageProvider.FileSystem
+        },
+
+        encryption: {
+            provider: Everlive.Constants.EncryptionProvider.Default
+        }
+    }
 });

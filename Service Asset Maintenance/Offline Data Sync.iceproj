@@ -104,6 +104,7 @@
     <Content Include="shared\utils\viewModelBase.js" />
     <Content Include="shared\utils\converters.js" />
     <Content Include="shared\utils\notifications.js" />
+    <Content Include="shared\utils\scroller.js" />
     <Content Include="shared\utils\navigation.js" />
     <Content Include="styles\added.css">
       <SubType>Content</SubType>
@@ -269,9 +270,8 @@
     </Content>
     <Content Include="ui\serviceRequests\serviceRequests.tmpl.html" />
     <Content Include="ui\serviceRequests\serviceRequestsViewModel.js" />
-    <Content Include="ui\templates\template.tmpl.html" />
-    <Content Include="ui\templates\templateView.html" />
-    <Content Include="ui\templates\templateViewModel.js" />
+    <Content Include="ui\assets\assetsViewModel.js" />
+    <Content Include="ui\assets\assetsView.html" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
@@ -335,6 +335,7 @@
     <Folder Include="styles\" />
     <Folder Include="styles\images\" />
     <Folder Include="ui\" />
+    <Folder Include="ui\assets\" />
     <Folder Include="ui\login\" />
     <Folder Include="ui\passwordRecovery\" />
     <Folder Include="ui\feedback\" />

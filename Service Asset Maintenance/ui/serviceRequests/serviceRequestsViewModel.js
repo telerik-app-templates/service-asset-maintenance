@@ -13,7 +13,17 @@ global.serviceRequests = {
             filterAndSort();
         },
 
-        navigate: function (e) {
+        submitServiceRequest: function (e) {
+            global.submitServiceRequest.viewModel.set("serviceRequest", {
+                title: "",
+                dueDate: new Date(),
+                priority: 0,
+                maintenanceType: global.constants.DEFAULT_MAINTENANCE_TYPE,
+                assetNo: null,
+                description: "",
+                status: global.constants.serviceRequestStatus.SUBMITTED
+            });
+
             global.navigation.navigate(e.target);
         },
 
@@ -35,11 +45,10 @@ global.serviceRequests = {
             global.service.logout();
         },
 
-        onShow: function (e) {
-            $(".listview-item-selected").toggleClass("listview-item-selected");
+        onInit: function (e) {
             filterAndSort();
         }
-    })
+    }),
 }
 
 function filterAndSort() {
@@ -47,6 +56,8 @@ function filterAndSort() {
         global.serviceRequestModel.dataSource.filter(buildServiceRequestsFilter());
         global.serviceRequestModel.dataSource.sort(buildServiceRequestsSort());
     });
+
+    global.scroller.resetScroll("service-requests-view");
 }
 
 function buildServiceRequestsFilter() {

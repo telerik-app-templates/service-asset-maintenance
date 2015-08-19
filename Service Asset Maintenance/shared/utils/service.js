@@ -45,17 +45,15 @@ global.service = {
 
     recover: function (usernameOrEmail) {
         return new Promise(function (resolve, reject) {
-            global.everlive.Users.resetpassword({ Username: usernameOrEmail })
+            global.everlive.Users.resetPassword({ Username: usernameOrEmail })
                 .then(function (result) {
-                    console.log("RESET");
                     resolve();
                 }, function (error) {
                     global.everlive.Users.resetPassword({ Email: usernameOrEmail })
                         .then(function (result) {
-                            console.log("RESET");
                             resolve();
                         }, function (error) {
-                            showNotificationAndReject(error, reject);
+                            reject(error);
                         })
                 });
         });

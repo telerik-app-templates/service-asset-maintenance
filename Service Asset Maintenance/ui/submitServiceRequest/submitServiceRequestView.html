@@ -1,8 +1,7 @@
 <div id="submit-service-request-view"
      data-role="view"
      data-model="global.submitServiceRequest.viewModel"
-     data-title="New Request"
-     data-show="global.submitServiceRequest.viewModel.onShow">
+     data-title="New Request">
     <div data-role="header">
         <div data-role="navbar">
             <a data-align="left" data-role="backbutton" class="asset-button">Back</a>
@@ -60,8 +59,8 @@
         </li>
     </ul>
     <ul data-role="listview" >
-        <li data-bind="visible: pictureUrl">
-            <img data-bind="attr: { src: pictureUrl }" class="request-picture" />
+        <li data-bind="visible: imageSrc">
+            <img data-bind="attr: { src: imageSrc }" class="request-picture" />
             <a data-role="button" data-icon=" fa fa-times" data-bind="click: removePicture" class="remove-button">Remove</a>
         </li>
         <li data-bind="visible: serviceRequest.assetNo">
@@ -76,6 +75,17 @@
     <div data-role="footer">
         <a data-role="button" data-bind="click: submit" class="asset-button">Submit</a>
     </div>
+</div>
+
+<div id="assets-view"
+     data-role="modalview"
+     data-modal="false"
+     data-model="global.assets.viewModel"
+     data-title="Select Asset">
+    <ul data-role="listview"
+        data-auto-bind="false"
+        data-style="inset"
+        data-bind="source: assets, click: assetSelected"></ul>
 </div>
 
 

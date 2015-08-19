@@ -18,7 +18,6 @@ global.serviceRequestsFilter = {
         done: function () {
             // TODO: Try to change this.
             filterAndSort();
-            global.navigation.back();
         }
     }),
 

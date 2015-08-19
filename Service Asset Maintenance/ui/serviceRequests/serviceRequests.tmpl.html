@@ -1,7 +1,7 @@
 <div id="service-requests-view"
      data-role="view"
      data-model="global.serviceRequests.viewModel"
-     data-init="global.serviceRequests.viewModel.onShow">
+     data-init="global.serviceRequests.viewModel.onInit">
     <div data-role="header">
         <ul data-role="buttongroup"
             data-index="0"
@@ -21,9 +21,10 @@
 
     <div data-role="footer">
         <a data-role="button"
-           data-bind="click: navigate"
+           data-bind="click: submitServiceRequest"
            data-url="ui/submitServiceRequest/submitServiceRequestView.html"
            data-tablettarget="content-pane"
+           data-contentpane="master-pane"
            class="asset-button">Submit Request</a>
     </div>
 </div>
