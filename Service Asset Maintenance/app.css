@@ -364,3 +364,16 @@ textarea {
     background: none;
     border: none;
 }
+
+.view-title-top {
+    text-transform: uppercase;
+}
+
+.view-title-bottom {
+    position: absolute;
+    width: 100%;
+    font-size: .77em;
+    bottom: 3px;
+    left: 0;
+    line-height: initial !important;
+}

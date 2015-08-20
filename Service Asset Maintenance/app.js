@@ -1,5 +1,8 @@
 function updateLayout() {
-    global.isWide = window.innerWidth > 800;
+    console.log(window.orientation);
+    console.log(window.outerWidth);
+    global.isWide = window.outerWidth > 500 && (window.orientation === 90 || window.orientation == -90);
+    console.log(global.isWide);
 }
 
 function getLayout() {
@@ -26,6 +29,7 @@ document.addEventListener('deviceready', function () {
 window.addEventListener('orientationchange', function () {
     var old = global.isWide;
     updateLayout();
+    console.log("OLD: " + old);
     if (global.app && old !== global.isWide ) {
         global.app.replace(getLayout());
     }

@@ -1,12 +1,18 @@
-<div data-role="splitview" >
+<div data-role="splitview"
+     data-init="global.serviceRequestDetails.onInit">
     <div data-role="header">
-        <div data-role="navbar">
+        <div id="title" data-role="navbar">
             <a data-align="left" data-role="backbutton" class="asset-button">Back</a>
-            <span data-role="view-title">Title</span>
-            <a data-align="right" data-role="button" data-bind="visible: canCancel, events: { click: cancelServiceRequest }" class="asset-button">Cancel it</a>
+            <div data-role="view-title">
+                <span id="title-top" class="view-title-top" data-bind="text: statusConverter"></span>
+                <div id="title-bottom" class="view-title-bottom" data-bind="visible: serviceRequest.status  === 2">
+                    <span>to </span><span data-bind="text: serviceRequest.assignedTo"></span>
+                </div>
+            </div>
+            <a id="cancel-service-request-button" data-align="right" data-role="button" data-bind="visible: canCancel, events: { click: cancelServiceRequest }" class="asset-button">Cancel it</a>
         </div>
     </div>
-    
+
     <div data-role="pane" data-initial="ui/serviceRequestDetails/serviceRequestDetails.tmpl.html"></div>
 
     <div data-role="footer">

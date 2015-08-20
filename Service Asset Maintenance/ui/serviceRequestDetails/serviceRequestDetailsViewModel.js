@@ -10,12 +10,18 @@ global.serviceRequestDetails = {
             maintenanceType: "Repair",
             dueDate: new Date(),
             priority: 0,
+            status: 2,
+            assignedTo: "Peter Petrov",
             description: "Printerls adlkfjlaskjf sladkfj asdfkjdasf fklajsdl fksdaj fjsdfas dsad asd sad sad sad sad sad asd saas",
             assetNo: "123456",
             createdAt: new Date(),
             createdBy: "Peter Petrov",
             completedAt: new Date(),
             reason: "It started to work."
+        },
+
+        statusConverter: function () {
+            return global.converters.getServiceRequestStatusText(this.serviceRequest.get("status"));
         },
 
         setServiceRequest: function (serviceRequest) {
@@ -27,9 +33,19 @@ global.serviceRequestDetails = {
         },
 
         cancelServiceRequest: function (e) {
-            global.serviceRequestModel.cancelServiceRequest(this.serviceRequest).then(function (success) {
-                this.set("canCancel", false);
+            global.serviceRequestModel.cancelServiceRequest(global.serviceRequestDetails.viewModel.serviceRequest)
+                .then(function () {
+                    console.log("CANCELED")
+                global.serviceRequestDetails.viewModel.set("canCancel", false);
             });
         }
-    })
+    }),
+
+    onInit: function () {
+        kendo.bind($("#title"), global.serviceRequestDetails.viewModel);
+    },
+
+    onInitWide: function () {
+        kendo.bind($("#title-wide"), global.serviceRequestDetails.viewModel);
+    }
 }

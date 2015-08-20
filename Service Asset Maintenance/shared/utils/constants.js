@@ -1,9 +1,9 @@
 global.constants = {
     serviceRequestStatus: {
-        ASSIGNED: 2,
+        SUBMITTED: 0,
         CANCELED: 1,
-        SUBMITTED: 0
-    },
+        ASSIGNED: 2
+        },
 
     priorityStrings: ["low", "med", "high"],
 
@@ -21,6 +21,6 @@ global.constants = {
 }
 
 global.constants.serviceRequestStatuses = [
-    { status: "Assigned", value: global.constants.serviceRequestStatus.ASSIGNED },
+    { status: "Submitted", value: global.constants.serviceRequestStatus.SUBMITTED },
     { status: "Canceled", value: global.constants.serviceRequestStatus.CANCELED },
-    { status: "Submitted", value: global.constants.serviceRequestStatus.SUBMITTED }];
+    { status: "Assigned", value: global.constants.serviceRequestStatus.ASSIGNED }];
