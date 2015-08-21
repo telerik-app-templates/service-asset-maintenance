@@ -2,6 +2,7 @@ kendo.data.binders.widget.index = kendo.data.Binder.extend({
     init: function (widget, bindings, options) {
         kendo.data.Binder.fn.init.call(this, widget.element[0], bindings, options);
     },
+
     refresh: function () {
         var that = this,
         value = that.bindings["index"].get();
@@ -78,9 +79,8 @@ kendo.data.binders.widget.selectionChanged = kendo.data.Binder.extend({
         $(that.element).data("kendoMobileListView").bind("selectionChanged", function (args) {
             that.selectionChanged(args);
         });
-
-
     },
+
     refresh: function () {
     },
 
@@ -88,6 +88,21 @@ kendo.data.binders.widget.selectionChanged = kendo.data.Binder.extend({
         var value = this.bindings["selectionChanged"].get();
         if (value) {
             value(args);
+        }
+    }
+});
+
+kendo.data.binders.widget.loading = kendo.data.Binder.extend({
+    init: function (widget, bindings, options) {
+        kendo.data.Binder.fn.init.call(this, widget.element[0], bindings, options);
+    },
+
+    refresh: function () {
+        var value = this.bindings["loading"].get();
+        if (value) {
+            global.app.showLoading();
+        } else {
+            global.app.hideLoading();
         }
     }
 });

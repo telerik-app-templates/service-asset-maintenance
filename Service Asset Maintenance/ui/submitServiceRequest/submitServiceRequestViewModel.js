@@ -53,12 +53,17 @@ global.submitServiceRequest = {
         },
 
         submit: function () {
-            global.navigation.back("content-pane");
-            //if (this.validate()) {
-            //    global.serviceRequestModel.submitServiceRequest(this.serviceRequest)
-            //        .then(function (success) {
-            //        });
-            //}
+            if (this.validate()) {
+                var that = this;
+                that.beginLoading();
+                global.serviceRequestModel.submitServiceRequest(this.serviceRequest)
+                    .then(function (success) {
+                        that.endLoading();
+                        global.navigation.back("content-pane");
+                    }, function (error) {
+                        that.endLoading();
+                    });
+            }
         },
 
         validate: function () {

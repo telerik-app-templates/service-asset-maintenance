@@ -19,10 +19,15 @@ global.feedback = {
 
         submit: function () {
             if (this.validate()) {
+                var that = this;
+                this.beginLoading();
                 var vm = global.feedback.viewModel;
                 global.feedbackItemModel.submitFeedbackItem(this.feedbackItem)
                     .then(function (success) {
                         vm.createFeedbackItem();
+                        that.endLoading();
+                    }, function (error) {
+                        that.endLoading();
                     });
             }
         },

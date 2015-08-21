@@ -44,34 +44,35 @@ global.serviceRequests = {
             global.service.logout();
         },
 
+        filterAndSort: function () {
+            global.serviceRequestModel.dataSource.fetch(function () {
+                var vm = global.serviceRequests.viewModel;
+                global.serviceRequestModel.dataSource.filter(vm.buildFilterExpression());
+                global.serviceRequestModel.dataSource.sort(vm.buildSortExpression());
+            });
+
+            global.scroller.resetScroll("service-requests-view");
+        },
+
+        buildFilterExpression: function () {
+            var filter = [];
+            global.serviceRequestsFilter.viewModel.appendFilter(filter);
+            if (global.serviceRequests.viewModel.selectedFilter === 1) {
+                filter.push(global.createFilterObject("createdBy.Id", "eq", global.service.getCurrentUser()));
+            }
+
+            return filter;
+        },
+
+        buildSortExpression: function () {
+            var sort = [];
+            global.serviceRequestsFilter.viewModel.appendSort(sort);
+
+            return sort;
+        },
+
         onInit: function (e) {
-            filterAndSort();
+            global.serviceRequests.viewModel.filterAndSort();
         }
     }),
-}
-
-function filterAndSort() {
-    global.serviceRequestModel.dataSource.fetch(function () {
-        global.serviceRequestModel.dataSource.filter(buildServiceRequestsFilter());
-        global.serviceRequestModel.dataSource.sort(buildServiceRequestsSort());
-    });
-
-    global.scroller.resetScroll("service-requests-view");
-}
-
-function buildServiceRequestsFilter() {
-    var filter = [];
-    global.serviceRequestsFilter.appendFilter(filter);
-    if (global.serviceRequests.viewModel.selectedFilter === 1) {
-        filter.push(global.createFilterObject("createdBy.Id", "eq", global.service.getCurrentUser()));
-    }
-
-    return filter;
-}
-
-function buildServiceRequestsSort() {
-    var sort = [];
-    global.serviceRequestsFilter.appendSort(sort);
-
-    return sort;
 }

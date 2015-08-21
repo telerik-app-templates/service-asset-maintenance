@@ -1,7 +1,7 @@
 'use strict';
 
 global.serviceRequestDetails = {
-    viewModel: kendo.observable({
+    viewModel: new ViewModelBase({
         canCancel: false,
         serviceRequest: null,
         imageUrl: function () {
@@ -27,14 +27,19 @@ global.serviceRequestDetails = {
             if (serviceRequest) {
                 this.set("canCancel", serviceRequest.status != global.constants.serviceRequestStatus.CANCELED);
                 this.set("priorityText", global.converters.convertPriority(this.serviceRequest.priority));
-            } 
+            }
         },
 
         cancelServiceRequest: function (e) {
+            var that = this;
+            that.beginLoading();
             global.serviceRequestModel.cancelServiceRequest(global.serviceRequestDetails.viewModel.serviceRequest)
                 .then(function () {
-                global.serviceRequestDetails.viewModel.set("canCancel", false);
-            });
+                    global.serviceRequestDetails.viewModel.set("canCancel", false);
+                    that.endLoading();
+                }, function (error) {
+                    that.endLoading()
+                });
         }
     }),
 

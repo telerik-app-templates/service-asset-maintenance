@@ -15,24 +15,23 @@ global.serviceRequestsFilter = {
             this.set("sortBy", "dueDate");
         },
 
+        appendFilter: function (filter) {
+            var vm = global.serviceRequestsFilter.viewModel;
+            if (!isNaN(vm.status)) {
+                filter.push(global.createFilterObject("status", "eq", vm.status));
+            }
+
+            if (vm.maintenanceType) {
+                filter.push(global.createFilterObject("maintenanceType.Id", "eq", vm.maintenanceType));
+            }
+        },
+
+        appendSort: function (sort) {
+            sort.push(global.createSortObject(global.serviceRequestsFilter.viewModel.sortBy, "asc"));
+        },
+
         done: function () {
-            // TODO: Try to change this.
-            filterAndSort();
+            global.serviceRequests.viewModel.filterAndSort();
         }
-    }),
-
-    appendFilter: function (filter) {
-        var vm = global.serviceRequestsFilter.viewModel;
-        if (vm.status) {
-            filter.push(global.createFilterObject("status", "eq", vm.status));
-        }
-
-        if (vm.maintenanceType) {
-            filter.push(global.createFilterObject("maintenanceType.Id", "eq", vm.maintenanceType));
-        }
-    },
-
-    appendSort: function (sort) {
-        sort.push(global.createSortObject(global.serviceRequestsFilter.viewModel.sortBy, "asc"));
-    }
+    })
 }
