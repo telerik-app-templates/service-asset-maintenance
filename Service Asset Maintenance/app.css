@@ -377,3 +377,16 @@ textarea {
     left: 0;
     line-height: initial !important;
 }
+
+#empty-view {
+    font-size: 2em;
+}
+
+    #empty-view span {
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+        color: #9CA3A6;
+    }

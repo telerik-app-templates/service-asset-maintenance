@@ -2,19 +2,8 @@
 
 global.feedback = {
     viewModel: new ViewModelBase({
-        serviceRequest: {
-            title: "Printer malfunction",
-            maintenanceType: "Repair",
-            dueDate: new Date(),
-            priority: "high",
-            description: "Printerls adlkfjlaskjf sladkfj asdfkjdasf fklajsdl fksdaj fjsdfas dsad asd sad sad sad sad sad asd saas",
-            assetNo: "123456",
-            createdOn: new Date(),
-            createdBy: "Peter Petrov",
-            completedOn: new Date(),
-            reason: "It started to work."
-        },
-        feedbackItem: {},
+        serviceRequest: null,
+        feedbackItem: null,
 
         feedbackItems: function () {
             return global.feedbackItemModel.dataSource;
@@ -22,8 +11,10 @@ global.feedback = {
 
         setServiceRequest: function (serviceRequest) {
             this.set("serviceRequest", serviceRequest);
-            global.feedbackItemModel.dataSource.filter(global.createFilterObject("serviceRequestId", "eq", this.serviceRequest.Id));
-            this.createFeedbackItem();
+            if (serviceRequest) {
+                global.feedbackItemModel.dataSource.filter(global.createFilterObject("serviceRequestId", "eq", this.serviceRequest.Id));
+                this.createFeedbackItem();
+            } 
         },
 
         submit: function () {

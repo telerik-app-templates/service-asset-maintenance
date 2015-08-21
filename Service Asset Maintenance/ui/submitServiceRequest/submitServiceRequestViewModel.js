@@ -53,12 +53,12 @@ global.submitServiceRequest = {
         },
 
         submit: function () {
-            if (this.validate()) {
-                global.serviceRequestModel.submitServiceRequest(this.serviceRequest)
-                    .then(function (success) {
-                        global.app.navigate("#:back");
-                    });
-            }
+            global.navigation.back("content-pane");
+            //if (this.validate()) {
+            //    global.serviceRequestModel.submitServiceRequest(this.serviceRequest)
+            //        .then(function (success) {
+            //        });
+            //}
         },
 
         validate: function () {

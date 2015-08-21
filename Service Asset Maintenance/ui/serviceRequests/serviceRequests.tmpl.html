@@ -15,8 +15,8 @@
         data-auto-bind="false"
         data-style="inset"
         data-template="service-request-item-template"
-        data-bind="source: serviceRequests, click: serviceRequestClicked"
-        data-selectable="single"
+        data-view="home-view-wide"
+        data-bind="source: serviceRequests, selectionChanged: selectionChanged, selectedItem: selectedServiceRequest"
         data-filterable="{ field:'title', operator:'startswith' }"></ul>
 
     <div data-role="footer">

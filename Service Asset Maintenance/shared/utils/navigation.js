@@ -22,7 +22,6 @@ global.navigation = {
             owner.view().enable(false);
             var target = $("#" + tabletTarget).data("kendoMobilePane");
             var handler = function (e) {
-                console.log("change event", e);
                 owner.view().enable();
                 target.unbind("navigate", handler);
             };
@@ -48,7 +47,12 @@ global.navigation = {
         global.app.replace(global.constants.views.login);
     },
 
-    back: function () {
-        global.app.navigate("#:back", TRANSITION);
+    back: function (pane) {
+        if (!global.isWide) {
+            global.app.navigate("#:back");
+        } else if (pane) {
+            var pane = $("#" + pane).data("kendoMobilePane");
+            pane.navigate("#:back");
+        }
     }
 }

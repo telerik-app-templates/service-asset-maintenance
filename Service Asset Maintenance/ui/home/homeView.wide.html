@@ -1,4 +1,5 @@
-<div data-role="splitview">
+<div id="home-view-wide"
+     data-role="splitview" >
     <div data-role="pane" id="master-pane">
         <div data-role="splitview"
              data-model="global.serviceRequests.viewModel"
@@ -15,5 +16,7 @@
             <!--<div style="width: 100%; height: 100%; z-index: 100; position: relative; margin: 0; padding: 0; top: 0; left: 0; background-color: #0000FF; opacity: 0.2" data-visible="false">test</div>-->
         </div>
     </div>
-    <div data-role="pane" id="content-pane" data-initial="ui/serviceRequestDetails/serviceRequestDetailsView.wide.html"></div>
+    <div data-role="pane" id="content-pane">
+        <div id="empty-view" data-role="view"><span>Select service request...</span></div>
+    </div>
 </div>

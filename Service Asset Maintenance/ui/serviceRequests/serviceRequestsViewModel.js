@@ -3,6 +3,7 @@
 global.serviceRequests = {
     viewModel: kendo.observable({
         selectedFilter: 0,
+        selectedServiceRequest: null,
 
         serviceRequests: function () {
             return global.serviceRequestModel.dataSource;
@@ -27,17 +28,15 @@ global.serviceRequests = {
             global.navigation.navigate(e.target);
         },
 
-        serviceRequestClicked: function (e) {
-            // TODO: Try to remove this.
-            $(".listview-item-selected").toggleClass("listview-item-selected");
-            if (global.isWide) {
-                e.item.toggleClass("listview-item-selected");
-            }
-
-            var serviceRequest = global.serviceRequestModel.getServiceRequest(e.dataItem.id);
+        selectionChanged: function () {
+            var serviceRequest = global.serviceRequests.viewModel.selectedServiceRequest;
             global.serviceRequestDetails.viewModel.setServiceRequest(serviceRequest);
             global.feedback.viewModel.setServiceRequest(serviceRequest);
-            var url = global.isWide ? "ui/serviceRequestDetails/serviceRequestDetailsView.wide.html" : "ui/serviceRequestDetails/serviceRequestDetailsView.html";
+            var url = "#empty-view";
+            if (serviceRequest) {
+                url = global.isWide ? "ui/serviceRequestDetails/serviceRequestDetailsView.wide.html" : "ui/serviceRequestDetails/serviceRequestDetailsView.html";
+            }
+
             global.navigation.navigateTo(url, "content-pane");
         },
 
