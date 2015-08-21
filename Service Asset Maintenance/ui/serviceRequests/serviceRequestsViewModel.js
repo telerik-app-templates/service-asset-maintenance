@@ -38,6 +38,10 @@ global.serviceRequests = {
             }
 
             global.navigation.navigateTo(url, "content-pane");
+
+            global.scroller.resetScroll("service-request-details-view");
+            global.scroller.resetScroll("feedback-view");
+
         },
 
         logout: function () {

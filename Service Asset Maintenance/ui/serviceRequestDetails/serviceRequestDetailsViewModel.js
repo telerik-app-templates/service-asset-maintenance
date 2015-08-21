@@ -28,6 +28,11 @@ global.serviceRequestDetails = {
                 this.set("canCancel", serviceRequest.status != global.constants.serviceRequestStatus.CANCELED);
                 this.set("priorityText", global.converters.convertPriority(this.serviceRequest.priority));
             }
+
+            var collapsible = $("#details-collapsible").data("kendoMobileCollapsible");
+            if (collapsible) {
+                collapsible.resize();
+            }
         },
 
         cancelServiceRequest: function (e) {

@@ -15,13 +15,12 @@
         </li>
     </ul>
     <div class="button-container"><a data-role="button" data-bind="click: submit" class="asset-button">Submit Feedback</a></div>
-    <div data-role="collapsible" data-collapsed="false">
+    <div id="feedback-collapsible" data-role="collapsible" data-collapsed="false" >
         <h3>More info</h3>
-        <ul id="service-requests-listview"
-            data-use-native-scrolling="true"
+        <ul data-use-native-scrolling="true"
             data-role="listview"
             data-template="feedback-listview-item"
-            data-bind="source: feedbackItems"></ul>
+            data-bind="source: feedbackItems, events: { dataBound: onFeedbackItemsBound }"></ul>
     </div>
 </div>
 

@@ -14,7 +14,7 @@ global.feedback = {
             if (serviceRequest) {
                 global.feedbackItemModel.dataSource.filter(global.createFilterObject("serviceRequestId", "eq", this.serviceRequest.Id));
                 this.createFeedbackItem();
-            } 
+            }
         },
 
         submit: function () {
@@ -49,6 +49,12 @@ global.feedback = {
                 serviceRequestId: this.serviceRequest.Id,
                 createdBy: global.service.getCurrentUser()
             });
+        },
+
+        onFeedbackItemsBound: function () {
+            $("#feedback-collapsible").data("kendoMobileCollapsible").resize();
         }
-    })
+    }),
+
+
 }

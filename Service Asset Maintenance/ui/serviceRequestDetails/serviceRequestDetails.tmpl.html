@@ -7,7 +7,7 @@
     <span class="details-label">due</span>
     <span data-bind="text: serviceRequest.dueDate" data-format="MMMM dd yyyy" class="details-label duedate-label"></span>
     <span data-bind="css: { priority-low: serviceRequest.priority === 0, priority-medium: serviceRequest.priority === 1, priority-high: serviceRequest.priority === 2 }, text: priorityText" class="details-label priority-label"></span>
-    <div data-role="collapsible" >
+    <div id="details-collapsible" data-role="collapsible">
         <h3>More info</h3>
         <div>
             <span data-bind="visible: serviceRequest.description, text: serviceRequest.description" class="block-label"></span>
