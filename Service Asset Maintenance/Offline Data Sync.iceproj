@@ -21,6 +21,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
   <ItemGroup>
     <Content Include=".abproject" />
+    <Content Include="bower_components\everlive\.bower.json" />
+    <Content Include="bower_components\everlive\.gitattributes" />
+    <Content Include="bower_components\everlive\min\everlive.all.min.js" />
+    <Content Include="bower_components\everlive\src\everlive.all.js" />
+    <Content Include="bower_components\everlive\src\everlive.all.map" />
     <Content Include="bower_components\fontawesome\.bower.json" />
     <Content Include="bower_components\fontawesome\.gitignore" />
     <Content Include="bower_components\fontawesome\.npmignore" />
@@ -86,9 +91,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="ui\old\appSettings.js">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="lib\everlive.all.min.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="shared\models\maintenanceTypeModel.js">
@@ -316,6 +318,9 @@
     <Folder Include="App_Resources\WP8\Tiles\" />
     <Folder Include="App_Resources\WP8\Tiles\Iconic\" />
     <Folder Include="bower_components\" />
+    <Folder Include="bower_components\everlive" />
+    <Folder Include="bower_components\everlive\min" />
+    <Folder Include="bower_components\everlive\src" />
     <Folder Include="bower_components\fontawesome\" />
     <Folder Include="bower_components\fontawesome\css\" />
     <Folder Include="bower_components\fontawesome\fonts\" />
@@ -326,7 +331,6 @@
     <Folder Include="kendo\styles\" />
     <Folder Include="kendo\styles\images\" />
     <Folder Include="kendo\typescript\" />
-    <Folder Include="lib\" />
     <Folder Include="scripts\" />
     <Folder Include="Plugins\" />
     <Folder Include="shared\" />

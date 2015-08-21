@@ -2,6 +2,11 @@
      data-bind="loading: isLoading"
      data-model="global.signUp.viewModel"
      data-layout="inner-layout">
+    <div class="validation-summary" data-bind="visible: validationSummaryVisible">
+        <span data-bind="text: errorMessage"></span>
+        <a class="close-button" data-role="button" data-icon=" fa fa-times" data-bind="click: hideValidationSummary"></a>
+    </div>
+
     <div class="header">Service asset maintenance</div>
     <ul data-role="listview">
         <li>

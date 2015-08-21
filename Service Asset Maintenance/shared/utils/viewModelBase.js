@@ -7,7 +7,7 @@ var ViewModelBase = kendo.data.ObservableObject.extend({
     isLoading: false,
     errorMessage: "",
 
-    beginLoading: function() {
+    beginLoading: function () {
         if (!this._loadingCount) {
             this.set("isLoading", true);
         }
@@ -32,7 +32,7 @@ var ViewModelBase = kendo.data.ObservableObject.extend({
     showValidationSummary: function (message) {
         this.clear();
         this.set(ERROR_MESSAGE_PROPERTY, message);
-       this.set(VALIDATION_SUMMARY_VISIBLE_PROPERTY, true);
+        this.set(VALIDATION_SUMMARY_VISIBLE_PROPERTY, true);
     },
 
     clear: function () {

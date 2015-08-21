@@ -1,5 +1,5 @@
 {
-  "ProjectName": "ServiceAssetMaintenance",
+  "ProjectName": "Offline Data Syncfds",
   "ProjectGuid": "3c692ccf-f877-4582-844c-fd3867893227",
   "projectVersion": 1,
   "AppIdentifier": "com.telerik.ServiceAssetMaintenance",
@@ -43,7 +43,8 @@
     "cordova-plugin-vibration",
     "cordova-plugin-whitelist",
     "com.phonegap.plugins.barcodescanner@1.2.9",
-    "com.telerik.plugin.telerikanalytics@3.3.1"
+    "com.telerik.plugin.telerikanalytics@3.3.1",
+    "cordova-plugin-crosswalk-webview@1.2.0"
   ],
   "AndroidPermissions": [
     "android.permission.ACCESS_COARSE_LOCATION",

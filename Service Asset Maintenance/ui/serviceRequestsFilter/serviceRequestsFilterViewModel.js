@@ -4,7 +4,16 @@ global.serviceRequestsFilter = {
     viewModel: kendo.observable({
         status: undefined,
         maintenanceType: undefined,
-        sortBy: "dueDate",
+        sortBy: undefined,
+        filter: {
+            status: undefined,
+            maintenanceType: undefined,
+        },
+
+        sort: {
+            sortBy: "dueDate",
+        },
+
         serviceRequestStatuses: global.constants.serviceRequestStatuses,
         maintenanceTypes: function () {
             return global.maintenanceTypeModel.dataSource;
@@ -15,23 +24,34 @@ global.serviceRequestsFilter = {
             this.set("sortBy", "dueDate");
         },
 
+        done: function () {
+            this.filter.status = this.status;
+            this.filter.maintenanceType = this.maintenanceType;
+            this.sort.sortBy = this.sortBy;
+
+            global.serviceRequests.viewModel.filterAndSort();
+        },
+
         appendFilter: function (filter) {
             var vm = global.serviceRequestsFilter.viewModel;
-            if (!isNaN(vm.status)) {
+            if (!isNaN(vm.filter.status)) {
                 filter.push(global.createFilterObject("status", "eq", vm.status));
             }
 
-            if (vm.maintenanceType) {
+            if (vm.filter.maintenanceType) {
                 filter.push(global.createFilterObject("maintenanceType.Id", "eq", vm.maintenanceType));
             }
         },
 
         appendSort: function (sort) {
-            sort.push(global.createSortObject(global.serviceRequestsFilter.viewModel.sortBy, "asc"));
+            sort.push(global.createSortObject(global.serviceRequestsFilter.viewModel.sort.sortBy, "desc"));
         },
 
-        done: function () {
-            global.serviceRequests.viewModel.filterAndSort();
+        onShow: function () {
+            var vm = global.serviceRequestsFilter.viewModel;
+            vm.set("status", vm.filter.status);
+            vm.set("maintenanceType", vm.filter.maintenanceType);
+            vm.set("sortBy", vm.sort.sortBy);
         }
     })
 }
