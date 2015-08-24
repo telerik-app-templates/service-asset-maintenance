@@ -382,7 +382,7 @@ textarea {
     font-size: 2em;
 }
 
-    #empty-view span {
+    #empty-view .content-label {
         position: absolute;
         text-align: center;
         top: 50%;

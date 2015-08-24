@@ -22,7 +22,9 @@ kendo.data.binders.widget.selectedItem = kendo.data.Binder.extend({
 
         if (global.isWide) {
             listView.bind("dataBound", function (args) {
-                that.dataBound(args);
+                if (global.isWide) {
+                    that.select();
+                }
             });
 
             var viewId = $(this.element).data("view");
@@ -33,27 +35,27 @@ kendo.data.binders.widget.selectedItem = kendo.data.Binder.extend({
         }
     },
 
-    dataBound: function (args) {
+    refresh: function () {        
+    },
+
+    select: function () {
         var binding = this.bindings["selectedItem"];
         var listView = $(this.element).data("kendoMobileListView");
         var view = listView.dataSource.view();
         if (!view.length) {
             this.selectionChanged(null, null);
         } else {
-            this.select();
+            var value = this.bindings["selectedItem"].get();
+            if (value) {
+                var item = $(this.element).find("[data-uid='" + value.uid + "']");
+                if (item && item.data("uid")) {
+                    this.selectionChanged(item, value);
+                } else {
+                    this.selectionChanged(null, null);
+                }
+            }
         }
-    },
-
-    refresh: function () {
         
-    },
-
-    select: function () {
-        var value = this.bindings["selectedItem"].get();
-        if (value) {
-            var item = $(this.element).find("[data-uid='" + value.uid + "']");
-            this.selectionChanged(item, value);
-        }
     },
 
     selectionChanged: function (item, value) {
