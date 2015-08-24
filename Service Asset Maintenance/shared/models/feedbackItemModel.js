@@ -35,7 +35,7 @@ global.feedbackItemModel = {
                 headers: {
                     "X-Everlive-Expand": JSON.stringify({
                         CreatedBy: {
-                            ReturnAs: "CreatedBy",
+                            ReturnAs: "createdByUser",
                             SingleField: "DisplayName"
                         }
                     })
@@ -46,6 +46,9 @@ global.feedbackItemModel = {
 
     submitFeedbackItem: function (feedbackItem) {
         return new Promise(function (resolve, reject) {
+            // TODO: Remove this when fix the datasource problem.
+            feedbackItem.createdByUser = global.service.currentUser.DisplayName;
+
             var dataSource = global.feedbackItemModel.dataSource;
             dataSource.add(feedbackItem);
             dataSource.sync().then(resolve, function (error) {

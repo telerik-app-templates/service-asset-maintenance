@@ -6,17 +6,12 @@ function showNotificationAndReject(error, reject) {
 }
 
 global.service = {
+    currentUser: null,
+
     login: function (username, password) {
         return new Promise(function (resolve, reject) {
             global.everlive.authentication.login(username, password)
-                .then(function (response) {
-                    global.everlive.Users.currentUser().then(function (data) {
-                        localStorage.setItem(global.constants.CURRENT_USER_KEY, data.result.Id);
-                        resolve(response);
-                    });
-                }, function (error) {
-                    reject(error);
-                });
+                .then(resolve, reject);
         });
     },
 
@@ -60,6 +55,13 @@ global.service = {
     },
 
     getCurrentUser: function () {
-        return localStorage.getItem(global.constants.CURRENT_USER_KEY);
+        return new Promise(function (resolve, reject) {
+            global.everlive.Users.currentUser().then(function (data) {
+                global.service.currentUser = data.result;
+                resolve(data.result);
+            }, function (error) {
+                showNotificationAndReject(error, reject);
+            });
+        });
     }
 }

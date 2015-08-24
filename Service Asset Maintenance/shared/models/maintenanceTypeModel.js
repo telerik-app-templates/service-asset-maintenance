@@ -3,9 +3,9 @@ global.maintenanceTypeModel = {
         type: "everlive",
         schema: {
             model: {
-                id: Everlive.idField,
+                Id: Everlive.idField,
                 fields: {
-                    type: {
+                    Type: {
                         field: "Type",
                         defaultValue: ""
                     }
@@ -16,5 +16,9 @@ global.maintenanceTypeModel = {
         transport: {
             typeName: "MaintenanceType"
         }
-    })
+    }),
+
+    get: function (id) {
+        return global.maintenanceTypeModel.dataSource.get(id);
+    }
 };

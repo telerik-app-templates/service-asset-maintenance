@@ -11,20 +11,11 @@ global.serviceRequests = {
 
         filterChanged: function (e) {
             this.selectedFilter = e.sender.current().index();
-            filterAndSort();
+            this.filterAndSort();
         },
 
         submitServiceRequest: function (e) {
-            global.submitServiceRequest.viewModel.set("serviceRequest", {
-                title: "",
-                dueDate: new Date(),
-                priority: 0,
-                maintenanceType: global.constants.DEFAULT_MAINTENANCE_TYPE,
-                assetNo: null,
-                description: "",
-                status: global.constants.serviceRequestStatus.SUBMITTED
-            });
-
+            global.submitServiceRequest.viewModel.createServiceRequest();
             global.navigation.navigate(e.target);
         },
 
@@ -62,7 +53,9 @@ global.serviceRequests = {
             var filter = [];
             global.serviceRequestsFilter.viewModel.appendFilter(filter);
             if (global.serviceRequests.viewModel.selectedFilter === 1) {
-                filter.push(global.createFilterObject("createdBy.Id", "eq", global.service.getCurrentUser()));
+                var user = global.service.getCurrentUser();
+                console.log(global.service.getCurrentUser());
+                filter.push(global.createFilterObject("createdByUser.Id", "eq", global.service.getCurrentUser().id));
             }
 
             return filter;

@@ -8,6 +8,18 @@ global.submitServiceRequest = {
             return global.maintenanceTypeModel.dataSource;
         },
 
+        createServiceRequest: function () {
+            this.set("serviceRequest", {
+                title: "",
+                dueDate: new Date(),
+                priority: 0,
+                maintenanceType: global.constants.DEFAULT_MAINTENANCE_TYPE,
+                assetNo: null,
+                description: "",
+                status: global.constants.serviceRequestStatus.SUBMITTED
+            });
+        },
+
         setAssetNo: function (assetNo) {
             this.serviceRequest.set("assetNo", assetNo);
             global.submitServiceRequest.resetScroll();
@@ -56,11 +68,12 @@ global.submitServiceRequest = {
             if (this.validate()) {
                 var that = this;
                 that.beginLoading();
-                global.serviceRequestModel.submitServiceRequest(this.serviceRequest)
+                global.serviceRequestModel.submitServiceRequest(that.serviceRequest)
                     .then(function (success) {
                         that.endLoading();
                         global.navigation.back("content-pane");
                     }, function (error) {
+                        console.log(error.message);
                         that.endLoading();
                     });
             }

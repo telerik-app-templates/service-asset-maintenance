@@ -2,25 +2,19 @@ function updateLayout() {
     global.isWide = window.outerWidth > 500 && (window.orientation === 90 || window.orientation == -90);
 }
 
-function getLayout() {
-    if (global.service.getCurrentUser()) {
-        return global.isWide ? global.constants.views.homeWide : global.constants.views.home
-    }
-
-    return global.constants.views.login;
-}
-
 document.addEventListener('deviceready', function () {
     navigator.splashscreen.hide();
     updateLayout();
     global.app = new kendo.mobile.Application(document.body, {
         transition: TRANSITION,
         skin: "nova",
-        initial: getLayout(),
+        initial: global.constants.views.initial,
         init: function () {
             kendo.UserEvents.defaultThreshold(kendo.support.mobileOS.device === 'android' ? 0 : 20);
         }
     });
+
+    global.navigation.home();
 }, false);
 
 window.addEventListener('orientationchange', function () {

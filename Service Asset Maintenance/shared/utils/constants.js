@@ -12,7 +12,8 @@ global.constants = {
         signUp: "ui/signUp/signUpView.html",
         home: "ui/home/homeView.html",
         homeWide: "ui/home/homeView.wide.html",
-        assets: "#assets-view"
+        assets: "#assets-view",
+        initial: "ui/initial/initialView.html"
     },
 
     DEFAULT_MAINTENANCE_TYPE: "88f5e3c0-457e-11e5-9642-e912f5485898",

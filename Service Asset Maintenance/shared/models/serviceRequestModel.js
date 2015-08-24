@@ -72,10 +72,10 @@ global.serviceRequestModel = {
                 headers: {
                     "X-Everlive-Expand": JSON.stringify({
                         MaintenanceType: {
-                            ReturnAs: "Type"
+                            ReturnAs: "type"
                         },
                         CreatedBy: {
-                            ReturnAs: "CreatedByUser"
+                            ReturnAs: "createdByUser"
                         }
                     })
                 }
@@ -100,8 +100,13 @@ global.serviceRequestModel = {
         });
     },
 
-    submitServiceRequest: function (serviceRequest) {
+    submitServiceRequest: function (serviceRequest, maintenanceType) {
         return new Promise(function (resolve, reject) {
+            // TODO: Remove this when fix the datasource problem.
+            serviceRequest.Type = global.maintenanceTypeModel.get(serviceRequest.maintenanceType);
+            serviceRequest.createdByUser = global.service.currentUser;
+
+            console.log("SUBMIT");
             var dataSource = global.serviceRequestModel.dataSource;
             dataSource.add(serviceRequest);
             dataSource.sync()

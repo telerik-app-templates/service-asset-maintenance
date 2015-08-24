@@ -87,6 +87,7 @@
     <Content Include="shared\utils\service.js" />
     <Content Include="shared\utils\validation.js" />
     <Content Include="ui\home\homeView.html" />
+    <Content Include="ui\initial\initialView.html" />
     <Content Include="ui\old\analytics.js">
       <SubType>Content</SubType>
     </Content>
@@ -345,6 +346,7 @@
     <Folder Include="ui\feedback\" />
     <Folder Include="ui\templates\" />
     <Folder Include="ui\home\" />
+    <Folder Include="ui\initial\" />
     <Folder Include="ui\serviceRequestsFilter\" />
     <Folder Include="ui\submitServiceRequest\" />
     <Folder Include="ui\signUp\" />

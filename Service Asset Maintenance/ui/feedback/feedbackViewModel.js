@@ -18,18 +18,16 @@ global.feedback = {
         },
 
         submit: function () {
-            if (this.validate()) {
-                var that = this;
-                this.beginLoading();
-                var vm = global.feedback.viewModel;
-                global.feedbackItemModel.submitFeedbackItem(this.feedbackItem)
+            var that = this;
+            this.beginLoading();
+            global.feedbackItemModel.submitFeedbackItem(that.feedbackItem)
                     .then(function (success) {
-                        vm.createFeedbackItem();
+                        that.createFeedbackItem();
                         that.endLoading();
                     }, function (error) {
+                        console.log(error.message);
                         that.endLoading();
                     });
-            }
         },
 
         validate: function () {
@@ -47,7 +45,6 @@ global.feedback = {
             this.set("feedbackItem", {
                 comment: "",
                 serviceRequestId: this.serviceRequest.Id,
-                createdBy: global.service.getCurrentUser()
             });
         },
 

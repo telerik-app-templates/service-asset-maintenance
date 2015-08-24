@@ -32,8 +32,8 @@
 <script type="text/x-kendo-template" id="service-request-item-template">
     <span class="listview-item-status">${ global.converters.getServiceRequestStatusText(status) }</span>
     <span class="listview-item-title">${ title }</span>
+    <span class="listview-item listview-item-details">${ Type.Type }</span>
     <span class="listview-item listview-item-details listview-item-duedate">${ global.converters.formatDate(dueDate) }</span>
     <span class="listview-item priority-label" data-bind="css: { priority-low: priority === 0, priority-medium: priority === 1, priority-high: priority === 2 }">${ global.converters.convertPriority(priority) }</span>
 </script>
 
-<span class="listview-item listview-item-details">${ Type.Type }</span>
