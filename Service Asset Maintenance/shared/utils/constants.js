@@ -18,7 +18,8 @@ global.constants = {
 
     DEFAULT_MAINTENANCE_TYPE: "88f5e3c0-457e-11e5-9642-e912f5485898",
     EVERLIVE_KEY: "3a0PopBb1pAT9SDF",
-    CURRENT_USER_KEY: "current_user"
+    CURRENT_USER_KEY: "current_user",
+    FEEDBACK_KEY: "c3d1f8a0-0f7b-11e5-ad55-890589a8af57"
 }
 
 global.constants.serviceRequestStatuses = [

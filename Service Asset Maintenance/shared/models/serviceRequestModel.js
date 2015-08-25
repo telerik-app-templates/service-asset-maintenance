@@ -39,10 +39,6 @@ global.serviceRequestModel = {
                         field: "MaintenanceType",
                         defaultValue: ""
                     },
-                    location: {
-                        field: "Location",
-                        defaultValue: ""
-                    },
                     status: {
                         field: "Status",
                         defaultValue: undefined
@@ -55,7 +51,7 @@ global.serviceRequestModel = {
                         field: "Asset",
                         defaultValue: ""
                     },
-                    geoLocation: {
+                    geolocation: {
                         field: "Geolocation",
                         defaultValue: ""
                     },
@@ -100,21 +96,16 @@ global.serviceRequestModel = {
         });
     },
 
-    appendData: function (serviceRequest) {
-        return new Promise(function (resolve, reject) {
-            global.location.getLocation(serviceRequest)
-                .then(global.location.getServiceRequest, resolve)
-                .then(resolve, resolve);
-        });
-    },
-
     submitServiceRequest: function (serviceRequest, maintenanceType) {
         return new Promise(function (resolve, reject) {
             // TODO: Remove this when fix the datasource problem.
             serviceRequest.Type = global.maintenanceTypeModel.get(serviceRequest.maintenanceType);
             serviceRequest.createdByUser = global.service.currentUser;
 
-            global.serviceRequestModel.appendData(serviceRequest).then(function () {
+            global.location.getAddressAndGeolocation().then(function (success) {
+                serviceRequest.geolocation = success.geolocation;
+                serviceRequest.address = success.address;
+
                 var dataSource = global.serviceRequestModel.dataSource;
                 dataSource.add(serviceRequest);
 

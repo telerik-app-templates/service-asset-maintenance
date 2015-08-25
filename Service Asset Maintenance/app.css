@@ -390,3 +390,8 @@ textarea {
         transform: translateY(-50%);
         color: #9CA3A6;
     }
+
+.address-label {
+    color: blue;
+    margin: 8px 12.365px 0 12.365px;
+}
