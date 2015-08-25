@@ -44,7 +44,7 @@ global.navigation = {
                 var url = global.isWide ? global.constants.views.homeWide : global.constants.views.home
                 global.app.replace(url, TRANSITION);
             } else {
-                global.login()
+                global.navigation.login()
             }
         })
     },

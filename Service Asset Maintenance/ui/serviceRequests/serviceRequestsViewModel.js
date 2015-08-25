@@ -53,9 +53,7 @@ global.serviceRequests = {
             var filter = [];
             global.serviceRequestsFilter.viewModel.appendFilter(filter);
             if (global.serviceRequests.viewModel.selectedFilter === 1) {
-                var user = global.service.getCurrentUser();
-                console.log(global.service.getCurrentUser());
-                filter.push(global.createFilterObject("createdByUser.Id", "eq", global.service.getCurrentUser().id));
+                filter.push(global.createFilterObject("createdByUser.Id", "eq", global.service.currentUser.Id));
             }
 
             return filter;
