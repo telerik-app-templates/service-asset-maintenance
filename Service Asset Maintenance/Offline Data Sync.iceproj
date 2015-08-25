@@ -21,6 +21,12 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
   <ItemGroup>
     <Content Include=".abproject" />
+    <Content Include=".debug.abproject">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include=".release.abproject">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="bower_components\everlive\.bower.json" />
     <Content Include="bower_components\everlive\.gitattributes" />
     <Content Include="bower_components\everlive\min\everlive.all.min.js" />
@@ -84,6 +90,7 @@
     <Content Include="scripts\bindings.js" />
     <Content Include="scripts\everlive.js" />
     <Content Include="scripts\init.js" />
+    <Content Include="shared\utils\location.js" />
     <Content Include="shared\utils\service.js" />
     <Content Include="shared\utils\validation.js" />
     <Content Include="ui\home\homeView.html" />

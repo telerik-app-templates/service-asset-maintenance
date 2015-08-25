@@ -16,7 +16,7 @@ global.serviceRequestModel = {
                         defaultValue: ""
                     },
                     title: {
-                        field: "Reason",
+                        field: "Title",
                         defaultValue: ""
                     },
                     dueDate: {
@@ -100,17 +100,26 @@ global.serviceRequestModel = {
         });
     },
 
+    appendData: function (serviceRequest) {
+        return new Promise(function (resolve, reject) {
+            global.location.getLocation(serviceRequest)
+                .then(global.location.getServiceRequest, resolve)
+                .then(resolve, resolve);
+        });
+    },
+
     submitServiceRequest: function (serviceRequest, maintenanceType) {
         return new Promise(function (resolve, reject) {
             // TODO: Remove this when fix the datasource problem.
             serviceRequest.Type = global.maintenanceTypeModel.get(serviceRequest.maintenanceType);
             serviceRequest.createdByUser = global.service.currentUser;
 
-            console.log("SUBMIT");
-            var dataSource = global.serviceRequestModel.dataSource;
-            dataSource.add(serviceRequest);
-            dataSource.sync()
-                .then(resolve, function (error) {
+            global.serviceRequestModel.appendData(serviceRequest).then(function () {
+                var dataSource = global.serviceRequestModel.dataSource;
+                dataSource.add(serviceRequest);
+
+                return dataSource.sync()
+            }).then(resolve, function (error) {
                 global.notifications.showErrorMessage(error);
                 reject(error);
             });

@@ -42,7 +42,7 @@ global.navigation = {
         global.service.getCurrentUser().then(function (user) {
             if (user) {
                 var url = global.isWide ? global.constants.views.homeWide : global.constants.views.home
-                global.app.replace(url, TRANSITION);
+                global.app.replace(url);
             } else {
                 global.navigation.login()
             }
