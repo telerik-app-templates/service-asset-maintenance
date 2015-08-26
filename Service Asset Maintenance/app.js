@@ -5,7 +5,10 @@ function updateLayout() {
 document.addEventListener("deviceready", function () {
     navigator.splashscreen.hide();
     updateLayout();
-    feedback.initialize(global.constants.FEEDBACK_KEY);
+    if (window.feedback) {
+        feedback.initialize(global.constants.FEEDBACK_KEY);
+    }
+
     global.app = new kendo.mobile.Application(document.body, {
         transition: TRANSITION,
         skin: "nova",

@@ -1,6 +1,7 @@
 <div id="submit-service-request-view"
      data-role="view"
      data-model="global.submitServiceRequest.viewModel"
+     data-bind="loading: isLoading"
      data-title="New Request">
     <div data-role="header">
         <div data-role="navbar">
@@ -39,7 +40,7 @@
                     </ul>
                 </li>
             </ul>
-           
+
         </li>
     </ul>
     <ul data-role="listview">
@@ -58,7 +59,7 @@
             </ul>
         </li>
     </ul>
-    <ul data-role="listview" >
+    <ul data-role="listview">
         <li data-bind="visible: serviceRequest.picture">
             <img data-bind="attr: { src: imageSrc }" class="request-picture" />
             <a data-role="button" data-icon=" fa fa-times" data-bind="click: removePicture" class="remove-button">Remove</a>
