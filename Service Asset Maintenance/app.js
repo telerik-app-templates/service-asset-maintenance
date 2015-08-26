@@ -21,6 +21,6 @@ window.addEventListener('orientationchange', function () {
     var old = global.isWide;
     updateLayout();
     if (global.app && old !== global.isWide) {
-        global.app.replace(getLayout());
+        global.navigation.home();
     }
 }, false);

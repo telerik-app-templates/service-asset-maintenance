@@ -4,11 +4,13 @@ global.serviceRequestDetails = {
     viewModel: new ViewModelBase({
         canCancel: false,
         serviceRequest: null,
-        imageUrl: function () {
+        imageSrc: function () {
             if (this.serviceRequest) {
-                var picture = this.serviceRequest.get("picture");
+                var data = this.serviceRequest.get("picture");
+                var result = data ? "data:image/jpeg;base64," + data : null;
+                console.log(result);
 
-                return picture ? "data:image/jpeg;base64," + picture : null;
+                return result;
             }
 
             return null;

@@ -1,7 +1,7 @@
 <div id="service-request-details-view"
      data-role="view"
      data-model="global.serviceRequestDetails.viewModel">
-    <img data-bind="visible: imageUrl, attr: { src: imageUrl }" class="header-image" />
+    <img data-bind="visible: serviceRequest.picture, attr: { src: imageSrc }" class="header-image" />
     <span data-bind="text: serviceRequest.title" class="margins title-label"></span>
     <span data-bind="text: serviceRequest.Type.Type" class="maintenance-type-label details-label"></span>
     <span class="details-label">due</span>
@@ -16,7 +16,7 @@
             <span data-bind="visible: serviceRequest.assetNo">#</span><span data-bind="visible: serviceRequest.assetNo, text: serviceRequest.assetNo"></span>
             <span data-bind="visible: serviceRequest.createdAt" class="details-header-label block-label">CREATED</span>
             <span data-bind="visible: serviceRequest.createdAt, text: serviceRequest.createdAt" data-format="MMMM dd yyyy"></span>
-            <span data-bind="visible: serviceRequest.createdAt">by </span><span data-bind="visible: serviceRequest.createdAt, text: serviceRequest.CreatedByUser.DisplayName"></span>
+            <span data-bind="visible: serviceRequest.createdAt">by </span><span data-bind="visible: serviceRequest.createdAt, text: serviceRequest.createdByUser.DisplayName"></span>
             <span data-bind="visible: serviceRequest.completedAt" class="details-header-label block-label">COMPLETED</span>
             <span data-bind="visible: serviceRequest.completedAt, text: serviceRequest.completedAt" data-format="MMMM dd yyyy"></span>
             <span data-bind="visible: serviceRequest.reason" class="details-header-label block-label">REASON FOR CANCELING</span>

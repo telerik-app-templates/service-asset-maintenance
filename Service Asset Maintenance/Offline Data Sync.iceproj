@@ -71,6 +71,7 @@
     <Content Include="bower_components\fontawesome\scss\_rotated-flipped.scss" />
     <Content Include="bower_components\fontawesome\scss\_stacked.scss" />
     <Content Include="bower_components\fontawesome\scss\_variables.scss" />
+    <Content Include="bower_components\promise\promise.js" />
     <Content Include="cordova.android.js" />
     <Content Include="cordova.ios.js" />
     <Content Include="cordova.wp8.js" />
@@ -334,6 +335,7 @@
     <Folder Include="bower_components\fontawesome\fonts\" />
     <Folder Include="bower_components\fontawesome\less\" />
     <Folder Include="bower_components\fontawesome\scss\" />
+    <Folder Include="bower_components\promise\" />
     <Folder Include="kendo\" />
     <Folder Include="kendo\js\" />
     <Folder Include="kendo\styles\" />

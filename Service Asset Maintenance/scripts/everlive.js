@@ -9,7 +9,7 @@ global.everlive = new Everlive({
     }, 
     offlineStorage: {
         storage: {
-            provider: window.navigator.simulator ? Everlive.Constants.StorageProvider.LocalStorage : Everlive.Constants.StorageProvider.FileSystem
+            provider: Everlive.Constants.StorageProvider.LocalStorage
         },
 
         encryption: {

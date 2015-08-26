@@ -59,7 +59,7 @@
         </li>
     </ul>
     <ul data-role="listview" >
-        <li data-bind="visible: imageSrc">
+        <li data-bind="visible: serviceRequest.picture">
             <img data-bind="attr: { src: imageSrc }" class="request-picture" />
             <a data-role="button" data-icon=" fa fa-times" data-bind="click: removePicture" class="remove-button">Remove</a>
         </li>

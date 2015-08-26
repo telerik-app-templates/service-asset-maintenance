@@ -2,8 +2,15 @@
 
 global.submitServiceRequest = {
     viewModel: new ViewModelBase({
-        serviceRequest: {},
-        imageSrc: undefined,
+        serviceRequest: null,
+        imageSrc: function () {
+            var data = this.serviceRequest.get("picture");
+            var result = data ? "data:image/jpeg;base64," + data : null;
+            console.log(result);
+
+            return result;
+        },
+
         maintenanceTypes: function () {
             return global.maintenanceTypeModel.dataSource;
         },
@@ -26,8 +33,7 @@ global.submitServiceRequest = {
         },
 
         setPicture: function (data) {
-            this.serviceRequest.picture = data;
-            this.set("imageSrc", data ? "data:image/jpeg;base64," + data : undefined);
+            this.serviceRequest.set("picture", data);
             global.submitServiceRequest.resetScroll();
         },
 
@@ -57,11 +63,11 @@ global.submitServiceRequest = {
         },
 
         removePicture: function () {
-            this.setPicture(undefined);
+            this.setPicture(null);
         },
 
         removeAssetNo: function () {
-            this.setAssetNo(undefined);
+            this.setAssetNo(null);
         },
 
         submit: function () {
@@ -83,6 +89,12 @@ global.submitServiceRequest = {
             this.hideValidationSummary();
             if (!global.validation.isRequiredValid(this.serviceRequest.title)) {
                 this.showValidationSummary("Please enter title.");
+
+                return false;
+            }
+
+            if (!global.validation.isRequiredValid(this.serviceRequest.dueDate)) {
+                this.showValidationSummary("Please enter due date.");
 
                 return false;
             }

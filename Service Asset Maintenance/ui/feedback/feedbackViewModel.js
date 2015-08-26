@@ -18,16 +18,18 @@ global.feedback = {
         },
 
         submit: function () {
-            var that = this;
-            this.beginLoading();
-            global.feedbackItemModel.submitFeedbackItem(that.feedbackItem)
-                    .then(function (success) {
-                        that.createFeedbackItem();
-                        that.endLoading();
-                    }, function (error) {
-                        console.log(error.message);
-                        that.endLoading();
-                    });
+
+            if (this.validate()) {
+                var that = this;
+                that.beginLoading();
+                global.feedbackItemModel.submitFeedbackItem(that.feedbackItem).then(function (success) {
+                    that.createFeedbackItem();
+                    that.endLoading();
+                }, function (error) {
+                    console.log(error.message);
+                    that.endLoading();
+                });
+            }
         },
 
         validate: function () {

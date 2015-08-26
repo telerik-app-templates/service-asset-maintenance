@@ -21,7 +21,7 @@ global.serviceRequestModel = {
                     },
                     dueDate: {
                         field: "DueDate",
-                        defaultValue: new Date()
+                        defaultValue: null
                     },
                     completedAt: {
                         field: "CompletedDate",

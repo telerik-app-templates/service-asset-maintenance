@@ -5,6 +5,7 @@ global.serviceRequestsFilter = {
         status: undefined,
         maintenanceType: undefined,
         sortBy: undefined,
+
         filter: {
             status: undefined,
             maintenanceType: undefined,
@@ -15,9 +16,11 @@ global.serviceRequestsFilter = {
         },
 
         serviceRequestStatuses: global.constants.serviceRequestStatuses,
+
         maintenanceTypes: function () {
             return global.maintenanceTypeModel.dataSource;
         },
+
         reset: function () {
             this.set("status", undefined);
             this.set("maintenanceType", undefined);
@@ -39,7 +42,7 @@ global.serviceRequestsFilter = {
             }
 
             if (vm.filter.maintenanceType) {
-                filter.push(global.createFilterObject("maintenanceType.Id", "eq", vm.maintenanceType));
+                filter.push(global.createFilterObject("maintenanceType", "eq", vm.maintenanceType));
             }
         },
 
