@@ -5,10 +5,8 @@ global.submitServiceRequest = {
         serviceRequest: null,
         imageSrc: function () {
             var data = this.serviceRequest.get("picture");
-            var result = data ? "data:image/jpeg;base64," + data : null;
-            console.log(result);
 
-            return result;
+            return data ? "data:image/jpeg;base64," + data : null;
         },
 
         maintenanceTypes: function () {
@@ -100,12 +98,6 @@ global.submitServiceRequest = {
             }
 
             return true;
-        },
-
-        onPriorityChanged: function (e) {
-            var buttonGroup = e.sender;
-            var index = buttonGroup.current().index();
-            global.submitServiceRequest.viewModel.serviceRequest.priority = index;
         }
     }),
 

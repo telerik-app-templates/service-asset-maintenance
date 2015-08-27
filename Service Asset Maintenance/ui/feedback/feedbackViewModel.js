@@ -48,12 +48,6 @@ global.feedback = {
                 comment: "",
                 serviceRequestId: this.serviceRequest.Id,
             });
-        },
-
-        onFeedbackItemsBound: function () {
-            $("#feedback-collapsible").data("kendoMobileCollapsible").resize();
         }
-    }),
-
-
+    })
 }

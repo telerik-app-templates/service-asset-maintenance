@@ -1,5 +1,6 @@
 <div id="service-request-details-view"
      data-role="view"
+     data-bind="loading: isLoading"
      data-model="global.serviceRequestDetails.viewModel">
     <img data-bind="visible: serviceRequest.picture, attr: { src: imageSrc }" class="header-image" />
     <span data-bind="text: serviceRequest.title" class="margins title-label"></span>

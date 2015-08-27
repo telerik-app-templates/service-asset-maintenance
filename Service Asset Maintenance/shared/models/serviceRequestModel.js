@@ -76,9 +76,7 @@ global.serviceRequestModel = {
                     })
                 }
             }
-        },
-
-        //serverFiltering: true
+        }
     }),
 
     getServiceRequest: function (id) {

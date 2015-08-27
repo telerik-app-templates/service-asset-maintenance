@@ -276,6 +276,11 @@ textarea {
 #feedback-view .km-collapsible-content,
 #service-request-details-view .km-collapsible-content {
     background-color: #F8FAFB;
+    height: auto!important;
+}
+
+#feedback-view .km-collapsible-content {
+    border-bottom: none;
 }
 
 #feedback-view .km-collapsible-content {

@@ -7,10 +7,8 @@ global.serviceRequestDetails = {
         imageSrc: function () {
             if (this.serviceRequest) {
                 var data = this.serviceRequest.get("picture");
-                var result = data ? "data:image/jpeg;base64," + data : null;
-                console.log(result);
 
-                return result;
+                return data ? "data:image/jpeg;base64," + data : null;
             }
 
             return null;
