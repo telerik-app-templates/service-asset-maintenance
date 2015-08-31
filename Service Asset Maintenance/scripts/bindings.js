@@ -1,12 +1,17 @@
 kendo.data.binders.widget.index = kendo.data.Binder.extend({
     init: function (widget, bindings, options) {
         kendo.data.Binder.fn.init.call(this, widget.element[0], bindings, options);
+
+        var that = this;
+        var buttonGroup = $(that.element).data("kendoMobileButtonGroup");
+        buttonGroup.bind("select", function (args) {
+            that.bindings["index"].set(args.index);
+        })
     },
 
     refresh: function () {
-        var that = this,
-        value = that.bindings["index"].get();
-        $(that.element).data("kendoMobileButtonGroup").select(value);
+        value = this.bindings["index"].get();
+        $(this.element).data("kendoMobileButtonGroup").select(value);
     }
 });
 
@@ -45,7 +50,7 @@ kendo.data.binders.widget.selectedItem = kendo.data.Binder.extend({
         if (!view.length) {
             this.selectionChanged(null, null);
         } else {
-            var value = this.bindings["selectedItem"].get();
+            var value = binding.get();
             if (value) {
                 var item = $(this.element).find("[data-uid='" + value.uid + "']");
                 if (item && item.data("uid")) {

@@ -28,7 +28,6 @@ global.feedbackItemModel = {
                 }
             }
         },
-        serverFiltering: true,
         transport: {
             typeName: "FeedbackItem",
             read: {
@@ -41,7 +40,8 @@ global.feedbackItemModel = {
                     })
                 }
             }
-        }
+        },
+        sort: {field: "createdAt", dir: "desc"}
     }),
 
     submitFeedbackItem: function (feedbackItem) {

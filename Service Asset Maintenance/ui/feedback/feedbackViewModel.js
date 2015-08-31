@@ -35,7 +35,7 @@ global.feedback = {
         validate: function () {
             this.hideValidationSummary();
             if (!global.validation.isRequiredValid(this.feedbackItem.comment)) {
-                this.showValidationSummary("Please enter comment.");
+                this.showValidationSummary(global.messages.enterCommentMessage);
 
                 return false;
             }
@@ -49,5 +49,9 @@ global.feedback = {
                 serviceRequestId: this.serviceRequest.Id,
             });
         }
-    })
+    }),
+
+    onInit: function () {
+        kendo.bind($("#feedback-header"), global.home.viewModel);
+    },
 }

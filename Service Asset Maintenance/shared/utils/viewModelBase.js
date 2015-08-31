@@ -1,15 +1,17 @@
 var VALIDATION_SUMMARY_VISIBLE_PROPERTY = "validationSummaryVisible"
 var ERROR_MESSAGE_PROPERTY = "errorMessage"
+var IS_LOADING_PROPERTY = "isLoading"
 
 var ViewModelBase = kendo.data.ObservableObject.extend({
     _loadingCount: 0,
     validationSummaryVisible: false,
     isLoading: false,
     errorMessage: "",
+    strings: global.strings,
 
     beginLoading: function () {
         if (!this._loadingCount) {
-            this.set("isLoading", true);
+            this.set(IS_LOADING_PROPERTY, true);
         }
 
         this._loadingCount++;
@@ -19,7 +21,7 @@ var ViewModelBase = kendo.data.ObservableObject.extend({
         if (this._loadingCount > 0) {
             this._loadingCount--;
             if (!this._loadingCount) {
-                this.set("isLoading", false);
+                this.set(IS_LOADING_PROPERTY, false);
             }
         }
     },

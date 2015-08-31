@@ -1,9 +1,10 @@
 <div data-role="splitview"
+     data-init="global.feedback.onInit"
      data-style="vertical" >
-    <div data-role="header">
+    <div id="feedback-header" data-role="header">
         <div data-role="navbar">
-            <a data-align="left" data-role="backbutton" class="asset-button">Back</a>
-            <span data-role="view-title">Feedback</span>
+            <a data-align="left" data-role="backbutton" class="asset-button"></a>
+            <span data-role="view-title" data-bind="text: strings.feedbackText"></span>
         </div>
     </div>
     <div data-role="pane" data-initial="ui/feedback/feedback.tmpl.html"></div>

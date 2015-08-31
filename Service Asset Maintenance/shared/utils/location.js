@@ -26,11 +26,11 @@ global.location = {
                             address: address.formatted_address
                         });
                     } else {
-                        reject({ message: "Not found." });
+                        reject({ message: global.messages.notFoundMessage });
                     }
                 });
             } else {
-                reject({ message: "Google maps not found." });
+                reject({ message: global.messages.notFoundMessage });
             }
         })
     },

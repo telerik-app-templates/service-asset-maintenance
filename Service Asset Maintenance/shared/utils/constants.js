@@ -5,24 +5,26 @@ global.constants = {
         ASSIGNED: 2
         },
 
-    priorityStrings: ["low", "med", "high"],
+    priorityStrings: [global.strings.shortLowText, global.strings.shortMediumText, global.strings.shortHighText],
 
     views: {
+        initial: "ui/initial/initialView.html",
         login: "ui/login/loginView.html",
         signUp: "ui/signUp/signUpView.html",
         home: "ui/home/homeView.html",
         homeWide: "ui/home/homeView.wide.html",
+        serviceRequestDetails: "ui/serviceRequestDetails/serviceRequestDetailsView.html",
+        serviceRequestDetailsWide: "ui/serviceRequestDetails/serviceRequestDetailsView.wide.html",
         assets: "#assets-view",
-        initial: "ui/initial/initialView.html"
+        selectServiceRequestView: "ui/selectServiceRequest/selectServiceRequestView.html"
     },
 
     DEFAULT_MAINTENANCE_TYPE: "88f5e3c0-457e-11e5-9642-e912f5485898",
     EVERLIVE_KEY: "3a0PopBb1pAT9SDF",
-    CURRENT_USER_KEY: "current_user",
     FEEDBACK_KEY: "c3d1f8a0-0f7b-11e5-ad55-890589a8af57"
 }
 
 global.constants.serviceRequestStatuses = [
-    { status: "Submitted", value: global.constants.serviceRequestStatus.SUBMITTED },
-    { status: "Canceled", value: global.constants.serviceRequestStatus.CANCELED },
-    { status: "Assigned", value: global.constants.serviceRequestStatus.ASSIGNED }];
+    { status: global.strings.submittedText, value: global.constants.serviceRequestStatus.SUBMITTED },
+    { status: global.strings.canceledText, value: global.constants.serviceRequestStatus.CANCELED },
+    { status: global.strings.assignedText, value: global.constants.serviceRequestStatus.ASSIGNED }];

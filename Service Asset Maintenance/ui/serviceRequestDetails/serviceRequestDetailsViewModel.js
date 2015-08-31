@@ -1,17 +1,23 @@
-'use strict';
+var CAN_CANCEL_PROPERTY_NAME = "canCancel";
 
 global.serviceRequestDetails = {
     viewModel: new ViewModelBase({
         canCancel: false,
         serviceRequest: null,
+        dueDateFormatted: function () {
+            return global.converters.formatDate(this.serviceRequest.get("dueDate"));
+        },
+
+        createdAtFormatted: function () {
+            return global.converters.formatDate(this.serviceRequest.get("createdAt"));
+        },
+
+        completedAtFormatted: function () {
+            return global.converters.formatDate(this.serviceRequest.get("completedAt"));
+        },
+
         imageSrc: function () {
-            if (this.serviceRequest) {
-                var data = this.serviceRequest.get("picture");
-
-                return data ? "data:image/jpeg;base64," + data : null;
-            }
-
-            return null;
+            return global.converters.convertToImageSrc(this.serviceRequest);
         },
 
         statusConverter: function () {
@@ -25,7 +31,7 @@ global.serviceRequestDetails = {
         setServiceRequest: function (serviceRequest) {
             this.set("serviceRequest", serviceRequest);
             if (serviceRequest) {
-                this.set("canCancel", serviceRequest.status != global.constants.serviceRequestStatus.CANCELED);
+                this.set(CAN_CANCEL_PROPERTY_NAME, serviceRequest.status != global.constants.serviceRequestStatus.CANCELED);
                 this.set("priorityText", global.converters.convertPriority(this.serviceRequest.priority));
             }
 
@@ -40,7 +46,7 @@ global.serviceRequestDetails = {
             that.beginLoading();
             global.serviceRequestModel.cancelServiceRequest(global.serviceRequestDetails.viewModel.serviceRequest)
                 .then(function () {
-                    global.serviceRequestDetails.viewModel.set("canCancel", false);
+                    global.serviceRequestDetails.viewModel.set(CAN_CANCEL_PROPERTY_NAME, false);
                     that.endLoading();
                 }, function (error) {
                     that.endLoading()
@@ -49,10 +55,11 @@ global.serviceRequestDetails = {
     }),
 
     onInit: function () {
-        kendo.bind($("#title"), global.serviceRequestDetails.viewModel);
+        kendo.bind($("#service-request-details-header"), global.serviceRequestDetails.viewModel);
+        kendo.bind($("#service-request-details-footer"), global.serviceRequestDetails.viewModel);
     },
 
     onInitWide: function () {
-        kendo.bind($("#title-wide"), global.serviceRequestDetails.viewModel);
+        kendo.bind($("#service-request-details-header-wide"), global.serviceRequestDetails.viewModel);
     }
 }

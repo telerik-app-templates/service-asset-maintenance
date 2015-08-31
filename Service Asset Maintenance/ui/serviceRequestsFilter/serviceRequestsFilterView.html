@@ -1,19 +1,18 @@
 <div id="service-requests-filter-view"
      data-role="view"
      data-model="global.serviceRequestsFilter.viewModel"
-     data-show="global.serviceRequestsFilter.viewModel.onShow"
-     data-title="Refine Results">
+     data-show="global.serviceRequestsFilter.viewModel.onShow">
     <div data-role="header">
         <div data-role="navbar">
-            <a data-align="left" data-role="backbutton" class="asset-button">Back</a>
-            <span data-role="view-title"></span>
-            <a data-align="right" data-role="button" data-bind="events: { click: reset }" class="asset-button">Reset</a>
+            <a data-align="left" data-role="backbutton" class="asset-button"></a>
+            <span data-role="view-title" data-bind="text: strings.serviceRequestsFilterHeaderText"></span>
+            <a data-align="right" data-role="button" data-bind="events: { click: reset }" class="asset-button"><span data-bind="text: strings.resetDate"></span></a>
         </div>
     </div>
 
     <ul data-role="listview">
         <li>
-            <span class="label-header">Status</span>
+            <span class="label-header" data-bind="text: strings.statusText"></span>
             <input data-role="dropdownlist"
                    data-value-primitive="true"
                    data-option-label="All"
@@ -22,7 +21,7 @@
                    data-bind="value: status, source: serviceRequestStatuses" />
         </li>
         <li>
-            <span class="label-header">Maintenance type</span>
+            <span class="label-header" data-bind="text: strings.maintenanceTypeText"></span>
             <input data-role="dropdownlist"
                    data-value-primitive="true"
                    data-option-label="All"
@@ -33,26 +32,26 @@
     </ul>
     <ul data-role="listview" data-type="group" class="radio-group">
         <li>
-            Sort by
+            <span data-bind="text: strings.sortByText"></span>
             <ul>
                 <li>
                     <label>
-                        <input type="radio" name="sortBy" value="dueDate" data-bind="checked: sortBy">Due date
+                        <input type="radio" name="sortBy" value="dueDate" data-bind="checked: sortBy"><span data-bind="text: strings.dueDateText"></span>
                     </label>
                 </li>
                 <li>
                     <label>
-                        <input type="radio" name="sortBy" value="priority" data-bind="checked: sortBy">Priority
+                        <input type="radio" name="sortBy" value="priority" data-bind="checked: sortBy"><span data-bind="text: strings.priorityText"></span>
                     </label>
                 </li>
                 <li>
                     <label>
-                        <input type="radio" name="sortBy" value="createdAt" data-bind="checked: sortBy">Date created
+                        <input type="radio" name="sortBy" value="createdAt" data-bind="checked: sortBy"><span data-bind="text: strings.dateCreatedText"></span>
                     </label>
                 </li>
                 <li>
                     <label>
-                        <input type="radio" name="sortBy" value="completedAt" data-bind="checked: sortBy">Date completed
+                        <input type="radio" name="sortBy" value="completedAt" data-bind="checked: sortBy"><span data-bind="text: strings.dateCompletedText"></span>
                     </label>
                 </li>
             </ul>
@@ -60,6 +59,6 @@
     </ul>
 
     <div data-role="footer">
-        <a data-role="backbutton" data-bind="click: done" class="asset-button">Done</a>
+        <a data-role="backbutton" data-bind="click: done" class="asset-button"><span data-bind="text: strings.doneText"></span></a>
     </div>
 </div>

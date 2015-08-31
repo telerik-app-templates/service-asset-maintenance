@@ -88,6 +88,8 @@
     <Content Include="kendo\styles\kendo.mobile.nova.min.css" />
     <Content Include="kendo\typescript\jquery.d.ts" />
     <Content Include="kendo\typescript\kendo.dataviz.mobile.d.ts" />
+    <Content Include="resources\messages.en.js" />
+    <Content Include="resources\strings.en.js" />
     <Content Include="scripts\bindings.js" />
     <Content Include="scripts\everlive.js" />
     <Content Include="scripts\init.js" />
@@ -95,6 +97,7 @@
     <Content Include="shared\utils\service.js" />
     <Content Include="shared\utils\validation.js" />
     <Content Include="ui\home\homeView.html" />
+    <Content Include="ui\home\homeViewModel.js" />
     <Content Include="ui\initial\initialView.html" />
     <Content Include="ui\old\analytics.js">
       <SubType>Content</SubType>
@@ -117,88 +120,9 @@
     <Content Include="shared\utils\notifications.js" />
     <Content Include="shared\utils\scroller.js" />
     <Content Include="shared\utils\navigation.js" />
-    <Content Include="styles\added.css">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="app.css" />
-    <Content Include="styles\images\avatar.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-add%402x.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-add.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-adsf%402x.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-adsf.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-arrow_dark%402x.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-arrow_dark.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-arrow_left%402x.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-arrow_left.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-facebook%402x.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-facebook.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-google%402x.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-google.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-liveid%402x.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-liveid.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-password%402x.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-password.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-username%402x.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\icon-username.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\logo-telerik_devcloud%402x.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\logo-telerik_devcloud.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\ola_logo.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\uc_logo%402x.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\uc_logo.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\main.css">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\new-main.css">
-      <SubType>Content</SubType>
-    </Content>
+    <Content Include="ui\selectServiceRequest\selectServiceRequestView.html" />
+    <Content Include="ui\selectServiceRequest\selectServiceRequestViewModel.js" />
     <Content Include="ui\serviceRequestDetails\serviceRequestDetails.tmpl.html" />
     <Content Include="ui\serviceRequestDetails\serviceRequestDetailsView.html" />
     <Content Include="ui\serviceRequestDetails\serviceRequestDetailsView.wide.html" />
@@ -282,7 +206,6 @@
     <Content Include="ui\serviceRequests\serviceRequests.tmpl.html" />
     <Content Include="ui\serviceRequests\serviceRequestsViewModel.js" />
     <Content Include="ui\assets\assetsViewModel.js" />
-    <Content Include="ui\assets\assetsView.html" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
@@ -341,19 +264,18 @@
     <Folder Include="kendo\styles\" />
     <Folder Include="kendo\styles\images\" />
     <Folder Include="kendo\typescript\" />
+    <Folder Include="resources\" />
     <Folder Include="scripts\" />
     <Folder Include="Plugins\" />
     <Folder Include="shared\" />
     <Folder Include="shared\models\" />
     <Folder Include="shared\utils\" />
-    <Folder Include="styles\" />
-    <Folder Include="styles\images\" />
     <Folder Include="ui\" />
     <Folder Include="ui\assets\" />
     <Folder Include="ui\login\" />
+    <Folder Include="ui\selectServiceRequest\" />
     <Folder Include="ui\passwordRecovery\" />
     <Folder Include="ui\feedback\" />
-    <Folder Include="ui\templates\" />
     <Folder Include="ui\home\" />
     <Folder Include="ui\initial\" />
     <Folder Include="ui\serviceRequestsFilter\" />

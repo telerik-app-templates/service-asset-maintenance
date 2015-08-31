@@ -1,5 +1,3 @@
-var CURRENT_USER_KEY = "CurrentUser"
-
 function showNotificationAndReject(error, reject) {
     global.notifications.showErrorMessage(error.message);
     reject(error);
@@ -16,7 +14,6 @@ global.service = {
     },
 
     logout: function () {
-        localStorage.removeItem(global.constants.CURRENT_USER_KEY);
         global.everlive.authentication.logout().then(function () {
             global.navigation.login();
         }, function (error) {

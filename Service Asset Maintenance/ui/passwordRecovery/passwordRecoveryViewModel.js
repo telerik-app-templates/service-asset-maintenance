@@ -8,11 +8,11 @@ global.passwordRecovery = {
                 global.service.recover(global.passwordRecovery.viewModel.usernameOrEmail)
                     .then(function () {
                         that.endLoading();
-                        alert("Check your email address to reset your password.");
+                        notification.showNotification(global.messages.checkYourEmailMessage);
                         global.navigation.login();
                     }, function (error) {
                         that.endLoading();
-                        global.passwordRecovery.viewModel.showValidationSummary("User with specified username or email address not found.");
+                        global.passwordRecovery.viewModel.showValidationSummary(global.messages.usernameOrEmailNotFoundMessage);
                     });
             }
         },
@@ -20,7 +20,7 @@ global.passwordRecovery = {
         validate: function () {
             this.hideValidationSummary();
             if (!global.validation.isRequiredValid(this.usernameOrEmail)) {
-                this.showValidationSummary("Please enter valid username or email address.");
+                this.showValidationSummary(global.messages.enterUsernameOrEmailMessage);
 
                 return false;
             }

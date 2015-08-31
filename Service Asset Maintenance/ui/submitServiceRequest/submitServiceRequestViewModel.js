@@ -4,9 +4,7 @@ global.submitServiceRequest = {
     viewModel: new ViewModelBase({
         serviceRequest: null,
         imageSrc: function () {
-            var data = this.serviceRequest.get("picture");
-
-            return data ? "data:image/jpeg;base64," + data : null;
+            return global.converters.convertToImageSrc(this.serviceRequest);
         },
 
         maintenanceTypes: function () {
@@ -86,13 +84,13 @@ global.submitServiceRequest = {
         validate: function () {
             this.hideValidationSummary();
             if (!global.validation.isRequiredValid(this.serviceRequest.title)) {
-                this.showValidationSummary("Please enter title.");
+                this.showValidationSummary(global.messages.enterTitleMessage);
 
                 return false;
             }
 
             if (!global.validation.isRequiredValid(this.serviceRequest.dueDate)) {
-                this.showValidationSummary("Please enter due date.");
+                this.showValidationSummary(global.messages.enterDueDateMessage);
 
                 return false;
             }

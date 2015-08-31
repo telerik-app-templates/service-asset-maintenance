@@ -1,7 +1,8 @@
 global.login = {
     viewModel: new ViewModelBase({
-        username: "kvelikov",
-        password: "123",
+        username: null,
+        password: null,
+
         login: function () {
             if (global.login.viewModel.validate()) {
                 var that = this;
@@ -20,13 +21,13 @@ global.login = {
         validate: function () {
             this.hideValidationSummary();
             if (!global.validation.isRequiredValid(this.username)) {
-                this.showValidationSummary("Please enter username.");
+                this.showValidationSummary(global.messages.enterUsernameMessage);
 
                 return false;
             }
 
             if (!global.validation.isRequiredValid(this.password)) {
-                this.showValidationSummary("Please enter password.");
+                this.showValidationSummary();
 
                 return false;
             }

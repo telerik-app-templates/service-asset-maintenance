@@ -14,9 +14,13 @@
             <textarea placeholder="Your comment here" rows="6" data-bind="value: feedbackItem.comment"></textarea>
         </li>
     </ul>
-    <div class="button-container"><a data-role="button" data-bind="click: submit" class="asset-button">Submit Feedback</a></div>
-    <div id="feedback-collapsible" data-role="collapsible" data-collapsed="false" >
-        <h3>More info</h3>
+    <div class="button-container">
+        <a data-role="button" data-bind="click: submit" class="asset-button">
+            <span data-bind="text: strings.submitFeedbackText"></span>
+        </a>
+    </div>
+    <div id="feedback-collapsible" data-role="collapsible" data-collapsed="false">
+        <h3><span data-bind="text: strings.moreInfoText"></span></h3>
         <ul data-use-native-scrolling="true"
             data-role="listview"
             data-template="feedback-listview-item"
@@ -26,7 +30,7 @@
 
 <script type="text/x-kendo-template" id="feedback-listview-item">
     <div>
-        <span class="details-header-label">${ createdByUser }</span> <span class="details-header-label bold" data-format="MMMM dd yyyy">${ global.converters.formatDate(new Date()) }</span>
+        <span class="details-header-label">${ createdByUser }</span> <span class="details-header-label bold" >${ global.converters.formatDate(new Date()) }</span>
         <span class="block-label">${ comment }</span>
     </div>
 </script>

@@ -1,12 +1,11 @@
 <div id="submit-service-request-view"
      data-role="view"
      data-model="global.submitServiceRequest.viewModel"
-     data-bind="loading: isLoading"
-     data-title="New Request">
+     data-bind="loading: isLoading" >
     <div data-role="header">
         <div data-role="navbar">
-            <a data-align="left" data-role="backbutton" class="asset-button">Back</a>
-            <span data-role="view-title"></span>
+            <a data-align="left" data-role="backbutton" class="asset-button"></a>
+            <span data-role="view-title" data-bind="text: strings.submitServiceRequestHeaderText"></span>
             <a data-align="right" data-icon=" fa fa-camera" data-role="button" data-bind="click: takePicture" class="asset-button"></a>
             <a data-align="right" data-icon=" fa fa-barcode" data-role="button" data-bind="click: scanAssetNo" class="asset-button"></a>
         </div>
@@ -20,7 +19,7 @@
             <input placeholder="Title" type="text" data-bind="value: serviceRequest.title" class="title-text-box" />
         </li>
         <li>
-            <span class="label-header">Maintenance type</span>
+            <span class="label-header" data-bind="text: strings.maintenanceTypeText"></span>
             <input data-role="dropdownlist"
                    data-value-primitive="true"
                    data-text-field="Type"
@@ -30,13 +29,13 @@
     </ul>
     <ul data-role="listview" data-type="group">
         <li>
-            Priority
+            <span data-bind="text: strings.priorityText"></span>
             <ul>
                 <li>
                     <ul data-role="buttongroup" data-bind="index: serviceRequest.priority">
-                        <li>Low</li>
-                        <li>Medium</li>
-                        <li>High</li>
+                        <li><span data-bind="text: strings.lowText"></span></li>
+                        <li><span data-bind="text: strings.mediumText"></span></li>
+                        <li><span data-bind="text: strings.highText"></span></li>
                     </ul>
                 </li>
             </ul>
@@ -45,13 +44,13 @@
     </ul>
     <ul data-role="listview">
         <li>
-            <span class="label-header">Due date</span>
+            <span class="label-header" data-bind="text: dueDateText"></span>
             <input type="date" data-bind="value: serviceRequest.dueDate" />
         </li>
     </ul>
     <ul data-role="listview" data-type="group">
         <li>
-            Description
+            <span data-bind="text: strings.descriptionText"></span>
             <ul>
                 <li>
                     <textarea data-bind="value: serviceRequest.description" rows="6"></textarea>
@@ -66,15 +65,19 @@
         </li>
         <li data-bind="visible: serviceRequest.assetNo">
             <div>
-                <span>Asset #</span>
+                <span data-bind="text: strings.assetText"></span> <span data-bind="text: strings.assetNoText"></span>
                 <span data-bind="text: serviceRequest.assetNo"></span>
             </div>
-            <a data-role="button" data-icon=" fa fa-times" data-bind="click: removeAssetNo" class="remove-button">Remove</a>
+            <a data-role="button" data-icon=" fa fa-times" data-bind="click: removeAssetNo" class="remove-button">
+                <span data-bind="text: strings.removeText"></span>
+            </a>
         </li>
     </ul>
 
     <div data-role="footer">
-        <a data-role="button" data-bind="click: submit" class="asset-button">Submit</a>
+        <a data-role="button" data-bind="click: submit" class="asset-button">
+            <span data-bind="text: strings.submitText"></span>
+        </a>
     </div>
 </div>
 

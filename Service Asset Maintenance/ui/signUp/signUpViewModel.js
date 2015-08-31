@@ -26,31 +26,31 @@ global.signUp = {
         validate: function () {
             this.hideValidationSummary();
             if (!global.validation.isRequiredValid(this.username)) {
-                this.showValidationSummary("Please enter username.");
+                this.showValidationSummary(global.messages.enterUsernameMessage);
 
                 return false;
             }
 
             if (!global.validation.isRequiredValid(this.email)) {
-                this.showValidationSummary("Please enter email.");
+                this.showValidationSummary(global.messages.enterEmailMessage);
 
                 return false;
             }
 
             if (!global.validation.isRequiredValid(this.password)) {
-                this.showValidationSummary("Please enter password.");
+                this.showValidationSummary(global.messages.enterPasswordMessage);
 
                 return false;
             }
 
             if (!global.validation.isRequiredValid(this.confirmPassword)) {
-                this.showValidationSummary("Please confirm password.");
+                this.showValidationSummary(global.messages.confirmPasswordMessage);
 
                 return false;
             }
 
             if (this.password !== this.confirmPassword) {
-                this.showValidationSummary("Password does not match.");
+                this.showValidationSummary(global.messages.passwordsDoesNotMatchMessage);
 
                 return false;
             }

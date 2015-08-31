@@ -1,7 +1,9 @@
-'use strict';
+var STATUS_PROPERTY_NAME = "status";
+var MAINTENANCE_TYPE_PROPERTY_NAME = "maintenanceType";
+var SORT_BY_PROPERTY_NAME = "sortBy"
 
 global.serviceRequestsFilter = {
-    viewModel: kendo.observable({
+    viewModel: new ViewModelBase({
         status: undefined,
         maintenanceType: undefined,
         sortBy: undefined,
@@ -12,7 +14,7 @@ global.serviceRequestsFilter = {
         },
 
         sort: {
-            sortBy: "dueDate",
+            sortBy: undefined,
         },
 
         serviceRequestStatuses: global.constants.serviceRequestStatuses,
@@ -22,15 +24,19 @@ global.serviceRequestsFilter = {
         },
 
         reset: function () {
-            this.set("status", undefined);
-            this.set("maintenanceType", undefined);
-            this.set("sortBy", "dueDate");
+            this.set(STATUS_PROPERTY_NAME, undefined);
+            this.set(MAINTENANCE_TYPE_PROPERTY_NAME, undefined);
+            this.set(SORT_BY_PROPERTY_NAME, "dueDate");
         },
 
-        done: function () {
+        copy: function () {
             this.filter.status = this.status;
             this.filter.maintenanceType = this.maintenanceType;
             this.sort.sortBy = this.sortBy;
+        },
+
+        done: function () {
+            this.copy();
 
             global.serviceRequests.viewModel.filterAndSort();
         },
@@ -38,11 +44,11 @@ global.serviceRequestsFilter = {
         appendFilter: function (filter) {
             var vm = global.serviceRequestsFilter.viewModel;
             if (!isNaN(vm.filter.status)) {
-                filter.push(global.createFilterObject("status", "eq", vm.status));
+                filter.push(global.createFilterObject("status", "eq", vm.filter.status));
             }
 
             if (vm.filter.maintenanceType) {
-                filter.push(global.createFilterObject("maintenanceType", "eq", vm.maintenanceType));
+                filter.push(global.createFilterObject("Type.Id", "eq", vm.filter.maintenanceType));
             }
         },
 
@@ -52,9 +58,12 @@ global.serviceRequestsFilter = {
 
         onShow: function () {
             var vm = global.serviceRequestsFilter.viewModel;
-            vm.set("status", vm.filter.status);
-            vm.set("maintenanceType", vm.filter.maintenanceType);
-            vm.set("sortBy", vm.sort.sortBy);
+            vm.set(STATUS_PROPERTY_NAME, vm.filter.status);
+            vm.set(MAINTENANCE_TYPE_PROPERTY_NAME, vm.filter.maintenanceType);
+            vm.set(SORT_BY_PROPERTY_NAME, vm.sort.sortBy);
         }
     })
 }
+
+global.serviceRequestsFilter.viewModel.reset();
+global.serviceRequestsFilter.viewModel.copy();

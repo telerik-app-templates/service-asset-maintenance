@@ -1,22 +1,19 @@
 <div id="home-view-wide"
-     data-role="splitview" >
+     data-role="splitview" 
+     data-init="global.home.onInitWide">
     <div data-role="pane" id="master-pane">
         <div data-role="splitview"
-             data-model="global.serviceRequests.viewModel"
-             data-title="Service Requests">
-            <div data-role="header">
+             data-model="global.serviceRequests.viewModel">
+            <div id="home-header-wide" data-role="header">
                 <div data-role="navbar">
-                    <span data-role="view-title"></span>
+                    <a data-align="left" data-role="button" class="asset-button" data-bind="click: logout"><span data-bind="text: strings.logoutText"></span></a>
+                    <span data-role="view-title" data-bind="text: strings.serviceRequestsHeaderText"></span>
                     <a href="ui/serviceRequestsFilter/serviceRequestsFilterView.html" data-transition="slide" data-align="right" data-icon=" fa fa-sliders" data-role="button" class="asset-button"></a>
                 </div>
             </div>
 
             <div data-role="pane" data-initial="ui/serviceRequests/serviceRequests.tmpl.html"></div>
-
-            <!--<div style="width: 100%; height: 100%; z-index: 100; position: relative; margin: 0; padding: 0; top: 0; left: 0; background-color: #0000FF; opacity: 0.2" data-visible="false">test</div>-->
-        </div>
+       </div>
     </div>
-    <div data-role="pane" id="content-pane">
-        <div id="empty-view" data-role="view"><span class="content-label">Select service request...</span></div>
-    </div>
+    <div data-role="pane" id="content-pane" data-initial="ui/selectServiceRequest/selectServiceRequestView.html"></div>
 </div>

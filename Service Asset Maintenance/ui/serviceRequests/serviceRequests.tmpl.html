@@ -6,8 +6,8 @@
         <ul data-role="buttongroup"
             data-index="0"
             data-bind="index: selectedFilter, events: { select: filterChanged }">
-            <li>All</li>
-            <li>My requests</li>
+            <li><span data-bind="text: strings.allText"></span></li>
+            <li><span data-bind="text: strings.myRequestsText"></span></li>
         </ul>
     </div>
 
@@ -24,7 +24,7 @@
            data-url="ui/submitServiceRequest/submitServiceRequestView.html"
            data-tablettarget="content-pane"
            data-contentpane="master-pane"
-           class="asset-button">Submit Request</a>
+           class="asset-button"><span data-bind="text: strings.submitRequestText"></span></a>
     </div>
 </div>
 

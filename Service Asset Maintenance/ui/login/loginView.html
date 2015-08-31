@@ -8,25 +8,31 @@
         <a class="close-button" data-role="button" data-icon=" fa fa-times" data-bind="click: hideValidationSummary"></a>
     </div>
 
-    <div class="header">Service asset maintenance</div>
+    <div class="header"><span data-bind="text: strings.headerText"></span></div>
     <ul data-role="listview">
         <li>
-            <span class="label-header">Username</span>
+            <span class="label-header" data-bind="text: strings.usernameText"></span>
             <input name="username" type="text" data-bind="value: username" data-required-msg="Please enter username." required />
         </li>
         <li>
-            <span class="label-header">Password</span>
+            <span class="label-header" data-bind="text: strings.passwordText">Password</span>
             <input name="password" type="password" data-bind="value: password" data-required-msg="Please enter password." required />
         </li>
     </ul>
     <div class="button-container">
-        <a class="asset-button" data-bind="click: login" data-role="button">Login</a>
+        <a class="asset-button" data-bind="click: login" data-role="button">
+            <span data-bind="text: strings.loginText"></span>
+        </a>
     </div>
     <div class="button-container">
-        <a class="secondary-button" href="ui/passwordRecovery/passwordRecoveryView.html" data-role="button">Forgotten password</a>
+        <a class="secondary-button" href="ui/passwordRecovery/passwordRecoveryView.html" data-role="button">
+            <span data-bind="text: strings.forgottenPasswordText"></span>
+        </a>
     </div>
 
     <div data-role="footer">
-        <a class="primary-button" href="ui/signUp/signUpView.html" data-role="button">Register</a>
+        <a class="primary-button" href="ui/signUp/signUpView.html" data-role="button">
+            <span data-bind="text: strings.signUpText"></span>
+        </a>
     </div>
 </div>

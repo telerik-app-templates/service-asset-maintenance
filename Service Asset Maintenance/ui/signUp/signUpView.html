@@ -7,30 +7,30 @@
         <a class="close-button" data-role="button" data-icon=" fa fa-times" data-bind="click: hideValidationSummary"></a>
     </div>
 
-    <div class="header">Service asset maintenance</div>
+    <div class="header"><span data-bind="text: strings.headerText"></span></div>
     <ul data-role="listview">
         <li>
-            <span class="label-header">Username</span>
+            <span class="label-header" data-bind="text: strings.usernameText"></span>
             <input type="text" data-bind="value: username" />
         </li>
         <li>
-            <span class="label-header">Display name</span>
+            <span class="label-header" data-bind="text: strings.displayName"></span>
             <input type="text" data-bind="value: displayName" />
         </li>
         <li>
-            <span class="label-header">Email</span>
+            <span class="label-header" data-bind="text: strings.emailText"></span>
             <input type="email" data-bind="value: email" />
         </li>
         <li>
-            <span class="label-header">Password</span>
+            <span class="label-header" data-bind="text: strings.passwordText"></span>
             <input type="password" data-bind="value: password" />
         </li>
         <li>
-            <span class="label-header">Confirm password</span>
+            <span class="label-header" data-bind="text: strings.confirmPasswordText"></span>
             <input type="password" data-bind="value: confirmPassword" />
         </li>
     </ul>
     <div class="button-container">
-        <a class="asset-button" data-bind="click: signUp" data-role="button">Register</a>
+        <a class="asset-button" data-bind="click: signUp" data-role="button"><span data-bind="text: strings.signUpText"></span></a>
     </div>
 </div>

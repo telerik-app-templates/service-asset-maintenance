@@ -1,7 +1,7 @@
 'use strict';
 
 global.serviceRequests = {
-    viewModel: kendo.observable({
+    viewModel: new ViewModelBase({
         selectedFilter: 0,
         selectedServiceRequest: null,
 
@@ -23,9 +23,9 @@ global.serviceRequests = {
             var serviceRequest = global.serviceRequests.viewModel.selectedServiceRequest;
             global.serviceRequestDetails.viewModel.setServiceRequest(serviceRequest);
             global.feedback.viewModel.setServiceRequest(serviceRequest);
-            var url = "#empty-view";
+            var url = global.constants.views.selectServiceRequestView;
             if (serviceRequest) {
-                url = global.isWide ? "ui/serviceRequestDetails/serviceRequestDetailsView.wide.html" : "ui/serviceRequestDetails/serviceRequestDetailsView.html";
+                url = global.isWide ? global.constants.views.serviceRequestDetailsWide : global.constants.views.serviceRequestDetails;
             }
 
             global.navigation.navigateTo(url, "content-pane");
