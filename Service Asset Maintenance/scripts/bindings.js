@@ -113,3 +113,16 @@ kendo.data.binders.widget.loading = kendo.data.Binder.extend({
         }
     }
 });
+
+kendo.data.binders.widget.optionLabel = kendo.data.Binder.extend({
+    init: function (widget, bindings, options) {
+        kendo.data.Binder.fn.init.call(this, widget.element[0], bindings, options);
+    },
+
+    refresh: function () {
+        // TODO: Set options label.
+        var value = this.bindings["optionLabel"].get();
+        var dropDownList = $(this.element).data("kendoDropDownList");
+        //dropDownList.options.optionLabel = value;
+    }
+});

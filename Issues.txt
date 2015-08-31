@@ -1,14 +1,18 @@
 VISUAL
 
-1. Styling the dropdown list content in the filter screen.
+DONE! 1. Styling the dropdown list content in the filter screen.
 2. Styling assets dialog.
 3. Styling binded headers. (Grouped list view)
 4. Styling the "Empty view" (iOS)
 5. Make service requests view gray when submitting new request.
+6. Logout button
+7. Long text to translate date to second row in details.
 
 
 KENDO UI
+
 1. Binding option label text.
+2. DataSource extends.
 
 EVERLIVE
 
@@ -16,7 +20,8 @@ EVERLIVE
 
 BUGS
 
-1. Medium priority does not apply. DONE!
+DONE! 1. Medium priority does not apply. DONE!
 2. Cannot create request that contains image (iOS)
-3. Logout? DONE!
+3. Using barcode scanner takes to home screen. (Wide).
+DONE! 3. Logout? DONE!
 4. Offline mode.

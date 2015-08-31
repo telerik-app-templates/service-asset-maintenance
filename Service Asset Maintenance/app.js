@@ -27,3 +27,12 @@ window.addEventListener('orientationchange', function () {
         global.navigation.home();
     }
 }, false);
+
+window.addEventListener("online", function () {
+    global.everlive.online();
+    global.everlive.sync();
+});
+
+window.addEventListener("offline", function () {
+    global.everlive.offline();
+});

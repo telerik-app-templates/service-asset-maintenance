@@ -240,8 +240,8 @@ textarea {
     margin: 8px 0;
 }
 
-.maintenance-type-label {
-    margin-left: 12.365px;
+.content {
+    margin: 0 4em 0 12.365px;
 }
 
 .details-label {
@@ -401,4 +401,41 @@ textarea {
 .address-label {
     color: blue;
     margin: 8px 12.365px 0 12.365px;
+}
+
+.logout span {
+    font-size: .8em;
+}
+
+.km-nova .km-popup .k-list-optionlabel {
+  display: block;
+  text-decoration: none;
+  border-radius: 0;
+  border-width: 0 0 1px;
+  border-style: solid;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  padding: 1.14em .7em;
+  border-color: #dee0e0;
+}
+
+.km-nova .km-actionsheet>li>a, 
+.km-nova .km-popup .k-item,
+.km-nova .km-popup .k-list-optionlabel {
+  color: #32364c;
+  background: #fff;
+}
+
+.km-nova .km-popup .k-state-focused, 
+.km-nova .km-popup .k-state-selected {
+  color: #f8fafb;
+  background: #ff4350;
+}
+
+.km-splitview > div:not([class]) {
+  z-index: 10000 !important;
+  background: rgba(255,255,255,.5);
 }

@@ -18,7 +18,7 @@
                    data-option-label="All"
                    data-text-field="status"
                    data-value-field="value"
-                   data-bind="value: status, source: serviceRequestStatuses" />
+                   data-bind="value: status, source: serviceRequestStatuses, optionLabel: strings.allText" />
         </li>
         <li>
             <span class="label-header" data-bind="text: strings.maintenanceTypeText"></span>
@@ -27,7 +27,7 @@
                    data-option-label="All"
                    data-text-field="Type"
                    data-value-field="Id"
-                   data-bind="value: maintenanceType, source: maintenanceTypes" />
+                   data-bind="value: maintenanceType, source: maintenanceTypes, optionLabel: strings.allText" />
         </li>
     </ul>
     <ul data-role="listview" data-type="group" class="radio-group">
