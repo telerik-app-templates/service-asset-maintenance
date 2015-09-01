@@ -68,10 +68,12 @@ global.serviceRequestModel = {
                 headers: {
                     "X-Everlive-Expand": JSON.stringify({
                         MaintenanceType: {
-                            ReturnAs: "type"
+                            ReturnAs: "type",
+                            TargetTypeName: "MaintenanceType"
                         },
                         CreatedBy: {
-                            ReturnAs: "createdByUser"
+                            ReturnAs: "createdByUser",
+                            TargetTypeName: "Users"
                         }
                     })
                 }

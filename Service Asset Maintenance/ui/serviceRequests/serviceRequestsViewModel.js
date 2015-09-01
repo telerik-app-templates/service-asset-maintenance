@@ -23,7 +23,7 @@ global.serviceRequests = {
             var serviceRequest = global.serviceRequests.viewModel.selectedServiceRequest;
             global.serviceRequestDetails.viewModel.setServiceRequest(serviceRequest);
             global.feedback.viewModel.setServiceRequest(serviceRequest);
-            var url = global.constants.views.selectServiceRequestView;
+            var url = global.constants.views.selectServiceRequest;
             if (serviceRequest) {
                 url = global.isWide ? global.constants.views.serviceRequestDetailsWide : global.constants.views.serviceRequestDetails;
             }

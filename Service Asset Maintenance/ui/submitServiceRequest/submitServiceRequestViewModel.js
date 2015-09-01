@@ -23,6 +23,18 @@ global.submitServiceRequest = {
             });
         },
 
+        assets: ["123245", "134345", "2345435", "3252325"],
+
+        assetSelected: function (args) {
+            var assetNo = args.item.text();
+            //if (global.assets._complete) {
+            //    global.assets._complete(assetNo);
+            //    global.assets._complete = undefined;
+            //}
+
+            //global.navigation.closeModal(global.constants.views.assets);
+        },
+
         setAssetNo: function (assetNo) {
             this.serviceRequest.set("assetNo", assetNo);
             global.submitServiceRequest.resetScroll();
@@ -48,9 +60,10 @@ global.submitServiceRequest = {
         scanAssetNo: function () {
             var vm = global.submitServiceRequest.viewModel;
             if (window.navigator.simulator) {
-                global.assets.showModal().then(function (assetNo) {
-                    vm.setAssetNo(assetNo);
-                });
+                $("#assets-actionsheet").data("kendoMobileActionSheet").open();
+                //global.assets.showModal().then(function (assetNo) {
+                //    vm.setAssetNo(assetNo);
+                //});
             } else {
                 cordova.plugins.barcodeScanner.scan(function (result) {
                     vm.setAssetNo(result.text);

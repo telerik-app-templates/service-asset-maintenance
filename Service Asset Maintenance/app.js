@@ -15,6 +15,10 @@ document.addEventListener("deviceready", function () {
         initial: global.constants.views.initial,
         init: function () {
             kendo.UserEvents.defaultThreshold(kendo.support.mobileOS.device === 'android' ? 0 : 20);
+            if (!navigator.onLine) {
+                global.everlive.offline();
+            }
+
             global.navigation.home();
         }
     });
@@ -24,7 +28,7 @@ window.addEventListener('orientationchange', function () {
     var old = global.isWide;
     updateLayout();
     if (global.app && old !== global.isWide) {
-        global.navigation.home();
+        global.navigation.changeMode();
     }
 }, false);
 

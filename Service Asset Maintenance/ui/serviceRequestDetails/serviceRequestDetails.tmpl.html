@@ -5,10 +5,10 @@
     <img data-bind="visible: serviceRequest.picture, attr: { src: imageSrc }" class="header-image" />
     <span data-bind="text: serviceRequest.title" class="margins title-label"></span>
     <div class="content">
+        <span data-bind="css: { priority-low: serviceRequest.priority === 0, priority-medium: serviceRequest.priority === 1, priority-high: serviceRequest.priority === 2 }, text: priorityText" class="details-label priority-label"></span>
         <span data-bind="text: serviceRequest.Type.Type" class="maintenance-type-label details-label"></span>
         <span class="details-label" data-bind="text: strings.dueText"></span>
         <span data-bind="text: dueDateFormatted" class="details-label duedate-label"></span>
-        <span data-bind="css: { priority-low: serviceRequest.priority === 0, priority-medium: serviceRequest.priority === 1, priority-high: serviceRequest.priority === 2 }, text: priorityText" class="details-label priority-label"></span>
     </div>
     <span data-bind="text: serviceRequest.address, visible: serviceRequest.address" class="details-label block-label address-label"></span>
     <div id="details-collapsible" data-role="collapsible">

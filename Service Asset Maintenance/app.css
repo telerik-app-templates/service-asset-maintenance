@@ -278,7 +278,7 @@ textarea {
 #feedback-view .km-collapsible-content,
 #service-request-details-view .km-collapsible-content {
     background-color: #F8FAFB;
-    height: auto!important;
+    height: auto !important;
 }
 
 #feedback-view .km-collapsible-content {
@@ -408,34 +408,34 @@ textarea {
 }
 
 .km-nova .km-popup .k-list-optionlabel {
-  display: block;
-  text-decoration: none;
-  border-radius: 0;
-  border-width: 0 0 1px;
-  border-style: solid;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  font-size: 1.2em;
-  line-height: 1.5em;
-  padding: 1.14em .7em;
-  border-color: #dee0e0;
+    display: block;
+    text-decoration: none;
+    border-radius: 0;
+    border-width: 0 0 1px;
+    border-style: solid;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    padding: 1.14em .7em;
+    border-color: #dee0e0;
 }
 
-.km-nova .km-actionsheet>li>a, 
+.km-nova .km-actionsheet > li > a,
 .km-nova .km-popup .k-item,
 .km-nova .km-popup .k-list-optionlabel {
-  color: #32364c;
-  background: #fff;
+    color: #32364c;
+    background: #fff;
 }
 
-.km-nova .km-popup .k-state-focused, 
+.km-nova .km-popup .k-state-focused,
 .km-nova .km-popup .k-state-selected {
-  color: #f8fafb;
-  background: #ff4350;
+    color: #f8fafb;
+    background: #ff4350;
 }
 
-.km-splitview > div:not([class]) {
-  z-index: 10000 !important;
-  background: rgba(255,255,255,.5);
+.disabled-pane .km-splitview > div:not([class]) {
+    z-index: 10000 !important;
+    background: rgba(0,0,0,.3);
 }

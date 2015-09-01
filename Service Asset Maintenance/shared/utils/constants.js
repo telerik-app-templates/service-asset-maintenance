@@ -16,7 +16,8 @@ global.constants = {
         serviceRequestDetails: "ui/serviceRequestDetails/serviceRequestDetailsView.html",
         serviceRequestDetailsWide: "ui/serviceRequestDetails/serviceRequestDetailsView.wide.html",
         assets: "#assets-view",
-        selectServiceRequestView: "ui/selectServiceRequest/selectServiceRequestView.html"
+        selectServiceRequest: "ui/selectServiceRequest/selectServiceRequestView.html",
+        submitServiceRequest: "ui/submitServiceRequest/submitServiceRequestView.html"
     },
 
     DEFAULT_MAINTENANCE_TYPE: "88f5e3c0-457e-11e5-9642-e912f5485898",

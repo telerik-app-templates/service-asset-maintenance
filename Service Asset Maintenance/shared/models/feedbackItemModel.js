@@ -35,7 +35,8 @@ global.feedbackItemModel = {
                     "X-Everlive-Expand": JSON.stringify({
                         CreatedBy: {
                             ReturnAs: "createdByUser",
-                            SingleField: "DisplayName"
+                            SingleField: "DisplayName",
+                            TargetTypeName: "Users"
                         }
                     })
                 }

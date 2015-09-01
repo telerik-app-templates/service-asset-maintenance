@@ -1,10 +1,22 @@
 var TRANSITION = "slide";
 
 global.navigation = {
-    navigateTo: function (url, wideTarget) {
+    navigateTo: function (url, wideTarget, contentPane) {
         if (global.isWide) {
-            var pane = $("#" + wideTarget).data("kendoMobilePane");
-            pane.navigate(url, TRANSITION);
+            var widePane = $("#" + wideTarget).data("kendoMobilePane");
+            widePane.navigate(url, TRANSITION);
+
+            if (contentPane) {
+                var pane = $("#" + contentPane);
+                pane.toggleClass("disabled-pane");
+                var owner = pane.data("kendoMobilePane");
+            
+                owner.view().enable(false);
+                widePane.one ("navigate", function (e) {
+                    pane.toggleClass("disabled-pane");
+                    owner.view().enable();
+                });
+            }
         }
         else {
             global.app.navigate(url, TRANSITION);
@@ -13,21 +25,10 @@ global.navigation = {
 
     navigate: function (target) {
         var url = $(target).data("url");
-        var tabletTarget = $(target).data("tablettarget");
+        var tabletTarget = $(target).data("widepane");
         var contentPane = $(target).data("contentpane")
-        
-        global.navigation.navigateTo(url, tabletTarget);
-        if (global.isWide && contentPane) {
-            var owner = $("#" + contentPane).data("kendoMobilePane");
-            owner.view().enable(false);
-            var target = $("#" + tabletTarget).data("kendoMobilePane");
-            var handler = function (e) {
-                owner.view().enable();
-                target.unbind("navigate", handler);
-            };
 
-            target.bind("navigate", handler);
-        }
+        global.navigation.navigateTo(url, tabletTarget, contentPane);
     },
 
     showModal: function (view) {
@@ -60,5 +61,9 @@ global.navigation = {
             var pane = $("#" + pane).data("kendoMobilePane");
             pane.navigate("#:back");
         }
+    },
+
+    changeMode: function () {
+        this.home();
     }
 }

@@ -11,7 +11,7 @@ global.location = {
 
     getAddress: function (coords) {
         return new Promise(function (resolve, reject) {
-            if (google) {
+            if (window.google) {
                 var latLng = new google.maps.LatLng(coords.latitude, coords.longitude);
                 var geocoder = new google.maps.Geocoder();
                 geocoder.geocode({ latLng: latLng }, function (results, status) {
@@ -26,11 +26,21 @@ global.location = {
                             address: address.formatted_address
                         });
                     } else {
-                        reject({ message: global.messages.notFoundMessage });
+                        resolve({
+                            geolocation: {
+                                latitude: coords.latitude,
+                                longitude: coords.longitude
+                            }
+                        });
                     }
                 });
             } else {
-                reject({ message: global.messages.notFoundMessage });
+                resolve({
+                    geolocation: {
+                        latitude: coords.latitude,
+                        longitude: coords.longitude
+                    }
+                });
             }
         })
     },
