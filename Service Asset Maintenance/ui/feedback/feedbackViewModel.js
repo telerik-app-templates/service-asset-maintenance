@@ -26,7 +26,7 @@ global.feedback = {
                     that.createFeedbackItem();
                     that.endLoading();
                 }, function (error) {
-                    console.log(error.message);
+                    console.log(error);
                     that.endLoading();
                 });
             }

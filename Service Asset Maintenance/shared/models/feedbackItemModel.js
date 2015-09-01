@@ -47,7 +47,6 @@ global.feedbackItemModel = {
 
     submitFeedbackItem: function (feedbackItem) {
         return new Promise(function (resolve, reject) {
-            // TODO: Remove this when fix the datasource problem.
             feedbackItem.createdByUser = global.service.currentUser.DisplayName;
 
             var dataSource = global.feedbackItemModel.dataSource;

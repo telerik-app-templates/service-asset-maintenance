@@ -9,9 +9,11 @@ global.login = {
                 that.beginLoading();
                 global.service.login(global.login.viewModel.username, global.login.viewModel.password)
                     .then(function () {
+                        global.analytics.trackFeature(global.constants.features.login);
                         global.navigation.home();
                         that.endLoading();
                     }, function (error) {
+                        global.analytics.trackError(error);
                         global.login.viewModel.showValidationSummary(error.message)
                         that.endLoading();
                     });
@@ -38,5 +40,13 @@ global.login = {
         clear: function () {
             global.login.viewModel.set("password", "");
         }
-    })
+    }),
+
+    onShow: function () {
+        global.analytics.startTracking(global.constants.features.loginView)
+    },
+
+    onHide: function () {
+        global.analytics.stopTracking(global.constants.features.loginView)
+    }
 }

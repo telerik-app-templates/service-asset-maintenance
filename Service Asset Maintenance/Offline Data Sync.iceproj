@@ -88,8 +88,11 @@
     <Content Include="kendo\styles\kendo.mobile.nova.min.css" />
     <Content Include="kendo\typescript\jquery.d.ts" />
     <Content Include="kendo\typescript\kendo.dataviz.mobile.d.ts" />
-    <Content Include="resources\messages.en.js" />
-    <Content Include="resources\strings.en.js" />
+    <Content Include="resources\messages.en-US.js" />
+    <Content Include="resources\messages.js" />
+    <Content Include="resources\strings.js" />
+    <Content Include="resources\strings.en-US.js" />
+    <Content Include="scripts\analytics.js" />
     <Content Include="scripts\bindings.js" />
     <Content Include="scripts\everlive.js" />
     <Content Include="scripts\init.js" />

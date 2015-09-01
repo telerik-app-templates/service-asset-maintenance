@@ -2,7 +2,9 @@
      data-role="view"
      data-bind="loading: isLoading"
      data-layout="empty-layout"
-     data-model="global.login.viewModel">
+     data-model="global.login.viewModel"
+     data-show="global.login.onShow"
+     data-hide="global.login.onHide">
     <div class="validation-summary" data-bind="visible: validationSummaryVisible">
         <span data-bind="text: errorMessage"></span>
         <a class="close-button" data-role="button" data-icon=" fa fa-times" data-bind="click: hideValidationSummary"></a>

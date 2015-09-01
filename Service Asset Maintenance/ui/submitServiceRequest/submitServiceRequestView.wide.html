@@ -1,8 +1,6 @@
 <div id="home-view-wide"
-     data-role="splitview"
-     data-init="global.home.onInitWide"
-     data-show="global.home.onShow"
-     data-hide="global.home.onHide" >
+     data-role="splitview" 
+     data-init="global.home.onInitWide">
     <div data-role="pane" id="master-pane">
         <div data-role="splitview"
              data-model="global.serviceRequests.viewModel">
@@ -15,7 +13,7 @@
             </div>
 
             <div data-role="pane" data-initial="ui/serviceRequests/serviceRequests.tmpl.html"></div>
-        </div>
+       </div>
     </div>
-    <div data-role="pane" id="content-pane" data-initial="ui/selectServiceRequest/selectServiceRequestView.html"></div>
+    <div data-role="pane" id="content-pane" data-initial="ui/submitServiceRequest/submitServiceRequestView.html"></div>
 </div>

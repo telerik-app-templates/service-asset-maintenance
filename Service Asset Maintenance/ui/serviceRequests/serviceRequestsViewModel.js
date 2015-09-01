@@ -64,10 +64,10 @@ global.serviceRequests = {
             global.serviceRequestsFilter.viewModel.appendSort(sort);
 
             return sort;
-        },
-
-        onInit: function (e) {
-            global.serviceRequests.viewModel.filterAndSort();
         }
     }),
+
+    onInit: function (e) {
+        global.serviceRequests.viewModel.filterAndSort();
+    }
 }

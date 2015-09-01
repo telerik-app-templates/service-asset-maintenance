@@ -26,3 +26,4 @@ DONE! 1. Medium priority does not apply.
 DONE! 3. Logout? 
 DONE! 4. Offline mode.
 5. Switching between wide & normal mode.
+6. Enable analytics tracking.

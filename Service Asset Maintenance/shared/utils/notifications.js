@@ -1,7 +1,6 @@
 global.notifications = {
-    showErrorMessage: function (message) {
-        // TODO: Style this.
-        alert(message);
+    showErrorMessage: function (error) {
+        alert(error.message);
     },
 
     showNotification: function (message) {

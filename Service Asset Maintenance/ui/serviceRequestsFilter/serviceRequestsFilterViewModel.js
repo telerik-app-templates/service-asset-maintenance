@@ -54,15 +54,21 @@ global.serviceRequestsFilter = {
 
         appendSort: function (sort) {
             sort.push(global.createSortObject(global.serviceRequestsFilter.viewModel.sort.sortBy, "desc"));
-        },
-
-        onShow: function () {
-            var vm = global.serviceRequestsFilter.viewModel;
-            vm.set(STATUS_PROPERTY_NAME, vm.filter.status);
-            vm.set(MAINTENANCE_TYPE_PROPERTY_NAME, vm.filter.maintenanceType);
-            vm.set(SORT_BY_PROPERTY_NAME, vm.sort.sortBy);
         }
-    })
+    }),
+
+    onShow: function () {
+        global.analytics.startTracking(global.constants.features.serviceRequestsFilterView)
+
+        var vm = global.serviceRequestsFilter.viewModel;
+        vm.set(STATUS_PROPERTY_NAME, vm.filter.status);
+        vm.set(MAINTENANCE_TYPE_PROPERTY_NAME, vm.filter.maintenanceType);
+        vm.set(SORT_BY_PROPERTY_NAME, vm.sort.sortBy);
+    },
+
+    onHide: function () {
+        global.analytics.stopTracking(global.constants.features.serviceRequestsFilterView)
+    }
 }
 
 global.serviceRequestsFilter.viewModel.reset();

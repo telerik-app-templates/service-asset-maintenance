@@ -1,10 +1,7 @@
-function updateLayout() {
-    global.isWide = window.outerWidth > 500 && (window.orientation === 90 || window.orientation == -90);
-}
-
 document.addEventListener("deviceready", function () {
     navigator.splashscreen.hide();
-    updateLayout();
+
+    global.analytics.start();
     if (window.feedback) {
         feedback.initialize(global.constants.FEEDBACK_KEY);
     }
@@ -24,19 +21,11 @@ document.addEventListener("deviceready", function () {
     });
 }, false);
 
-window.addEventListener('orientationchange', function () {
-    var old = global.isWide;
-    updateLayout();
-    if (global.app && old !== global.isWide) {
-        global.navigation.changeMode();
-    }
-}, false);
-
-window.addEventListener("online", function () {
+document.addEventListener("online", function () {
     global.everlive.online();
     global.everlive.sync();
 });
 
-window.addEventListener("offline", function () {
+document.addEventListener("offline", function () {
     global.everlive.offline();
 });

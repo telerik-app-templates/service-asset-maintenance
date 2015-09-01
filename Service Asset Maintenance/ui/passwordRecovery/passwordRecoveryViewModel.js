@@ -11,6 +11,8 @@ global.passwordRecovery = {
                         notification.showNotification(global.messages.checkYourEmailMessage);
                         global.navigation.login();
                     }, function (error) {
+                        global.analytics.trackError(error);
+
                         that.endLoading();
                         global.passwordRecovery.viewModel.showValidationSummary(global.messages.usernameOrEmailNotFoundMessage);
                     });

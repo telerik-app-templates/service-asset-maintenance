@@ -27,12 +27,12 @@ global.submitServiceRequest = {
 
         assetSelected: function (args) {
             var assetNo = args.item.text();
-            //if (global.assets._complete) {
-            //    global.assets._complete(assetNo);
-            //    global.assets._complete = undefined;
-            //}
+            if (global.assets._complete) {
+                global.assets._complete(assetNo);
+                global.assets._complete = undefined;
+            }
 
-            //global.navigation.closeModal(global.constants.views.assets);
+            global.navigation.closeModal(global.constants.views.assets);
         },
 
         setAssetNo: function (assetNo) {
@@ -50,6 +50,8 @@ global.submitServiceRequest = {
             navigator.camera.getPicture(function (data) {
                 that.setPicture(data);
             }, function (error) {
+                global.analytics.trackError(error);
+                global.notifications.showErrorMessage(error);
             }, {
                 quality: 50,
                 destinationType: navigator.camera.DestinationType.DATA_URL
@@ -60,10 +62,9 @@ global.submitServiceRequest = {
         scanAssetNo: function () {
             var vm = global.submitServiceRequest.viewModel;
             if (window.navigator.simulator) {
-                $("#assets-actionsheet").data("kendoMobileActionSheet").open();
-                //global.assets.showModal().then(function (assetNo) {
-                //    vm.setAssetNo(assetNo);
-                //});
+                global.assets.showModal().then(function (assetNo) {
+                    vm.setAssetNo(assetNo);
+                });
             } else {
                 cordova.plugins.barcodeScanner.scan(function (result) {
                     vm.setAssetNo(result.text);
@@ -85,10 +86,13 @@ global.submitServiceRequest = {
                 that.beginLoading();
                 global.serviceRequestModel.submitServiceRequest(that.serviceRequest)
                     .then(function (success) {
+                        global.analytics.trackFeature(global.constants.features.submitServiceRequest);
+
                         that.endLoading();
                         global.navigation.back("content-pane");
                     }, function (error) {
-                        console.log(error.message);
+                        global.analytics.trackError(error);
+
                         that.endLoading();
                     });
             }

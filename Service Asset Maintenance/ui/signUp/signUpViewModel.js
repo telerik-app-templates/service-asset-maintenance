@@ -15,9 +15,12 @@ global.signUp = {
                         Email: that.email
                     })
                     .then(function () {
+                        global.analytics.trackFeature(global.constants.features.signUp);
+
                         that.endLoading();
                         global.navigation.home();
                     }, function (error) {
+                        global.analytics.trackError(error);
                         that.endLoading();
                     });
             }
@@ -62,5 +65,13 @@ global.signUp = {
             global.login.viewModel.set("password", "");
             global.login.viewModel.set("confirmPassword", "");
         }
-    })
+    }),
+
+    onShow: function () {
+        global.analytics.startTracking(global.constants.features.signUpView)
+    },
+
+    onHide: function () {
+        global.analytics.stopTracking(global.constants.features.signUpView)
+    }
 }

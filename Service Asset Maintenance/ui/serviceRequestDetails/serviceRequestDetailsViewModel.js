@@ -5,15 +5,27 @@ global.serviceRequestDetails = {
         canCancel: false,
         serviceRequest: null,
         dueDateFormatted: function () {
-            return global.converters.formatDate(this.serviceRequest.get("dueDate"));
+            if (this.serviceRequest) {
+                return global.converters.formatDate(this.serviceRequest.get("dueDate"));
+            }
+
+            return "";
         },
 
         createdAtFormatted: function () {
-            return global.converters.formatDate(this.serviceRequest.get("createdAt"));
+            if (this.serviceRequest) {
+                return global.converters.formatDate(this.serviceRequest.get("createdAt"));
+            }
+
+            return null;
         },
 
         completedAtFormatted: function () {
-            return global.converters.formatDate(this.serviceRequest.get("completedAt"));
+            if (this.serviceRequest) {
+                return global.converters.formatDate(this.serviceRequest.get("completedAt"));
+            }
+
+            return null;
         },
 
         imageSrc: function () {
@@ -46,9 +58,13 @@ global.serviceRequestDetails = {
             that.beginLoading();
             global.serviceRequestModel.cancelServiceRequest(global.serviceRequestDetails.viewModel.serviceRequest)
                 .then(function () {
+                    global.analytics.trackFeature(global.constants.features.cancelServiceRequest);
+
                     global.serviceRequestDetails.viewModel.set(CAN_CANCEL_PROPERTY_NAME, false);
                     that.endLoading();
                 }, function (error) {
+                    global.analytics.trackError(error);
+
                     that.endLoading()
                 });
         }
@@ -61,5 +77,13 @@ global.serviceRequestDetails = {
 
     onInitWide: function () {
         kendo.bind($("#service-request-details-header-wide"), global.serviceRequestDetails.viewModel);
+    },
+
+    onShow: function () {
+        global.analytics.startTracking(global.constants.features.serviceRequestDetailsView)
+    },
+
+    onHide: function () {
+        global.analytics.stopTracking(global.constants.features.serviceRequestDetailsView)
     }
 }

@@ -74,17 +74,6 @@
         </li>
     </ul>
 
-    <ul id="assets-actionsheet"
-         data-role="actionsheet" >
-        <li>
-            <ul data-role="listview"
-                data-auto-bind="false"
-                data-style="inset"
-                data-template="asset-item-template"
-                data-bind="source: assets, click: assetSelected"></ul>
-        </li>
-    </ul>
-
     <div data-role="footer">
         <a data-role="button" data-bind="click: submit" class="asset-button">
             <span data-bind="text: strings.submitText"></span>
@@ -96,6 +85,16 @@
     <a class="listview-item-status">Test</a>
 </script>
 
+<div id="assets-view"
+     data-role="modalview"
+     data-modal="false"
+     data-model="global.assets.viewModel"
+     data-title="Select Asset">
+    <ul data-role="listview"
+        data-auto-bind="false"
+        data-style="inset"
+        data-bind="source: assets, click: assetSelected"></ul>
+</div>
 
 
 
