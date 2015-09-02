@@ -15,7 +15,6 @@ global.constants = {
         homeWide: "ui/home/homeView.wide.html",
         serviceRequestDetails: "ui/serviceRequestDetails/serviceRequestDetailsView.html",
         serviceRequestDetailsWide: "ui/serviceRequestDetails/serviceRequestDetailsView.wide.html",
-        assets: "#assets-view",
         selectServiceRequest: "ui/selectServiceRequest/selectServiceRequestView.html",
         submitServiceRequest: "ui/submitServiceRequest/submitServiceRequestView.html"
     },

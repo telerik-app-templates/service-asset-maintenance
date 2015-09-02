@@ -4,6 +4,7 @@ global.serviceRequestDetails = {
     viewModel: new ViewModelBase({
         canCancel: false,
         serviceRequest: null,
+        imageSrc: null,
         dueDateFormatted: function () {
             if (this.serviceRequest) {
                 return global.converters.formatDate(this.serviceRequest.get("dueDate"));
@@ -28,10 +29,6 @@ global.serviceRequestDetails = {
             return null;
         },
 
-        imageSrc: function () {
-            return global.converters.convertToImageSrc(this.serviceRequest);
-        },
-
         statusConverter: function () {
             if (this.serviceRequest) {
                 return global.converters.getServiceRequestStatusText(this.serviceRequest.get("status"));
@@ -42,14 +39,14 @@ global.serviceRequestDetails = {
 
         setServiceRequest: function (serviceRequest) {
             this.set("serviceRequest", serviceRequest);
+            this.set("imageSrc", null);
             if (serviceRequest) {
                 this.set(CAN_CANCEL_PROPERTY_NAME, serviceRequest.status != global.constants.serviceRequestStatus.CANCELED);
                 this.set("priorityText", global.converters.convertPriority(this.serviceRequest.priority));
-            }
-
-            var collapsible = $("#details-collapsible").data("kendoMobileCollapsible");
-            if (collapsible) {
-                collapsible.resize();
+                var that = this;
+                global.service.getUrlByFileId(serviceRequest.picture).then(function (url) {
+                    that.set("imageSrc", url);
+                })
             }
         },
 

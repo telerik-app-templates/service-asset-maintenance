@@ -208,7 +208,6 @@
     </Content>
     <Content Include="ui\serviceRequests\serviceRequests.tmpl.html" />
     <Content Include="ui\serviceRequests\serviceRequestsViewModel.js" />
-    <Content Include="ui\assets\assetsViewModel.js" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="App_Resources\Android\drawable-hdpi\icon.png" />
@@ -274,7 +273,6 @@
     <Folder Include="shared\models\" />
     <Folder Include="shared\utils\" />
     <Folder Include="ui\" />
-    <Folder Include="ui\assets\" />
     <Folder Include="ui\login\" />
     <Folder Include="ui\selectServiceRequest\" />
     <Folder Include="ui\passwordRecovery\" />

@@ -241,7 +241,7 @@ textarea {
 }
 
 .content {
-    margin: 0 4em 0 12.365px;
+    margin: 0 4.1em 0 12.365px;
 }
 
 .details-label {
@@ -438,4 +438,9 @@ textarea {
 .disabled-pane .km-splitview > div:not([class]) {
     z-index: 10000 !important;
     background: rgba(0,0,0,.3);
+}
+
+.km-nova .km-actionsheet .km-list > li {
+  color: #32364c;
+  background: #fff;
 }

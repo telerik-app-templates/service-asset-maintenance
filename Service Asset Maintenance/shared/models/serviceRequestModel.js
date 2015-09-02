@@ -96,24 +96,30 @@ global.serviceRequestModel = {
         });
     },
 
-    submitServiceRequest: function (serviceRequest, maintenanceType) {
+    submitServiceRequest: function (serviceRequest, imageData) {
         return new Promise(function (resolve, reject) {
-            // TODO: Remove this when fix the datasource problem.
             serviceRequest.Type = global.maintenanceTypeModel.get(serviceRequest.maintenanceType);
             serviceRequest.createdByUser = global.service.currentUser;
 
-            global.location.getAddressAndGeolocation().then(function (success) {
-                serviceRequest.geolocation = success.geolocation;
-                serviceRequest.address = success.address;
+            global.service.uploadPicture(imageData)
+                .then(function (data) {
+                    if (data.result) {
+                        serviceRequest.picture = data.result.Id;
+                    }
 
-                var dataSource = global.serviceRequestModel.dataSource;
-                dataSource.add(serviceRequest);
+                    return global.location.getAddressAndGeolocation();
+                }).then(function (result) {
+                    serviceRequest.geolocation = result.geolocation;
+                    serviceRequest.address = result.address;
 
-                return dataSource.sync()
-            }).then(resolve, function (error) {
-                global.notifications.showErrorMessage(error);
-                reject(error);
-            });
+                    var dataSource = global.serviceRequestModel.dataSource;
+                    dataSource.add(serviceRequest);
+
+                    return dataSource.sync();
+                }).then(resolve, function (error) {
+                    global.notifications.showErrorMessage(error);
+                    reject(error);
+                });
         });
     }
 };

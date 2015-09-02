@@ -1,5 +1,5 @@
 function showNotificationAndReject(error, reject) {
-    global.notifications.showErrorMessage(error.message);
+    global.notifications.showErrorMessage(error);
     reject(error);
 }
 
@@ -17,7 +17,7 @@ global.service = {
         global.everlive.authentication.logout().then(function () {
             global.navigation.login();
         }, function (error) {
-            global.notifications.showErrorMessage(error.message);
+            global.notifications.showErrorMessage(error);
         });
     },
 
@@ -59,6 +59,37 @@ global.service = {
             }, function (error) {
                 showNotificationAndReject(error, reject);
             });
+        });
+    },
+
+    uploadPicture: function (picture) {
+        return new Promise(function (resolve, reject) {
+            if (picture) {
+                var file = {
+                    "Filename": "image.jpg",
+                    "ContentType": "image/jpeg",
+                    "base64": picture
+                };
+
+                global.everlive.Files.create(file, function (data) {
+                    resolve(data);
+                }, function (error) {
+                    alert(JSON.stringify(error));
+                    showNotificationAndReject(error, reject);
+                });
+            } else {
+                resolve(null);
+            }
+        });
+    },
+
+    getUrlByFileId: function (fileId) {
+        return new Promise(function (resolve, reject) {
+            if (fileId) {
+                global.everlive.Files.getDownloadUrlById(fileId).then(resolve, reject);
+            } else {
+                resolve(null);
+            }
         });
     }
 }

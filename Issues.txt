@@ -1,7 +1,7 @@
 VISUAL
 
 DONE! 1. Styling the dropdown list content in the filter screen.
-2. Styling assets dialog.
+DONE! 2. Styling assets dialog.
 3. Styling binded headers. (Grouped list view)
 DONE! 4. Styling the "Empty view" (iOS)
 DONE! 5. Make service requests view gray when submitting new request.
@@ -21,9 +21,10 @@ EVERLIVE
 BUGS
 
 DONE! 1. Medium priority does not apply. 
-2. Cannot create request that contains image (iOS)
-3. Using barcode scanner takes to home screen. (Wide).
+DONE! 2. Cannot create request that contains image (iOS)
+DONE! 3. Using barcode scanner takes to home screen. (Wide).
 DONE! 3. Logout? 
 DONE! 4. Offline mode.
-5. Switching between wide & normal mode.
-6. Enable analytics tracking.
+DONE! 5. Switching between wide & normal mode.
+DONE! 6. Enable analytics tracking.
+Android: Radio buttons are disabled

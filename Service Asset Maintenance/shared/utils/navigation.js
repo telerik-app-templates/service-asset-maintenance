@@ -31,14 +31,6 @@ global.navigation = {
         global.navigation.navigateTo(url, tabletTarget, contentPane);
     },
 
-    showModal: function (view) {
-        $(view).data("kendoMobileModalView").open();
-    },
-
-    closeModal: function (view) {
-        $(view).data("kendoMobileModalView").close();
-    },
-
     home: function () {
         global.service.getCurrentUser().then(function (user) {
             if (user) {

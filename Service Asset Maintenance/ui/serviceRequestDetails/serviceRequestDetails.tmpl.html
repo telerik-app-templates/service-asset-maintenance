@@ -2,7 +2,7 @@
      data-role="view"
      data-bind="loading: isLoading"
      data-model="global.serviceRequestDetails.viewModel">
-    <img data-bind="visible: serviceRequest.picture, attr: { src: imageSrc }" class="header-image" />
+    <img data-bind="visible: imageSrc, attr: { src: imageSrc }" class="header-image" />
     <span data-bind="text: serviceRequest.title" class="margins title-label"></span>
     <div class="content">
         <span data-bind="css: { priority-low: serviceRequest.priority === 0, priority-medium: serviceRequest.priority === 1, priority-high: serviceRequest.priority === 2 }, text: priorityText" class="details-label priority-label"></span>

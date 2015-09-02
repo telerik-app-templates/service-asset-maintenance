@@ -59,18 +59,28 @@
         </li>
     </ul>
     <ul data-role="listview">
-        <li data-bind="visible: serviceRequest.picture">
+        <li data-bind="visible: imageSrc">
             <img data-bind="attr: { src: imageSrc }" class="request-picture" />
             <a data-role="button" data-icon=" fa fa-times" data-bind="click: removePicture" class="remove-button">Remove</a>
         </li>
         <li data-bind="visible: serviceRequest.assetNo">
             <div>
-                <span data-bind="text: strings.assetText"></span> <span data-bind="text: strings.assetNoText"></span>
-                <span data-bind="text: serviceRequest.assetNo"></span>
+                <span data-bind="text: strings.assetText"></span> <span data-bind="text: strings.assetNoText"></span><span data-bind="text: serviceRequest.assetNo"></span>
             </div>
             <a data-role="button" data-icon=" fa fa-times" data-bind="click: removeAssetNo" class="remove-button">
                 <span data-bind="text: strings.removeText"></span>
             </a>
+        </li>
+    </ul>
+
+
+    <ul id="assets-actionsheet"
+         data-role="actionsheet" >
+        <li>
+            <ul data-role="listview"
+                data-auto-bind="false"
+                data-style="inset"
+                data-bind="source: assets, click: assetSelected"></ul>
         </li>
     </ul>
 
@@ -85,16 +95,6 @@
     <a class="listview-item-status">Test</a>
 </script>
 
-<div id="assets-view"
-     data-role="modalview"
-     data-modal="false"
-     data-model="global.assets.viewModel"
-     data-title="Select Asset">
-    <ul data-role="listview"
-        data-auto-bind="false"
-        data-style="inset"
-        data-bind="source: assets, click: assetSelected"></ul>
-</div>
 
 
 
