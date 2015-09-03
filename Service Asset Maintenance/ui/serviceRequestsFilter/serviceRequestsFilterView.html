@@ -10,31 +10,34 @@
             <a data-align="right" data-role="button" data-bind="events: { click: reset }" class="asset-button"><span data-bind="text: strings.resetDate"></span></a>
         </div>
     </div>
-
     <ul data-role="listview">
-        <li>
-            <span class="label-header" data-bind="text: strings.statusText"></span>
-            <input data-role="dropdownlist"
-                   data-value-primitive="true"
-                   data-option-label="All"
-                   data-text-field="status"
-                   data-value-field="value"
-                   data-bind="value: status, source: serviceRequestStatuses, optionLabel: strings.allText" />
+        <li class="km-group-container listgroup">
+            <ul class="km-list">
+                <li>
+                    <span class="label-header" data-bind="text: strings.statusText"></span>
+                    <input data-role="dropdownlist"
+                           data-value-primitive="true"
+                           data-option-label="All"
+                           data-text-field="status"
+                           data-value-field="value"
+                           data-bind="value: status, source: serviceRequestStatuses, optionLabel: strings.allText" />
+                </li>
+                <li>
+                    <span class="label-header" data-bind="text: strings.maintenanceTypeText"></span>
+                    <input data-role="dropdownlist"
+                           data-value-primitive="true"
+                           data-option-label="All"
+                           data-text-field="Type"
+                           data-value-field="Id"
+                           data-bind="value: maintenanceType, source: maintenanceTypes, optionLabel: strings.allText" />
+                </li>
+            </ul>
         </li>
-        <li>
-            <span class="label-header" data-bind="text: strings.maintenanceTypeText"></span>
-            <input data-role="dropdownlist"
-                   data-value-primitive="true"
-                   data-option-label="All"
-                   data-text-field="Type"
-                   data-value-field="Id"
-                   data-bind="value: maintenanceType, source: maintenanceTypes, optionLabel: strings.allText" />
-        </li>
-    </ul>
-    <ul data-role="listview" data-type="group" class="radio-group">
-        <li>
-            <span data-bind="text: strings.sortByText"></span>
-            <ul>
+        <li class="km-group-container listgroup radio-group">
+            <div class="km-group-title">
+                <span data-bind="text: strings.sortByText"></span>
+            </div>
+            <ul data-role="listview">
                 <li>
                     <label>
                         <input type="radio" name="sortBy" value="dueDate" data-bind="checked: sortBy"><span data-bind="text: strings.dueDateText"></span>

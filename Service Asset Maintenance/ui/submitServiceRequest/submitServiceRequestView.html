@@ -1,7 +1,7 @@
 <div id="submit-service-request-view"
      data-role="view"
      data-model="global.submitServiceRequest.viewModel"
-     data-bind="loading: isLoading" >
+     data-bind="loading: isLoading">
     <div data-role="header">
         <div data-role="navbar">
             <a data-align="left" data-role="backbutton" class="asset-button"></a>
@@ -14,23 +14,27 @@
         <span data-bind="text: errorMessage"></span>
         <a class="close-button" data-role="button" data-icon=" fa fa-times" data-bind="click: hideValidationSummary"></a>
     </div>
-    <ul class="header-margin" data-role="listview">
-        <li>
-            <input placeholder="Title" type="text" data-bind="value: serviceRequest.title" class="title-text-box" />
+    <ul data-role="listview">
+        <li class="km-group-container listgroup">
+            <ul data-role="listview" class="header-margin">
+                <li>
+                    <input placeholder="Title" type="text" data-bind="value: serviceRequest.title" class="title-text-box" />
+                </li>
+                <li>
+                    <span class="label-header" data-bind="text: strings.maintenanceTypeText"></span>
+                    <input data-role="dropdownlist"
+                           data-value-primitive="true"
+                           data-text-field="Type"
+                           data-value-field="Id"
+                           data-bind="value: serviceRequest.maintenanceType, source: maintenanceTypes" />
+                </li>
+            </ul>
         </li>
-        <li>
-            <span class="label-header" data-bind="text: strings.maintenanceTypeText"></span>
-            <input data-role="dropdownlist"
-                   data-value-primitive="true"
-                   data-text-field="Type"
-                   data-value-field="Id"
-                   data-bind="value: serviceRequest.maintenanceType, source: maintenanceTypes" />
-        </li>
-    </ul>
-    <ul data-role="listview" data-type="group">
-        <li>
-            <span data-bind="text: strings.priorityText"></span>
-            <ul>
+        <li class="km-group-container listgroup">
+            <div class="km-group-title">
+                <span data-bind="text: strings.priorityText"></span>
+            </div>
+            <ul data-role="listview">
                 <li>
                     <ul data-role="buttongroup" data-bind="index: serviceRequest.priority">
                         <li><span data-bind="text: strings.lowText"></span></li>
@@ -38,44 +42,46 @@
                         <li><span data-bind="text: strings.highText"></span></li>
                     </ul>
                 </li>
+                <li>
+                    <span class="label-header" data-bind="text: strings.dueDateText"></span>
+                    <input type="date" data-bind="value: serviceRequest.dueDate" />
+                </li>
             </ul>
-
         </li>
-    </ul>
-    <ul data-role="listview">
-        <li>
-            <span class="label-header" data-bind="text: dueDateText"></span>
-            <input type="date" data-bind="value: serviceRequest.dueDate" />
-        </li>
-    </ul>
-    <ul data-role="listview" data-type="group">
-        <li>
-            <span data-bind="text: strings.descriptionText"></span>
-            <ul>
+        <li class="km-group-container listgroup">
+            <div class="km-group-title">
+                <span data-bind="text: strings.descriptionText"></span>
+            </div>
+            <ul data-role="listview">
                 <li>
                     <textarea data-bind="value: serviceRequest.description" rows="6"></textarea>
                 </li>
             </ul>
         </li>
-    </ul>
-    <ul data-role="listview">
-        <li data-bind="visible: imageSrc">
-            <img data-bind="attr: { src: imageSrc }" class="request-picture" />
-            <a data-role="button" data-icon=" fa fa-times" data-bind="click: removePicture" class="remove-button">Remove</a>
+        <li class="km-group-container listgroup" data-bind="visible: imageSrc">
+            <ul data-role="listview">
+                <li>
+                    <img data-bind="attr: { src: imageSrc }" class="request-picture" />
+                    <a data-role="button" data-icon=" fa fa-times" data-bind="click: removePicture" class="remove-button">Remove</a>
+                </li>
+            </ul>
         </li>
-        <li data-bind="visible: serviceRequest.assetNo">
-            <div>
-                <span data-bind="text: strings.assetText"></span> <span data-bind="text: strings.assetNoText"></span><span data-bind="text: serviceRequest.assetNo"></span>
-            </div>
-            <a data-role="button" data-icon=" fa fa-times" data-bind="click: removeAssetNo" class="remove-button">
-                <span data-bind="text: strings.removeText"></span>
-            </a>
+        <li class="km-group-container listgroup" data-bind="visible: serviceRequest.assetNo">
+            <ul data-role="listview">
+                <li>
+                    <div>
+                        <span data-bind="text: strings.assetText"></span> <span data-bind="text: strings.assetNoText"></span><span data-bind="text: serviceRequest.assetNo"></span>
+                    </div>
+                    <a data-role="button" data-icon=" fa fa-times" data-bind="click: removeAssetNo" class="remove-button">
+                        <span data-bind="text: strings.removeText"></span>
+                    </a>
+                </li>
+            </ul>
         </li>
     </ul>
-
 
     <ul id="assets-actionsheet"
-         data-role="actionsheet" >
+        data-role="actionsheet">
         <li>
             <ul data-role="listview"
                 data-auto-bind="false"

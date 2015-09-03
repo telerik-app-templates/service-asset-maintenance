@@ -301,14 +301,15 @@ textarea {
 }
 
 .radio-group input[type=radio] {
-    position: absolute;
-    left: .8em;
-    right: auto;
+    position: static;
+    margin-bottom: -6px;
 }
 
 .radio-group .km-list li label {
     color: #000;
-    padding-left: 3em;
+}
+
+.radio-group .km-list li label span {
 }
 
 .radio-group .km-list li {
@@ -443,4 +444,10 @@ textarea {
 .km-nova .km-actionsheet .km-list > li {
   color: #32364c;
   background: #fff;
+}
+
+.km-nova .km-list .listgroup {
+    padding: 0;
+    border-top: none;
+    border-bottom: none;
 }
