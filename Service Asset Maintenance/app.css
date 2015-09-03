@@ -301,8 +301,7 @@ textarea {
 }
 
 .radio-group input[type=radio] {
-    position: static;
-    margin-bottom: -6px;
+    left: 12px;
 }
 
 .radio-group .km-list li label {
@@ -310,6 +309,7 @@ textarea {
 }
 
 .radio-group .km-list li label span {
+    margin-left: 36px;
 }
 
 .radio-group .km-list li {
