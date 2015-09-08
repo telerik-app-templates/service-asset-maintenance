@@ -451,3 +451,7 @@ textarea {
     border-top: none;
     border-bottom: none;
 }
+
+.km-root .km-pane.km-pane.km-nova input[type=radio]:checked:after {
+    background: #ff4350;
+}
