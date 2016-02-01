@@ -11,6 +11,7 @@ global.login = {
                     .then(function () {
                         global.analytics.trackFeature(global.constants.features.login);
                         global.navigation.home();
+                        that.reset();
                         that.endLoading();
                     }, function (error) {
                         global.analytics.trackError(error);
@@ -29,7 +30,7 @@ global.login = {
             }
 
             if (!global.validation.isRequiredValid(this.password)) {
-                this.showValidationSummary();
+                this.showValidationSummary(global.messages.enterPasswordMessage);
 
                 return false;
             }
@@ -39,6 +40,11 @@ global.login = {
 
         clear: function () {
             global.login.viewModel.set("password", "");
+        },
+
+        reset: function () {
+            this.set("username", "");
+            this.set("password", "");
         }
     }),
 

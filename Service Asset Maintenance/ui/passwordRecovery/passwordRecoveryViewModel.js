@@ -8,7 +8,7 @@ global.passwordRecovery = {
                 global.service.recover(global.passwordRecovery.viewModel.usernameOrEmail)
                     .then(function () {
                         that.endLoading();
-                        notification.showNotification(global.messages.checkYourEmailMessage);
+                        global.notifications.showNotification(global.messages.checkYourEmailMessage);
                         global.navigation.login();
                     }, function (error) {
                         global.analytics.trackError(error);

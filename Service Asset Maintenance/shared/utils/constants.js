@@ -35,7 +35,7 @@ global.constants = {
     },
 
     DEFAULT_MAINTENANCE_TYPE: "88f5e3c0-457e-11e5-9642-e912f5485898",
-    EVERLIVE_KEY: "3a0PopBb1pAT9SDF",
+    EVERLIVE_KEY: "3a0popbb1pat9sdf",
     FEEDBACK_KEY: "c3d1f8a0-0f7b-11e5-ad55-890589a8af57",
     ANALYTICS_KEY: "36d8b30aad0e4f05ba831258a48f8753"
 }

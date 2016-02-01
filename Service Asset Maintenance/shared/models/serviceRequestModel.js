@@ -47,7 +47,7 @@ global.serviceRequestModel = {
                         field: "Picture",
                         defaultValue: ""
                     },
-                    asset: {
+                    assetNo: {
                         field: "Asset",
                         defaultValue: ""
                     },
@@ -98,12 +98,12 @@ global.serviceRequestModel = {
 
     submitServiceRequest: function (serviceRequest, imageData) {
         return new Promise(function (resolve, reject) {
-            serviceRequest.Type = global.maintenanceTypeModel.get(serviceRequest.maintenanceType);
+            serviceRequest.type = global.maintenanceTypeModel.get(serviceRequest.maintenanceType);
             serviceRequest.createdByUser = global.service.currentUser;
 
             global.service.uploadPicture(imageData)
                 .then(function (data) {
-                    if (data.result) {
+                    if (data && data.result) {
                         serviceRequest.picture = data.result.Id;
                     }
 
